@@ -1,0 +1,3 @@
+The `BarcodeReader` class provides functionality for reading barcodes effectively. A straightforward approach is to utilize the `BarcodeReader.Read` method. For projects that leverage asynchronous programming and require multithreading, the `ReadAsync` method from IronBarcode is also available.
+
+It's important to explore the `BarcodeReaderOptions`. This allows you to tailor the reading process according to your needs. These options include enhancing the reading speed, conducting a more intensive scan, halting the scanning process once a barcode is detected (which saves time), filtering for specific barcode types, and leveraging multithreading capabilities among other customizable settings.

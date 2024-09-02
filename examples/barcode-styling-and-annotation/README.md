@@ -1,0 +1,3 @@
+This example illustrates how barcodes can be augmented with custom text or the barcode's own content, utilizing any font installed on the destination machine. Should the desired font be unavailable, a closely resembling font will be selected automatically. Additionally, the barcodes can be resized, margin adjustments can be made, and both the barcode and its background can be recolored. Subsequently, these can be saved in a suitable file format.
+
+Towards the end of the provided code snippet, it's evident that with the help of our fluent style syntax, creating and customizing a barcode can be accomplished succinctly, in a manner akin to using `System.Linq`.

@@ -1,0 +1,3 @@
+We can utilize the `BarcodeReader` class to decode barcodes efficiently. A convenient way to perform this task is by employing the `BarcodeReader.Read` method as illustrated previously.
+
+It's important to consider the numerous settings available in `BarcodeReaderOptions`. These settings enable you to tailor the reading process to be quicker, more thorough, or to cease scanning after detecting a single barcode to conserve time. Furthermore, you can designate particular barcode types for detection and take advantage of multithreading capabilities along with other customization choices.

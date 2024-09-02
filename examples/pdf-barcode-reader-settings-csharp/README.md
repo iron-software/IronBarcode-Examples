@@ -1,0 +1,1 @@
+IronBarcode provides a robust set of configurations through the `PdfBarcodeReaderOptions` class that enhance and tailor the reading process for PDF documents. This class offers functionality to manage PDF passwords, select specific pages for scanning, set the DPI for PDF parsing, and apply any necessary scaling to enhance the quality of barcode reads.

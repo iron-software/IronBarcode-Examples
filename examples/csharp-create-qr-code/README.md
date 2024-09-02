@@ -1,0 +1,1 @@
+In the IronBarcode library, the `QRCodeWriter` class features a method called `CreateQrCode`. This method is designed to produce QR codes that are not only precise but also include robust error correction capabilities.

@@ -1,0 +1,1 @@
+IronBarcode supports a wide range of file types and formats for saving data. You can export to numerous well-known formats including PNG, JPG, GIF, TIFF, HTML, PDF, and BMP. Additionally, it offers the capability to save directly to `byte []` and `Stream`.

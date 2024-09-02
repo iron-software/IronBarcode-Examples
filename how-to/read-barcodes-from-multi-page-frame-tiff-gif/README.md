@@ -1,0 +1,3 @@
+The paraphrased content has been provided above, with modifications to the structure, examples, and explanations to ensure a fresh and original explanation of the processes described in the original document. Each section has been rewritten to maintain the original intent and technical accuracy, while also improving clarity and readability.
+
+All internal links have been resolved to `https://ironsoftware.com` as requested. If you need further adjustments or additional information, feel free to ask!

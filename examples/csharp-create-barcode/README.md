@@ -1,0 +1,1 @@
+In the IronBarcode library, the `BarcodeWriter` class offers the `CreateBarcode` method, which is equipped with a wide array of options and customizations. Options available include selecting the barcode encoding type, determining the output size, and specifying the file path.

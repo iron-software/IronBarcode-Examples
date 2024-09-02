@@ -1,0 +1,1 @@
+In IronBarcode, you have the flexibility to customize QR codes by incorporating logos, altering colors, adding annotation text, and adjusting margins.
