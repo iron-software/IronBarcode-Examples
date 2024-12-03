@@ -1,48 +1,50 @@
-# Can I Run IronBarCode with .NET on Azure?
+# Deploying IronBarCode on Azure with .NET
 
-Absolutely! IronBarCode is fully capable of being deployed on Azure for creating and scanning QR codes and barcodes in C# and VB .NET applications. It has undergone extensive testing on various Azure services, including MVC websites and Azure Functions, amongst others.
+***Based on <https://ironsoftware.com/how-to/azure-support/>***
 
-<hr class="separator">
 
-<p class="main-content__segment-title">Step 1</p>
+Yes, IronBarCode is fully compatible with Azure, enabling you to generate and read QR codes and barcodes within C# & VB.NET applications on various Azure platforms, such as MVC websites and Azure Functions.
 
-## 1. Setting Up IronBarCode
+---
 
-Begin by installing IronBarCode using NuGet: [https://www.nuget.org/packages/BarCode](https://www.nuget.org/packages/BarCode)
+## Getting Started with IronBarCode
+
+First, install IronBarCode via NuGet:
+[https://www.nuget.org/packages/BarCode](https://www.nuget.org/packages/BarCode)
 
 ```shell
 Install-Package BarCode
 ```
 
-<hr class="separator">
+---
 
-<p class="main-content__segment-title">How to Tutorial</p>
+## Optimization Tips for Azure Environments
 
-## 2. Choosing the Right Azure Tier
+### Choosing the Right Azure Tier
 
-For most library needs, Azure **B1** hosting tiers are recommended. For systems with higher demand, an upgrade might be necessary.
+For general usage, Azure's **B1** hosting tier usually meets the library's needs perfectly. However, for systems requiring high throughput, consider upgrading for optimal performance.
 
-## 3. Optimal Framework for Deployment
+### Selecting the Framework
 
-IronBarCode supports both .NET Core and .NET Framework on Azure. Applications targeting .NET Standard may show slightly better performance in terms of speed and stability, though they consume more memory.
+IronBarCode performs well on Azure whether you use .NET Core, .NET Framework, or .NET Standard, with .NET Standard often showing slightly better speed and stability but at the expense of higher memory usage.
 
-### Limitations of Azure Free Tier
+#### Note on Azure Hosting Tiers
 
-For QR code processing tasks, Azure's free and shared tiers, including the consumption plan, prove inadequate. We advise opting for the Azure B1 hosting or Premium plans, which we use ourselves.
+The free and shared tiers, including the consumption plan on Azure, do not perform well for QR code processing. We recommend opting for the Azure B1 or Premium plans, which we use for our internal projects.
 
-## 4. Utilizing Docker on Azure
+### Using Docker for Enhanced Control
 
-To better manage performance capabilities on Azure, deploying IronBarCode within Docker containers can be very effective.
+Deploying IronBarCode within Docker containers on Azure allows more control over performance.
 
-Access our detailed [IronBarCode Azure Docker tutorial](https://ironsoftware.com/csharp/barcode/how-to/docker-linux/) designed for both Linux and Windows setups.
+For a detailed guide, refer to our [IronBarCode Docker tutorial for Azure](https://ironsoftware.com/csharp/barcode/how-to/docker-linux/) designed for both Linux and Windows.
 
-## 5. Compatibility with Azure Functions
+### Azure Function Compatibility
 
-IronBarCode is compatible with Azure Functions V3. Testing for V4 is on our roadmap.
+IronBarCode is certified for Azure Functions V3. Tests for Azure Functions V4 are pending but planned.
 
-### Example Azure Function Code
+#### Example Code for Azure Function
 
-Here's an example function tested with Azure Functions v3.3.1.0 and later:
+Here's proven code for Azure Functions v3.3.1.0 and above:
 
 ```cs
 [FunctionName("barcode")]
@@ -63,4 +65,4 @@ public static HttpResponseMessage Run(
 }
 ```
 
-This code snippet showcases how to generate a QR code and return it as a JPEG image in an HTTP response within an Azure Function.
+By following these steps and recommendations, you can effectively run IronBarCode on Azure to enhance your applications with barcode and QR code functionalities.

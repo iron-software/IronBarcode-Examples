@@ -1,1 +1,3 @@
-In the IronBarcode library, the `BarcodeWriter` class offers the `CreateBarcode` method, which is equipped with a wide array of options and customizations. Options available include selecting the barcode encoding type, determining the output size, and specifying the file path.
+***Based on <https://ironsoftware.com/examples/csharp-create-barcode/>***
+
+In IronBarcode's toolkit, the `BarcodeWriter` class comes equipped with a `CreateBarcode` method, which offers a wide range of settings and options for customization. These settings allow developers to select the encoding type, determine the output size, and specify the file path.

@@ -1,92 +1,94 @@
-![Nuget](https://img.shields.io/nuget/v/BarCode?color=informational&label=latest)![Installs](https://img.shields.io/nuget/dt/BarCode?color=informational&label=installs&logo=nuget)![Passed](https://img.shields.io/badge/build-%20%E2%9C%93%20413%20tests%20passed%20(0%20failed)%20-107C10?logo=visualstudio)[![windows](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=windows)](https://ironsoftware.com/csharp/barcode/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![macOS](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=apple)](https://ironsoftware.com/csharp/barcode/docs/questions/macos/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![linux](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=linux&logoColor=white)](https://ironsoftware.com/csharp/barcode/docs/questions/linux/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![docker](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=docker&logoColor=white)](https://ironsoftware.com/csharp/barcode/docs/questions/docker-linux/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)![aws](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=amazonaws)[![microsoftazure](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=microsoftazure)](https://ironsoftware.com/csharp/barcode/docs/questions/azure-support/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield)[![livechat](https://img.shields.io/badge/Live%20Chat-8%20Engineers%20Active%20Today-purple?logo=googlechat&logoColor=white)](https://ironsoftware.com/csharp/barcode/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield#helpscout-support)
+![Nuget Version](https://img.shields.io/nuget/v/BarCode?color=informational&label=latest) ![Nuget Installs](https://img.shields.io/nuget/dt/BarCode?color=informational&label=installs&logo=nuget) ![Build Status](https://img.shields.io/badge/build-%20%E2%9C%93%20413%20tests%20passed%20(0%20failed)%20-107C10?logo=visualstudio) [![Windows Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=windows)](https://ironsoftware.com/csharp/barcode/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![macOS Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=apple)](https://ironsoftware.com/csharp/barcode/docs/questions/macos/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![Linux Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=linux&logoColor=white)](https://ironsoftware.com/csharp/barcode/docs/questions/linux/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![Docker Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=docker&logoColor=white)](https://ironsoftware.com/csharp/barcode/docs/questions/docker-linux/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) ![AWS Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=amazonaws) [![Azure Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=microsoftazure)](https://ironsoftware.com/csharp/barcode/docs/questions/azure-support/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![Live Support](https://img.shields.io/badge/Live%20Chat-8%20Engineers%20Active%20Today-purple?logo=googlechat&logoColor=white)](https://ironsoftware.com/csharp/barcode/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield#helpscout-support)
 
-## IronBarcode - The C# Barcode & QR Code Library
+## Introducing IronBarcode - The Essential Library for Barcode & QR Code Operations in C# 
 
-[![IronBarcode NuGet Trial Banner Image](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronBarcode-readme/nuget-trial-banner.png)](https://ironsoftware.com/csharp/barcode/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topbanner#trial-license)
+[![IronBarcode NuGet Trial Banner](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronBarcode-readme/nuget-trial-banner.png)](https://ironsoftware.com/csharp/barcode/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topbanner#trial-license)
 
-[Get Started](https://ironsoftware.com/csharp/barcode/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Features](https://ironsoftware.com/csharp/barcode/features/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Code Examples](https://ironsoftware.com/csharp/barcode/examples/barcode-quickstart/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Licensing](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Free Trial](https://ironsoftware.com/csharp/barcode/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation#trial-license)
+[Begin Your Journey](https://ironsoftware.com/csharp/barcode/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Explore Features](https://ironsoftware.com/csharp/barcode/features/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [View Code Samples](https://ironsoftware.com/csharp/barcode/examples/barcode-quickstart/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Read About Licensing](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Start a Free Trial](https://ironsoftware.com/csharp/barcode/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation#trial-license)
 
-IronBarcode is an essential toolkit provided by Iron Software for C# developers to efficiently work with Barcodes and QR Codes within .NET apps. It streamlines the process of barcode generation and decoding with merely a single line of code.
+IronBarcode by Iron Software is a comprehensive tool designed for .NET Developers enabling easy integration of barcode and QR code functionalities into their applications. This library simplifies the process, often requiring just a single line of code to either read or generate barcodes.
 
-#### IronBarcode showcases robust capabilities for:
+#### Highlights of IronBarcode include:
 
-  * Detecting and decoding single or multiple barcodes and QR codes from various file formats such as images or PDFs.
-  * Adjustments for image flaws like skew, orientation, noise, and resolution issues.
-  * Generation and incorporation of barcodes into images or PDF files.
-  * Embedding of barcodes within HTML pages.
-  * Customization options for barcode styling and adding texts as annotations.
-  * Creation of stylized QR codes, supporting logo integration, color variations, and precise alignments.
+- Efficient recognition of multiple Barcodes and QR Codes from various image sources or PDF files.
+- Advanced image processing to correct issues related to skew, orientation, noise, and more.
+- Facilitates the creation of barcodes which can then be added to images or PDFs.
+- Allows embedding of barcodes into HTML.
+- Provides extensive customization options for barcode styling and text addition.
+- Enhanced QR Code Creation that supports custom logos, colors, and precise alignment.
 
-#### IronBarcode supports multiple platforms and frameworks:
+#### Supported environments of IronBarcode:
 
-  * **.NET 8**, .NET 7, .NET 6, .NET 5, Core 2x & 3x, Standard 2, and Framework 4x
-  * Compatible with Windows, macOS, Linux, Docker, Azure, and AWS environments
+- **.NET 8**, .NET 7, .NET 6, .NET 5, Core 2x & 3x, Standard 2, and .NET Framework 4x
+- Platforms including Windows, MacOS, Linux, Docker, Azure, and AWS
 
-[![IronBarcode Cross Platform Compatibility Support Image](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronBarcode-readme/cross-platform-compatibility.png)](https://ironsoftware.com/csharp/barcode/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=crossplatformbanner)
+[![IronBarcode Compatibility Image](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronBarcode-readme/cross-platform-compatibility.png)](https://ironsoftware.com/csharp/barcode/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=crossplatformbanner)
 
-Find detailed [API documentation](https://ironsoftware.com/csharp/barcode/object-reference/api/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs) and [complete license information](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs#trial-license) directly on our website.
+Discover our [API documentation](https://ironsoftware.com/csharp/barcode/object-reference/api/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs) and [complete licensing details](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs#trial-license) available on our website.
 
-### Utilizing IronBarcode
+### Getting Started with IronBarcode
 
-To integrate IronBarcode into your project, simply execute:
+To install the IronBarcode NuGet package and begin integrating barcode capabilities in your applications, execute:
 
-    PM> Install-Package BarCode
-    
+```bash
+PM> Install-Package BarCode
+```
 
-Post installation, incorporate `using IronBarCode` at the beginning of your C# files. Below is an example to demonstrate barcode generation, reading, and saving:
+Once the package is installed, add `using IronBarCode;` to the top of your C# file. Below is an example demonstrating basic barcode generation, reading, and saving functionalities:
 
-    using IronBarCode;
-    
-    // Generate a barcode with ease:
-    var myBarcode = BarcodeWriter.CreateBarcode("12345", BarcodeWriterEncoding.EAN8);
-    
-    // Simple barcode reading:
-    var resultFromFile = BarcodeReader.Read(@"file/barcode.png"); // From an image file
-    var resultFromPdf = BarcodeReader.ReadPdf(@"file/mydocument.pdf"); // From a PDF document
-    
-    // Resizing and saving a created barcode:
-    myBarcode.ResizeTo(400, 100);
-    myBarcode.SaveAsImage("myBarcodeResized.jpeg");
-    
+```csharp
+using IronBarCode;
 
-### Features Overview
+// Create a barcode with ease:
+var myBarcode = BarcodeWriter.CreateBarcode("12345", BarcodeWriterEncoding.EAN8);
 
-[![IronBarcode Features](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronBarcode-readme/features-table.png)](https://ironsoftware.com/csharp/barcode/features/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featuresbanner)
+// Reading a barcode from a file or PDF is straightforward with IronBarcode:
+var resultFromFile = BarcodeReader.Read(@"file/barcode.png");
+var resultFromPdf = BarcodeReader.ReadPdf(@"file/mydocument.pdf");
 
-IronBarcode supports a broad range of Barcode and QR standards like code 39/93/128, UPC A/E, EAN 8/13, and others. The technology includes automatic image correction and detection for seamless reading from imperfect sources. Additional features include multithreading, cropping, and batch scanning for fast, precise document handling.
+// Easily adjust size and save the created barcode:
+myBarcode.ResizeTo(400, 100);
+myBarcode.SaveAsImage("myBarcodeResized.jpeg");
+```
 
-Barcode creation is sophisticated yet user-friendly, ensuring correct encodings and allowing extensive customization options like styling, resizing, and text annotation.
+### Comprehensive Features Overview
 
-##### Supported Barcode Types:
+[![IronBarcode Feature Table](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronBarcode-readme/features-table.png)](https://ironsoftware.com/csharp/barcode/features/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featuresbanner)
 
-  * QR & 2D Matrix: Various styles and types
-  * Modern Linear Barcodes: Variety of standards
-  * Older Linear Barcodes: Comprehensive support
+IronBarcode supports a wide variety of barcode and QR standards such as Code 39/93/128, UPC A/E, EAN 8/13, and many more. Its reading engine is robust, equipped with features to manage imperfect scans efficiently. This includes a multithreading capability for fast, accurate multi-page document processing.
 
-##### Barcode Operation Modes:
+The writing API provides error-checking mechanisms to prevent encoding mistakes and allows detailed customizations such as resizing, adding borders, and incorporating text annotations.
 
-  * Supported image formats for reading
-  * Image enhancements for optimal reading
-  * Extensive output options and detailed format settings
+##### Supported Barcode Standards:
 
-##### Barcode Creation Features:
+- **QR & 2D Matrix:** QR (Styled QRs included), Aztec, Data Matrix, MaxiCode (Read only), USPS IM Barcode (Read only)
+- **Modern Linear Barcodes:** Code 39, Code 128, PDF417, RSS14 (Read only), RSS Expanded (Read only)
+- **Classic Linear Barcodes:** UPC-A, UPC-E, EAN-8, EAN-13, Codabar, ITF, MSI, Plessey (Write only)
 
-  * Various document and data types support
-  * Comprehensive error checking mechanisms
-  * Flexible styling and customization options including QR logo additions
+##### Barcode Reading Capabilities:
 
-### Licensing & Customer Support
+- Reads from extensive image formats: JPG, PNG, GIF, TIFF, SVG, BMP, and more
+- Offers numerous image filters to enhance the reading process
+- Adjust settings for accuracy and performance, including specifying crop regions
 
-For practical examples, detailed guides, and extensive documentation visit [IronSoftware](https://ironsoftware.com/csharp/barcode/).
+##### Barcode Writing Features:
 
-For more information and personalized assistance, please contact us at developers@ironsoftware.com. We provide robust licensing options and comprehensive support for all your deployment needs.
+- Output options include images, HTML, and PDFs
+- Supports encoding of various data types: text, URLs, IDs, and binary data
+- Customizable error handling with detailed messaging
 
-### Resource Links
+### Available Licensing & Support
 
-  * [Code Examples](https://ironsoftware.com/csharp/barcode/examples/barcode-quickstart/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
-  * [API Reference](https://ironsoftware.com/csharp/barcode/object-reference/api/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
-  * [Tutorials](https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
-  * [Licensing Details](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
-  * [Live Chat Support](https://ironsoftware.com/csharp/barcode/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs#helpscout-support)
+For in-depth tutorials, coding examples, and more information, visit our [IronSoftware Barcode Library](https://ironsoftware.com/csharp/barcode/).
 
-For direct support, email us at developers@ironsoftware.com for expert help. We offer extensive licensing and comprehensive support for your commercial deployment projects.
+For direct support, contact us via email at developers@ironsoftware.com.
+
+### Helpful Documentation Links
+
+- [Code Samples](https://ironsoftware.com/csharp/barcode/examples/barcode-quickstart/)
+- [API Documentation](https://ironsoftware.com/csharp/barcode/object-reference/api/)
+- [Tutorials](https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/)
+- [Licensing Information](https://ironsoftware.com/csharp/barcode/licensing/)
+- [Live Chat Support](https://ironsoftware.com/csharp/barcode/#helpscout-support)
+
+For detailed support from our development team, including assistance with commercial projects, please contact us at developers@ironsoftware.com.

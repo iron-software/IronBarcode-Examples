@@ -1,46 +1,47 @@
-# Utilizing Iron Barcode License Keys
+# Using Iron Barcode License Keys
 
-## Acquiring a License Key
+***Based on <https://ironsoftware.com/how-to/license-keys/>***
 
-Integrating an IronBarcode license key into your project enables you to launch your application live, free from restrictions and watermarks.
 
-Secure your license by [purchasing one here](https://ironsoftware.com/csharp/barcode/licensing/) or register to receive a [free 30-day trial key](#).
+## Obtaining a License Key
+
+Deploy your projects without any limitations or watermarks by adding an IronBarcode license key.
+
+Purchase a license [here](https://ironsoftware.com/csharp/barcode/licensing/) or obtain a [free 30-day trial key here](https://ironsoftware.com/csharp/barcode/licensing/#trial-license).
 
 ---
 
-## Step 1: Obtain the Most Recent Version of IronBarcode
+## Step 1: Acquire the Latest IronBarcode Version
 
 ### Installation via NuGet
 
-Start by installing the latest IronBarcode NuGet Package.
+First, let's install the most recent Barcode NuGet Package.
 
 ```shell
 Install-Package BarCode
 ```
 
-Find further details on the NuGet package [here](https://www.nuget.org/packages/BarCode/).
+Visit [NuGet](https://www.nuget.org/packages/BarCode/) for more details.
 
-### Installation via DLL
+### Manual Installation
 
-Alternatively, the [IronBarCode DLL can be directly downloaded](https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip) and referenced in your project from the [.NET Barcode DLL].
+Alternatively, download the [IronBarCode.Dll](https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip) and reference it in your project from [.NET Barcode DLL](https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip).
 
 ---
 
-## Step 2: Incorporate Your License Key
+## Step 2: Implement Your License Key
 
-### Utilizing Code to Set Your License
+### Applying Your License Programmatically
 
-Incorporate this snippet in your application's startup sequence, prior to utilizing IronBarcode.
+Ensure to incorporate this snippet at the beginning of your application, before utilizing IronBarcode.
 
 ```cs
 IronBarCode.License.LicenseKey = "IRONBARCODE-MYLICENSE-KEY-1EF01";
 ```
 
----
+### Configuring License through Web.Config or App.Config
 
-### Applying a License with Web.Config or App.Config
-
-To configure the license key throughout your application via Web.Config or App.Config, insert the following entry within your config file under appSettings.
+For global application settings via Web.Config or App.Config, insert this key:
 
 ```xml
 <configuration>
@@ -52,52 +53,47 @@ To configure the license key throughout your application via Web.Config or App.C
 </configuration>
 ```
 
-Be aware of a licensing interference occurring between IronBarCode versions [2023.4.1 to 2024.3.2](https://www.nuget.org/packages/BarCode/2024.3.2) affecting:
-- **ASP.NET** deployments
-- **.NET Framework versions ≥ 4.6.2**
+If you are using IronBarCode versions from [2023.4.1](https://www.nuget.org/packages/BarCode/2023.4.1) to [2024.3.2](https://www.nuget.org/packages/BarCode/2024.3.2) in ASP.NET projects or in .NET Framework version 4.6.2 or higher, you may encounter a license key recognition problem in `Web.config`. Check out our guide to [Setting License Key in Web.config](https://ironsoftware.com/csharp/barcode/troubleshooting/license-key-web.config/) for help.
 
-The licensing key from a `Web.config` file may not be recognized. For troubleshooting, visit the [Setting License Key in Web.config guide](https://ironsoftware.com/csharp/barcode/troubleshooting/license-key-web.config/).
-
-Confirm licensing with `IronBarCode.License.IsLicensed`.
+Confirm licensing via `IronBarCode.License.IsLicensed`.
 
 ---
 
-### Configuring a License Key in .NET Core via appsettings.json
+### Configuring License through .NET Core appsettings.json
 
-For global application key settings in .NET Core:
+For .NET Core global application settings:
 
-- Create a `appsettings.json` in the project root
-- Add an `IronBarCode.LicenseKey` entry. Set the value as your license key.
-- Ensure the file's properties are set to *Copy to Output Directory: Copy always*
+1. Add an `appsettings.json` to your project's root.
+2. Insert this key into your JSON config file. Set the value to your license key.
+3. Ensure the file's properties are set to *Copy to Output Directory: Copy Always*.
 
-Example file: `appsettings.json`
+File Example: *appsettings.json*
 ```json
 {
-	"IronBarCode.LicenseKey":"IRONBARCODE-MYLICENSE-KEY-1EF01"
+  "IronBarCode.LicenseKey":"IRONBARCODE-MYLICENSE-KEY-1EF01"
 }  
 ```
 
 ---
 
-## Step 3: Validate Your License
+## Step 3: Verify Your License Key
 
-Execute the following to confirm proper license installation.
+Test if your license key was applied correctly.
 
 ```cs
-bool result = IronBarCode.License.IsValidLicense("IRONBARCODE-MYLICENSE-KEY-1EF01");
+bool result = IronBarCode.License.IsValidLicense("IRONBARCODE-MYLICENSE-KEY-1EF01"); // Checks license validity
 
-// Verify the licensing status
-bool is_licensed = IronBarCode.License.IsLicensed;
+bool is_licensed = IronBarCode.License.IsLicensed; // Verifies successful licensing
 ```
 
 ---
 
-## Step 4: Initiate Your Project
+## Step 4: Initialize Your Project
 
-For guidelines on starting with IronBarcode, review our [Getting Started with IronBarcode tutorial](https://ironsoftware.com/csharp/barcode/docs/).
+Begin your development by following our [Getting Started with IronBarcode guide](https://ironsoftware.com/csharp/barcode/docs/).
 
 ---
 
-## Need Assistance? 
+## Need Assistance?
 
-For any inquiries, please contact [support@ironsoftware.com](mailto:support@ironsoftware.com).
+For any inquiries, please contact our support team at [support@ironsoftware.com](mailto:support@ironsoftware.com).

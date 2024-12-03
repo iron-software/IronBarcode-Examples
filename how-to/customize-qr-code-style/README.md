@@ -1,32 +1,35 @@
-# How to Customize and Add Logos to QR Codes
+# Enhancing and Branding QR Codes with Logos
 
-QR codes have become increasingly popular over traditional barcodes due to their ability to store more data and their simplicity in scanning. These features make them highly useful in marketing, offering various customization options such as adding logos, altering color schemes, and integrating other branding elements.
+***Based on <https://ironsoftware.com/how-to/customize-qr-code-style/>***
 
-To cater to these needs, IronBarcode provides a comprehensive set of tools for QR code customization. Using <a href='https://ironsoftware.com/open-source/csharp/drawing/docs/'>IronDrawing</a>, a free and open-source library, users can enhance QR codes by embedding logos, modifying colors, and appending annotations.
 
----
+QR codes have become preferable over traditional barcodes due to their ability to hold more data and their user-friendly scanning process. They are particularly appreciated in marketing for their adaptability, such as adding logos, altering colors, and integrating branding elements.
 
----
+To cater to these needs, IronBarcode provides an extensive range of customization features. It allows the creation of QR codes embedded with logos, tailored color schemes, and additional annotations. These features are supported by [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/), which is a robust, freely available library.
 
-## Example of Creating QR Codes with a Logo
+## Example: Adding a Logo to a QR Code
 
-To integrate a logo within a QR code, you'll utilize a **QRCodeLogo** object. Here’s how you can use the `CreateQrCodeWithLogo` method to accomplish this:
+For embedding a logo in a QR code, we utilize the **QRCodeLogo** class. The `CreateQrCodeWithLogo` method facilitates the generation of QR codes with an embedded logo.
 
 ```cs
-using IronBarCode;
 using IronSoftware.Drawing;
-
-// Load logo image
-AnyBitmap qrlogo = AnyBitmap.FromFile("ironbarcode_top.webp");
-
-// Configure logo settings
-QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
-
-// Generate QR code with embedded logo
-GeneratedBarcode QrCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", logo, 250);
-
-// Save the QR code as PNG
-QrCodeWithLogo.SaveAsPng("QrCodeWLogo2.png");
+using BarCode;
+namespace ironbarcode.CustomizeQrCodeStyle
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            AnyBitmap qrlogo = AnyBitmap.FromFile("ironbarcode_top.webp");
+            
+            QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
+            
+            GeneratedBarcode QrCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", logo, 250);
+            
+            QrCodeWithLogo.SaveAsPng("EnhancedQrCode.png");
+        }
+    }
+}
 ```
 <div class="content-img-align-center">
     <div class="center-image-wrapper" style="width: 35%;">
@@ -34,37 +37,38 @@ QrCodeWithLogo.SaveAsPng("QrCodeWLogo2.png");
     </div>
 </div>
 
-The resulting QR code, as seen above, displays a centered logo with rounded corners.
+The resulting QR code displays a central logo with rounded edges. To customize the logo, the **QRCodeLogo** class offers configuration for:
+- Image Sourcing: Import images via **AnyBitmap**, **Stream**, **Byte Array**, paths, or **URI**.
+- Image Sizing: Define width and height of the image logo in pixels. Oversized images will trigger an exception. Set to 0 for auto-sizing.
+- Corner Radii: Specify rounded corners using a radius value or use 0 for sharp corners.
 
-For customizing the logo, the **QRCodeLogo** object needs certain parameters to be specified:
+Exporting the QR code can be done through various formats including [image files](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-as-html/), [streams](https://ironsoftware.com/csharp/barcode/how-to/export-barcode-as-stream/), [HTML](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/), and [PDF](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-as-pdf/).
 
-- **Importing Image**: Images can be uploaded using different methods such as **AnyBitmap**, **Stream**, **Byte Array**, filepath, or URI.
-- **Image Dimensions**: Define the logo’s dimensions in pixels. Oversized logos may render the QR unreadable; setting width and height to 0 allows automatic adjustment.
-- **Image Corners**: Adjust the corner radius of the logo; a value of 0 results in square corners.
+## Example: Modifying QR Code Colors
 
-The final step involves exporting the QR code. IronBarcode offers several methods for saving your QR codes, such as as image files, streams, HTML, and PDF, available through guideline links like <a href='https://ironsoftware.com/csharp/barcode/how-to/create-barcode-as-html/'>here</a> and <a href='https://ironsoftware.com/csharp/barcode/how-to/export-barcode-as-stream/'>here</a>.
-
-## Example of Changing QR Code Color
-
-IronBarcode also supports color customization for QR codes. Leveraging the <a href='https://ironsoftware.com/open-source/csharp/drawing/docs/'>IronDrawing</a> library, users can define custom colors using RGB or Hex codes to personalize their QR codes further. Here is an example that demonstrates coloring the QR code:
+IronBarcode also allows color customization of QR codes using the [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/) library, which can accept RGB values or Hex codes.
 
 ```cs
-using IronBarCode;
 using IronSoftware.Drawing;
-
-// Repeat the logo loading
-AnyBitmap qrlogo = AnyBitmap.FromFile("ironbarcode_top.webp");
-QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
-
-// Create customized color
-IronSoftware.Drawing.Color ColorFromRgb = new IronSoftware.Drawing.Color(51, 51, 153);
-
-// Generate and modify QR code color
-GeneratedBarcode QrCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", logo, 250);
-GeneratedBarcode QrCodeWithLogoAndColor = QrCodeWithLogo.ChangeBarCodeColor(ColorFromRgb);
-
-// Save the QR code
-QrCodeWithLogoAndColor.SaveAsPng("ColorQrCodeWithLogo.png");
+using BarCode;
+namespace ironbarcode.CustomizeQrCodeStyle
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            AnyBitmap qrlogo = AnyBitmap.FromFile("ironbarcode_top.webp");
+            
+            QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
+            
+            IronSoftware.Drawing.Color customColor = new IronSoftware.Drawing.Color(51, 51, 153);
+            
+            GeneratedBarcode QrCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", logo, 250);
+            GeneratedBarcode ColoredQR = QrCodeWithLogo.ChangeBarCodeColor(customColor);
+            ColoredQR.SaveAsPng("ColoredLogoQR.png");
+        }
+    }
+}
 ```
 
 <div class="content-img-align-center">
@@ -73,38 +77,42 @@ QrCodeWithLogoAndColor.SaveAsPng("ColorQrCodeWithLogo.png");
     </div>
 </div>
 
-The method `ChangeBarCodeColor`, which modifies the color of the QR code, accepts an **IronSoftware.Drawing.Color** object. You can create this object using RGB or Hex values. Explore the ["Create Color"](https://ironsoftware.com/open-source/csharp/drawing/examples/create-color/) example for more insights on creating custom colors.
+Learn to create custom colors in our ["Create Color"](https://ironsoftware.com/open-source/csharp/drawing/examples/create-color/) guide. 
 
-## Example of Adding QR Code Annotation
+## Example: Adding Annotations to QR Codes
 
-Enhancing QR codes with annotations is another facet of customization. This includes adding either the barcode value itself or customized text for promotion. Here’s how to implement these modifications:
+Annotations provide a platform within the QR code image for adding promotional or informational text.
 
 ```cs
-using IronBarCode;
 using IronSoftware.Drawing;
-
-// Load the logo
-AnyBitmap qrlogo = AnyBitmap.FromFile("ironbarcode_top.webp");
-QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
-
-// Define custom colors and fonts
-Color colorForBarcode = new Color(51, 51, 153);  // RGB color
-Color annotationAboveBarcodeColor = new Color("#176feb");  // Hex color
-Font annotationAboveBarcodeFont = new Font("Candara", FontStyle.Bold, 15);
-Color barcodeValueBelowBarcodeColor = new Color("#6e53bb");
-Font barcodeValueBelowBarcodeFont = new Font("Cambria", FontStyle.Regular, 15);
-
-// Generate, annotate, and save the QR code
-GeneratedBarcode qrCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", logo, 250);
-GeneratedBarcode qrCodeWithLogoAndColor = qrCodeWithLogo.ChangeBarCodeColor(colorForBarcode);
-GeneratedBarcode qrCodeWithAnnotation = qrCodeWithLogoAndColor.AddAnnotationTextAboveBarcode("IronBarcodeRocks!", annotationAboveBarcodeFont, annotationAboveBarcodeColor, 2).AddBarcodeValueTextBelowBarcode(barcodeValueBelowBarcodeFont, barcodeValueBelowBarcodeColor, 2);
-qrCodeWithAnnotation.SaveAsPng("QRCodeWithAnnotation.png");
+using BarCode;
+namespace ironbarcode.CustomizeQrCodeStyle
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            AnyBitmap qrlogo = AnyBitmap.FromFile("ironbarcode_top.webp");
+            
+            QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
+            
+            Color marketingMessageColor = new Color("#176feb");
+            Font marketingMessageFont = new Font("Candara", FontStyle.Bold, 15);
+            
+            GeneratedBarcode qrCodeEnhanced = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", logo, 250);
+            qrCodeEnhanced.ChangeBarCodeColor(new Color(51, 51, 153));
+            GeneratedBarcode qrCodeWithAnnotations = qrCodeEnhanced.AddAnnotationTextAboveBarcode("IronBarcodeRocks!", marketingMessageFont, marketingMessageColor, 2).AddBarcodeValueTextBelowBarcode(new Font("Cambria", FontStyle.Regular, 15), new Color("#6e53bb"), 2);
+            
+            qrCodeWithAnnotations.SaveAsPng("AnnotatedQRCode.png");
+        }
+    }
+}
 ```
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper" style="width: 35%;">
-         <img src="https://ironsoftware.com/static-assets/barcode/how-to/customize-qr-code-style/QRCodeWithAnnotation.webp" alt="QR Code With Annotation" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/barcode/how-to/customize-qr-code-style/qrCodeWithAnnotation.webp" alt="QR Code With Annotation" class="img-responsive add-shadow">
     </div>
 </div>
 
-IronBarcode provides several methods like `AddAnnotationTextAboveBarcode` and `AddAnnotationTextBelowBarcode` to specify text positioning, fonts, and colors for annotations on the QR code. These functionalities offer essential flexibility for tailored branding in QR code applications, making IronBarcode an indispensable tool for marketers and developers alike.
+IronBarcode simplifies QR code creation and customization, integrating seamlessly with IronDrawing for enhanced image processing capabilities.

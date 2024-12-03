@@ -1,5 +1,7 @@
-The class `BarcodeWriter.CreateBarcode` allows the creation of barcodes and QR codes from various data types such as strings, numbers, or binary data. These can then be encoded into the desired format. One can export these barcodes as images using the `SaveAsImage()` method, or use other convenient methods to save them as PDFs, HTML pages, `System.Drawing.Image` objects, streams, or Bitmaps.
+***Based on <https://ironsoftware.com/examples/qrcoder-csharp-example/>***
 
-On the other hand, barcodes can be scanned using the `BarcodeReader` class. A straightforward method to accomplish this is by using `BarcodeReader.Read`. 
+The `BarcodeWriter.CreateBarcode` method facilitates the generation of barcodes and QR codes from text, numeric, or binary data and encodes them into the desired format. To export the generated barcode, you can use the `SaveAsImage()` function, or other convenient saving options such as saving to a PDF, HTML, `System.Drawing.Image`, stream, or `Bitmap` object.
 
-It's important to remember the array of settings available in `BarcodeReaderOptions`. These settings enhance the efficiency and flexibility of barcode reading, such as speeding up the process, employing more thorough scanning techniques, halting the scanning once a barcode is detected (to save time), selecting specific barcode types to look for, and taking advantage of multithreading, among other advanced customization options.
+On the other hand, barcode reading is handled by the `BarcodeReader` class. The simplest approach to reading barcodes is employing the `BarcodeReader.Read` method as demonstrated previously.
+
+It is important to note the variety of settings available in `BarcodeReaderOptions`. These settings enable you to customize the reading process. You can enhance the reading speed, intensify scan processes, cease scanning after a single barcode to conserve time, filter for specific barcode types, and employ multithreading, among other customization possibilities.

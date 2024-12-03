@@ -1,60 +1,64 @@
-# Blazor Barcode Scanner Guide Using IronBarcode
+# Blazor Barcode Scanner Guide with IronBarcode
 
-This guide covers the integration of IronBarcode within a Blazor application. By leveraging IronBarcode, it's feasible to decode QR codes or Barcodes captured from a user's webcam. The combination of Blazor and JavaScript is impactful as it allows capturing images and processing them in C# using IronBarcode. In this guide, we'll step through setting up a Blazor project and using IronBarcode to analyze QR and Barcode data captured from a webcam.
-
-## Setting Up Your Blazor Project
-
-Start by launching Visual Studio, and go through these steps: Create New Project => Select Blazor Server App.
-
-![Create Blazor Project](https://ironsoftware.com/static-assets/barcode/faq/blazor/CreateBlazorProject.png) 
-
-Specify your project Name.
-
-![Project Name](https://ironsoftware.com/static-assets/barcode/faq/blazor/ProjectName.png) 
-
-Choose the framework, ideally .NET 6.
-
-![Select Framework](https://ironsoftware.com/static-assets/barcode/faq/blazor/SelectFramework.png) 
-
-Confirmation that setup is complete.
-
-![Main Screen](https://ironsoftware.com/static-assets/barcode/faq/blazor/MainScreen.png) 
-
-Add a new Razor component for camera functionality.
-
-![New Razor Component](https://ironsoftware.com/static-assets/barcode/faq/blazor/NewRazorComponent.png) 
-
-Name the new component appropriately.
-
-![New Razor Component Name](https://ironsoftware.com/static-assets/barcode/faq/blazor/NewRazorComponentName.png) 
+***Based on <https://ironsoftware.com/how-to/blazor/>***
 
 
-## Implementing JavaScript for Webcam Access
+This guide demonstrates how to integrate IronBarcode into a Blazor project to effectively capture and read QR codes or barcodes from a user's webcam.
 
-To maintain client-side privacy while using the webcam, add a JavaScript file named `webcam.js` containing the camera functionalities.
+Utilizing Blazor alongside JavaScript, this approach allows you to retrieve QR or barcode data directly into your C# application via the IronBarcode library, which extracts the code value from the image. This tutorial will cover the steps to configure a Blazor application with IronBarcode to read QR and barcode data from a webcam feed.
 
-![Location of JavaScript File](https://ironsoftware.com/static-assets/barcode/faq/blazor/javascriptFileLocation.png) 
+## Setting Up the Blazor Project
 
-Ensure the JavaScript file is linked within the `index.html` file:
+Begin by launching Visual Studio, creating a new project, and selecting the Blazor Server App template.
+
+![Blazor project creation process](https://ironsoftware.com/static-assets/barcode/faq/blazor/CreateBlazorProject.png)
+
+Name your project:
+
+![Naming the project](https://ironsoftware.com/static-assets/barcode/faq/blazor/ProjectName.png)
+
+Choose .NET 6 as the framework:
+
+![Selecting the framework](https://ironsoftware.com/static-assets/barcode/faq/blazor/SelectFramework.png)
+
+Once set up, your main screen should look like this:
+
+![Main screen after setup](https://ironsoftware.com/static-assets/barcode/faq/blazor/MainScreen.png)
+
+Next, add a new Razor component for handling the webcam functionality:
+
+![Adding a new Razor component](https://ironsoftware.com/static-assets/barcode/faq/blazor/NewRazorComponent.png)
+
+Assign a name to your component:
+
+![Naming the Razor component](https://ironsoftware.com/static-assets/barcode/faq/blazor/NewRazorComponentName.png)
+
+## Integrating JavaScript for Webcam Access
+
+For privacy reasons, it's beneficial to manage webcam interactions on the client side. Create a JavaScript file named `webcam.js` for managing webcam functions.
+
+![Location for JavaScript file](https://ironsoftware.com/static-assets/barcode/faq/blazor/javascriptFileLocation.png)
+
+Include your JavaScript file in the `index.html`:
 
 ```html
 <script src="webcam.js"></script>
 ```
 
-Add the following initial camera setup in `webcam.js`:
+Add the camera initialization function to `webcam.js`:
 
 ```javascript
-// Track the current video stream
+// Tracks the current video stream
 let videoStream;
 async function initializeCamera() {
     const canvas = document.querySelector("#canvas");
     const video = document.querySelector("#video");
-    if (!("mediaDevices" in navigator) || !("getUserMedia" in navigator.mediaDevices)) {
-        alert("Camera API is not available in your browser.");
+    if (!("mediaDevices" in navigator && "getUserMedia" in navigator.mediaDevices)) {
+        alert("Camera API is not available in your browser");
         return;
     }
 
-    // Constraints for the video
+    // Define video capture constraints
     const constraints = {
         video: {
             width: { min: 180 },
@@ -67,30 +71,31 @@ async function initializeCamera() {
         videoStream = await navigator.mediaDevices.getUserMedia(constraints);    
         video.srcObject = videoStream;
     } catch (err) {
-        alert("Could not access the camera. Error: " + err);
+        alert("Could not access the camera: " + err);
     }
 }
 ```
 
-Initialize your webcam when the web page loads by adding this to `OnInitializedAsync` method in `Index.razor`:
+Activate the webcam on page load by editing the `OnInitializedAsync()` method in `Index.razor`:
 
-```cs
+```csharp
 protected override async Task OnInitializedAsync()
 {
     await JSRuntime.InvokeVoidAsync("initializeCamera");
 }
 ```
 
-Include HTML tags to display the video stream:
+Add HTML elements to display the video stream:
 
 ```html
 <section class="section">
     <video autoplay id="video" width="320"></video>
 </section>
 ```
-## Image Capture
 
-Write a JavaScript function in `webcam.js` to capture a frame from the webcam feed. This function transfers the video frame to the canvas and converts it to a Base64-encoded string:
+## Image Capture Process
+
+Construct a JavaScript function to capture a video frame as an image:
 
 ```javascript
 function getFrame(dotNetHelper) {
@@ -98,49 +103,49 @@ function getFrame(dotNetHelper) {
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
     let dataUrl = canvas.toDataURL("image/png");
-    // Invoke ProcessImage Function and send DataUrl as a parameter
     dotNetHelper.invokeMethodAsync('ProcessImage', dataUrl);
 }
 ```
 
-Process the captured image frame server-side with C#:
+This function captures a frame, encodes it in base64, and passes it to the `ProcessImage` function for server-side processing.
 
-```cs
+Define the `ProcessImage` function in your C# codebase:
+
+```csharp
 [JSInvokable]
 public async void ProcessImage(string imageString)
 {
     var imageObject = new CamImage { imageDataBase64 = imageString };
-    var serializedObject = System.Text.Json.JsonSerializer.Serialize(imageObject);
-
-    // Process image here
+    var jsonObj = System.Text.Json.JsonSerializer.Serialize(imageObject);
     var barcodeResult = await Http.PostAsJsonAsync("Ironsoftware/ReadBarCode", imageObject);
-    if (barcodeResult.IsSuccessStatusCode) {
-        QRCodeResult = await barcodeResult.Content.ReadAsStringAsync();
+    if (barcodeResult.StatusCode == System.Net.HttpStatusCode.OK)
+    {
+        QRCodeResult = barcodeResult.Content.ReadAsStringAsync().Result;
         StateHasChanged();
     }
 }
 ```
 
-This method should be triggered when the "Capture Frame" button is clicked:
+Trigger image capture when the user presses the Capture Frame button:
 
-```cs
+```csharp
 private async Task CaptureFrame()
 {
-    await JSRuntime.InvokeAsync<string>("getFrame", DotNetObjectReference.Create(this));
+    await JSRuntime.InvokeAsync<String>("getFrame", DotNetObjectReference.Create(this));
 }
 ```
 
-## Extracting Data with IronBarcode
+## Extracting Barcode Data with IronBarcode
 
-Integrate IronBarcode in your server-side Blazor project.
+First, add IronBarcode to your server project:
 
 ```shell
 Install-Package BarCode
 ```
 
-Implement the API endpoint to decode the barcode from the captured image:
+Create an API endpoint that processes the encoded image and extracts the QR or barcode data:
 
-```cs
+```csharp
 [HttpPost]
 [Route("ReadBarCode")]
 public string ReadBarCode(CamImage imageData)
@@ -148,19 +153,21 @@ public string ReadBarCode(CamImage imageData)
     try {
         var splitData = imageData.imageDataBase64.Split(',');
         byte[] imageBytes = Convert.FromBase64String((splitData.Length > 1) ? splitData[1] : splitData[0]);
-        IronBarCode.License.LicenseKey = "YOUR_LICENSE_KEY";
+        IronBarCode.License.LicenseKey = "Your-License-Key";
 
-        using (var ms = new MemoryStream(imageBytes)) {
+        using (var ms = new MemoryStream(imageBytes))
+        {
             Image barcodeImage = Image.FromStream(ms);
             var result = IronBarCode.BarcodeReader.Read(barcodeImage);
-            if (result == null || result.Value == null) {
-                return $"{DateTime.Now} : No barcode detected.";
+            if (result == null || result.Value == null)
+            {
+                return $"{DateTime.Now}: Barcode not detected";
             }
 
-            return $"{DateTime.Now} : Barcode detected ({result.Value}).";
+            return $"{DateTime.Now}: Barcode is ({result.Value})";
         }
     } catch (Exception ex) {
-        return $"Exception occurred: {ex.Message}";
+        return $"Exception: {ex.Message}";
     }
 }
 
@@ -170,4 +177,4 @@ public class CamImage
 }
 ```
 
-Explore the completed project [here](https://ironsoftware.com/static-assets/barcode/faq/blazor/BlazorIronBarcodeWithCAM.zip).
+Find the sample project [here](https://ironsoftware.com/static-assets/barcode/faq/blazor/BlazorIronBarcodeWithCAM.zip).

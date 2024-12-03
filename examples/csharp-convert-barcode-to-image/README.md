@@ -1,1 +1,3 @@
-IronBarcode supports a wide range of file types and formats for saving data. You can export to numerous well-known formats including PNG, JPG, GIF, TIFF, HTML, PDF, and BMP. Additionally, it offers the capability to save directly to `byte []` and `Stream`.
+***Based on <https://ironsoftware.com/examples/csharp-convert-barcode-to-image/>***
+
+IronBarcode provides the flexibility to export to various widely used file formats including PNG, JPG, GIF, TIFF, HTML, PDF, and BMP, among others. Additionally, it supports saving data to `byte[]` and `Stream`.

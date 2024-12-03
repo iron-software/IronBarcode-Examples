@@ -1,3 +1,5 @@
-We can utilize the `BarcodeReader` class to decode barcodes efficiently. A convenient way to perform this task is by employing the `BarcodeReader.Read` method as illustrated previously.
+***Based on <https://ironsoftware.com/examples/csharp-read-barcode-from-pdf/>***
 
-It's important to consider the numerous settings available in `BarcodeReaderOptions`. These settings enable you to tailor the reading process to be quicker, more thorough, or to cease scanning after detecting a single barcode to conserve time. Furthermore, you can designate particular barcode types for detection and take advantage of multithreading capabilities along with other customization choices.
+The `BarcodeReader` class provides a straightforward way to decode barcodes. The simplest approach is to utilize the `BarcodeReader.Read` method, as demonstrated. 
+
+Consider the various settings available in `BarcodeReaderOptions` which enhance the flexibility of the process. These settings enable you to accelerate the reading process, increase the scanning detail, halt the process after a single barcode is detected—thereby saving time—select specific barcode formats for scanning, and employ multithreading, among other customizable options.

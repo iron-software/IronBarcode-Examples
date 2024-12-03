@@ -1,9 +1,16 @@
-using IronBarCode;
-using System;
 using System.Linq;
-
-BarcodeResults result = BarcodeReader.Read("QR.png", new BarcodeReaderOptions() { ExpectBarcodeTypes = BarcodeEncoding.QRCode });
-if (result != null)
+using BarCode;
+namespace ironbarcode.CsharpQrCodeGenerator
 {
-    Console.WriteLine(result.First().Value);
+    public class Section6
+    {
+        public void Run()
+        {
+            BarcodeResults result = BarcodeReader.Read("QR.png", new BarcodeReaderOptions() { ExpectBarcodeTypes = BarcodeEncoding.QRCode });
+            if (result != null)
+            {
+                Console.WriteLine(result.First().Value);
+            }
+        }
+    }
 }

@@ -1,5 +1,7 @@
-In this demonstration, it's illustrated how we can effortlessly generate, adjust the size, and store barcodes in numerous formats and varieties, potentially using just a single line of code.
+***Based on <https://ironsoftware.com/examples/create-barcodes-images/>***
 
-By employing the Fluent API, the created barcode class enables users to customize margins, resize, and add annotations to barcodes. These can subsequently be saved as images. Notably, IronOCR intelligently deduces the appropriate image format based on the file extension, supporting a range of types including **GIFs, HTML files, HTML tags, JPEGs, PDFs, PNGs, TIFFs, and Windows Bitmaps**.
+In this illustration, we explore how various types of barcodes, encompassing multiple formats, can be crafted, adjusted in size, and stored using minimal code, sometimes even a single line.
 
-Additionally, the `StampToExistingPdfPage` method is available, providing the capability to create a barcode and imprint it onto an existing PDF document. This feature is particularly advantageous for modifications to standard PDFs or for appending an internal identification code to a document via a barcode.
+Leveraging the Fluent API, the barcode class provided can enable modifications such as setting margins, resizing, and annotating barcodes. These can subsequently be saved in various image formats. IronOCR intuitively identifies and applies the correct image format based on the file extension, including **GIFs, HTML files, HTML tags, JPEGs, PDFs, PNGs, TIFFs, and Windows Bitmaps**.
+
+Additionally, the method `StampToExistingPdfPage` is particularly handy. It facilitates the creation and application of a barcode onto an existing PDF document. This functionality is particularly useful for modifying standard PDFs or embedding a unique internal identification code into a document through a barcode.
