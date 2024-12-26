@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using BarCode;
-namespace ironbarcode.ReadBarcodesFromPdf
+namespace IronBarcode.Examples.HowTo.ReadBarcodesFromPdf
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             List<int> pageNumber = new List<int>() { 1, 2, 3 };
             

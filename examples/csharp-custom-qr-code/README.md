@@ -1,3 +1,3 @@
 ***Based on <https://ironsoftware.com/examples/csharp-custom-qr-code/>***
 
-In IronBarcode, the library allows users to enhance QR codes by inserting logos, altering color schemes, adding descriptive text, and adjusting the margins.
+In IronBarcode, you can enhance QR codes by incorporating logos, altering colors, adding annotation texts, and adjusting margins.

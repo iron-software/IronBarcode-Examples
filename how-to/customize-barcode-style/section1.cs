@@ -1,10 +1,10 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.CustomizeBarcodeStyle
+namespace IronBarcode.Examples.HowTo.CustomizeBarcodeStyle
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create barcode
             GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.PDF417, 300, 100);

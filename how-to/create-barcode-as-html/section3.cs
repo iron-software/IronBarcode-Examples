@@ -1,10 +1,10 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.CreateBarcodeAsHtml
+namespace IronBarcode.Examples.HowTo.CreateBarcodeAsHtml
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
             myBarcode.SaveAsHtmlFile("myBarcode.html");

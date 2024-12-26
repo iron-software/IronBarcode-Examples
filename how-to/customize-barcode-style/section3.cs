@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using BarCode;
-namespace ironbarcode.CustomizeBarcodeStyle
+namespace IronBarcode.Examples.HowTo.CustomizeBarcodeStyle
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Aztec);
             

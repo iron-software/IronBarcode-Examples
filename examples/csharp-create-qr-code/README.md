@@ -1,3 +1,3 @@
 ***Based on <https://ironsoftware.com/examples/csharp-create-qr-code/>***
 
-In IronBarcode, the `QRCodeWriter` class includes the `CreateQrCode` method which enables the generation of QR codes with high precision and robust error correction capabilities.
+In the IronBarcode library, the `QRCodeWriter` class features a `CreateQrCode` method designed for producing QR codes with exceptional accuracy and enhanced error correction capabilities.

@@ -3,98 +3,92 @@
 ***Based on <https://ironsoftware.com/how-to/create-barcode-images/>***
 
 
-## Generating One-Dimensional Barcodes and Saving Them as Images
+---
 
-IronBarcode offers robust capabilities not only for decoding but also for generating barcodes. With just a few lines of code, you can easily create and save barcode images. This involves using the `CreateBarcode()` method from the `BarcodeWriter` class, which allows you to specify the barcode's value, type, width, and height. After configuring these parameters, you simply chain a `SaveAs()` method to save the barcode image to the local disk. Let's delve into the details and then walk through an example implementation.
+### Introduction to IronBarcode
 
-### Specifying the Barcode Value
+## Generate One-Dimensional Barcodes and Store as Images
 
-The `BarcodeWriter.CreateBarcode()` method is versatile, accepting various data types for the barcode value, including `byte[] array`, `MemoryStream`, and `System.String`. This flexibility makes IronBarcode a great choice for seamless integration into different applications, as the data can be utilized directly without needing conversion.
+IronBarcode offers robust capabilities beyond just scanning barcodes — it allows users to efficiently generate and export barcode images using minimal code. Begin by invoking the `CreateBarcode()` method from the `BarcodeWriter` class, specifying the barcode's value, type, width, and height. Then, chain the `SaveAs()` method to store the image locally. Below, we’ll first explore these functionalities before diving into specific code implementations.
 
-### Choosing Barcode Encoding Types
+### Barcode Value
 
-IronBarcode supports an extensive array of barcode encoding types, each with unique characteristics and applications. It is crucial to select an encoding type that aligns with your data requirements as certain types are limited to numeric, alphabetical, or alphanumeric values. You can consult the `BarcodeEncoding` class to explore available encoding options. For comprehensive details, refer to the [API Reference](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeEncoding.html?q=BarcodeEncoding).
+The function `BarcodeWriter.CreateBarcode()` supports several types of input values including `byte[] array`, `MemoryStream`, and `System.String`. This flexibility facilitates easy integration of IronBarcode within various applications, as it can handle different value types directly.
 
-### Setting Width and Height
+### Barcode Encoding Types
 
-When using the `BarcodeWriter.CreateBarcode()` method, you can specify the dimensions of the resulting barcode in pixels, with `250 px` being the default setting for both width and height.
+IronBarcode supports an extensive array of barcode formats, each with distinct characteristics and applications. It’s imperative to select an appropriate barcode type based on your specific requirements, as different types support numerical, alphabetical, or alphanumeric values. The available barcode formats are accessed via the `BarcodeEncoding` class. For further details on the supported barcode types in IronBarcode, you can refer to the [API Reference](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeEncoding.html?q=BarcodeEncoding).
+
+### Width and Height of Barcode
+
+With `BarcodeWriter.CreateBarcode()`, users can define their barcode's dimensions by passing the desired width and height in pixels. Please note that the default values for these dimensions are set at `250 px`.
 
 ### Saving Barcodes as Images
 
-The `GeneratedBarcode` object, resultant of the `CreateBarcode()` method, can be persisted as an image file. Below are methods that facilitate saving the barcode in various image formats:
+Upon generation, barcodes are represented as objects of the `GeneratedBarcode` class. These objects can be saved as different image formats depending on your needs:
 
-- `SaveAsGif()`: Saves the barcode as a GIF image.
-- `SaveAsImage()`: General method for saving the barcode image, requiring the file format specification.
-- `SaveAsJpeg()`: Saves the barcode as a JPEG image.
-- `SaveAsPng()`: Saves the barcode as a PNG image.
-- `SaveAsTiff()`: Saves the barcode as a TIFF image.
-- `SaveAsWindowsBitmap()`: Saves the barcode as a BMP image.
+- `SaveAsGif()`: Saves as a GIF image.
+- `SaveAsImage()`: General method for saving as an image, requires specifying the file format.
+- `SaveAsJpeg()`: Saves as a JPEG image.
+- `SaveAsPng()`: Saves as a PNG image.
+- `SaveAsTiff()`: Saves as a TIFF image.
+- `SaveAsWindowsBitmap()`: Saves as a BMP image.
 
-### Example: Creating and Saving a Barcode
+### Example of Creating a One-Dimensional Barcode
 
-Here, we demonstrate how to generate a one-dimensional barcode and save it as a JPEG image file:
+This example demonstrates generating a one-dimensional barcode and saving it as a JPEG.
 
 ```cs
 using IronBarCode;
-using BarCode;
 
-namespace ironbarcode.CreateBarcodeImages
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            var barcode = BarcodeWriter.CreateBarcode("IronBarcode123", BarcodeEncoding.Code128, 200, 100);
-            barcode.SaveAsJpeg("OneDBarcode.jpeg");
-        }
-    }
-}
+BarcodeWriter.CreateBarcode("IronBarcode123", BarcodeEncoding.Code128, 200, 100).SaveAsJpeg("OneDBarcode.jpeg");
 ```
 
-![One dimensional barcode from snippet](https://ironsoftware.com/static-assets/barcode/how-to/create-barcode-images/OneDBarcode.jpeg)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/barcode/how-to/create-barcode-images/OneDBarcode.jpeg" alt="One dimensional barcode from snippet" class="img-responsive add-shadow">
+    </div>
+</div>
 
-## Generating and Saving QR Code Images
+## Generating and Saving QR Codes as Images 
 
-QR codes, a type of two-dimensional barcode, are widely used due to their storage capacity and versatility. IronBarcode provides a specialized `CreateQrCode()` method within the `QRCodeWriter` class for creating QR codes. This method requires four parameters: the barcode value, QR code size, error correction level, and QR version.
+QR codes are a popular 2-dimensional barcode type, known for their flexibility and customization options. In IronBarcode, QR codes are created differently due to their complex necessities. The `CreateQrCode()` method from the `QRCodeWriter` class handles QR code creation, accepting parameters for the barcode value, size, error correction level, and version. Let’s delve into each of these parameters.
 
-### QR Code Value and Size
+### QR Code Value
 
-Values for QR codes can be numeric, alphabetical, or alphanumeric, and are inputted directly into the `CreateQrCode()` method as a `byte[]`, `MemoryStream`, or `System.String`. The size of the QR code is adjustable and is specified in pixels, with `500 px` being the default.
+Similar to `BarcodeWriter.CreateBarcode()`, `QRCodeWriter.CreateQrCode()` accepts values in several formats: `byte[] array`, `MemoryStream`, and `System.String`. This allows for diverse input options.
+
+### QR Code Size
+
+The size of the QR code can be specifically set in pixels through the method, with `500 px` as the default size.
 
 ### QR Error Correction Level
 
-The `QRErrorCorrectionLevel` provides four options, influencing the QR code's complexity and fault tolerance:
+The `QRErrorCorrectionLevel` property of the `QRCodeWriter` class offers four levels of error correction, enhancing the QR code's robustness against damage and obstructions. Below are the levels and their corresponding error correction percentages:
 
-- **Highest**: 30% error correction, suitable for QR codes with embedded images or logos.
+- **Highest**: 30% error correction, suitable for QR codes that may include logos.
 - **High**: 25% error correction.
-- **Medium**: 15% error correction, offering a balance between complexity and speed.
-- **Low**: 7% error correction, the simplest form with the highest risk of errors.
+- **Medium**: 15% error correction.
+- **Low**: 7% error correction, the simplest form.
 
 ### QR Version
 
-The QR Version dictates the symbol version of the QR code, ranging from 1 to 40. Higher versions accommodate more data but are more complex. Setting the QR version to 0 allows IronBarcode to auto-select the best version based on the data to be encoded. More information on QR versions can be found [here](https://www.qrcode.com/en/about/version.html).
+This parameter scales from 1 to 40, determining the complexity and data capacity of the QR code. It's important to select an appropriate version based on the data amount to avoid encoding issues. Setting this to `0` lets IronBarcode determine the optimal version automatically. More details can be found [here](https://www.qrcode.com/en/about/version.html).
 
-### Example: Creating a QR Code Image
+### Creating and Saving a QR Code Image
 
-This snippet illustrates how to create a QR code with medium error correction and automatically determine the most suitable QR version, subsequently saving it as a JPEG image:
+Here’s how you can create a QR code and save it:
 
 ```cs
 using IronBarCode;
-using BarCode;
 
-namespace ironbarcode.CreateBarcodeImages
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            var qrCode = QRCodeWriter.CreateQrCode("IronBarcode1234", 250, QRCodeWriter.QrErrorCorrectionLevel.Medium, qrVersion: 0);
-            qrCode.SaveAsJpeg("QRMedium.jpeg");
-        }
-    }
-}
+QRCodeWriter.CreateQrCode("IronBarcode1234", 250, QRCodeWriter.QrErrorCorrectionLevel.Medium, qrVersion: 0).SaveAsJpeg("QRMedium.jpeg");
 ```
 
-![QR Code with medium correction level](https://ironsoftware.com/static-assets/barcode/how-to/create-barcode-images/QRMedium.jpeg)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/barcode/how-to/create-barcode-images/QRMedium.jpeg" alt="QR Code with medium correction level" class="img-responsive add-shadow">
+    </div>
+</div>
 
-This example used an alphanumeric value for the QR code and specified the error correction to be medium, allowing IronBarcode to choose the appropriate QR version for the given data.
+In the above snippet, an alphanumeric value is encoded in the QR code, specifying a dimension of 250 pixels, a medium error correction level, and leaving the QR version determination to IronBarcode. The code saves the QR image as a JPEG.

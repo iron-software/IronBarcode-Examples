@@ -1,10 +1,10 @@
 using System;
 using BarCode;
-namespace ironbarcode.ReadBarcodesFromMultiPageFrameTiffGif
+namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Read barcode from TIF image
             BarcodeResults results = BarcodeReader.Read("sample.tif");

@@ -1,5 +1,5 @@
 ***Based on <https://ironsoftware.com/examples/confidence-threshold/>***
 
-As of December 2023, IronBarcode has integrated machine learning technologies to advance its ability to detect barcodes accurately. Adjust the `ConfidenceThreshold` setting in the `BarcodeReaderOptions` to specify the lowest acceptable confidence level for barcode identifications made by the machine learning model. This threshold can be set anywhere from 0.0 to 1.0, with the standard configuration being 0.7.
+As of December 2023, IronBarcode has integrated machine learning to improve its barcode recognition capability. Adjust the `ConfidenceThreshold` property within `BarcodeReaderOptions` to specify the minimum confidence level required for detections by the ML model to be deemed accurate. This threshold can be set anywhere from 0.0 to 1.0, with a default value of 0.7.
 
-For those opting to detect barcodes without the machine learning enhancement, the [Barcode.Slim](https://www.nuget.org/packages/BarCode.Slim) package is recommended.
+For those looking to perform barcode detection without the assistance of machine learning, the [Barcode.Slim](https://www.nuget.org/packages/BarCode.Slim) package is an excellent alternative.

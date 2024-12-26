@@ -1,10 +1,10 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.CsharpBarcodeImageGenerator
+namespace IronBarcode.Examples.Tutorial.CsharpBarcodeImageGenerator
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Generate a Simple BarCode image and save as PNG
             GeneratedBarcode myBarcode = IronBarCode.BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode", BarcodeWriterEncoding.Code128);

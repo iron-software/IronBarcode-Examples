@@ -1,10 +1,10 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.Quickstart
+namespace IronBarcode.Examples.Overview.Quickstart
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             BarcodeResults results = BarcodeReader.Read("QuickStart.jpg");
             if (results != null)

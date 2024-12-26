@@ -1,39 +1,31 @@
 using BarCode;
-namespace ironbarcode.AsyncMultithread
+namespace IronBarcode.Examples.HowTo.AsyncMultithread
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             ﻿using IronBarCode;
             using System;
             using System.Collections.Generic;
             using System.Threading.Tasks;
             
-            using System;
-            using System.Collections.Generic;
-            using System.Threading.Tasks;
-            #endregion
-            public class async_multithread_async
+            List<string> imagePaths = new List<string>() { "image1.png", "image2.png" };
+            
+            // Barcode reading options
+            BarcodeReaderOptions options = new BarcodeReaderOptions()
             {
-                public async Task codeAsync()
-                {
-                    List<string> imagePaths = new List<string>() { "image1.png", "image2.png" };
+                ExpectMultipleBarcodes = true
+            };
             
-                    // Barcode reading options
-                    BarcodeReaderOptions options = new BarcodeReaderOptions()
-                    {
-                        ExpectMultipleBarcodes = true
-                    };
+            // Read barcode using Async
+            BarcodeResults asyncResult = await BarcodeReader.ReadAsync(imagePaths, options);
             
-                    // Read barcode using Async
-                    BarcodeResults asyncResult = await BarcodeReader.ReadAsync(imagePaths, options);
-            
-                    // Print the results to console
-                    foreach (var result in asyncResult)
-                    {
-                        Console.WriteLine(result.ToString());
-                    }
+            // Print the results to console
+            foreach (var result in asyncResult)
+            {
+                Console.WriteLine(result.ToString());
+            }
         }
     }
 }

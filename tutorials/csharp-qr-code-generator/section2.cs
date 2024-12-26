@@ -1,18 +1,13 @@
-using IronSoftware.Drawing;
+using IronBarCode;
 using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
+namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
-            // You may add styling with color, logo images or branding:
-            QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
-            GeneratedBarcode myQRCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
-            myQRCodeWithLogo.ResizeTo(500, 500).SetMargins(10).ChangeBarCodeColor(Color.DarkGreen);
-            
-            // Logo will automatically be sized appropriately and snapped to the QR grid.
-            myQRCodeWithLogo.SaveAsPng("myQRWithLogo.png");
+            // Generate a Simple BarCode image and save as PDF
+            QRCodeWriter.CreateQrCode("hello world", 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).SaveAsPng("MyQR.png");
         }
     }
 }

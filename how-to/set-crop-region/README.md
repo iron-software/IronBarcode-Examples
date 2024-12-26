@@ -1,82 +1,70 @@
-# How to Specify Barcode Crop Regions for Enhanced Scanning
+# Defining a Crop Region to Enhance Barcode Reading Speed
 
 ***Based on <https://ironsoftware.com/how-to/set-crop-region/>***
 
 
-One of the standout features in IronBarcode is the capability for users to define specific **Crop Regions**. This function enables IronBarcode to focus on predetermined areas or specific barcodes within an image, utilizing the `IronSoftware.Drawing.Rectangle` object. Employing this feature not only minimizes reading errors but also boosts performance.
+One of the standout features of IronBarcode is its ability to set specific **Crop Regions** using the `IronSoftware.Drawing.Rectangle` object. This functionality allows IronBarcode to focus on predefined areas of an image, enhancing accuracy and speed of barcode reading by ignoring irrelevant areas.
 
-## Identifying Crop Region Coordinates and Dimensions in an Image
+### Get started with IronBarcode
 
-To ascertain the coordinates for a Crop Region, various methods can be utilized. A straightforward approach is to use the computer's 'Paint' application. Begin by loading the image, then hover the mouse at the desired starting point which represents the top-left corner of the `Rectangle` and note the x,y coordinates displayed at the bottom left of the screen. Continue by selecting the opposite corner which will be the bottom-right corner of the `Rectangle`. The following image offers a visual guide to better understand this setup.
+
+------
+
+## Identifying Crop Region Coordinates and Size in an Image
+
+To find crop region coordinates, users can utilize several methods, one of which is using the computer’s 'Paint' application. Load the image in Paint, and navigate to the desired top-left corner of the Crop Region. Note the x and y coordinates displayed at the bottom-left corner of the screen for this first point. Then, determine the second point at the bottom right corner of the `Rectangle`. The image below provides a visual guide for this process.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
          <img src="https://ironsoftware.com/static-assets/barcode/how-to/set-crop-region/cropregion.png" alt="CropRegion reference" class="img-responsive add-shadow">
-         <p class="competitors__download-link" style="color: #181818; font-style: italic; margin-bottom: 20px;">Illustration of CropRegion setup</p>
+         <p class="competitors__download-link" style="color: #181818; font-style: italic; margin-bottom: 20px;">Setting CropRegion reference</p>
     </div>
 </div>
 
-These coordinates are then assigned as properties to the `Rectangle` object. The object's **width** can be calculated with the formula *x2 - x1* and the **height** by *y2 - y1*.
+Utilize these coordinates to establish the `Rectangle` object properties. The **width** is calculated as *x2 - x1*, and the **height** as *y2 - y1*.
 
 ```cs
 using IronBarCode;
-using BarCode;
 
-namespace ironbarcode.SetCropRegion
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            int x1 = 62;
-            int y1 = 29;
-            int x2 = 345;
-            int y2 = 522;
-            
-            IronSoftware.Drawing.Rectangle crop1 = new IronSoftware.Drawing.Rectangle(x: x1, y: y1, width: x2 - x1, height: y2 - y1);
-            // Creating a new rectangle for crop area
-        }
-    }
-}
+// Define coordinates
+int x1 = 62;
+int y1 = 29;
+int x2 = 345;
+int y2 = 522;
+
+// Create a Rectangle using determined coordinates and size
+IronSoftware.Drawing.Rectangle crop1 = new IronSoftware.Drawing.Rectangle(x: x1, y: y1, width: x2-x1, height: y2-y1);
 ```
 
-## Implementing the CropRegion for Barcode Reading
+## Applying the Crop Region and Reading the Barcode
 
-After determining the CropRegion, it needs to be integrated within the `BarcodeReaderOptions` as the `CropArea` property. This configured object is then passed as a parameter in the `BarcodeReader.Read()` method to enable focused barcode reading within the specified region. Below, we demonstrate this implementation:
+With the CropRegion defined, it’s time to leverage this in IronBarcode's settings. Below, see how to include the crop region within `BarcodeReaderOptions`, which can significantly enhance the reading process when used with the `BarcodeReader.Read()` method.
 
 ```cs
+using IronBarCode;
 using System;
-using BarCode;
 
-namespace ironbarcode.SetCropRegion
+// Define coordinates
+int x1 = 62;
+int y1 = 29;
+int x2 = 345;
+int y2 = 522;
+
+// Create a Rectangle for the crop area
+IronSoftware.Drawing.Rectangle crop1 = new IronSoftware.Drawing.Rectangle(x: x1, y: y1, width: x2 - x1, height: y2 - y1);
+
+// Define barcode reading options with specified crop area
+BarcodeReaderOptions options = new BarcodeReaderOptions()
 {
-    public class Section2
-    {
-        public void Run()
-        {
-            int x1 = 62;
-            int y1 = 29;
-            int x2 = 345;
-            int y2 = 522;
-            
-            IronSoftware.Drawing.Rectangle crop1 = new IronSoftware.Drawing.Rectangle(x: x1, y: y1, width: x2 - x1, height: y2 - y1);
-            // Define the rectangle crop area with specified coordinates
-            
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
-            {
-                CropArea = crop1
-            };
-            // Incorporating the crop area into the reader options
-            
-            var result = BarcodeReader.Read("sample.png", options);
-            foreach (var item in result)
-            {
-                Console.WriteLine(item.Value);
-                // Outputs each barcode value found within the crop area
-            }
-        }
-    }
+    CropArea = crop1
+};
+
+// Read barcodes from an image using defined crop area
+var result = BarcodeReader.Read("sample.png", options);
+foreach (var item in result)
+{
+    Console.WriteLine(item.Value);
 }
 ```
 
-From the code snippets provided, we can see that the `Rectangle` object is utilized as the `CropArea` property within the `BarcodeReaderOptions`, which directs the barcode reader to constrain its scanning area to the predefined region. This ensures efficient and error-free reading.
+In this demonstration, we apply the instantiated `Rectangle` in the `BarcodeReaderOptions` object's `CropArea` property. The `BarcodeReader.Read()` method then utilizes these settings to read barcodes precisely from the specified area in the image.

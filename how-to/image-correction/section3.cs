@@ -1,21 +1,21 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.ImageCorrection
+namespace IronBarcode.Examples.HowTo.ImageCorrection
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
-            BarcodeReaderOptions myOptionsExample = new BarcodeReaderOptions()
+            BarcodeReaderOptions options = new BarcodeReaderOptions()
             {
                 // Choose which filters are to be applied (in order)
-                ImageFilters = new ImageFilterCollection() {
+                ImageFilters = new ImageFilterCollection(true) {
                     new BinaryThresholdFilter(0.9f)
                 },
             };
             
             // Apply options and read the barcode
-            BarcodeResults results = BarcodeReader.Read("sample.png", myOptionsExample);
+            BarcodeResults results = BarcodeReader.Read("sample.png", options);
             
             // Export file to disk
             results.ExportFilterImagesToDisk("binaryThreshold_0.9.png");

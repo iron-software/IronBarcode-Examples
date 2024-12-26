@@ -1,9 +1,9 @@
-# Guide to IronBarCode on Linux Platforms
+# IronBarCode Linux Compatibility & Setup Guide
 
 ***Based on <https://ironsoftware.com/how-to/linux/>***
 
 
-IronBarCode is compatible with Linux for **.NET Core** and **.NET 5** applications, and is also well-suited for use in environments like Docker, Azure, macOS, and of course, Windows.
+IronBarCode is fully compatible with Linux for **.NET Core** and **.NET 5** applications, extending its support to other platforms like Docker, Azure, macOS, and of course, Windows.
 
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/96/000000/linux--v1.png" alt="Linux">
@@ -12,39 +12,40 @@ IronBarCode is compatible with Linux for **.NET Core** and **.NET 5** applicatio
     <img src="https://img.icons8.com/color/96/000000/amazon-web-services.png" alt="Amazon">
     <img src="https://img.icons8.com/color/96/000000/ubuntu--v1.png" alt="Ubuntu">
     <img src="https://img.icons8.com/color/96/000000/debian--v1.png" alt="Debian">
-</div> 
+</div>
 
-For optimal performance and support, we recommend utilizing .NET Core 3.1 or .NET 5, especially versions designated as [LTS (Long-Term Support) by Microsoft](https://dotnet.microsoft.com/platform/support/policy). These versions have been extensively tested on Linux platforms and are backed by long-term support guarantees.
+It is advisable to work with .NET Core 3.1 or .NET 5 under environments that are listed as [LTS by Microsoft](https://dotnet.microsoft.com/platform/support/policy), as these versions receive extensive long-term support and stable testing on Linux platforms.
 
-IronBarCode functions seamlessly on Linux without the need for modifications in code, thanks to extensive testing and tuning by our dedicated engineering team.
+IronBarCode is designed to operate seamlessly on Linux, demanding no modifications in your code. This out-of-the-box functionality is made possible through rigorous testing and optimizations by our dedicated team.
 
-Linux platforms are crucial for numerous cloud services like Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and Docker pipelines used in Azure DevOps. Iron Software frequently leverages these cloud services and understands their importance to our Enterprise and SAAS customers.
+Support for Linux is crucial due to its extensive use in cloud services like Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and Docker, all of which are integral to the operations of many Enterprise and SaaS customers at Iron Software.
 
 ### Supported Linux Distributions
 
-IronBarCode **officially supports** the latest **64-bit** Linux distributions listed below for a straightforward, "zero configuration" setup:
+We **strongly endorse** the following **64-bit** Linux distributions for a straightforward "zero configuration" installation of IronBarCode:
 
-*   Ubuntu 20
-*   Ubuntu 18
-*   Debian 11
-*   Debian 10 _\[Defaults on Microsoft Azure Linux Distributions\]_
-*   Centos 7
+* Ubuntu 20
+* Ubuntu 18
+* Debian 11
+* Debian 10 _\[Azure's Default Linux Distro\]_
+* Centos 7
 
-For Linux versions not officially supported, see "Other Linux Distros" later in this guide for setup information.
+For setups incompatibile with the above versions, please consult "Other Linux Distros" below for guidance. 
 
-It's advisable to use the [Official Docker Images by Microsoft](https://hub.docker.com/_/microsoft-dotnet-runtime/) to ensure compatibility. Configuration on other distributions might require manual setups, such as using apt-get commands. More details on this can be found in "Linux Manual Setup" towards the end of this documentation.
+Leveraging Microsoft's [Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/) is recommended, although unsupported Linux distros may need manual configurations via apt-get. Details are further explained in the "Linux Manual Setup" section of this guide.
 
-To install IronBarCode, use the following NuGet command:
+To integrate IronBarCode, add the following NuGet package:
 
 ```shell
 Install-Package BarCode
 ```
 
-## Compatibility with Ubuntu
+## Ubuntu Compatibility Guide
 
-Ubuntu is the most thoroughly tested Linux distribution in our suite, mainly because of its extensive use in Azure's infrastructure which aids continuous testing and deployment. Ubuntu also supports official Microsoft .NET frameworks and Docker images.
+Ubuntu stands as the most rigorously tested environment due to its prevalent use in our continuous testing and Azure deployments, bolstered with official Microsoft .NET and Docker image support.
 
 ### Ubuntu 20
+
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/48/000000/microsoft.png" alt="Microsoft">
     <img src="https://img.icons8.com/color/48/000000/ubuntu--v1.png" alt="Ubuntu">
@@ -54,55 +55,13 @@ Ubuntu is the most thoroughly tested Linux distribution in our suite, mainly bec
     <img src="https://img.icons8.com/fluency/48/000000/azure-1.png" alt="Azure">
 </div>
 
-**Official Microsoft Docker Images for Ubuntu 20:**
+**Adopt these setup steps for IronBarCode in Ubuntu 20 Docker files, ensuring you have _sudo_ admin rights:**
 
-*   [64-bit Ubuntu 20.04 Docker Image for .NET Runtime 3.1 ('3.1-focal')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
-*   [64-bit Ubuntu 20.04 Docker Image for .NET Runtime 5.0 ('5.0-focal')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
-
-**Setup Instructions for Ubuntu 20**
-
-To deploy IronBarCode within a Docker environment on Ubuntu 20, execute the following commands ensuring you possess _sudo_ administrative rights:
-
-    RUN apt update
-    RUN apt install -y libgdiplus
+```dockerfile
+RUN apt update
+RUN apt install -y libgdiplus
+```
 
 ### Ubuntu 18
-
 <div class="main-content__small-images-inline">
-    <img src="https://img.icons8.com/color/48/000000/microsoft.png" alt="Microsoft">
-    <img src="https://img.icons8.com/color/48/000000/ubuntu--v1.png" alt="Ubuntu">
-    <img $"{image_url}" alt="Chrome">
-    <img src="https://img.icons8.com/color/48/000000/safari--v1.png" alt="Safari">
-    <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker">
-    <img src="https://img.icons8.com/fluency/48/000000/azure-1.png" alt="Azure">
-</div> 
-
-**Official Microsoft Docker Images for Ubuntu 18:**
-
-*   [64-bit Ubuntu 18.04 Docker Image for .NET Runtime 3.1 ('3.1-bionic')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
-
-While there is no official Docker image for .NET 5 on Ubuntu 18, the compatibility remains exceptionally high.
-
-**Setup Instructions for Ubuntu 18**
-
-To run IronBarCode on Ubuntu 18, append the following commands to your Dockerfile, ensuring administrative privileges:
-
-    RUN apt update
-    RUN apt install -y libgdiplus
-
-### Debian 11 and 10
-
-For Debian 11 and 10, follow similar Docker setup guidelines as Ubuntu, noting that Debian 10 is often used as a default in Microsoft’s Docker-enabled .NET projects in Visual Studio. Both distributions support the same .NET Runtimes as Ubuntu and follow similar setup instructions.
-
-**CentOS 7 Setup** For setting up IronBarCode on CentOS 7 using Docker, execute the following:
-
-    RUN yum install epel-release -y
-    RUN sudo yum install mono-complete -y
-    RUN sudo yum install libgdiplus libc6-dev -y
-    
-**Common Dependency Patterns for Linux** Additionally, study the dependency packages for other Linux OS’s highlighted above.
-
-    RUN apt update
-    RUN apt install -y libgdiplus
-
-This guide is designed to ensure a smooth setup and deployment of IronBarCode across various Linux distributions, facilitating seamless integration into your development pipeline.
+  <!-- remaining content -->

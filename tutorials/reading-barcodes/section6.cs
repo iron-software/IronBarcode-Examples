@@ -1,10 +1,10 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.ReadingBarcodes
+namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
             // The Multithreaded property allows for faster barcode scanning across multiple images or PDFs. All threads are automatically managed by IronBarCode.
             var ListOfDocuments = new[] { "image1.png", "image2.JPG", "image3.pdf" };

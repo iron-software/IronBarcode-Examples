@@ -1,16 +1,16 @@
-# IronBarcode Enhanced Compatibility with macOS for .NET Core
+# IronBarCode's Compatibility with macOS for .NET Applications
 
 ***Based on <https://ironsoftware.com/how-to/macos/>***
 
 
-IronBarCode now offers complete support for macOS (previously known as "OS X") across .NET Standard Libraries, Core applications, and .NET 5 projects.
+IronBarCode now offers complete support for macOS (previously referred to as "OS X") across .NET Standard Libraries, Core applications, and .NET 5 projects.
 
-Full compatibility with all macOS versions is provided right out of the box.
+The library is fully compatible with all versions of macOS right out of the box.
 
-There's no need for any modifications in your code to accommodate Apple users or developers.
+Developers targeting Apple's platform do not need to modify any existing code.
 
-We prioritize macOS support because many .NET developers, including our team members, prefer using _Visual Studio for Mac_ and _JetBrains Rider_ to develop .NET applications on macOS.
+Our commitment to macOS support stems from the fact that many .NET developers, including some of our own team members, prefer using _Visual Studio for Mac_ and _JetBrains Rider_ to develop .NET applications on macOS.
 
-## macOS Configuration & Setup
+## Setup and Installation on macOS
 
-IronBarCode NuGet packages are available for Mac deployments as detailed in our [IronBarCode NuGet installation guide](https://ironsoftware.com/csharp/barcode/docs/).
+IronBarCode's NuGet packages are readily available for macOS deployments, as detailed in our [IronBarCode NuGet installation guide](https://ironsoftware.com/csharp/barcode/docs/).

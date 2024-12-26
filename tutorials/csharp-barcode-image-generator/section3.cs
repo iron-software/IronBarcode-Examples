@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using BarCode;
-namespace ironbarcode.CsharpBarcodeImageGenerator
+namespace IronBarcode.Examples.Tutorial.CsharpBarcodeImageGenerator
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Fluent API for Barcode Image generation.
             string value = "https://ironsoftware.com/csharp/barcode";

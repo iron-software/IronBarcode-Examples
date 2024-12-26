@@ -1,10 +1,10 @@
 using System;
 using BarCode;
-namespace ironbarcode.ReadingBarcodes
+namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Read barcode
             BarcodeResults results = BarcodeReader.Read("GetStarted.png");

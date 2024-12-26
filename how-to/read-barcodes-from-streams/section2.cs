@@ -1,10 +1,10 @@
 using System.IO;
 using BarCode;
-namespace ironbarcode.ReadBarcodesFromStreams
+namespace IronBarcode.Examples.HowTo.ReadBarcodesFromStreams
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             MemoryStream document = PdfDocument.FromFile(@"file_path.pdf").Stream;
             

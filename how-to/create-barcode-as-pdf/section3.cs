@@ -1,10 +1,10 @@
 using System.IO;
 using BarCode;
-namespace ironbarcode.CreateBarcodeAsPdf
+namespace IronBarcode.Examples.HowTo.CreateBarcodeAsPdf
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.DataMatrix);
             Stream myBarcodeStream = myBarcode.ToPdfStream();

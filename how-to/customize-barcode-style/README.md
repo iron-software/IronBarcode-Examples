@@ -1,41 +1,38 @@
-# Tailoring and Styling Barcodes
+# Customizing and Styling Barcodes
 
 ***Based on <https://ironsoftware.com/how-to/customize-barcode-style/>***
 
 
-Barcodes have seen a surge in popularity over recent years, finding their applications in various domains from storing URLs to IDs and more. As barcodes frequently appear on products, the need for styling and customization has grown. Specific barcode types like **PDF417, Aztec, IntelligentMail, MaxiCode,** and **DataMatrix** have unique styles to meet these demands.
+Barcodes have become increasingly common across various applications over time, serving as a means to encode data, identification, or URLs. With their integration into consumer products, the desire to customize how these barcodes appear has grown substantially. Barcode types such as **PDF417**, **Aztec**, **IntelligentMail**, **MaxiCode**, and **DataMatrix** each possess distinct styles, but customization doesn't end there.
 
-IronBarcode enriches this customization by offering enhanced styling capabilities such as changing **barcode colors**, resizing barcodes, and modifying **background colors**. These are supported by the [IronDrawing library](https://ironsoftware.com/open-source/csharp/drawing/docs/).
+IronBarcode offers further customization through its features, allowing adjustments in **barcode colors**, **resizing**, and **background colors**. This is facilitated by the [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/) library.
 
-## Resize Barcode Example
+### Dive into IronBarcode
 
-### Use `ResizeTo` Method
+---
 
-IronBarcode allows for effortless customization of barcodes' dimensions. By employing the `ResizeTo` method, users can specify new dimensions for the barcode in **pixels (px)**. This method ensures a lossless transformation of the barcode, disregarding dimensions that compromise readability.
+## Example: Resizing a Barcode
+
+### Employing the `ResizeTo` Method
+
+Customizing the size of a barcode is straightforward with IronBarcode's `ResizeTo` method. By specifying new **width** and **height** in **pixels**, users can re-render the barcode without loss of quality.
+
+Here's an example where sizes that are too small to maintain readability are automatically disregarded:
 
 ```cs
 using IronBarCode;
-using BarCode;
-namespace ironbarcode.CustomizeBarcodeStyle
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Generate a barcode
-            GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.PDF417, 300, 100);
-            
-            // Save the barcode as PNG
-            barcode.SaveAsPng("output.png");
-            
-            // Resize the barcode and save again
-            barcode.ResizeTo(250, 100).SaveAsPng("useResizeTo.png");
-        }
-    }
-}
+
+// Instantiate a barcode
+GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.PDF417, 300, 100);
+
+// Save the original size barcode
+barcode.SaveAsPng("output.png");
+
+// Resize the barcode and save the new image
+barcode.ResizeTo(250, 100).SaveAsPng("resizedBarcode.png");
 ```
 
-Below are images showcasing the barcode before and after resizing:
+### Barcode Images: Before and After Resizing
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -51,33 +48,26 @@ Below are images showcasing the barcode before and after resizing:
     </div>
 </div>
 
-### Use `ResizeToMil` Method
+### Using the `ResizeToMil` Method
 
-For resizing requirements specific to 1D barcodes, `ResizeToMil` adjusts barcode elements in thousandths of an inch (mil), height in inches, and resolution in DPI.
+The `ResizeToMil` method offers precision resizing for 1D barcodes, adjusting elements such as element thickness (in mils), barcode height (inches), and resolution (DPI).
+
+Example code snippet:
 
 ```cs
 using IronBarCode;
-using BarCode;
-namespace ironbarcode.CustomizeBarcodeStyle
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Generate a barcode for Codabar
-            GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("12345", BarcodeEncoding.Codabar, 250, 100);
-            
-            // Export barcode as PNG
-            barcode.SaveAsPng("output.png");
-            
-            // Apply ResizeToMil and export again
-            barcode.ResizeToMil(20, .73, 200).SaveAsPng("useResizeToMil.png");
-        }
-    }
-}
+
+// Generate a barcode
+GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("12345", BarcodeEncoding.Codabar, 250, 100);
+
+// Save the initial barcode
+barcode.SaveAsPng("initialOutput.png");
+
+// Rescale the barcode and save
+barcode.ResizeToMil(20, .73, 200).SaveAsPng("rescaledOutput.png");
 ```
 
-Images below display the barcode transformations applied by `ResizeToMil`:
+### Visualization of Barcode Sizing Changes
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -93,79 +83,61 @@ Images below display the barcode transformations applied by `ResizeToMil`:
     </div>
 </div>
 
-## Adjusting Barcode Colors
+## Modifying Barcode and Background Colors
 
-A highly demanded customization feature for barcodes is the ability to alter barcode and background colors. This is achieved using `ChangeBarCodeColor` and `ChangeBackgroundColor` methods, which are supported by the [IronDrawing library](https://ironsoftware.com/open-source/csharp/drawing/docs/).
+A popular feature of IronBarcode, enabled by IronDrawing, is the modification of barcode and background colors. Below is a demonstration:
 
 ```cs
+using IronBarCode;
 using IronSoftware.Drawing;
-using BarCode;
-namespace ironbarcode.CustomizeBarcodeStyle
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Aztec);
-            
-            // Modify colors
-            barcode.ChangeBarCodeColor(Color.DarkKhaki);
-            barcode.ChangeBackgroundColor(Color.ForestGreen);
-            
-            // Save the colored barcode as PNG
-            barcode.SaveAsPng("coloredAztec2.png");
-        }
-    }
-}
-```
 
-Below is an image of a colored Aztec barcode:
+GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Aztec);
+
+// Adjust barcode color
+barcode.ChangeBarCodeColor(Color.DarkKhaki);
+
+// Adjust background color
+barcode.ChangeBackgroundColor(Color.ForestGreen);
+
+// Save the customized barcode
+barcode.SaveAsPng("colorCustomizedBarcode.png");
+```
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/barcode/how-to/customize-barcode-style/coloredAztec2.webp" alt="Barcode with color" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/barcode/how-to/customize-barcode-style/coloredAztec2.webp" alt="Barcode with customized colors" class="img-responsive add-shadow">
     </div>
 </div>
 
-## Adding Annotations
+## Example: Adding Barcode Annotations
 
-IronBarcode also supports adding styled annotations, with IronDrawing providing the required functionality for text editing regarding color and fonts.
+IronBarcode also supports the addition of styled annotations, utilizing IronDrawing for adjustments in color and font styling:
 
 ```cs
-using BarCode;
-namespace ironbarcode.CustomizeBarcodeStyle
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            ﻿using IronBarCode;
-            using IronSoftware.Drawing;
-            
-            GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Aztec, 500, 500);
-            
-            // Alter barcode and background color
-            barcode.ChangeBarCodeColor(Color.DarkCyan);
-            barcode.ChangeBackgroundColor(Color.PeachPuff);
-            
-            // Specify fonts for annotations
-            Font annotationFont = new Font("Candara", FontStyle.Bold, 70);
-            
-            // Add annotations
-            barcode.AddAnnotationTextAboveBarcode("IronBarcodeRocks!", annotationFont, Color.DarkOrange);
-            
-            Font barcodeValueFont = new Font("Cambria", FontStyle.Regular, 70);
-            
-            // Add barcode value display below
-            barcode.AddBarcodeValueTextBelowBarcode(barcodeValueFont, Color.SandyBrown);
-            
-            barcode.SaveAsPng("annotationAndBarcodeValue.png");
-        }
-    }
-}
-```
+using IronBarCode;
+using IronSoftware.Drawing;
 
-Below is the barcode with color and annotations:
+GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Aztec, 500, 500);
+
+// Modify colors
+barcode.ChangeBarCodeColor(Color.DarkCyan);
+barcode.ChangeBackgroundColor(Color.PeachPuff);
+
+// Set up annotation font
+Font annotationFont = new Font("Candara", FontStyle.Bold, 70);
+
+// Add annotation above the barcode
+barcode.AddAnnotationTextAboveBarcode("IronBarcode Rocks!", annotationFont, Color.DarkOrange);
+
+// Set up value font
+Font valueFont = new Font("Cambria", FontStyle.Regular, 70);
+
+// Add barcode value below
+barcode.AddBarcodeValueTextBelowBarcode(valueFont, Color.SandyBrown);
+
+// Save the final annotated barcode
+barcode.SaveAsPng("annotatedCustomizedBarcode.png");
+```
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper" style="width: 40%;">
@@ -173,4 +145,4 @@ Below is the barcode with color and annotations:
     </div>
 </div>
 
-IronBarcode offers extensive opportunities for customizing and styling barcodes, only limited by creativity. For more information on styling QR codes, check out "[How to Customize and Add Logos to QR Codes](https://ironsoftware.com/csharp/barcode/how-to/customize-qr-code-style/)".
+IronBarcode broadly expands the possibilities for barcode customization. For detailed tutorials on enhancing QR codes, visit "[How to Customize and Add Logos to QR Codes](https://ironsoftware.com/csharp/barcode/how-to/customize-qr-code-style/)".

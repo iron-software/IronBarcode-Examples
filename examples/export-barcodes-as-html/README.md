@@ -1,5 +1,5 @@
 ***Based on <https://ironsoftware.com/examples/export-barcodes-as-html/>***
 
-Iron Barcode offers an extremely beneficial capability where barcodes can be generated and saved into a self-contained HTML file. This means that all necessary components, including images, are embedded directly within the HTML itself, eliminating any dependencies on external image assets.
+Iron Barcode offers a powerful feature enabling the export of barcodes as standalone HTML files. These files are self-contained, requiring no external image assets. All necessary data is embedded directly within the HTML file itself.
 
-You have options to export the barcode in various formats, including a complete **HTML file**, an **HTML image tag**, or a **data URI**. This flexibility allows developers to choose the best method that suits their project's needs.
+You can choose to export the barcodes in three different formats: as an **HTML file**, an **HTML image tag**, or to a **data URI**.

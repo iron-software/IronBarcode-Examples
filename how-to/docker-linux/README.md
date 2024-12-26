@@ -3,9 +3,9 @@
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 
-Are you interested in [Reading or Generating Barcodes with C#](https://ironsoftware.com/csharp/barcode/)?
+Are you interested in [scanning or creating barcodes with C#](https://ironsoftware.com/csharp/barcode/)?
 
-IronBarCode is now fully compatible with Docker, including support for Azure Docker Containers on both Linux and Windows platforms.
+IronBarCode offers comprehensive support for Docker, encompassing both Azure Docker Containers on Linux and Windows platforms.
 
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker">
@@ -15,100 +15,105 @@ IronBarCode is now fully compatible with Docker, including support for Azure Doc
     <img src="https://img.icons8.com/color/96/000000/windows-logo--v1.png" alt="Windows">
 </div>
 
-## The Advantages of Docker
+## Benefits of Docker
 
-Docker provides a streamlined method for developers to package, deploy, and operate applications within a compact, self-contained, and transferable container. This enables the application to run seamlessly across different computing environments.
+Docker simplifies the process for developers to package, deploy, and operate applications using containers that are lightweight, self-contained, and portable, allowing them to execute seamlessly across different environments.
 
-## Getting Started with IronBarCode on Linux
+## Introduction to IronBarCode for Docker and Linux Users
 
-For developers unfamiliar with Docker in a .NET environment, a helpful resource is available that covers the essentials of Docker debugging and its integration with Visual Studio projects. You can find this guide here: [Setting Up Docker with Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
+For those unfamiliar with Docker in the .NET context, we suggest this informative guide on configuring Docker for debugging and integration with Visual Studio projects. [View the guide here](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
-Additionally, it's beneficial to go through our detailed [IronBarCode Linux Setup and Compatibility Guide](https://ironsoftware.com/csharp/barcode/how-to/linux/) which will aid you in setting up and configuring IronBarCode on various Linux distributions.
+Additionally, it's beneficial to explore our [IronBarCode Linux Setup and Compatibility Guide](https://ironsoftware.com/csharp/barcode/how-to/linux/), designed to assist in seamlessly setting up IronBarCode on Linux platforms.
 
-### Suggested Linux Docker Environments for IronBarCode
+### Suggested Linux Docker Distributions for IronBarCode
 
-For a smooth integration of IronBarCode, we advise using the following 64-bit Linux operating systems which provide straightforward setup:
+For seamless integration of IronBarCode, we suggest utilizing the following 64-bit Linux operating systems which provide an easy setup experience.
 
-- Ubuntu 22
-- Ubuntu 20
-- Ubuntu 18
-- Debian 11
-- Debian 10 _[Currently designated as Microsoft Azure's default Linux distribution]_
-- CentOS 7
+* Ubuntu 22
+* Ubuntu 20
+* Ubuntu 18
+* Debian 11
+* Debian 10 _\[Default Linux Distribution on Microsoft Azure Currently\]_
+* CentOS 7
 
-We recommend deploying [Microsoft’s Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). While other Linux distributions are partially supported, they might necessitate additional setup steps through `apt-get`. For further instructions, refer to our "[Linux Manual Setup](https://ironsoftware.com/csharp/barcode/how-to/linux/)" guide.
+It is advisable to use [Microsoft's Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/) for these distributions. While other Linux versions are also compatible, they might require a bit more setup effort using `apt-get`. For detailed setup instructions on these, refer to our [Linux Manual Setup Guide](https://ironsoftware.com/csharp/barcode/how-to/linux/).
 
-This document includes practical Docker file configurations for Ubuntu and Debian.
+Additionally, this document includes Dockerfile templates for both Ubuntu and Debian setups.
 
-## Essential Steps for Installing IronBarCode on Linux using Docker
+## Essential Setup for IronBarCode on Linux Using Docker
 
-To effectively utilize IronBarCode on Linux platforms within Docker environments, we strongly recommend integrating the [IronBarCode NuGet Package](https://www.nuget.org/packages/BarCode/). This package ensures compatibility across Windows, macOS, and Linux systems.
+### Incorporating the IronBarCode Package
 
-```bash
+To integrate IronBarCode into your project, it’s advisable to use the IronBarCode NuGet package. This approach is compatible across different operating systems including Windows, macOS, and Linux.
+
+```shell
 Install-Package BarCode
 ```
 
-Optimizing your installation with the appropriate Docker configuration is crucial for leveraging IronBarCode’s full potential in your applications. Below, you'll find various Dockerfile examples tailored for different Ubuntu and Debian distributions, illustrating how to set up environments that support IronBarCode. These Dockerfiles provide a blueprint to configure your system correctly, from installing necessary packages to setting up your application to run seamlessly in Docker.
+Visit [IronBarCode's page on NuGet](https://www.nuget.org/packages/BarCode/) for further details and versioning.
 
-### Opt for the NuGet Package Solution
+### Utilize the IronBarCode NuGet Package
 
-For a seamless development experience across Windows, macOS, and Linux, we advise leveraging the [IronBarCode](https://www.nuget.org/packages/BarCode/) NuGet package.
+For seamless development across Windows, macOS, and Linux, we suggest incorporating the [IronBarCode](https://www.nuget.org/packages/BarCode/) NuGet Package into your projects.
+
+The recommended approach for integrating IronBarCode within your project is to utilize the NuGet package management system. Specifically, you can install the IronBarCode package by executing the following command in your package manager console:
 
 ```shell
-Install-Package IronBarCode
+Install-Package BarCode
 ```
 
-## Dockerfile Examples for Ubuntu using IronBarCode
+This ensures you have the latest version of IronBarCode ready for use in your .NET applications on any operating system, including Windows, macOS, and Linux.
 
-Below you'll find Dockerfile configurations for integrating the `IronBarCode` library into Ubuntu Linux environments, showcasing its compatibility with various .NET versions.
+## Ubuntu Linux Docker Configurations
+
+Explore Docker configurations tailored for Ubuntu operating systems, complete with detailed instructions and integrations specific to Ubuntu environments.
 
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker">
     <img src="https://img.icons8.com/color/96/000000/ubuntu--v1.png" alt="Ubuntu">
 </div>
 
-### Ubuntu 22 - .NET 7 Setup
+### Docker Setup for Ubuntu 22 with .NET 7
 
 ```console
-# base image using Ubuntu 22 with .NET 7 runtime
+# Start with the base runtime image for Ubuntu 22 with .NET
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM mcr.microsoft.com/dotnet/runtime:7.0-jammy AS base
 WORKDIR /app
-
-# Update package lists
+# Update and install packages
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-RUN apt-get update
+RUN apt update
 
-# Develop with .NET 7 SDK on Ubuntu 22
+# Next, use the development image for building the application
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0-jammy AS build
 WORKDIR /src
-# pulling NuGet packages
+# Begin by restoring the NuGet packages
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
-# compile and build
+# Compile the application
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
-# finalize and prepare deployment
+# Publish the application from the build process
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Execute application
+# Final stage to prepare the runtime environment
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -118,29 +123,901 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
 
-### Ubuntu 22 - .NET 6 (LTS Version)
+### Setup for Ubuntu 22 with the Long-term Support Version .NET 6
 
 ```console
-# Base runtime for Ubuntu 22 with .NET 6
+# Establish the base runtime image for Ubuntu 22 with .NET
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM mcr.microsoft.com/dotnet/runtime:6.0-jammy AS base
 WORKDIR /app
-
-# Update lists
+# Update system and install required packages
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-RUN apt-get update
+RUN apt update
 
-# Development stage using .NET 6 SDK
+# Configure the development setup using SDK image
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0-jammy AS build
 WORKDIR /src
-# Restoring packages
+# Restore packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Build the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the final build to prepare for deployment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Prepare the final runtime environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Configuration for Ubuntu 20 with .NET 6 (LTS)
+
+```console
+# Start setup with the base image for Ubuntu 20, targeting .NET runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:6.0-focal AS base
+WORKDIR /app
+# Perform system updates
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Initiate the build with .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+WORKDIR /src
+# Restore the project's NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Proceed to build the app
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the build to prepare for deployment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final assembly for running the app
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Docker Configuration for Ubuntu 20 with .NET 5
+
+```console
+# Initialize with the basic runtime image for Ubuntu 20 and .NET
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
+WORKDIR /app
+# Update packages 
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Set up the development environment using .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
+WORKDIR /src
+# Restore NuGet packages needed by the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Build the application in the development environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the project from the building stage
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Prepare the production environment from the final base
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Setup for Ubuntu 20 Hosting .NET 3.1 LTS
+
+```console
+# Begin with the base runtime image for Ubuntu 20 containing .NET
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1-focal AS base
+WORKDIR /app
+# Conduct standard package updates
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Progress to the SDK setup for application build
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
+WORKROOM /src
+# Start by restoring any NuGet dependencies
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Build the app in this configuration
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKROOM "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the application for deployment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final step to set up the environment for the running application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKROOM /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Docker Configuration for Ubuntu 18 with .NET 3.1 LTS
+
+```console
+# Initiate with the primary runtime image for Ubuntu 18 with .NET
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1-bionic AS base
+WORKROOM /app
+# Execute necessary package updates
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Set the stage for development using .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic AS build
+WORKROOM /src
+# Begin restoration of required NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Proceed to build the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKROOM "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Conduct the final publishing of the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Establish the final application environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKROOM /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+<div class="main-content__small-images-inline">
+    <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker"> 
+    <img src="https://img.icons8.com/color/96/000000/ubuntu--v1.png" alt="Ubuntu">
+</div>
+
+### Setting up Ubuntu 22 with .NET 7 in Docker
+
+```console
+# Start with the .NET runtime base image for Ubuntu 22
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:7.0-jammy AS base
+WORKDIR /app
+
+# Update system packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Now, setup the development environment with .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0-jammy AS build
+WORKDIR /src
+
+# Copy the csproj file and restore the NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+
+# Copy all other files and build the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+
+# Publish the application to the build directory
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+
+# Final stage/base image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+This Dockerfile defines a multi-stage build process for a .NET Core application running on Ubuntu 22 with .NET 7, ensuring streamlined development and deployment workflows within Docker environments.
+```
+
+```console
+# Set up the base image using Ubuntu 22 with .NET runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:7.0-jammy AS base
+WORKDIR /app
+# Proceed to install required packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+
+RUN apt update
+
+# Establish the development environment using the .NET SDK on Ubuntu 22
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0-jammy AS build
+WORKDIR /src
+# Retrieve and restore NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compile the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Move to the publishing phase
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Finalize and set the runtime environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+```console
+# Starting with the base image (Ubuntu 22 featuring the .NET runtime)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:6.0-jammy AS base
+WORKDIR /app
+# Commencing package installations
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+
+RUN apt update
+
+# Initiating build from the development image (Ubuntu 22 paired with .NET SDK)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0-jammy AS build
+WORKDIR /src
+# Reinstating NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Proceeding with project build
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publishing the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final steps to run the app
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+This revised Dockerfile showcases how to set up a Docker container for an Ubuntu 22 environment, optimized with .NET 6 (LTS) for running a .NET application.
+
+```console
+# Primary runtime environment setup with .NET for Ubuntu 22
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:6.0-jammy AS base
+WORKDIR /app
+# Execute system updates
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Setting up the development environment with .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0-jammy AS build
+WORKDIR /src
+# Retrieve and reinstall all required NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compile the project from source
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Prepare the project for deployment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Prepare the final runtime environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Ubuntu 20 Using .NET 6 (Long-Term Support)
+
+```console
+# Base runtime image setup for Ubuntu 20 with the .NET runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:6.0-focal AS base
+WORKDIR /app
+# Perform system updates
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Setup base development image for Ubuntu 20 with .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+WORKDIR /src
+# Restore NuGet packages for the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compile the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+
+# Publish the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+
+# Final setup for runtime image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+```console
+# Set up base image with Ubuntu 20 and .NET runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:6.0-focal AS base
+WORKDIR /app
+# Execute necessary package updates
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Establish development environment using .NET SDK on Ubuntu 20
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+WORKDIR /src
+# Pull NuGet dependencies
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Build the application from source
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Move to publish stage
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Prepare the final runtime image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Configuring Ubuntu 20 with .NET 5
+
+```console
+# Initial base image for runtime (Ubuntu 20 with .NET runtime)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
+WORKDIR /app
+# Start by updating necessary packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Next, create the base image for development (Ubuntu 20 with .NET SDK)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
+WORKDIR /src
+# Restore any NuGet packages required
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Proceed to build the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Finally, run the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+```
+
+```console
+# Begin with setting up the basic runtime environment using Ubuntu 20 and .NET 5
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
+WORKDIR /app
+# First, update system packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Continue by setting up the development environment using the same OS and SDK versions
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
+WORKDIR /src
+# Grab and restore NuGet packages needed for the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Proceed to copy all necessary project files and build the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# From the building phase, move on to publishing
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Finally, set up execution environment, ready to run the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+This Dockerfile provides a step-by-step setup for deploying a .NET application on Ubuntu 20, from package updates through to application execution.
+
+### Ubuntu 20 Utilizing .NET 3.1 LTS
+
+```console
+# primary runtime environment (Ubuntu 20 with .NET runtime)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1-focal AS base
+WORKSPACE /app
+# begin package installation process
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+
+RUN apt update
+
+# initial development environment (Ubuntu 20 with .NET SDK)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
+WORKSPACE /src
+# start NuGet package restoration
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# proceed with the building phase
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKSPACE "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# initiate project publishing
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# configuration for application execution
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKSPACE /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+```
+
+Here's the paraphrased section of the article:
+
+```console
+# Initializing the base runtime image for Ubuntu 20 with .NET
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1-focal AS base
+WORKDIR /app
+# Begin package installation
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+
+RUN apt update  # Update package indices
+
+# Setting up the development environment using .NET SDK on Ubuntu 20
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
+WORKDIR /src
+# Retrieve and restore NuGet dependencies
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compiling the project from source
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publishing the compiled application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Deploying the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+This revised Dockerfile script represents the build and deployment process for an application targeting Ubuntu 20 with .NET 3.1, detailing each stage from the base image setup to the final run configuration.
+
+### Ubuntu 18 Using .NET 3.1 Long Term Support
+
+In this Docker setup for Ubuntu 18, we leverage the .NET 3.1 Long Term Support version to ensure stability and support.
+
+```console
+# initial runtime stage with Ubuntu 18 and .NET runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1-bionic AS base
+WORKDIR /app
+# perform system updates
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# start building the development image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic AS build
+WORKDIR /src
+# retrieving project dependencies
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# compile the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# prepare the release
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+
+# final stage setup
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+This Dockerfile segment outlines the process from setting up the base image equipped with the necessary .NET runtime, through building and publishing the application on Ubuntu 18 using .NET 3.1 LTS.
+```
+
+```console
+# Establish the base runtime environment with Ubuntu 18 and .NET
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1-bionic AS base
+WORKDIR /app
+# Update system packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Setup the development environment with .NET SDK on Ubuntu 18
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic AS build
+WORKDIR /src
+# Fetch and install NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compile the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Prepare the application for deployment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Set up the runtime environment and execute the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+## Debian-Compatible Docker Configuration for IronBarCode
+
+Here are the Docker setup instructions for systems running Debian 11, using different versions of the .NET framework. These guidelines are tailored for the IronBarCode integration.
+
+### Debian 11 with .NET 7
+
+```console
+# Preliminary setup with base runtime environment using Debian 11
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0-bullseye-slim AS base
+WORKDIR /app
+
+# Package installation process
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Development setup with Debian 11 .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim AS build
+WORKDIR /src
+# Restoring necessary NuGet packages
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -159,718 +1036,7 @@ RUN dotnet build "Example.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Final stage to run the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-### Older Ubuntu Versions with LTS .NET
-
-```console
-# Set up for older Ubuntu versions with respective .NET LTS versions
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-# Ubuntu 20 with .NET 6 LTS
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:6.0-focal AS base
-WORKDIR /app
-RUN apt-get update
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
-WORKDIR /src
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-
-# Repeat these steps for Ubuntu 20 with .NET 5 and .NET 3.1, and Ubuntu 18 with .NET 3.1, swapping out runtime and SDK versions as needed.
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-```
-
-Each Dockerfile here is tailored to accommodate the specific needs of each Ubuntu version while ensuring IronBarCode's functionality remains intact across different .NET environments.
-
-<div class="main-content__small-images-inline">
-    <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker"> 
-    <img src="https://img.icons8.com/color/96/000000/ubuntu--v1.png" alt="Ubuntu">
-</div>
-
-### Configuring Ubuntu 22 for .NET 7 Deployment
-
-```console
-# Establish the base image with Ubuntu 22 and .NET runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:7.0-jammy AS base
-WORKDIR /app
-# Update package lists
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Develop the software using the .NET SDK on Ubuntu 22
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:7.0-jammy AS build
-WORKDIR /src
-# Retrieve packages needed for the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the source code
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Package the application for release
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-
-# Prepare the final run environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-```
-
-```console
-# Establish the base runtime environment using Ubuntu 22 and .NET
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:7.0-jammy AS base
-WORKDIR /app
-# Begin with updating the package lists
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Set up the development environment for .NET on Ubuntu 22
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:7.0-jammy AS build
-WORKDIR /src
-# Retrieve and restore NuGet packages for the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Proceed to compile the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Prepare the project for publication
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Setup the final runtime image
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-```console
-# Base runtime image (Ubuntu 22 with .NET 6 LTS runtime)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:6.0-jammy AS runtime
-WORKDIR /app
-# Update packages list
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt-get update
-
-# Setup .NET SDK for development (Ubuntu 22 with .NET 6)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0-jammy AS development
-WORKDIR /src
-# Restoring NuGet packages using the project's .csproj file
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile and build the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM development AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Execute application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM runtime AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-```console
-# Establish the base runtime environment using Ubuntu 22 with .NET
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:6.0-jammy AS base
-WORKDIR /app
-# Execute package updates
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Create the base environment for app development using .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0-jammy AS build
-WORKDIR /src
-# Restore necessary NuGet packages for the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the project files
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the built project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Set the runtime environment and run the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-### Setting Up .NET 6 (LTS) on Ubuntu 20 Using Docker
-
-```console
-# Base image utilizing Ubuntu 20 and .NET runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:6.0-focal AS base
-WORKDIR /app
-# Perform package updates
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Development image setup with Ubuntu 20 and .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
-WORKDIR /src
-# Restore all NuGet packages needed for the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Prepare for publication
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Set up the runtime environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-```
-
-Below is the paraphrased section of the article with paths resolved to `ironsoftware.com`:
-
-```console
-# Starting with the base image running .NET on Ubuntu 20
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:6.0-focal AS base
-WORKDIR /app
-# Execute package updates
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-
-RUN apt update
-
-
-# Establishing the development environment with .NET SDK on Ubuntu 20
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
-WORKDIR /src
-# Rehydrate NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Proceed to compile the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Moving to the publication phase
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Setting up the final runtime image
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-This revised Docker configuration leverages Ubuntu 20 as its foundation, maintains the clarity and functionality of the original script, and emphasizes the step-by-step process for building and deploying the .NET application using Docker.
-
-Here's the paraphrased section of the article, with all relative URL paths and images resolved to `ironsoftware.com`:
-
-
-### Ubuntu 20 Using .NET 5 
-
-```console
-# starting with the runtime environment (Ubuntu 20 with .NET 5)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
-WORKDIR /app
-# updating package list
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-RUN apt update
-
-# moving on to the development environment setup
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
-WORKDIR /src
-# fetching all required NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# compiling the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# preparing for publishing
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# setting up the final runtime environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-```
-
-Here's the paraphrased section:
-
-```console
-# Starting with the base Ubuntu 20 image containing the .NET runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
-WORKDIR /app
-# Update package lists
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-RUN apt update
-
-# Setting up the development environment using the Ubuntu 20 .NET SDK image
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
-WORKDIR /src
-# Retrieve packages for the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Prepare the application for deployment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Set up the final runtime environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-### Ubuntu 20 Using .NET 3.1 Long-Term Support Version
-
-```console
-# Establish the base runtime environment using Ubuntu 20 and .NET runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:3.1-focal AS base
-WORKDIR /app
-
-# Update package lists
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Setting up the development environment by adding .NET SDK on Ubuntu 20
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
-WORKDIR /src
-
-# Restore NuGet packages from the .csproj file
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-
-# Transition to the Example project directory to start the build process
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-
-# Prepare for publishing the project by creating a separate publish environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-
-# Setup the final runtime image, copy over the published files and set the entry point for the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-```console
-# Initializing base runtime environment (Ubuntu 20 with .NET runtime)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:3.1-focal AS base
-WORKDIR /app
-# Start package installation process
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-RUN apt update
-
-# Setting up the development environment (Ubuntu 20 with .NET SDK)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
-WORKDIR /src
-# Retrieving and restoring NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Initiating project build
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Project publishing phase
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Final stage to run the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-### Configuration for Ubuntu 18 Using .NET Core 3.1 LTS
-
-```console
-# Use Ubuntu 18 with the .NET Core runtime as the base image
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:3.1-bionic AS base
-WORKDIR /app
-# Begin with updating packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Continue by setting up the SDK environment for development
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic AS build
-WORKDIR /src
-# Proceed with the restoration of NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the project files
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Prepare for deployment by publishing the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Final image setup for runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-This configuration effectively utilizes Docker to set up an environment suitable for running applications developed in .NET Core 3.1 LTS on Ubuntu 18, ensuring essential updates are applied and dependencies are managed cleanly.
-
-Below is the paraphrased section of the Docker configuration:
-
-```console
-# Start with the base runtime environment (Ubuntu 18 with .NET)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:3.1-bionic AS base
-WORKDIR /app
-# Update system packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Establish the development environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic AS build
-WORKDIR /src
-# Restore the NuGet packages required
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Build the .NET project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the project using .NET
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Setup the final running environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-This rewritten Dockerfile maintains the original structure while using varied terminology for descriptions and instructions, ensuring clarity and readability in deploying an application using Docker on Ubuntu 18 with .NET 3.1.
-
-## Docker Configuration for Debian with IronBarCode
-
-The following sections outline the Docker configurations for Debian systems, ensuring compatibility and ease of deployment for IronBarCode on different .NET versions.
-
-### Debian 11 with .NET 7
-
-```console
-# Using Debian 11 with the ASP.NET Core Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:7.0-bullseye-slim AS base
-WORKDIR /app
-# Update and install packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Set up the development image with .NET SDK for Debian 11
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim AS build
-WORKDIR /src
-# Restore packages from NuGet
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile and build the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Final stage to run the application
+# Final runtime setup
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -883,73 +1049,24 @@ ENTRYPOINT ["dotnet", "Example.dll"]
 ### Debian 11 with .NET 6 (LTS)
 
 ```console
-# Base runtime image setup for Debian 11 with ASP.NET Core Runtime
+# Setting up the runtime environment on Debian 11
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-bullseye-slim AS base
 WORKDIR /app
-# Package installation update
+
+# Begin package installation
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 RUN apt update
 
-# Development environment setup with .NET SDK for Debian 11
+# Setting up the build environment with .NET SDK
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim AS build
-WORKDIR /src
-# Restoring NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Building the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Application publishing stage
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Final setup to run the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-### Debian 11 with .NET 5
-
-```console
-# Initial runtime setup for Debian 11 with ASP.NET Core Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:5.0-bullseye-slim AS base
-WORKDIR /app
-# Update packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Configure development image with .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim AS build
 WORKDIR /src
 # NuGet package restoration
 
@@ -957,583 +1074,14 @@ WORKDIR /src
 
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
-# Compile and build the code
+# Application build process
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Prepare the final environment to run the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-### Debian 11 with .NET 3.1 LTS
-
-```console
-# Setting up the runtime image on Debian 11 with ASP.NET Core Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:3.1-bullseye-slim AS base
-WORKDIR /app
-# Install system updates
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Establish the development environment with the .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:3.1-bullseye-slim AS build
-WORKDIR /src
-# Restore packages via NuGet
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile and build the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Final step to run the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-Each Dockerfile example demonstrates a streamlined approach for configuring Docker environments tailored for IronBarCode functionality across various Debian releases and .NET versions.
-
-### Configuring .NET 7 on Debian 11
-
-```console
-# Initialize the base runtime environment using Debian 11 with ASP.NET Core Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:7.0-bullseye-slim AS base
-WORKDIR /app
-# Update packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Set up the development environment using Debian 11 with .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim AS build
-WORKDIR /src
-# Retrieve NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the project to the app directory
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Establish the final run stage
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-```
-
-```console
-# Establish the foundational runtime environment for Debian 11 with ASP.NET Core Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:7.0-bullseye-slim AS base
-WORKDIR /app
-# Initiate package installation
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-RUN apt update
-
-# Set up the development environment for Debian 11 using .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim AS build
-WORKDIR /src
-# Initiate the restoration of NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Commence the build process
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Initiate the publishing of the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Prepare the app for execution
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-```console
-# Start with the base runtime image for Debian 11 and ASP.NET Core
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-bullseye-slim AS base
-WORKDIR /app
-# Update system packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Proceed to create the development image for Debian 11 using the .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim AS build
-WORKDIR /src
-# Retrieve NuGet packages required for the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-
-# Prepare the publishing stage
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-
-# Define the final runtime image
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-```console
-# Define the base image with the ASP.NET Core Runtime for Debian 11
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-bullseye-slim AS base
-WORKDIR /app
-# Initiate package installation
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-RUN apt update
-
-
-# Set up a development image using the .NET SDK for Debian 11
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim AS build
-WORKDIR /src
-# Synchronize NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Prepare the application for deployment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Prepare the runtime environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-### Debian 11 Configuration Using .NET 5
-
-Below is a guide to creating a Docker container based on Debian 11 with the support of the .NET 5 runtime and SDK, allowing you to run a .NET application.
-
-```console
-# Starting with the base image for Debian 11 with the ASP.NET Core Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:5.0-bullseye-slim AS base
-WORKDIR /app
-# Update the repository's package listings
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Proceeding with the SDK setup necessary for .NET 5 development
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim AS build
-WORKDIR /src
-# Retrieving necessary NuGet packages for the 'Example' project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Proceed to compile the application from source
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publishing the built project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Setting up the runtime environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-This Dockerfile outlines the essential configuration steps to get a Debian 11 environment ready for developing and deploying applications using .NET 5, ensuring lightweight and efficacious deployment via Docker.
-
-```console
-# Set up the base image using Debian 11 with ASP.NET Core Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:5.0-bullseye-slim AS base
-WORKDIR /app
-# Initiate package updates
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-RUN apt update
-
-# Prepare the development environment using Debian 11 with .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim AS build
-WORKDIR /src
-# Restore NuGet packages necessary for the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the build to the publish directory
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Setup the final runtime image
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-Here is the paraphrased section:
-
-### Debian 11 Configuration for .NET 3.1 LTS
-
-```console
-# Primary runtime environment (Debian 11 with ASP.NET Core Runtime)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:3.1-bullseye-slim AS base
-WORKSPACE /app
-
-# Install updates and necessary packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Development environment setup (Debian 11 with .NET SDK)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:3.1-bullseye-slim AS build
-WORKSPACE /src
-
-# Retrieve and restore NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-
-# Build the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKSPACE "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-
-# Publish the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-
-# Final stage to prepare the app runtime environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKSPACE /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-This updated section aligns with the latest configurations and best practices for deploying applications using .NET 3.1 LTS on Debian 11.
-
-Here is the paraphrased version of the specified section:
-
-```console
-# Set up the base image using Debian 11 with ASP.NET Core Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/aspnet:3.1-bullseye-slim AS base
-WORKDIR /app
-# Perform system updates
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# Prepare the development environment with .NET SDK on Debian 11
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:3.1-bullseye-slim AS build
-WORKDIR /src
-# Retrieve project dependencies
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Compile the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Create the publishable build
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Set the final runtime environment
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-
-This version maintains the original process and command structure but rewords instructions and comments for clarity and variance.
-
-### Debian 10 with .NET 5 Framework
-
-```console
-# base runtime image (Debian 10 w/ .NET runtime)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:5.0 AS base
-WORKDIR /app
-# install necessary packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN apt update
-
-# base development image (Debian 10 w/ .NET SDK)
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
-# restore NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# build project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# publish project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# run the application
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
-This Dockerfile configures a Debian 10 environment to run a .NET 5 application, starting with a base image with the .NET Runtime. It updates the system and installs required packages, then uses a .NET SDK image for building and publishing the application, finalizing by setting up the runtime environment for deployment.
-```
-
-```console
-# Base runtime environment image using Debian 10 with .NET 5.0
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/runtime:5.0 AS base
-WORKDIR /app
-# Preparing environment by updating packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-
-
-RUN apt update
-
-
-# Development setup with .NET SDK on Debian 10
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
-# Importing and restoring necessary NuGet packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Initiating project build
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publishing the project from build environment
+# Application publishing
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -1549,56 +1097,98 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
 
-Here's the paraphrased section of the article:
-
-### Debian 10 and .NET 3.1 LTS Environment
-
-For running applications under Debian 10 with .NET 3.1 LTS, the set-up involves the following steps:
+### Debian 11 with .NET 5
 
 ```console
-# Start with the base ASP.NET Core Runtime on Debian 10
+# Base runtime environment setup on Debian 11
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-FROM mcr.microsoft.com/dotnet/runtime:3.1 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-bullseye-slim AS base
 WORKDIR /app
 
-# Update installed packages
+# Initiating package installation
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 RUN apt update
 
-# Continue by setting up the development environment
+# Development environment setup with .NET SDK
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim AS build
 WORKDIR /src
-
-# Bring in NuGet packages needed for the project
+# Restoring NuGet packages
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
-
-# Proceed with the build
+# Building the application
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
-
-# Get ready to publish the project
+# Publishing the application
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final stage of setup
 
-# Final preparation for runtime
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet, "Example.dll"]
+```
+
+### Debian 11 with .NET 3.1 LTS
+
+```console
+# Starting with the base runtime environment on Debian 11
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/aspnet:3.1-bullseye-slim AS base
+WORKDIR /app
+# Package installation initiation
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Development environment preparation with .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-bullseye-slim AS build
+WORKDIR /src
+# NuGet package restoration
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compiling the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publishing the built project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final run environment setup
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -1608,48 +1198,100 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
 
-This configuration ensures your application is bundled and deployed effectively in a Debian 10 environment with .NET 3.1 LTS.
+These configurations ensure that IronBarCode works seamlessly in Debian environments, leveraging Docker for virtualization and .NET for the runtime framework.
+
+### Setting Up Debian 11 with .NET 7 Using Docker
 
 ```console
-# define the foundational runtime environment using .NET 3.1 on Debian 10
+# Starting with the base image which includes ASP.NET Core Runtime on Debian 11
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-FROM mcr.microsoft.com/dotnet/runtime:3.1 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:7.0-bullseye-slim AS base
 WORKDIR /app
-# proceed with package installations
+# Conduct package updates
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
 
 RUN apt update
 
-# establish the development environment using .NET SDK on Debian 10
+# Transition to the build stage with .NET SDK for Debian 11
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim AS build
 WORKDIR /src
-# initiate package restoration
+# First, restore the NuGet packages required by the project
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
-# commence building the project
+# Next, copy over the source code and build it
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
-# prepare for project publication
+
+# Finally, publish the project
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# finalize and set up the running application
+
+# Set up the final runtime environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+This dockerfile segment details setting up an environment for running a .NET application on Debian 11, ensuring it's updated and uses the latest .NET 7 infrastructure. Brief comments explain each step for clarity, guiding the deployment with .NET SDK and ASP.NET runtime.
+
+```console
+# Setting the foundation with Debian 11 and ASP.NET Core Runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0-bullseye-slim AS base
+WORKDIR /app
+# Begin by updating required packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Transitioning to the development stage with Debian 11 and .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim AS build
+WORKDIR /src
+# Initiate restoration of NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Proceed with building the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publishing the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Setting up the runtime environment
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -1659,42 +1301,230 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
 
+### Debian 11 with Long-Term Support for .NET 6
+
 ```console
-# CentOS 7 base image
+# Select the Debian 11 base image tailored for ASP.NET Core Runtime
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-FROM centos:7 AS base
-# Adding Microsoft package repository
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-# Installing .NET Runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN yum install -y dotnet-runtime-7.0
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-bullseye-slim AS base
 WORKDIR /app
-
-# Setup build environment in CentOS 7
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM centos:7 AS build
-# Adding Microsoft package sources
+# Initiate package installations
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-# Installing .NET SDK
+RUN apt update
+
+# Establish the development environment with Debian 11's .NET SDK
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-RUN yum install -y dotnet-sdk-7.0
-
+FROM mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim AS build
 WORKDIR /src
-# Restore NuGet packages
+# Begin restoring the necessary NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Start the build process for the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Move to the publication stage of the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final stage, set up the runtime environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+```
+This revised section continues to detail the creation of a Docker container for running a .NET 6 application on Debian 11, emphasizing each significant step in streamlining the build and publish process.
+
+```console
+# Set up the basic runtime environment using Debian 11 with ASP.NET Core Runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-bullseye-slim AS base
+WORKDIR /app
+# Begin installing essential packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Establish the development environment using Debian 11 with .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0-bullseye-slim AS build
+WORKDIR /src
+# Start restoring NuGet packages required
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Now, proceed with building the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Move to publish the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Set up the app for running using the base image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Debian 11 Featuring .NET 5
+
+```console
+# base image for runtime (Debian 11 using ASP.NET Core Runtime)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-bullseye-slim AS base
+WORKDIR /app
+# update and install necessary packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# base image for development (Debian 11 using .NET SDK)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim AS build
+WORKDIR /src
+# restoring NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# building the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# publishing the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# setting up the runtime environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+```
+
+Here is the paraphrased section of the article:
+
+```console
+# Starting with the Debian 11 ASP.NET Core Runtime base image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-bullseye-slim AS base
+WORKDIR /app
+# Execute package update
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+
+RUN apt update
+
+# Establish the development environment with Debian 11 .NET SDK base image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0-bullseye-slim AS build
+WORKDIR /src
+# Restore the NuGet packages from the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Execute the build process
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the application to the 'publish' directory
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final setup for running the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Configuring Debian 11 for .NET Core 3.1 LTS Usage
+
+```console
+# Starting base image for runtime (Debian 11 with ASP.NET Core Runtime)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/aspnet:3.1-bullseye-slim AS base
+WORKDIR /app
+# Update packages and install new packages if necessary
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Starting base image for development (Debian 11 with .NET SDK)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-bullseye-slim AS build
+WORKDIR /src
+# Retrieve and install NuGet packages required by the project
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -1713,7 +1543,105 @@ RUN dotnet build "Example.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final stage to deploy the app
 
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+This Dockerfile segment outlines each step involved in setting up a Docker container for running applications developed with .NET Core 3.1 on a Debian 11 system. Each stage from the base system setup to compilation and final deployment is clearly defined to ensure the container is ready for deployment.
+
+```console
+# Basic runtime environment using Debian 11 and ASP.NET Core Runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/aspnet:3.1-bullseye-slim AS base
+WORKDIR /app
+# Update package lists
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Development environment setup with Debian 11 and .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1-bullseye-slim AS build
+WORKDIR /src
+# Bring in the NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compile the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the built application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Prepare the runtime environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### Debian 10 and .NET 5 Configuration
+
+```console
+# Starting with the .NET 5 runtime base image for Debian 10
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:5.0 AS base
+WORKDIR /app
+# Performing package updates
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Setting up the .NET 5 SDK for Debian 10
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /src
+# Restoring NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Building the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publishing the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
 # Setting up the final runtime environment
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
@@ -1725,52 +1653,44 @@ ENTRYPOINT ["dotnet", "Example.dll"]
 ```
 
 ```console
-# Establish the base runtime environment for CentOS 7
+# Initialize base image for runtime using Debian 10 with the .NET runtime
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-FROM centos:7 as base
-# Install required system packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-RUN yum install -y dotnet-runtime-7.0
+FROM mcr.microsoft.com/dotnet/runtime:5.0 AS base
 WORKDIR /app
-
-# Create a build environment based on CentOS 7
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM centos:7 as build
-# Inject necessary system packages
+# Ensure packages are up-to-date
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-RUN yum install -y dotnet-sdk-7.0
+RUN apt update
 
+# Setting up a development environment on Debian 10 with the .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-# Sync and restore NuGet packages
+# Retrieve NuGet packages
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
-# Compile the project files
+# Commence building the project
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Prepare the build for deployment
+# Proceed to publish the project
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Set up the application to run from the compiled build
+# Setup the final runtime environment and run the application
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -1780,88 +1700,140 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
 
-Here is the paraphrased version of the specified section from the article, with relative URL paths resolved:
-
-
-### Configuring CentOS 7 with .NET 6 (Long Term Support)
+### Debian 10 Using .NET Core 3.1 LTS
 
 ```console
-# Start with the base CentOS 7 runtime image
+# Start with the base image having .NET Runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1 AS base
+WORKDIR /app
+# Update the system
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Prepare the .NET SDK environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+# Restore the NuGet packages using the project file
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Copy all files and build the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the build output
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+
+# Setup the runtime image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+```console
+# Define the base image using Debian 10 with the .NET Runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/runtime:3.1 AS base
+WORKDIR /app
+# Begin with updating the packages in the base image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN apt update
+
+# Next, define the development environment using the .NET SDK for Debian 10
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+# Copy and restore NuGet packages for the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compile and build the project files
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the build output
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Set up the final runtime image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+# Specify the entry point for the deployed application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+### CentOS 7 Integration with .NET 7
+
+Utilize the robust features of CentOS 7 by configuring it with .NET 7 for your applications. Start by setting up the necessary Microsoft package repository:
+
+```console
+# Initial setup of base image (CentOS 7)
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM centos:7 as base
-# Add Microsoft package repository and install the .NET 6 runtime
+# Add Microsoft package repository
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-RUN yum install -y dotnet-runtime-6.0
+# Install .NET Runtime
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN yum install -y dotnet-runtime-7.0
 # Set the working directory
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 WORKDIR /app
-
-# Create the build environment using the same CentOS 7 image
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM centos:7 as build
-# Install necessary packages for .NET SDK
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-RUN yum install -y dotnet-sdk-6.0
-    
-# Set the source directory and restore the project dependencies
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-WORKDIR /src
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Copy over the source code and build the project
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the application to the app directory
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-
-# Prepare the final image, copy the published files to the app directory, and set the entrypoint
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
 ```
-```
+
+Next, configure the build environment by installing the .NET SDK, ensuring that your application can be compiled and built on CentOS 7:
 
 ```console
-# Initialize CentOS 7 base image for runtime
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-FROM centos:7 as base
-# Install required packages
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
-
-RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-RUN yum install -y dotnet-runtime-6.0
-WORKDIR /app
-
-# Set up CentOS 7 base image for SDK
+# Configuration for the build environment (CentOS 7)
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -1871,105 +1843,351 @@ FROM centos:7 as build
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+# Install .NET SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN yum install -y dotnet-sdk-7.0
+# Set the source directory
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+WORKDIR /src
+# Restore any NuGet packages required by your project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Copy your source code and build the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+```
+
+After building, publish your application, preparing it for deployment:
+
+```console
+# Publish the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+```
+
+Finally, prepare the runtime environment where your application will execute, ensuring all published files are correctly placed in the work directory:
+
+```console
+# Final stage for running the application (CentOS 7)
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+# Copy published files from previous stage
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY --from=publish /app/publish .
+# Set the entry point for the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+ENTRYPOINT ["dotnet", "Example.dll"]
+``` 
+
+This process fully integrates .NET 7 with CentOS 7, utilizing Docker for effective application deployment and management.
+
+Here's a paraphrased version of the Docker setup section for CentOS 7 with detailed annotations and explanations:
+
+```console
+# Start by defining the base runtime environment using CentOS 7
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM centos:7 as base
+# First, install the package repository from Microsoft
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+# Install the .NET Runtime version 7.0
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN yum install -y dotnet-runtime-7.0
+# Set the working directory for the runtime environment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+WORKDIR /app
+
+# Now, define the build environment, again using CentOS 7
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM centos:7 as build
+# Reinstall the Microsoft package repository necessary for the SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+# Install the .NET SDK version 7.0 to compile the code
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN yum install -y dotnet-sdk-7.0
+
+# Set the working directory for source code
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+WORKDIR /src
+# Copy the .NET project file into the image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+# Restore the NuGet packages needed for the project
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN dotnet restore "Example/Example.csproj"
+# Copy the complete source code into the image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+# Change to the project directory
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+WORKDIR "/src/Example"
+# Build the application in Release mode and output to the build folder
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Publish the project, preparing it for deployment
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+
+# Finally, prepare to run the application using the base image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+# Copy the published application from the previous stage into this image
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY --from=publish /app/publish .
+# Define the entry point for the container, which is the application executable
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+
+This rewritten section elaborates each step involved in preparing a Docker image for a .NET application on CentOS 7, aiming for clarity and understanding, particularly for developers possibly unfamiliar with Docker or .NET workflows in containerized environments.
+
+### CentOS 7 Featuring .NET 6 (Long-Term Support)
+
+```console
+# Starting point image for CentOS 7 
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM centos:7 as base
+# Installing necessary system packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+RUN yum install -y dotnet-runtime-6.0
+WORKDIR /app
+
+# Setting up the SDK environment for CentOS 7
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM centos:7 as build
+# Adding Microsoft package repository and installing SDK
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+RUN yum install -y dotnet-sdk-6.0
+    
+WORKDIR /src
+# Fetching NuGet package metadata for project restore
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY ["Example/Example.csproj", "Example/"]
+RUN dotnet restore "Example/Example.csproj"
+# Compiling the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY . .
+WORKDIR "/src/Example"
+RUN dotnet build "Example.csproj" -c Release -o /app/build
+# Creating a distributable version of the application
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM build AS publish
+RUN dotnet publish "Example.csproj" -c Release -o /app/publish
+# Final runtime environment setup
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Example.dll"]
+```
+```
+
+Here's the paraphrased section:
+
+```console
+# Initialize base image for CentOS 7
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM centos:7 as base
+# Begin installations of required packages
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+RUN yum install -y dotnet-runtime-6.0
+# Set the working directory to /app
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+WORKDIR /app
+
+# Create the build image on CentOS 7
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+FROM centos:7 as build
+# Execute necessary installation commands
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
 RUN yum install -y dotnet-sdk-6.0
 
-# Set the working directory and start package restoration
+# Define the source directory
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 WORKDIR /src
-# Retrieve NuGet packages
+# Start restoring NuGet packages for the application
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
-# Copy all project files and build the project
+# Process the build for the project
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Start the publishing phase
+# Setup the publish stage
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Set up the final stage to run the app
+# Configure the run stage using the base layer
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Example.dll"]
-```
+# Copy the published application from the build stage
 
-### CentOS 7 configuration for .NET Core 3.1 LTS
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+COPY --from=publish /app/publish .
+# Set the entry point for the container
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
+ENTRYPOINT ["dotnet", "Example.dll"]
+``` 
+
+This rewritten content remains true to the detailed steps for setting up a CentOS 7 environment with .NET, adjusted for clarity and flow.
 
 ```console
-# Base system image setup for CentOS 7
+# CentOS 7 base runtime image
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM centos:7 AS base
 
-# Install initial package setup
+# install required packages
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-RUN yum install sudo -y
+RUN yum install -y sudo
 RUN sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-RUN sudo yum install aspnetcore-runtime-3.1 -y
-
-# Prepare the application's working directory
-
-***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+RUN sudo yum install -y aspnetcore-runtime-3.1
 
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-# Setup the development environment using the CentOS 7 image
+# CentOS 7 SDK for building
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM centos:7 AS build
 
-# Necessary package installations for development
+# add necessary tools for building
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-RUN yum install sudo -y
+RUN yum install -y sudo
 RUN sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-RUN sudo yum install dotnet-sdk-3.1 -y
+RUN sudo yum install -y dotnet-sdk-3.1
     
-# Setting the work directory and restoring the needed NuGet packages
+WORKDIR /src
+# restore project dependencies
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
-WORKDIR /src
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
-
-# Build steps for your .NET project
+# compile the project
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
-
-# Creating the publish image from the build image
+# generate publishable output
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-
-# Final setup using the base image, running the application
+# final runnable image setup
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -1978,16 +2196,16 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
-```
+This section details the necessary Docker setup for deploying a .NET Core 3.1 LTS application using CentOS 7, including building and runtime configurations.
 
 ```console
-# Set up the base runtime environment using CentOS 7
+# Set the base runtime using CentOS 7
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM centos:7 AS base
 
-# Load necessary packages for the runtime
+# Install required system packages
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -1995,7 +2213,7 @@ RUN yum install sudo -y
 RUN sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
 RUN sudo yum install aspnetcore-runtime-3.1 -y
 
-# Configure working directory and open necessary ports
+# Specify working directory and expose necessary ports
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -2003,13 +2221,13 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-# Create the SDK image from CentOS 7 for development
+# Prepare the development environment on CentOS 7
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM centos:7 AS build
 
-# Install SDK and necessary development packages
+# Install prerequisites
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
@@ -2017,37 +2235,42 @@ RUN yum install sudo -y
 RUN sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
 RUN sudo yum install dotnet-sdk-3.1 -y
 
-# Set source directory for the build
+# Setup the source directory
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 WORKDIR /src
-# Start restoring NuGet packages required for the project
+# Retrieve and restore NuGet packages required for the project
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
-# Compile the project to check for errors
+# Compile the project with release configuration
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Proceed to publish the project after successful build
+# Publish the application
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Setting up the runtime environment, copy the published app and set entry point
+# Setup the runtime environment
 
 ***Based on <https://ironsoftware.com/how-to/docker-linux/>***
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+# Define the entry point for the Docker container
+
+***Based on <https://ironsoftware.com/how-to/docker-linux/>***
+
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
+This Docker configuration streamlines the deployment of a .NET application on CentOS 7, ensuring all necessary packages are installed and the application is ready to run on exposed standard web ports.
 

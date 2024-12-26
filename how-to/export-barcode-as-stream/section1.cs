@@ -1,10 +1,10 @@
 using System.IO;
 using BarCode;
-namespace ironbarcode.ExportBarcodeAsStream
+namespace IronBarcode.Examples.HowTo.ExportBarcodeAsStream
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create one-dimensional barcode
             GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("IronBarcode1234", BarcodeEncoding.Code128);

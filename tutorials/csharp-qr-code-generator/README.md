@@ -4,28 +4,28 @@
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-	<a href="https://ironsoftware.com/csharp/qr/">IronQR</a> is Iron Software's innovative .NET QR Code library that utilizes advanced machine learning techniques to accurately read QR codes from any orientation with 99.99% precision. Create and customize QR codes effortlessly! <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/">Start using IronQR</a> today!
+	<a href="https://ironsoftware.com/csharp/qr/">IronQR</a> introduces a revolutionary .NET library for QR code functionalities by Iron Software. Utilize advanced machine learning algorithms to accurately decode QR codes from various angles with a success rate of nearly 100%. Easily generate and tailor new QR codes according to your needs! <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/">Explore IronQR</a> today!
 </div>
 
-Creating, styling, and exporting barcodes as images using IronBarcode can often be accomplished in just a simple line of code, as demonstrated in our introductory tutorial on Creating a Barcode.
+If you're acquainted with the basics from the introductory tutorial on barcode creation, you'll know how straightforward it is to generate, style, and export barcodes as images using IronBarcode, often in a single line of code.
 
-This guide delves deeper into the increasingly popular QR codes, which are gaining traction in both industry and retail settings.
+This tutorial delves deeper into QR codes, which are gaining widespread use in several sectors including retail and industrial settings.
 
-## Install QR Code Generator
+## Install QR Code Generator Library in C#
 
-Before beginning, it's necessary to install the **BarCode** NuGet Package.
+First, we'll need to install the necessary library by retrieving the **BarCode** NuGet Package.
 
 ```shell
 Install-Package BarCode
 ```
 
-<a class="js-modal-open" href="https://www.nuget.org/packages/BarCode/" target="_blank" data-modal-id="trial-license-after-download">https://www.nuget.org/packages/BarCode/</a>
+[Discover the package on NuGet](https://www.nuget.org/packages/BarCode/)
 
-Alternatively, you can download the <a class="js-modal-open" href="https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip" data-modal-id="trial-license-after-download">IronBarCode.Dll</a> and include it in your project as a reference.
+Alternatively, you can [download the IronBarCode.Dll](https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip) directly and include it in your project as a reference from your [.NET Barcode DLL].
 
-### Importing NameSpaces
+### Importing Namespaces
 
-Make sure that your class files are referencing IronBarCode and the necessary system assemblies for this tutorial.
+Ensure your class files import IronBarCode alongside the usual system assemblies for this tutorial.
 
 ```cs
 using IronBarCode;
@@ -34,136 +34,131 @@ using System.Drawing;
 using System.Linq;
 ```
 
-## Generate a QR Code with a Single Line of Code
+<br>
 
-Our initial example demonstrates generating a basic barcode with straightforward text, a 500-pixel square size, and medium error correction.
+## Create a QR Code with 1 Line of Code
+
+This example shows how to generate a straightforward barcode containing text, measuring 500 pixels in diameter, with medium error correction for better real-world resilience.
 
 ```cs
 using IronBarCode;
-using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Create a simple QR code and save it as a PNG image
-            QRCodeWriter.CreateQrCode("hello world", 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).SaveAsPng("MyQR.png");
-        }
-    }
-}
+
+// Generate a simple QR barcode image and save it as a PNG file
+QRCodeWriter.CreateQrCode("hello world", 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).SaveAsPng("MyQR.png");
 ```
-
-Error correction dictates the readability of a QR code under normal conditions. Increasing the error correction level results in a larger, more complex QR code.
-
-<div class="content-img-align-center">
-	<img src="https://ironsoftware.com/img/tutorials/creating-qr-barcodes-in-dot-net/csharp-rendered-qrcode.png" alt="C# Create QR Code Image " class="img-responsive add-shadow img-margin" style="max-width:33%">
-</div>
 
 ## Adding a Logo
 
-The following example addresses a common scenario: incorporating a logo within a QR code. This is done effortlessly with the `QRCodeWriter.CreateQRCodeWithLogo` method as shown below.
-
-```cs
-using IronSoftware.Drawing;
-using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Enhancing the QR with a logo and style:
-            QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
-            GeneratedBarcode myQRCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
-            myQRCodeWithLogo.ResizeTo(500, 500).SetMargins(10).ChangeBarCodeColor(Color.DarkGreen);
-            
-            // Logo is automatically adjusted to fit within the QR grid
-            myQRCodeWithLogo.SaveAsPng("myQRWithLogo.png");
-        }
-    }
-}
-```
-
-This example features the Visual Studio logo within the barcode. The logo is automatically resized to fit while keeping the code readable, and then the barcode color is adjusted to dark green, but the logo remains unaffected.
-
-<div class="content-img-align-center">
-	<img src="https://ironsoftware.com/img/tutorials/creating-qr-barcodes-in-dot-net/qr-code-with-logo.png" alt="C# Create QR Code With Logo Image " class="img-responsive add-shadow img-margin" style="max-width:33%">
-</div>
-
-### Save as Image, PDF or HTML
-
-The generated QR code is then saved as a PDF and as an HTML file for direct access through your default PDF viewer.
+Many businesses now add logos to their QR codes. In the following example, see how simple it is to add a logo using the `QRCodeWriter.CreateQRCodeWithLogo` method.
 
 ```cs
 using IronBarCode;
-using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            // Apply style and branding:
-            QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
-            GeneratedBarcode myQRCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
-            
-            myQRCodeWithLogo.ChangeBarCodeColor(System.Drawing.Color.DarkGreen);
-            
-            // Export as PDF
-            myQRCodeWithLogo.SaveAsPdf("MyQRWithLogo.pdf");
-            
-            // Also save as HTML for web display
-            myQRCodeWithLogo.SaveAsHtmlFile("MyQRWithLogo.html");
-        }
-    }
-}
+using IronSoftware.Drawing;
+
+// Customize your QR code's appearance with color, logos, or branding elements:
+QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
+GeneratedBarcode myQRCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
+myQRCodeWithLogo.ResizeTo(500, 500).SetMargins(10).ChangeBarCodeColor(Color.DarkGreen);
+
+// Logo is automatically resized and aligned on the QR grid
+myQRCodeWithLogo.SaveAsPng("myQRWithLogo.png");
 ```
 
-## Validating QR Code Readability
+<div class="content-img-align-center">
+	<img src="https://ironsoftware.com/img/tutorials/creating-qr-barcodes-in-dot-net/qr-code-with-logo.png" alt="C# Create QR Code With Logo Image "  class="img-responsive add-shadow img-margin" style="max-width:33%"  >
+</div>
 
-Ensuring the QR code remains scannable despite aesthetic modifications is crucial. By using the `GeneratedBarcode.Verify()` method, we can evaluate whether the QR could still be effectively read.
+### Save as Image, PDF, or HTML
+
+Additionally, you can export your stylized QR code as PDF or HTML files, which can be viewed in your browser as shown in the final lines of this snippet.
 
 ```cs
+using IronBarCode;
+
+// Customization using colors and logo images continues:
+QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
+GeneratedBarcode myQRCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
+
+myQRCodeWithLogo.ChangeBarCodeColor(System.Drawing.Color.DarkGreen);
+
+// Save as PDF
+myQRCodeWithLogo.SaveAsPdf("MyQRWithLogo.pdf");
+
+// Save as HTML
+myQRCodeWithLogo.SaveAsHtmlFile("MyQRWithLogo.html");
+```
+
+## Verifying QR Codes
+
+Ensuring readability of stylized QR codes is essential. Here, we verify if a light blue QR code remains readable and adjust if necessary.
+
+```cs
+using IronBarCode;
+using IronSoftware.Drawing;
 using System;
-using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
+
+// Check QR Code readability
+QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
+GeneratedBarcode MyVerifiedQR = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
+
+MyVerifiedQR.ChangeBarCodeColor(System.Drawing.Color.LightBlue);
+
+if (!MyVerifiedQR.Verify())
 {
-    public class Section4
-    {
-        public void Run()
-        {
-            // QR Code verification
-            QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
-            GeneratedBarcode MyVerifiedQR = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
-            
-            MyVerifiedQR.ChangeBarCodeColor(System.Drawing.Color.LightBlue);
-            
-            if (!MyVerifiedQR.Verify())
-            {
-                Console.WriteLine("\t LightBlue is not dark enough to be read accurately. Let's try DarkBlue");
-                MyVerifiedQR.ChangeBarCodeColor(Color.DarkBlue);
-            }
-            MyVerifiedQR.SaveAsHtmlFile("MyVerifiedQR.html");
-            
-            // Open the barcode HTML file in your default web browser
-            System.Diagnostics.Process.Start("MyVerifiedQR.html");
-        }
-    }
+    Console.WriteLine("\t LightBlue is not dark enough to be read accurately. Let's try DarkBlue");
+    MyVerifiedQR.ChangeBarCodeColor(Color.DarkBlue);
+}
+MyVerifiedQR.SaveAsHtmlFile("MyVerifiedQR.html");
+
+// Open the barcode HTML file in your default web browser
+System.Diagnostics.Process.Start("MyVerifiedQR.html");
+```
+
+<div class="content-img-align-center">
+	<img src="https://ironsoftware.com/img/tutorials/creating-qr-barcodes-in-dot-net/verified-qr-code.png" alt="C# read and write QR"  class="img-responsive add-shadow img-margin" style="max-width:33%"  >
+</div>
+ 
+
+## Reading and Writing Binary Data
+
+QR codes excel at handling binary data, which is often more compact or suitable than text data. Here we demonstrate reading and writing binary content using IronBarcode.
+
+```cs
+using IronBarCode;
+using System;
+using System.Linq;
+
+// Handling binary data as QR content
+byte[] BinaryData = System.Text.Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/");
+
+// Write QR with binary data
+QRCodeWriter.CreateQrCode(BinaryData, 500).SaveAsImage("MyBinaryQR.png");
+
+// Read QR with binary content and verify accuracy
+var MyReturnedData = BarcodeReader.Read("MyBinaryQR.png").First();
+if (BinaryData.SequenceEqual(MyReturnedData.BinaryValue))
+{
+    Console.WriteLine("\t Binary Data Read and Written Perfectly");
+}
+else
+{
+    throw new Exception("Corrupted Data");
 }
 ```
 
 <div class="content-img-align-center">
-	<img src="https://ironsoftware.com/img/tutorials/creating-qr-barcodes-in-dot-net/verified-qr-code.png" alt="C# read and write QR" class="img-responsive add-shadow img-margin" style="max-width:33%">
+	<img src="https://ironsoftware.com/img/tutorials/creating-qr-barcodes-in-dot-net/binary-data-as-qr-code.png" alt="C# read and write binary data as a QR Code"  class="img-responsive add-shadow img-margin" style="max-width:33%"  >
 </div>
 
-## Handling Binary Data with QR Codes
+## Further Steps
 
-QR codes are adept at managing binary data, as they can be more space-efficient compared to text. This capability sets IronBarcode apart from many other barcode libraries, as illustrated below where we encode, write, and read binary data within a QR code.
+For a closer look at this tutorial or to explore more about QR codes in C#, consider forking our project on GitHub or downloading the source from our site.
 
-```cs
-using System.Linq;
-using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
-{
-    public defaultCenter
+### Source Code and More
+
+* [GitHub Repository](https://github.com/iron-software/Iron-Barcode-Generating-QR-Codes-In-CSharp-Tutorial)
+* [Downloadable Source Code](https://ironsoftware.com/downloads/assets/tutorials/creating-qr-barcodes-in-dot-net/Generating-QR-Codes-In-CSharp.zip)
+
+### Additional Documentation
+
+Discover detailed documentation on classes like `QRCodeWriter` and `BarcodeReader` in our comprehensive API Reference. Explore IronBarcode, a versatile [VB.NET Barcode Generator](https://ironsoftware.com/csharp/barcode/use-case/vb-net-barcode/), beyond what a single tutorial can cover.

@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using BarCode;
-namespace ironbarcode.ReadBarcodesFromMultiPageFrameTiffGif
+namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Import images
             List<AnyBitmap> images = new List<AnyBitmap>()

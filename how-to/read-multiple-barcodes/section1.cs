@@ -1,10 +1,10 @@
 using System;
 using BarCode;
-namespace ironbarcode.ReadMultipleBarcodes
+namespace IronBarcode.Examples.HowTo.ReadMultipleBarcodes
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Set the option to read multiple barcodes
             BarcodeReaderOptions options = new BarcodeReaderOptions()

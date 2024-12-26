@@ -1,10 +1,10 @@
 using System;
 using BarCode;
-namespace ironbarcode.ReadBarcodesFromMultiPageFrameTiffGif
+namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Configure filters
             ImageFilterCollection filters = new ImageFilterCollection()

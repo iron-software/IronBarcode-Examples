@@ -1,10 +1,10 @@
 using System.IO;
 using BarCode;
-namespace ironbarcode.ReadBarcodesFromStreams
+namespace IronBarcode.Examples.HowTo.ReadBarcodesFromStreams
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             List<MemoryStream> list = new List<MemoryStream>();
             list.Add(AnyBitmap.FromFile("image1.jpg").ToStream());

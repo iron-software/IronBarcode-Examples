@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using BarCode;
-namespace ironbarcode.Quickstart
+namespace IronBarcode.Examples.Overview.Quickstart
 {
-    public class Section9
+    public static class Section9
     {
-        public void Run()
+        public static void Run()
         {
             QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
             GeneratedBarcode myQRCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", qrCodeLogo);

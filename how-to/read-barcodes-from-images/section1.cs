@@ -1,10 +1,10 @@
 using System;
 using BarCode;
-namespace ironbarcode.ReadBarcodesFromImages
+namespace IronBarcode.Examples.HowTo.ReadBarcodesFromImages
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             var myBarcode = BarcodeReader.Read(@"image_file_path.jpg"); //image file path
             

@@ -1,9 +1,9 @@
 using BarCode;
-namespace ironbarcode.CreateBarcodeFromData
+namespace IronBarcode.Examples.HowTo.CreateBarcodeFromData
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             ﻿using IronBarCode;
             

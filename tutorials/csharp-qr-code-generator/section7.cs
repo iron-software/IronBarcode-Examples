@@ -1,25 +1,12 @@
 using System.Linq;
 using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
+namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
 {
-    public class Section7
+    public static class Section7
     {
-        public void Run()
+        public static void Run()
         {
-            BarcodeReaderOptions options = new BarcodeReaderOptions
-            {
-                Speed = ReadingSpeed.Faster,
-                ExpectMultipleBarcodes = false,
-                ExpectBarcodeTypes = BarcodeEncoding.All,
-                Multithreaded = false,
-                MaxParallelThreads = 0,
-                CropArea = null,
-                UseCode39ExtendedMode = false,
-                RemoveFalsePositive = false,
-                ImageFilters = null
-            };
-            
-            BarcodeResults result = BarcodeReader.Read("QR.png", options);
+            BarcodeResults result = BarcodeReader.Read("QR.png", new BarcodeReaderOptions() { ExpectBarcodeTypes = BarcodeEncoding.QRCode });
             if (result != null)
             {
                 Console.WriteLine(result.First().Value);

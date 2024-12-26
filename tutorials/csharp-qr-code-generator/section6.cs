@@ -1,15 +1,26 @@
 using System.Linq;
 using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
+namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
-            BarcodeResults result = BarcodeReader.Read("QR.png", new BarcodeReaderOptions() { ExpectBarcodeTypes = BarcodeEncoding.QRCode });
-            if (result != null)
+            // Create Some Binary Data - This example equally well for Byte[] and System.IO.Stream
+            byte[] BinaryData = System.Text.Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/");
+            
+            // WRITE QR with Binary Content
+            QRCodeWriter.CreateQrCode(BinaryData, 500).SaveAsImage("MyBinaryQR.png");
+            
+            // READ QR with Binary Content
+            var MyReturnedData = BarcodeReader.Read("MyBinaryQR.png").First();
+            if (BinaryData.SequenceEqual(MyReturnedData.BinaryValue))
             {
-                Console.WriteLine(result.First().Value);
+                Console.WriteLine("\t Binary Data Read and Written Perfectly");
+            }
+            else
+            {
+                throw new Exception("Corrupted Data");
             }
         }
     }

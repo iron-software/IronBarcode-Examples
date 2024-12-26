@@ -1,82 +1,59 @@
-# How to Convert Barcodes to HTML Formats
+# Exporting Barcodes in HTML Format with IronBarcode
 
 ***Based on <https://ironsoftware.com/how-to/create-barcode-as-html/>***
 
 
-***
+---
 
-IronBarcode excels at offering multiple export options for its `GeneratedBarcode` object, ensuring it fits seamlessly into various applications without necessarily saving to disk. One of the notable capabilities is converting barcodes to HTML, which includes formats like **Data URL**, **HTML Tag**, and **HTML File**. Let’s explore each method.
+## Introduction to IronBarcode
 
-## Convert Barcode to Data URL
+A top-tier API should offer enough flexibility for developers to integrate its outputs directly into their applications without necessitating file storage. IronBarcode excels in this by providing various methods for exporting a `GeneratedBarcode`, including converting these barcodes into HTML format.
 
-A data URL, or data URI, embeds data directly into a URL string, acting like external resources within web pages. This could include various data formats such as text, and even images. Below is how you can convert a `GeneratedBarcode` into a **Data URL** using IronBarcode.
+Let's delve into the options available for converting a `GeneratedBarcode` into HTML, which include Data URL, HTML Tag, and HTML File formats, and explore each option in detail.
 
-```cs
-using System;
-using BarCode;
+## Generating a Data URL from a Barcode
 
-namespace ironbarcode.CreateBarcodeAsHtml
-{
-    class ExampleDataUrl
-    {
-        public void Execute()
-        {
-            // Create a QR Code barcode
-            GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
-            string dataUrl = barcode.ToDataUrl();
-            Console.WriteLine(dataUrl);  // Print out the data URL
-        }
-    }
-}
-```
-
-This snippet begins by creating a QR Code using `CreateBarcode()`, specifying the type via `BarcodeEncoding`. The `ToDataUrl()` method then converts this barcode into a data URL, which can be easily embedded into web pages or used further in applications.
-
-## Convert Barcodes to HTML Tag
-
-Exporting a `GeneratedBarcode` as an HTML tag is straightforward with the `ToHtmlTag()` method. This generates a self-contained HTML image element, requiring no external scripts or dependencies.
-
-```cs
-using System;
-using BarCode;
-
-namespace ironbarcode.CreateBarcodeAsHtml
-{
-    class ExampleHtmlTag
-    {
-        public void Execute()
-        {
-            GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
-            string htmlTag = barcode.ToHtmlTag();  // Generate HTML image tag
-            Console.WriteLine(htmlTag);  // Output the HTML tag
-        }
-    }
-}
-```
-
-In this example, the `ToHtmlTag()` method extends the `GeneratedBarcode`, crafting an HTML tag that embeds the barcode directly into HTML content using a data URL.
-
-## Save Barcode as HTML File
-
-Alternatively, IronBarcode allows saving the `GeneratedBarcode` directly as an HTML file using `SaveAsHtmlFile()` method.
+A Data URL, also known as a data URI, serves as a Uniform Resource Identifier that embeds data directly into a URL string. This data can be anything from text and images to audio and video formats. These URLs can be seamlessly integrated into web pages, appearing as external resources. Below, you'll find an example of how to transform a `GeneratedBarcode` into a Data URL.
 
 ```cs
 using IronBarCode;
-using BarCode;
+using System;
 
-namespace ironbarcode.CreateBarcodeAsHtml
-{
-    class ExampleHtmlFile
-    {
-        public void Execute()
-        {
-            GeneratedBarcode barcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
-            barcode.SaveAsHtmlFile("myBarcode.html");  // Save the barcode as an HTML file
-        }
-    }
-}
+GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
+var dataUrl = myBarcode.ToDataUrl();
+Console.WriteLine(dataUrl);
 ```
 
-This method saves the barcode inside a fully structured HTML file, including the necessary HTML structure tags like `<html>`, `<head>`, and `<body>`. It's a convenient option if you need to distribute or display the barcode as a standalone HTML page.
+In the code above, we begin by generating a barcode using `BarcodeWriter.CreateBarcode()`, which requires a barcode value and the desired barcode encoding. Then, by attaching `ToDataUrl()` to the `GeneratedBarcode`, we retrieve the Data URL, which can either be used directly within HTML or viewed using `Console.WriteLine()`. 
 
-IronBarcode's versatility in exporting barcodes as HTML formats is designed to enhance utility in web applications, providing developers with robust options for integrating barcodes into different digital environments.
+## Converting Barcodes to HTML Tags
+
+To directly inject a barcode into an HTML document, you may use the `ToHtmlTag()` method, which outputs the `GeneratedBarcode` as a complete HTML image tag, free from any dependencies such as JavaScript, CSS, or external image files. The following code sample demonstrates this process:
+
+```cs
+using IronBarCode;
+using System;
+
+GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
+var htmlTag = myBarcode.ToHtmlTag();
+Console.WriteLine(htmlTag);
+```
+
+By invoking `ToHtmlTag()` on a `GeneratedBarcode`, the barcode is turned into an HTML tag, which includes src attributes pointing at the Data URL and specifies the image size. This tag can be directly embedded in larger HTML documents.
+
+## Saving a Barcode as an HTML File
+
+For those preferring to work with files, `GeneratedBarcode` can also be saved as an HTML file using the `SaveAsHtmlFile()` method. This is shown in the code snippet below:
+
+```cs
+using IronBarCode;
+
+GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
+myBarcode.SaveAsHtmlFile("myBarcode.html");
+```
+
+This method requires a pathname as an argument and saves the file to disk. The resulting HTML file encapsulates the barcode within HTML, HEAD, and BODY tags constructing a complete HTML document.
+
+## Conclusion
+
+IronBarcode provides versatility and robust options for using `GeneratedBarcode` in HTML formats, making it valuable for developers who integrate barcode functionalities into web pages and web applications. Each method discussed provides a straightforward solution for handling barcodes in different scenarios, maximizing flexibility and efficiency in development environments.

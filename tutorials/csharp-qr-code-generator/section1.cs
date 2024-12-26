@@ -1,13 +1,12 @@
-using IronBarCode;
+using System.Linq;
 using BarCode;
-namespace ironbarcode.CsharpQrCodeGenerator
+namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
-            // Generate a Simple BarCode image and save as PDF
-            QRCodeWriter.CreateQrCode("hello world", 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).SaveAsPng("MyQR.png");
+            
         }
     }
 }

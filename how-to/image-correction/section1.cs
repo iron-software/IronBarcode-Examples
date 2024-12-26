@@ -1,10 +1,10 @@
 using System;
 using BarCode;
-namespace ironbarcode.ImageCorrection
+namespace IronBarcode.Examples.HowTo.ImageCorrection
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             BarcodeReaderOptions options = new BarcodeReaderOptions()
             {
@@ -18,9 +18,6 @@ namespace ironbarcode.ImageCorrection
             
             // Apply options and read the barcode
             BarcodeResults results = BarcodeReader.Read("sample.png", options);
-            
-            // Export file to disk
-            results.ExportFilterImagesToDisk("filteredSample.png");
             
             // Write the result value to console
             foreach (BarcodeResult result in results)

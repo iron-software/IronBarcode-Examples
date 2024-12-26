@@ -1,3 +1,3 @@
 ***Based on <https://ironsoftware.com/examples/imperfect-barcode-with-image-correction/>***
 
-IronBarcode offers a variety of filters that can be effortlessly integrated using the `BarcodeReaderOptions`. Opt for filters like Sharpen, Invert (colors), and Contrast to enhance the readability of your barcode images. Remember, the sequence in which you select these filters determines the order of their application.
+IronBarcode provides a variety of filters that can be effortlessly integrated using the `BarcodeReaderOptions`. Choose filters like Sharpen, Invert (colors), and Contrast to enhance the readability of your barcode image. Remember, the sequence in which you apply these filters is crucial, as they are implemented in the same order.

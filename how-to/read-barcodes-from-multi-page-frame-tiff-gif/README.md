@@ -1,128 +1,117 @@
-# How to Read Barcodes from Multi-Page/Frame GIF and TIFF Files
+# Reading Barcodes from Multi-Page/Frame GIF and TIFF Files
 
 ***Based on <https://ironsoftware.com/how-to/read-barcodes-from-multi-page-frame-tiff-gif/>***
 
 
-IronBarcode offers comprehensive support for various image formats, including **multi-page and multi-frame GIF and TIFF** images. This feature allows users to process these images directly without needing to separately handle each frame or page. Below, we delve into using IronBarcode to extract barcode data from these file types.
+IronBarcode offers comprehensive support for various image formats, notably including **multi-page and multi-frame GIF and TIFF** files. This capability simplifies the process for developers, eliminating the need to manually segment the frames or pages of these image types. Let’s delve into the methodology for leveraging IronBarcode to decode barcodes from these file formats.
 
-## Extracting Barcodes from Multi-Frame GIF and TIFF Images
+### Initializing IronBarcode
 
-IronBarcode facilitates the extraction of barcodes from multi-frame GIF and TIFF images as seamlessly as from single-frame images, due to its inherent capability to handle multi-page files via the `BarcodeReader.Read` method without requiring any preliminary image manipulation. Below is a code excerpt illustrating the reading of barcodes from multi-page GIF and TIFF images:
+------------------
+
+## Decoding Multiframe GIF and TIFF Images
+
+IronBarcode simplifies the process of decoding barcodes from multiframe GIF and TIFF images, parallel to handling a single image file. The library seamlessly ingests multipage image files through the `BarcodeReader.Read` method, sparing the user from any preliminary image handling tasks.
+
+The following example illustrates how to decode barcodes from multipage GIF and TIFF files:
 
 ```cs
+using IronBarCode;
 using System;
-using BarCode;
-namespace ironbarcode.ReadBarcodesFromMultiPageFrameTiffGif
+
+// Decode barcodes from a multi-page TIFF image
+BarcodeResults barcodes = BarcodeReader.Read("sample-multi.tif");
+
+// Display the decoded barcode values
+foreach (var barcode in barcodes)
 {
-    public class Section1
-    {
-        public void Run()
-        {
-            // Decode barcode from a TIFF image
-            BarcodeResults results = BarcodeReader.Read("sample.tif");
-            
-            // Print each decoded barcode value to the console
-            foreach (var result in results)
-            {
-                Console.WriteLine(result.Value);
-            }
-        }
-    }
+    Console.WriteLine(barcode.Value);
 }
 ```
 
 <hr>
 
-## Converting Images to GIF and TIFF
+## Generating Multi-Page GIF and TIFF Images
 
-Discover how to create multi-page TIFF and GIF images using the [IronDrawing library](https://ironsoftware.com/open-source/csharp/drawing/docs/). The following code example demonstrates generating a multi-page GIF or TIFF:
+Discover how you can create multi-page TIFF and GIF images using the versatile, open-source library, [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/). Below is a code snippet demonstrating the creation of multipage images:
 
 ```cs
+using IronBarCode;
+using IronSoftware.Drawing;
 using System.Collections.Generic;
-using BarCode;
-namespace ironbarcode.ReadBarcodesFromMultiPageFrameTiffGif
+
+// Load multiple images
+List<AnyBitmap> images = new List<AnyBitmap>()
 {
-    public class Section2
-    {
-        public void Run()
-        {
-            // Load images into a list
-            List<AnyBitmap> images = new List<AnyBitmap>()
-            {
-                AnyBitmap.FromFile("image1.png"),
-                AnyBitmap.FromFile("image2.png"),
-                AnyBitmap.FromFile("image3.png"),
-                AnyBitmap.FromFile("image4.jpg"),
-                AnyBitmap.FromFile("image5.jpg")
-            };
-            
-            // Create and save a multi-frame TIFF
-            AnyBitmap tiffImage = AnyBitmap.CreateMultiFrameTiff(images);
-            tiffImage.SaveAs("multiframetiff.tiff");
-            
-            // Create and save a multi-frame GIF
-            AnyBitmap gifImage = AnyBitmap.CreateMultiFrameGif(images);
-            gifImage.SaveAs("multiframegif1.gif");
-        }
-    }
-}
+    AnyBitmap.FromFile("image1.png"),
+    AnyBitmap.FromFile("image2.png"),
+    AnyBitmap.FromFile("image3.png"),
+    AnyBitmap.FromFile("image4.jpg"),
+    AnyBitmap.FromFile("image5.jpg")
+};
+
+// Generate a multi-frame TIFF
+AnyBitmap tiff = AnyBitmap.CreateMultiFrameTiff(images);
+
+// Save the TIFF
+tiff.SaveAs("compiled.tiff");
+
+// Generate a multi-frame GIF
+AnyBitmap gif = AnyBitmap.CreateMultiFrameGif(images);
+
+// Save the GIF
+gif.SaveAs("compiled.gif");
 ```
 
-From the provided example, images are first aggregated into a `List<AnyBitmap>` which is then utilized to generate multipage TIFF and GIF files via the `AnyBitmap.CreateMultiFrameTiff` and `AnyBitmap.CreateMultiFrameGif` methods respectively.
+In the code above, various image files are firstly consolidated into a single `AnyBitmap` collection. This collection is subsequently utilized to generate multi-page TIFF and GIF files through the `AnyBitmap.CreateMultiFrameTiff` and `AnyBitmap.CreateMultiFrameGif` methods.
 
-While both formats allow for grouping multiple images into a single file, they differ significantly in several aspects:
+While both multi-page GIF and TIFF facilitate the compilation of multiple images into a single file, they differ in properties such as compression, color depth, transparency, and animation capabilities:
 
-| Aspect           | Multipage GIF                                           | Multipage TIFF                                                                    |
-|------------------|---------------------------------------------------------|-----------------------------------------------------------------------------------|
-| Compression      | Utilizes lossless compression, leading to larger files. | Supports both lossless and lossy compression methods, offering flexibility.        |
-| Color Depth      | Limited to 256 colors, resulting in potential detail loss in rich images. | Supports multiple color depths, enhancing detail preservation. |
-| Transparency     | Offers binary transparency; only one color can be transparent. | Supports comprehensive transparency options, including alpha channels for smooth transitions. |
-| Animation        | Enables simple animations by sequencing frames.         | Not typically used for animations; focuses on storing individual images.           |
+| Aspect | Multipage GIF | Multipage TIFF |
+|---|---|---|
+| Compression | Utilizes lossless compression, storing more data and resulting in larger files. | Employs multiple compression types, balancing image quality with file size. |
+| Color Depth | Supports up to 256 colors, which may degrade detail in some images. | Can handle extensive color depths, preserving detailed color information. |
+| Transparency | Offers basic binary transparency, potentially leading to rough edges in images with smooth transitions. | Provides advanced transparency features, including alpha channel transparency for higher quality. |
+| Animation | Enables basic animations by stitching together multiple frames. | More suitable for static images rather than animations, lacking inherent animation support. |
 
 <hr>
 
-## Advanced Barcode Reading Techniques
+## Advanced Barcode Decoding Techniques
 
-While IronBarcode generally performs exceptionally without additional configuration, optimizing the `BarcodeReaderOptions` class can enhance both speed and accuracy. More details on this class are available in the [How to Read Barcodes from Image Files](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/#advance-barcode-read-from-image) article.
+While IronBarcode is highly efficient out-of-the-box, certain images might benefit from fine-tuning using the `BarcodeReaderOptions` class. More details on this can be found in the '[How to read Barcodes from Image Files](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/#advance-barcode-read-from-image)' guide.
 
-Here's an example showcasing the tweaking of reader settings for improved barcode recognition:
+Consider the following example which applies specific configurations to enhance barcode reading accuracy and speed:
 
 ```cs
+using IronBarCode;
 using System;
-using BarCode;
-namespace ironbarcode.ReadBarcodesFromMultiPageFrameTiffGif
+
+// Apply image enhancement filters
+ImageFilterCollection filters = new ImageFilterCollection()
 {
-    public class Section3
-    {
-        public void Run()
-        {
-            // Define image enhancement filters
-            ImageFilterCollection filters = new ImageFilterCollection()
-            {
-                new SharpenFilter(3.5f),
-                new ContrastFilter(2)
-            };
-            
-            // Set up reader options
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
-            {
-                ExpectBarcodeTypes = IronBarCode.BarcodeEncoding.QRCode,
-                ImageFilters = filters,
-                ExpectMultipleBarcodes = true,
-                Speed = ReadingSpeed.Balanced
-            };
-            
-            // Read barcode with customized settings
-            BarcodeResults results = BarcodeReader.Read("sample.tif", options);
-            
-            // Display each barcode found
-            foreach (var result in results)
-            {
-                Console.WriteLine(result.Value);
-            }
-        }
-    }
+    new SharpenFilter(3.5f),  // Sharpens the image
+    new ContrastFilter(2)     // Increases the contrast
+};
+
+// Set barcode reading options
+BarcodeReaderOptions options = new BarcodeReaderOptions()
+{
+    ExpectBarcodeTypes = IronBarCode.BarcodeEncoding.QRCode,
+    ImageFilters = filters,
+    ExpectMultipleBarcodes = true,
+    Speed = ReadingSpeed.Balanced
+};
+
+// Decode barcode from a TIFF image using the specified options
+BarcodeResults scannedBarcodes = BarcodeReader.Read("enhanced-sample.tif", options);
+
+// Display the barcode values
+foreach (var barcode in scannedBarcodes)
+{
+    Console.WriteLine(barcode.Value);
 }
 ```
 
-In the above code, specific filters like `SharpenFilter` and `ContrastFilter` are used to enhance image quality, which is crucial for barcode detection and accuracy. Moreover, users are encouraged to use the `BarcodeReaderOptions` for scanning multiple barcodes, balancing reading speed and accuracy, and enhancing performance by pre-selecting expected barcode types. Settings these options, although not mandatory for all use cases, significantly bolster the capabilities of IronBarcode when processing multipage GIF and TIFF image files.
+In this code snippet, image correction filters such as `SharpenFilter` and `ContrastFilter` are employed to optimize the image clarity before barcode detection. This is beneficial for blurry or low-contrast images. More information on the usage of image correction filters can be found in '[How to use Image Correction Filters](https://ironsoftware.com/csharp/barcode/how-to/image-correction/)'.
+
+Although customizing `BarcodeReaderOptions` is optional, it is crucial for maximizing the efficacy of IronBarcode in decoding barcodes from complicated multipage GIF and TIFF files.

@@ -1,10 +1,10 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.SetCropRegion
+namespace IronBarcode.Examples.HowTo.SetCropRegion
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             int x1 = 62;
             int y1 = 29;

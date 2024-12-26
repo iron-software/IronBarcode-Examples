@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using BarCode;
-namespace ironbarcode.ReadBarcodesFromPdf
+namespace IronBarcode.Examples.HowTo.ReadBarcodesFromPdf
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             List<String> docs = new List<String>();
             docs.Add(@"pdf_a.pdf");

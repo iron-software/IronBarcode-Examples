@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using BarCode;
-namespace ironbarcode.CsharpBarcodeImageGenerator
+namespace IronBarcode.Examples.Tutorial.CsharpBarcodeImageGenerator
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Styling a QR code and adding annotation text
             GeneratedBarcode myBarCode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode", BarcodeWriterEncoding.QRCode);

@@ -3,118 +3,109 @@
 ***Based on <https://ironsoftware.com/how-to/read-barcodes-from-pdf/>***
 
 
-## Extracting Barcodes from PDF Files Using C#
+## Extracting Barcode Data from PDFs in C#
 
-1. Begin by adding the necessary barcode library to handle PDF files.
-2. Initialize `PdfBarcodeReaderOptions` to customize the barcode reading process.
-3. Utilize the `BarcodeReader.ReadPdf` method to extract barcodes from PDFs.
-4. Apply specific barcode reading configurations via `BarcodeReaderOption`.
-5. Retrieve and utilize the barcode information extracted.
+1. Get started by adding the barcode processing library to your project.
+2. Create an instance of `PdfBarcodeReaderOptions` if necessary.
+3. Utilize the `ReadPdf` function from `BarcodeReader` to extract barcodes from PDF files.
+4. Configure additional settings through the `BarcodeReaderOption`.
+5. Retrieve and use barcode data from the PDF.
 
 ***
 
-## Direct Barcode Extraction from PDF Documents
+## Direct Barcode Reading from PDF Documents
 
-IronBarcode is not only proficient in reading barcodes from images but is also equipped to directly extract barcodes from PDF files. This feature eliminates the need to convert PDF files into images beforehand, streamlining the process. The `BarcodeReader.ReadPdf()` method is specifically designed for PDFs and accepts various types of PDF document inputs, including:
+IronBarcode excels not only in reading barcodes from images but also directly from PDF files. This capability eliminates the need to convert PDFs into images before barcode extraction. Working with PDFs involves a different approach due to their complex format. This is handled by the `BarcodeReader.ReadPdf()` method, which supports several input types:
 
-- **byte [] array**: Directly as a byte array.
-- **IEnumerable<Byte []>**: As collections of byte arrays.
-- **MemoryStream**: Using the MemoryStream data type.
-- **IEnumerable<Stream>**: As collections of MemoryStream objects.
-- **String**: Through a direct path string of the PDF document.
-- **IEnumerable<String>**: As collections of path/name strings.
+- **byte [] array**: Direct byte array representation of a PDF.
+- **IEnumerable<Byte []>**: A collection of PDFs as byte arrays.
+- **MemoryStream**: A PDF in MemoryStream form.
+- **IEnumerable<Stream>**: A collection of MemoryStreams holding PDF data.
+- **String**: The path or name string of the PDF file if it is included within the project.
+- **IEnumerable<String>**: A list of PDF document path or names.
 
-Additionally, the `BarcodeReader.ReadPdf()` method can utilize `PdfBarcodeReaderOptions` for enhanced reading capabilities, which will be further discussed below. Below is a demonstration of how to use the `BarcodeReader.ReadPdf()` method to efficiently read barcodes from PDF documents.
+In addition to the above inputs, `BarcodeReader.ReadPdf()` can be configured with `PdfBarcodeReaderOptions` for enhanced reading capabilities. See the following C# example demonstrating how to use the `ReadPdf` method:
 
 ```cs
+using IronBarCode;
+using System;
 using System.Collections.Generic;
-using BarCode;
-namespace ironbarcode.ReadBarcodesFromPdf
-{
-    public class SampleBarcodeExtraction
-    {
-        public void Run()
-        {
-            var documentPaths = new List<String> { @"pdf_a.pdf", @"pdf_b.pdf" };
-            var extractedBarcodes = BarcodeReader.ReadPdf(documentPaths);
 
-            foreach (var barcode in extractedBarcodes)
-            {
-                Console.WriteLine(barcode.ToString());
-            }
-        }
-    }
+List<String> documentPaths = new List<String> { "pdf_a.pdf", "pdf_b.pdf" };
+
+var results = BarcodeReader.ReadPdf(documentPaths);
+
+foreach (var barcode in results)
+{
+    Console.WriteLine(barcode.ToString());
 }
 ```
 
-In the above example, PDF document paths are fed into the `BarcodeReader.ReadPdf()` method to extract barcode information efficiently. The results are stored in a variable, and a `foreach` loop is then used to print each barcode value to the console.
+From the example, you can see that adding the path strings of the PDF documents directly to the `ReadPdf` method allows the extraction of barcode values, which can then be printed easily using a `foreach` loop with the `ToString()` method.
 
-## Configuring PDF Barcode Reader Settings
+Should there be any reading issues or performance concerns, employing `PdfBarcodeReaderOptions` can optimize the reading process regarding quality, accuracy, and performance.
 
-Similar to image barcode extraction, PDF barcode reading also permits customization via `PdfBarcodeReaderOptions`. Adjusting settings within this option can enhance the accuracy and performance of barcode reading in PDFs. Initial configurations often include specifying the page numbers to apply these settings:
+## Configuring PDF Barcode Reader Options
+
+Configuring the `PdfBarcodeReaderOptions` similar to `BarcodeReaderOptions` but with enhancements specific to PDFs can significantly improve performance. Important properties to configure include the concerned page numbers for targeted reading:
 
 ```cs
+using IronBarCode;
 using System.Collections.Generic;
-using BarCode;
-namespace ironbarcode.ReadBarcodesFromPdf
+
+List<int> pages = new List<int> { 1, 2, 3 };
+
+PdfBarcodeReaderOptions options = new PdfBarcodeReaderOptions(pages)
 {
-    public class ConfigureBarcodeOptions
-    {
-        public void Run()
-        {
-            var pagesToRead = new List<int> { 1, 2, 3 };
-            var pdfBarcodeOptions = new PdfBarcodeReaderOptions(pagesToRead);
-        }
-    }
-}
+    // Additional properties specific to PDFs
+};
 ```
 
-### Additional Configuration Properties
+### Additional Properties Available in PdfBarcodeReaderOptions
 
 #### DPI
-Set the DPI (Dots Per Inch) to improve recognition of barcodes in poor-quality PDFs using an integer value.
+
+Setting the DPI (Dots Per Inch) is crucial when dealing with low-quality barcode images within PDFs. You can set this property using an integer.
 
 #### PageNumbers
-Prefilter the pages to read by specifying page numbers. This is particularly effective for large PDFs with multiple pages.
+
+Pre-identifying which pages contain the necessary barcodes can drastically reduce processing time as it avoids scanning unnecessary pages. This is a 1-based index; thus, page one is represented as `1`.
 
 #### Password
-Access secured PDF files requiring a password with a string input, enabling barcode reading from protected documents.
+
+If the PDF is password-protected, this property allows the usage of a password to access the file. Note: IronBarcode does not retrieve or bypass PDF passwords.
 
 #### Scale
-Adjust the scale factor to enhance visibility and readability of small barcodes in PDFs. This property accepts an integer value.
 
-## Advanced Barcode Extraction Techniques
+Adjust the scale factor for width and height during image conversion, with a default value set at 3.5. Beneficial for enlarging small barcodes in the PDF for better recognition.
 
-Applying appropriate `PdfBarcodeReaderOptions` yields precise and efficient barcode extraction from PDFs. Here’s how these settings can be implemented:
+## Advanced Barcode Extraction from PDF
+
+Now that you know how to configure `PdfBarcodeReaderOptions`, here’s how you can apply these settings to extract barcodes:
 
 ```cs
+using IronBarCode;
+using System;
 using System.Collections.Generic;
-using BarCode;
-namespace ironbarcode.ReadBarcodesFromPdf
+
+List<int> selectedPages = new List<int> { 1, 2, 3 };
+
+PdfBarcodeReaderOptions advancedOptions = new PdfBarcodeReaderOptions(selectedPages)
 {
-    public class AdvancedBarcodeExtraction
-    {
-        public void Run()
-        {
-            var selectedPages = new List<int> { 1, 2, 3 };
-            var pdfBarcodeOptions = new PdfBarcodeReaderOptions(selectedPages)
-            {
-                DPI = 150,
-                Password = "barcode",
-                Scale = 3.5,
-                Speed = ReadingSpeed.Detailed,
-                ExpectBarcodeTypes = BarcodeEncoding.Code93,
-                ExpectMultipleBarcodes = true
-            };
-            
-            var results = BarcodeReader.ReadPdf(@"pdf_a_filepath.pdf", pdfBarcodeOptions);
-            foreach (var barcode in results)
-            {
-                Console.WriteLine(barcode.ToString());
-            }
-        }
-    }
+    DPI = 150,
+    Password = "barcode",
+    Scale = 3.5,
+    Speed = ReadingSpeed.Detailed,
+    ExpectBarcodeTypes = BarcodeEncoding.Code93,
+    ExpectMultipleBarcodes = true
+};
+
+var extractedBarcodes = BarcodeReader.ReadPdf("pdf_a_filepath.pdf", advancedOptions);
+
+foreach (var barcode in extractedBarcodes)
+{
+    Console.WriteLine(barcode.ToString());
 }
 ```
 
-This snippet configures detailed settings in the `PdfBarcodeReaderOptions`, such as DPI adjustment, password handling, and scale factor setting to effectively read barcodes from a specified PDF file. Applying these advanced settings ensures optimal reading accuracy and efficiency.
+This robust example demonstrates initializing `PdfBarcodeReaderOptions` with a selected page range and specific properties to optimize the extraction process. The enhanced settings are then used along with the target PDF path in the `ReadPdf` method.

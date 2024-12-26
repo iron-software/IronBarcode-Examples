@@ -1,10 +1,10 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.ReadingBarcodes
+namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             BarcodeReaderOptions options = new BarcodeReaderOptions()
             {

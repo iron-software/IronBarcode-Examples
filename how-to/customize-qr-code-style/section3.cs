@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using BarCode;
-namespace ironbarcode.CustomizeQrCodeStyle
+namespace IronBarcode.Examples.HowTo.CustomizeQrCodeStyle
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             AnyBitmap qrlogo = AnyBitmap.FromFile("ironbarcode_top.webp");
             

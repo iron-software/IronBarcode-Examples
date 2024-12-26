@@ -1,10 +1,10 @@
 using System;
 using BarCode;
-namespace ironbarcode.OutputDataFormats
+namespace IronBarcode.Examples.HowTo.OutputDataFormats
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             // Read barcode from PDF
             BarcodeResults result = BarcodeReader.ReadPdf("test.pdf");

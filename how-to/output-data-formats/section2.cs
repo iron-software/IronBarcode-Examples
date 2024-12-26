@@ -1,10 +1,10 @@
 using System;
 using BarCode;
-namespace ironbarcode.OutputDataFormats
+namespace IronBarcode.Examples.HowTo.OutputDataFormats
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Read barcode from PNG
             BarcodeResults result = BarcodeReader.Read("bc3.png");

@@ -1,102 +1,93 @@
-# Reading Multiple Barcodes Simultaneously
+# How to Efficiently Read Multiple Barcodes Simultaneously
 
 ***Based on <https://ironsoftware.com/how-to/read-multiple-barcodes/>***
 
 
-Scanning multiple barcodes in one go is essential across various sectors, such as logistics, healthcare, retail, and inventory management. This ability facilitates efficient data processing. Using IronBarcode, this process is simplified, enhancing operational efficiency and productivity.
+The ability to read several barcodes at once is vital across many sectors such as logistics, retail, healthcare, and inventory management. This functionality facilitates more effective data manipulation. IronBarcode stands out as an invaluable asset in enhancing operational efficiency and productivity by allowing for the simultaneous reading of multiple barcodes.
 
-## Multiple Barcodes Reading Example
+<h3>Getting Started with IronBarcode</h3>
 
-IronBarcode’s default mode includes scanning for multiple barcodes when parsing documents. However, occasional issues have been reported where the return is limited to a single barcode value, despite the presence of multiple barcodes in an image. To rectify this, the settings can be adjusted to specifically enable the reading of multiple barcodes. This adjustment is applicable through the **ExpectMultipleBarcode** setting, found in both **BarcodeReaderOptions** and **PdfBarcodeReaderOptions**, catering to images and PDFs respectively.
+---
 
-#### Example Image
+## Example: Reading Multiple Barcodes
+
+IronBarcode is designed to scan a document continuously to recognize multiple barcodes. Sometimes, users experience getting only a single barcode reading from an image containing several. This issue can be resolved by adjusting settings to better detect multiple barcodes, demonstrated in the following example. Note that the `ExpectMultipleBarcode` property is included in both `BarcodeReaderOptions` and `PdfBarcodeReaderOptions`, making it applicable to both image and PDF documents.
+
+#### Sample Image
 
 <div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/barcode/how-to/read-multiple-barcodes/multiple-barcodes.png" alt="Image to be read" class="img-responsive add-shadow">
-    </div>
+  <div class="center-image-wrapper">
+       <img src="https://ironsoftware.com/static-assets/barcode/how-to/read-multiple-barcodes/multiple-barcodes.png" alt="Multiple barcodes" class="img-responsive add-shadow">
+  </div>
 </div>
 
 ```cs
+using IronBarCode;
 using System;
-using BarCode;
 
-namespace ironbarcode.ReadMultipleBarcodes
+// Configure the options for reading multiple barcodes
+BarcodeReaderOptions options = new BarcodeReaderOptions()
 {
-    public class MultipleBarcodesReader
-    {
-        public void Execute()
-        {
-            // Configure to read multiple barcodes
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
-            {
-                ExpectMultipleBarcodes = true,
-                ExpectBarcodeTypes = BarcodeEncoding.AllOneDimensional,
-            };
+    ExpectMultipleBarcodes = true,
+    ExpectBarcodeTypes = BarcodeEncoding.AllOneDimensional,
+};
 
-            // Initiate barcode read
-            var barcodeResults = BarcodeReader.Read("testbc1.png", options);
+// Perform barcode reading
+var results = BarcodeReader.Read("testbc1.png", options);
 
-            // Output each barcode result to the console
-            foreach (var barcode in barcodeResults)
-            {
-                Console.WriteLine(barcode.ToString());
-            }
-        }
-    }
+foreach (var result in results)
+{
+    Console.WriteLine(result.ToString());
 }
 ```
 
-With the **ExpectMultipleBarcodes** set to true, IronBarcode performs an exhaustive scan for barcodes across the entire document and stores the results in **BarcodeResults**. Using a `foreach` loop, these barcode values are then accessed and printed.
+In the above example, `ExpectMultipleBarcodes` is set to true, prompting IronBarcode to search the entire image for several barcodes and collect them into the `BarcodeResults` container. Using a `foreach` loop facilitates the easy retrieval and display of each barcode value on the console.
 
-## Single Barcode Reading Example
+## Example: Reading a Single Barcode
 
-IronBarcode is adept at reading both single and multiple barcodes from images or PDFs. By default, the entire document is scanned, even for a single barcode. For enhanced performance during single barcode reads, setting **ExpectMultipleBarcodes** to false ceases the scanning process post the first detected barcode, thus speeding up data retrieval. The example below illustrates this setting adjustment.
+IronBarcode is equipped to identify both a single or multiple barcodes in images or PDFs. Typically, the engine will scan the entire document even if only one barcode is present. For better performance when only one barcode is needed, setting `ExpectMultipleBarcodes` to false enhances processing speed as the engine stops scanning upon detecting the first barcode. Below is an example that illustrates this setting.
 
-#### Example Image
+#### Sample Image
 
 <div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/barcode/how-to/read-multiple-barcodes/multiple-barcodes.png" alt="Image to be read" class="img-responsive add-shadow">
-    </div>
+  <div class="center-image-wrapper">
+       <img src="https://ironsoftware.com/static-assets/barcode/how-to/read-multiple-barcodes/multiple-barcodes.png" alt="Demonstration single scan" class="img-responsive add-shadow">
+  </div>
 </div>
 
 ```cs
+using IronBarCode;
 using System;
-using BarCode;
 
-namespace ironbarcode.ReadMultipleBarcodes
+// Adjust settings for single barcode reading
+BarcodeReaderOptions options = new BarcodeReaderOptions()
 {
-    public class SingleBarcodeReader
-    {
-        public void Execute()
-        {
-            // Configure to read a single barcode
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
-            {
-                ExpectMultipleBarcodes = false,
-                ExpectBarcodeTypes = BarcodeEncoding.AllOneDimensional,
-            };
+    ExpectMultipleBarcodes = false,
+    ExpectBarcodeTypes = BarcodeEncoding.AllOneDimensional,
+};
 
-            // Initiate barcode read
-            var barcodeResults = BarcodeReader.Read("testbc1.png", options);
+// Commence barcode reading
+var results = BarcodeReader.Read("testbc1.png", options);
 
-            // Output the first (or only) barcode result to the console
-            foreach (var barcode in barcodeResults)
-            {
-                Console.WriteLine(barcode.ToString());
-            }
-        }
-    }
+foreach (var result in results)
+{
+    Console.WriteLine(result.ToString());
 }
 ```
 
-### Performance Comparison
+Using the identical image with multiple barcodes, the above modification with `ExpectMultipleBarcodes` set to false allows the retrieval of only the first detected barcode, ceasing the scan thereafter.
 
-Adjusting **ExpectMultipleBarcodes** influences the efficiency of barcode readings. Below is an indicative performance comparison using the same settings on the same device:
+#### Performance Analysis
 
-| Setting: ExpectMultipleBarcodes = true | Setting: ExpectMultipleBarcodes = false |
-|-----------------------------------------|----------------------------------------|
-| 00.91 second                            | 00.10 second                           | 
+Adjusting the `ExpectMultipleBarcodes` setting produces a significant variance in processing times. Below is an approximate comparison of performance impact between the two settings on the same machine:
 
-By setting **ExpectMultipleBarcodes** to false, the process becomes notably quicker for single barcode scans.
+<table class="table table__configuration-variables" style="text-align: center;">
+  <tr>
+      <th style="text-align: center;">ExpectMultipleBarcodes = true</th>
+      <th style="text-align: center;">ExpectMultipleBarcodes = false</th>
+  </tr>
+  <tr>
+      <td>00.91 second</td>
+      <td>00.10 second</td>
+  </tr>
+</table>

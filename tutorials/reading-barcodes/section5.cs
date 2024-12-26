@@ -1,10 +1,10 @@
 using IronBarCode;
 using BarCode;
-namespace ironbarcode.ReadingBarcodes
+namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             // Multi frame TIFF and GIF images can also be scanned
             BarcodeResults multiFrameResults = BarcodeReader.Read("Multiframe.tiff");
