@@ -1,4 +1,4 @@
-using System;
+using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.SetCropRegion
 {
@@ -11,18 +11,7 @@ namespace IronBarcode.Examples.HowTo.SetCropRegion
             int x2 = 345;
             int y2 = 522;
             
-            IronSoftware.Drawing.Rectangle crop1 = new IronSoftware.Drawing.Rectangle(x: x1, y: y1, width: x2 - x1, height: y2 - y1);
-            
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
-            {
-                CropArea = crop1
-            };
-            
-            var result = BarcodeReader.Read("sample.png", options);
-            foreach (var item in result)
-            {
-                Console.WriteLine(item.Value);
-            }
+            IronSoftware.Drawing.Rectangle crop1 = new IronSoftware.Drawing.Rectangle(x: x1, y: y1, width: x2-x1, height: y2-y1);
         }
     }
 }

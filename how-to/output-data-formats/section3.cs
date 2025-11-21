@@ -1,4 +1,4 @@
-using IronBarCode;
+using System;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.OutputDataFormats
 {
@@ -7,20 +7,12 @@ namespace IronBarcode.Examples.HowTo.OutputDataFormats
         public static void Run()
         {
             // Read barcode from PNG
-            BarcodeResults result = BarcodeReader.Read("multiple-barcodes.png");
+            BarcodeResults result = BarcodeReader.Read("bc3.png");
             
-            int i = 1;
+            // Output barcode type to console
             foreach (BarcodeResult barcode in result)
             {
-                var binaryValue = barcode.BinaryValue;
-                var barcodeType = IronBarCode.BarcodeEncoding.QRCode;
-            
-                // Create QR code
-                GeneratedBarcode generatedBarcode = BarcodeWriter.CreateBarcode(binaryValue, barcodeType);
-            
-                // Export QR code
-                generatedBarcode.SaveAsPng($"qrFromBinary{i}.png");
-                i++;
+                Console.WriteLine("The barcode value is " + barcode.ToString() + " and the barcode type is " + barcode.BarcodeType);
             }
         }
     }

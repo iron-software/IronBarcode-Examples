@@ -6,10 +6,10 @@ namespace IronBarcode.Examples.HowTo.ReadMultipleBarcodes
     {
         public static void Run()
         {
-            // Set the option to read single barcode
+            // Set the option to read multiple barcodes
             BarcodeReaderOptions options = new BarcodeReaderOptions()
             {
-                ExpectMultipleBarcodes = false,
+                ExpectMultipleBarcodes = true,
                 ExpectBarcodeTypes = BarcodeEncoding.AllOneDimensional,
             };
             

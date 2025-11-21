@@ -1,4 +1,3 @@
-using System;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif
 {
@@ -6,14 +5,8 @@ namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif
     {
         public static void Run()
         {
-            // Read barcode from TIF image
-            BarcodeResults results = BarcodeReader.Read("sample.tif");
-            
-            // Output the barcodes value to console
-            foreach (var result in results)
-            {
-                Console.WriteLine(result.Value);
-            }
+            :title=Read Barcodes from Multi-Page Images in One Call
+            IronBarCode.BarcodeResults results = IronBarCode.BarcodeReader.Read("multiPageImage.tiff");
         }
     }
 }

@@ -1,4 +1,4 @@
-using System;
+using System.Drawing;
 using BarCode;
 namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
 {
@@ -6,21 +6,18 @@ namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
     {
         public static void Run()
         {
-            // Verifying QR Codes
+            // Create QR code with logo
             QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
-            GeneratedBarcode MyVerifiedQR = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
+            GeneratedBarcode myQRCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
             
-            MyVerifiedQR.ChangeBarCodeColor(System.Drawing.Color.LightBlue);
+            // Apply custom styling
+            myQRCodeWithLogo.ChangeBarCodeColor(Color.DarkGreen);
             
-            if (!MyVerifiedQR.Verify())
-            {
-                Console.WriteLine("\t LightBlue is not dark enough to be read accurately.  Lets try DarkBlue");
-                MyVerifiedQR.ChangeBarCodeColor(Color.DarkBlue);
-            }
-            MyVerifiedQR.SaveAsHtmlFile("MyVerifiedQR.html");
-            
-            // open the barcode html file in your default web browser
-            System.Diagnostics.Process.Start("MyVerifiedQR.html");
+            // Export to multiple formats
+            myQRCodeWithLogo.SaveAsPdf("MyQRWithLogo.pdf");      // PDF document
+            myQRCodeWithLogo.SaveAsHtmlFile("MyQRWithLogo.html"); // Standalone HTML
+            myQRCodeWithLogo.SaveAsPng("MyQRWithLogo.png");       // PNG image
+            myQRCodeWithLogo.SaveAsJpeg("MyQRWithLogo.jpg");      // JPEG image
         }
     }
 }

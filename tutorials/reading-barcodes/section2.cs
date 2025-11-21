@@ -1,4 +1,4 @@
-using IronBarCode;
+using System;
 using BarCode;
 namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
@@ -6,19 +6,28 @@ namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
     {
         public static void Run()
         {
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
+            // Read barcodes from the image file - supports PNG, JPG, BMP, GIF, and more
+            BarcodeResults results = BarcodeReader.Read("GetStarted.png");
+            
+            // Check if any barcodes were detected
+            if (results != null && results.Count > 0)
             {
-                // Choose a speed from: Faster, Balanced, Detailed, ExtremeDetail
-                // There is a tradeoff in performance as more Detail is set
-                Speed = ReadingSpeed.ExtremeDetail,
-            
-                // By default, all barcode formats are scanned for.
-                // Specifying one or more, performance will increase.
-                ExpectBarcodeTypes = BarcodeEncoding.QRCode | BarcodeEncoding.Code128,
-            };
-            
-            // Read barcode
-            BarcodeResults results = BarcodeReader.Read("TryHarderQR.png", options);
+                // Process each barcode found in the image
+                foreach (BarcodeResult result in results)
+                {
+                    // Extract the text value from the barcode
+                    Console.WriteLine("Barcode detected! Value: " + result.Text);
+                    
+                    // Additional properties available:
+                    // result.BarcodeType - The format (Code128, QR, etc.)
+                    // result.BinaryValue - Raw binary data if applicable
+                    // result.Confidence - Detection confidence score
+                }
+            }
+            else
+            {
+                Console.WriteLine("No barcodes detected in the image.");
+            }
         }
     }
 }

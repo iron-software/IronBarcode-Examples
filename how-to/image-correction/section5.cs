@@ -10,7 +10,7 @@ namespace IronBarcode.Examples.HowTo.ImageCorrection
             {
                 // Choose which filters are to be applied (in order)
                 ImageFilters = new ImageFilterCollection(true) {
-                    new ContrastFilter(1.5f),
+                    new BrightnessFilter(1.5f),
                 },
             };
             
@@ -18,7 +18,7 @@ namespace IronBarcode.Examples.HowTo.ImageCorrection
             BarcodeResults results = BarcodeReader.Read("sample.png", options);
             
             // Export file to disk
-            results.ExportFilterImagesToDisk("contrast_1.5.png");
+            results.ExportFilterImagesToDisk("brightness_1.5.png");
         }
     }
 }

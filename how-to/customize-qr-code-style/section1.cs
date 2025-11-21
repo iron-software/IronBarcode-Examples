@@ -1,4 +1,3 @@
-using IronSoftware.Drawing;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.CustomizeQrCodeStyle
 {
@@ -6,13 +5,8 @@ namespace IronBarcode.Examples.HowTo.CustomizeQrCodeStyle
     {
         public static void Run()
         {
-            AnyBitmap qrlogo = AnyBitmap.FromFile("ironbarcode_top.webp");
-            
-            QRCodeLogo logo = new QRCodeLogo(qrlogo, 0, 0, 20f);
-            
-            GeneratedBarcode QrCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", logo, 250);
-            
-            QrCodeWithLogo.SaveAsPng("QrCodeWLogo2.png");
+            :title=Generate Custom QR in Seconds
+            IronBarCode.QRCodeWriter.CreateQrCodeWithLogo("https://example.com", new IronBarCode.QRCodeLogo("logo.png"), 300).ChangeBarCodeColor(IronSoftware.Drawing.Color.DeepSkyBlue).AddAnnotationTextAboveBarcode("Scan Me", new IronSoftware.Drawing.Font("Verdana",12), IronSoftware.Drawing.Color.White, 5).SaveAsPng("customQR.png");
         }
     }
 }

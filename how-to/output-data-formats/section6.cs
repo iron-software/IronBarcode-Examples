@@ -9,12 +9,10 @@ namespace IronBarcode.Examples.HowTo.OutputDataFormats
             // Read barcode from PDF
             BarcodeResults result = BarcodeReader.ReadPdf("test.pdf");
             
-            // Output page orientation and rotation to console
+            // Output page number to console
             foreach (BarcodeResult barcode in result)
             {
-                Console.WriteLine(barcode.Value);
-                Console.WriteLine(barcode.PageOrientation);
-                Console.WriteLine(barcode.Rotation);
+                Console.WriteLine("The barcode value " + barcode.ToString() + " is found on page number " + barcode.PageNumber);
             }
         }
     }

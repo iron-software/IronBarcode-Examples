@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.OutputDataFormats
 {
@@ -6,14 +6,19 @@ namespace IronBarcode.Examples.HowTo.OutputDataFormats
     {
         public static void Run()
         {
-            // Read barcode from PNG
-            BarcodeResults result = BarcodeReader.Read("bc3.png");
+            // Read barcode from PDF file
+            BarcodeResults result = BarcodeReader.ReadPdf("test.pdf");
             
-            // Output barcode type to console
+            // Create list for barcodes
+            List<AnyBitmap> barcodeList = new List<AnyBitmap>();
+            
             foreach (BarcodeResult barcode in result)
             {
-                Console.WriteLine("The barcode value is " + barcode.ToString() + " and the barcode type is " + barcode.BarcodeType);
+                barcodeList.Add(barcode.BarcodeImage);
             }
+            
+            // Create multi-page TIFF
+            AnyBitmap.CreateMultiFrameTiff(barcodeList).SaveAs("barcodeImages.tif");
         }
     }
 }

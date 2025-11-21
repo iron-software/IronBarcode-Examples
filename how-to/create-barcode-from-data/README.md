@@ -1,36 +1,40 @@
-# Generate Barcodes from Text, Web URLs, IDs, Numbers, Binary Data, and Memory Streams
+# Generating Barcodes from Various Data Types
 
 ***Based on <https://ironsoftware.com/how-to/create-barcode-from-data/>***
 
 
-IronBarcode is a versatile tool capable of generating barcodes from various data inputs like Text, URLs, IDs, Numbers, Binary Data, and Memory Streams. This feature suits numerous applications, including barcodes for product labeling, URL links, ID badges for security, numeric tracking codes, and even for encoding binary data or memory streams into readable barcodes, enhancing data operations across different sectors.
+Barcodes can be swiftly generated from various data types, including plain text, binary data, and even memory streams, using the `BarcodeWriter.CreateBarcode()` method provided by IronBarcode.
 
-With IronBarcode, the process of creating barcodes is streamlined. The `BarcodeWriter.CreateBarcode()` method accommodates various object types as inputs without the necessity for type casting. This simplifies the development workflow and enhances productivity.
+## Quick Guide: Instant Barcode Generation from a Single String
 
+Utilize the IronBarcode library to create barcodes effortlessly. Here’s an example where a barcode is generated from a simple string in just one command line:
 
-<h2>Starting with IronBarcode</h2>
+```cs
+// Create a barcode from the string "Order123" using Code128 encoding
+var barcode = IronBarCode.BarcodeWriter.CreateBarcode("Order123", IronBarCode.BarcodeWriterEncoding.Code128);
+```
 
-## Generating a Barcode From a String
+## Generate Barcodes from Strings
 
-Using IronBarcode, a `System.String` can be easily utilized as an input parameter in the `BarcodeWriter.CreateBarcode()` method for different data types such as texts, URLs, IDs, and numbers. Here is an example of how to utilize this functionality:
+This example illustrates how to generate barcodes from various types of string data:
 
 ```cs
 using IronBarCode;
 
 string text = "Hello, World!";
-string url = "https://ironsoftware.com/csharp/barcode/";
-string receiptID = "2023-08-04-12345"; // Numeric Receipt ID
-string flightID = "FLT2023NYC-LAX123456"; // Alphanumeric Flight ID
+string siteUrl = "https://ironsoftware.com/csharp/barcode/";
+string receiptID = "2023-08-04-12345"; // A numeric ID for receipts
+string flightID = "FLT2023NYC-LAX123456"; // An alphanumeric flight ID
 string number = "1234";
 
 BarcodeWriter.CreateBarcode(text, BarcodeEncoding.Aztec).SaveAsPng("text.png");
-BarcodeWriter.CreateBarcode(url, BarcodeEncoding.QRCode).SaveAsPng("url.png");
+BarcodeWriter.CreateBarcode(siteUrl, BarcodeEncoding.QRCode).SaveAsPng("url.png");
 BarcodeWriter.CreateBarcode(receiptID, BarcodeEncoding.Code93, 250, 67).SaveAsPng("receiptID.png");
 BarcodeWriter.CreateBarcode(flightID, BarcodeEncoding.PDF417, 250, 67).SaveAsPng("flightID.png");
 BarcodeWriter.CreateBarcode(number, BarcodeEncoding.Codabar, 250, 67).SaveAsPng("number.png");
 ```
 
-This code sample transforms five different string values into barcodes: basic text, a URL, a numeric ID, an alphanumeric ID, and a simple number. These data inputs are directly provided to `BarcodeWriter.CreateBarcode()` along with encoding details and optional size configurations. The resulting barcodes can thereafter be saved as images, streams, HTML strings, or even PDF documents. You can check the resulting barcode images from the executed IronBarcode library at the following locations:
+In this example, we encoded different types of data into various barcode formats and saved the outputs as PNG images.
 
 <div class="competitors-section__wrapper-even-1">
     <div class="competitors__card" style="width: 48%;">
@@ -47,7 +51,7 @@ This code sample transforms five different string values into barcodes: basic te
     <div class="competitors__card" style="width: 48%;">
         <img src="https://ironsoftware.com/static-assets/barcode/how-to/create-barcode-from-data/receiptID.png" alt="Receipt ID" class="img-responsive add-shadow" style="margin: auto;">
         <p class="competitors__download-link" style="color: #181818; font-style: italic;">Receipt ID</p>
-    </div>
+    </div
     <div class="competitors__card" style="width: 50%;">
         <img src="https://ironsoftware.com/static-assets/barcode/how-to/create-barcode-from-data/flightID.png" alt="Flight ID" class="img-responsive add-shadow" style="margin: auto;">
         <p class="competitors__download-link" style="color: #181818; font-style: italic; margin-bottom: 25px;">Flight ID</p>
@@ -61,66 +65,64 @@ This code sample transforms five different string values into barcodes: basic te
     </div>
 </div>
 
-## Generate Barcode From Byte Array
+## Barcode Creation from Byte Arrays
 
-IronBarcode extends its functionality to drafting barcodes from `System.Byte []` objects, vital for complex applications. Below are definitions and examples of byte encodings frequently used:
+When generating barcodes from byte arrays, it is critical to match the data encoding to the appropriate `BarcodeEncoding`. Each barcode format requires a specific encoding compatibility. Below are the various character encodings supportable by IronBarcode:
 
 - **ASCII**:
-  - Character encoding using 7 bits to represent characters, including English alphabet, numerals, and control characters. For example, the ASCII code for 'A' is 65, and 'B' is 66.
-- **Unicode**:
-  - A coding standard designed to cover all characters and symbols in human writing systems, assigning a unique code for every character, like U+0041 for 'A' and U+03B1 for α (alpha).
+  - Uses 7 bits for each character.
+  - Example: 'A' is 65, 'B' is 66.
+
 - **UTF-8**:
-  - A variable-length character encoding that encompasses all Unicode characters, using different byte lengths per character.
+  - A variable-length encoding system representing all Unicode characters.
+  - Example: The Euro symbol (€) is encoded as 0xE2 0x82 0xAC.
+
 - **UTF-16**:
-  - A 16-bit variable-length character encoding representing all Unicode characters.
+  - Uses 16-bit sequences to encode a wide range of characters.
+  - Example: The Greek letter alpha (α) is 0x03B1.
+
 - **UTF-32**:
-  - A 32-bit fixed sequence representing each character, utilized mainly for non-ASCII characters.
-- **ISO-8859-1** (Latin-1):
-  - An 8-bit extension of ASCII covering Western European language characters.
+  - Uses a consistent 32-bit sequence for each symbol.
+  - Example: The UTF-32 code for α is 0x000003B1.
 
-By default, IronBarcode employs ISO-8859-1 for byte encoding unless specified otherwise. Not all barcode encodings support every byte encoding, so this selection should be carefully paired with the intended barcode encoding. More on barcode encoding types can be found on the [barcode readings from images page](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/).
+- **ISO-8859-1**:
+  - Extends ASCII by adding characters from Western European languages.
+  - Example: 'é' is represented by 233.
 
-Here’s a practical example:
+*[Note: IronBarcode defaults to using ISO-8859-1 for encoding.]*
+
+Here’s how you can generate barcodes from byte data:
 
 ```cs
 using IronBarCode;
 using System.Text;
 
-byte[] text = Encoding.UTF8.GetBytes("Hello, World!");
-byte[] url = Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/");
-byte[] receiptID = Encoding.UTF8.GetBytes("2023-08-04-12345");
-byte[] flightID = Encoding.UTF8.GetBytes("FLT2023NYC-LAX123456");
-byte[] number = Encoding.UTF8.GetBytes("1234");
+byte[] inputText = Encoding.UTF8.GetBytes("Hello, World!");
+byte[] inputUrl = Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/");
+byte[] inputReceiptID = Encoding.UTF8.GetBytes("2023-08-04-12345"); // Receipt ID
+byte[] inputFlightID = Encoding.UTF8.GetBytes("FLT2023NYC-LAX123456"); // Flight ID
+byte[] inputNumber = Encoding.UTF8.GetBytes("1234");
 
-BarcodeWriter.CreateBarcode(text, BarcodeEncoding.Aztec).SaveAsPng("text.png");
-BarcodeWriter.CreateBarcode(url, BarcodeEncoding.QRCode).SaveAsPng("url.png");
-BarcodeWriter.CreateBarcode(receiptID, BarcodeEncoding.Code93, 250, 67).SaveAsPng("receiptID.png");
-BarcodeWriter.CreateBarcode(flightID, BarcodeEncoding.PDF417, 250, 67).SaveAsPng("flightID.png");
-BarcodeWriter.CreateBarcode(number, BarcodeEncoding.Codabar, 250, 67).SaveAsPng("number.png");
+BarcodeWriter.CreateBarcode(inputText, BarcodeEncoding.Aztec).SaveAsPng("text.png");
+BarcodeWriter.CreateBarcode(inputUrl, BarcodeEncoding.QRCode).SaveAsPng("url.png");
+BarcodeWriter.CreateBarcode(inputReceiptID, BarcodeEncoding.Code93, 250, 67).SaveAsPng("receiptID.png");
+BarcodeWriter.CreateBarcode(inputFlightID, BarcodeEncoding.PDF417, 250, 67).SaveAsPng("flightID.png");
+BarcodeWriter.CreateBarcode(inputNumber, BarcodeEncoding.Codabar, 250, 67).SaveAsPng("number.png");
 ```
 
-In this example, 5 string data forms are converted into `System.Byte []`, and these byte arrays serve as inputs into the `BarcodeWriter`, accompanied by the desired `BarcodeEncoding`. Optional settings like `MaxWidth` and `MaxHeight` can be configured for the barcode dimensions.
+## Generating Barcodes from Memory Streams
 
-## Generate Barcode From Stream
-
-Moreover, IronBarcode supports the `System.IO.Stream` object, catering to those who handle MemoryStreams and seek to generate barcodes without shifting input formats. Here’s how this is done:
+The following code demonstrates generating barcodes from memory streams, a process suitable for real-time data handling:
 
 ```cs
 using IronBarCode;
 using System.IO;
 using System.Text;
 
-MemoryStream text = new MemoryStream(Encoding.UTF8.GetBytes("Hello, World!"));
-MemoryStream url = new MemoryStream(Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/"));
-MemoryStream receiptID = new MemoryStream(Encoding.UTF8.GetBytes("2023-08-04-12345"));
-MemoryStream flight ID = new MemoryStream(Encoding.UTF8.GetBytes("FLT2023NYC-LAX123456"));
-MemoryStream number = a MemoryStream(Encoding.UTF8.GetBytes("1234"));
+MemoryStream streamText = new MemoryStream(Encoding.UTF8.GetBytes("Hello, World!"));
+MemoryStream streamUrl = new MemoryStream(Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/"));
+MemoryStream streamReceiptID = new MemoryStream(Encoding.UTF8.GetBytes("2023-08-04-12345")); // Receipt ID info
+MemoryStream streamFlightID = new MemoryStream(Encoding.UTF8.GetBytes("FLT2023NYC-LAX123456")); // Flight ID info
+MemoryStream streamNumber = new MemoryStream(Encoding.UTF8.GetBytes("1234"));
 
-BarcodeWriter.CreateBarcode(text, BarcodeEncoding.Aztec).SaveAsPng("text.png");
-BarcodeWriter.CreateBarcode(url, BarcodeEncoding.QRCode).SaveAsPng("url.png");
-BarcodeWriter.CreateBarcode(receiptID, BarcodeEncoding.Code93, 250, 67).SaveAsPng("receiptID.png");
-BarcodeWriter.CreateBarcode(flightID, BarcodeEncoding.PDF417, 250, 67).SaveAsPng("flightID.png");
-BarcodeWriter.CreateBarcode(number, BarcodeEncoding.Codabar, 250, 67).SaveAsPng("number.png");
-```
-
-This final example builds upon the previous section by converting `System.Byte []` objects into `MemoryStream` instances, which are then fed into `BarcodeWriter.CreateBarcode()` to forge barcodes from `MemoryStream` objects.
+BarcodeWriter.CreateBarcode(streamText, BarcodeEncoder

@@ -3,18 +3,23 @@ using IronSoftware.Drawing;
 using System.Drawing;
 using System.IO;
 
-// Reading a barcode is easy with IronBarcode.
-// Read from a File, Bitmap, Image, or Stream:
+// Reading a barcode is easy with IronBarcode
 
-var resultFromFile = BarcodeReader.Read(@"file/barcode.png"); // From a file
+// From an image file
+var resultFromFile = BarcodeReader.Read(@"file/barcode.png");
 
-var resultFromBitMap = BarcodeReader.Read(new Bitmap("barcode.bmp")); // From a bitmap
+// From a Bitmap object
+var resultFromBitMap = BarcodeReader.Read(new Bitmap("barcode.bmp"));
 
-var resultFromAnyBitmap = BarcodeReader.Read(new AnyBitmap("barcode.bmp")); // From an Anybitmap
+// From a IronSoftware.Drawing.AnyBitmap object
+var resultFromAnyBitmap = BarcodeReader.Read(new AnyBitmap("barcode.bmp"));
 
-var resultFromImage = BarcodeReader.Read(Image.FromFile("barcode.jpg")); // From an image
+// From an Image object
+var resultFromImage = BarcodeReader.Read(Image.FromFile("barcode.jpg"));
 
-var resultFromStream = BarcodeReader.Read(myStream); // From a stream
+// From a memory stream
+MemoryStream imageMemoryStream = new MemoryStream();
+var resultFromStream = BarcodeReader.Read(imageMemoryStream); // From a stream
 
-// PDFs are more intricate and must be read using ReadPdf:
+// PDFs are more intricate and must be read using ReadPdf
 var resultFromPdf = BarcodeReader.ReadPdf(@"file/mydocument.pdf");

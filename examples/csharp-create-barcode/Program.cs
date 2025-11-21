@@ -1,20 +1,17 @@
 ﻿using IronBarCode;
 using System.IO;
 
-// Creating a barcode is as simple as:
+// Create a barcode with one line of code
 var myBarcode = BarcodeWriter.CreateBarcode("12345", BarcodeWriterEncoding.EAN8);
 
-// And save our barcode as an image:
+// Save the barcode as an image
 myBarcode.SaveAsImage("EAN8.jpeg");
 
-// OR, we can do both steps on one line:
-BarcodeWriter.CreateBarcode("12345", BarcodeWriterEncoding.EAN8).ResizeTo(400, 100).SaveAsImage("EAN8.jpeg");
-
-// Barcode can also be made from from Binary data (byte or stream)
+// A barcode can also be made from binary data (byte or stream)
 string payloadAsString = "This is some random string";
 
-byte[] payloadAsByteArray = System.Text.Encoding.Default.GetBytes(payloadAsString); // Byte Array
-var AztecBarcode = BarcodeWriter.CreateBarcode(payloadAsByteArray, BarcodeWriterEncoding.Aztec, 400, 400); // Create from Byte Array
+byte[] payloadAsByteArray = System.Text.Encoding.Default.GetBytes(payloadAsString); // Byte array
+var AztecBarcode = BarcodeWriter.CreateBarcode(payloadAsByteArray, BarcodeWriterEncoding.Aztec, 400, 400); // Create from Byte array
 
 MemoryStream payloadAsStream = new MemoryStream(payloadAsByteArray); // MemoryStream
-var AztecBarcode2 = BarcodeWriter.CreateBarcode(payloadAsStream, BarcodeWriterEncoding.Aztec, 400, 400); // Create from Memory Stream
+var AztecBarcode2 = BarcodeWriter.CreateBarcode(payloadAsStream, BarcodeWriterEncoding.Aztec, 400, 400); // Create from memory stream

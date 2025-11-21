@@ -1,4 +1,3 @@
-using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ErrorCorrection
 {
@@ -6,8 +5,8 @@ namespace IronBarcode.Examples.HowTo.ErrorCorrection
     {
         public static void Run()
         {
-            GeneratedBarcode mediumCorrection = QRCodeWriter.CreateQrCode("https://ironsoftware.com/csharp/barcode/", 500, QRCodeWriter.QrErrorCorrectionLevel.Medium);
-            mediumCorrection.SaveAsPng("mediumCorrection.png");
+            :title=Generate QR Code with Medium Error Correction Instantly
+            var qr = IronBarCode.QRCodeWriter.CreateQrCode("https://ironsoftware.com", 500, IronBarCode.QRCodeWriter.QrErrorCorrectionLevel.Medium).SaveAsPng("qr.png");
         }
     }
 }

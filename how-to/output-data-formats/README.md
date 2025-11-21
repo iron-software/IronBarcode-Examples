@@ -1,194 +1,186 @@
-# Output Data Formats with IronBarcode
+# Guide to Handling Different Data Formats with IronBarcode
 
 ***Based on <https://ironsoftware.com/how-to/output-data-formats/>***
 
 
-IronBarcode is not only adept at reading barcodes but also excels in offering a variety of output formats that enable users to extensively manipulate the read results. The output formats encompass a range of properties such as `BarcodeImage`, `BarcodeType`, `BinaryValue`, coordinates, height, width, `PageNumber`, barcode, page orientation, text, and value.
+IronBarcode is not just about reading barcodes and displaying the results—it offers a variety of output formats to utilize the extracted data effectively. Some of these formats include barcode image, barcode type, `BinaryValue`, coordinates, and dimensions. Users can interact with these properties, adapting them as needed within their applications. Below, we'll delve into how these properties can be leveraged in various scenarios.
 
-Below, we delve into how to leverage these properties effectively within various programming scenarios.
+## Quickstart: Extracting Barcode Value and Type Effortlessly
 
-## Getting Started with IronBarcode
+The following example demonstrates the simplicity of extracting a barcode's value and type from an image using IronBarcode. This one-liner is ideal for quick starts.
 
----
+```csharp
+// Read an image, fetch barcode details, and print the value and type.
+var readResult = IronBarCode.BarcodeReader.QuicklyReadOneBarcode("input.png");
+Console.WriteLine($"Value: {readResult[0].Value}, Type: {readResult[0].BarcodeType}");
+```
 
-## Output Formats and Practical Applications
+## Detailed Output Formats and Practical Use Cases
 
-The `BarcodeResult` serves as a repository for numerous valuable properties, including:
+`BarcodeResult` encompasses several significant properties:
 
 - `BarcodeImage`
 - `BarcodeType`
 - `BinaryValue`
-- Coordinates, Height & Width
+- Dimensions and Coordinates
 - `PageNumber`
-- Barcode and `PageOrientation`
+- `Barcode` and `PageOrientation`
 - Text & Value
 
 ### Managing Barcode Images
 
-After IronBarcode processes an image to detect barcodes, it stores each found barcode as an `AnyBitmap` object within the `BarcodeImage` property. This enables efficient image processing or storage without necessitating additional coding efforts to extract the images.
+After decoding a barcode, `BarcodeResult` houses each image as a `BarcodeImage`. This feature enables users to manipulate and save these images, streamlining the process without requiring complex coding.
 
-Consider the sample code below, which is tailored to generating a multi-page TIFF from barcodes within a PDF:
+Here's how you can use this effectively:
 
-```cs
+```csharp
 using IronBarCode;
 using IronSoftware.Drawing;
 using System.Collections.Generic;
 
-// Initialize barcode reading from a PDF
-BarcodeResults results = BarcodeReader.ReadPdf("test.pdf");
+// Decode barcodes from a PDF document
+BarcodeResults pdfResults = BarcodeReader.ReadPdf("test.pdf");
+List<AnyBitmap> imagesFromBarcodes = new List<AnyBitmap>();
 
-// Gathering barcodes into a list
-List<AnyBitmap> barcodeImages = new List<AnyBitmap>();
-
-foreach (BarcodeResult barcode in results)
-{
-    barcodeImages.Add(barcode.BarcodeImage);
+// Extract and store each barcode's image
+foreach (BarcodeResult barcode in pdfResults) {
+    imagesFromBarcodes.Add(barcode.BarcodeImage);
 }
 
-// Saving as a multi-page TIFF
-AnyBitmap.CreateMultiFrameTiff(barcodeImages).SaveAs("barcodeImages.tif");
+// Combine and save them as a multi-frame TIFF file
+AnyBitmap.CreateMultiFrameTiff(imagesFromBarcodes).SaveAs("collectedBarcodes.tif");
 ```
 
-This code first scans a PDF for barcodes, then compiles the barcode images into a list, and finally creates a multi-page TIFF file.
+This script efficiently creates a TIFF file from images of barcodes found in a PDF, demonstrating practical use of the `BarcodeImage` property.
 
-### Identifying Barcode Types
+### Determining Barcode Types
 
-The `BarcodeType` property allows identification of the barcode type within an image or document. Here is how you can display barcode types and their values:
+`BarcodeType` assists in identifying the type of barcode decoded. This functionality is limited to the barcode types that IronBarcode recognizes. For more information, visit [Supported Barcode Types](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/#expectbarcodetypes).
 
-```cs
-using IronBarCode;
-using System;
+Example of determining and displaying barcode types:
 
-// Extract barcodes from a PNG
-BarcodeResults results = BarcodeReader.Read("bc3.png");
-
-// Displaying barcode types and values
-foreach (BarcodeResult barcode in results)
-{
-    Console.WriteLine("The barcode value is " + barcode.ToString() + " and the barcode type is " + barcode.BarcodeType);
-}
-```
-
-This segment reads barcodes from a PNG file, then iterates over the results to print each barcode's type and value to the console.
-
-### Working with Binary Values
-
-IronBarcode lets you access the binary data of a barcode through the `BinaryValue` property, facilitating further data manipulation within your application. Here's how you can use this feature:
-
-```cs
+```csharp
 using IronBarCode;
 
-// Reading barcodes from a PNG
-BarcodeResults results = BarcodeReader.Read("multiple-barcodes.png");
+// Decode a barcode from an image
+BarcodeResults singleResult = BarcodeReader.Read("barcodeExample.png");
 
-int i = 1;
-foreach (BarcodeResult barcode in results)
+// Display the barcode type
+foreach (BarcodeResult result in singleResult)
 {
-    var binaryValue = barcode.BinaryValue;
-    var barcodeType = IronBarCode.BarcodeEncoding.QRCode;
-
-    // Generating and saving new QR codes
-    GeneratedBarcode generatedBarcode = BarcodeWriter.CreateBarcode(binaryValue, barcodeType);
-    generatedBarcode.SaveAsPng($"qrFromBinary{i}.png");
-    i++;
+    Console.WriteLine($"Barcode: {result}, Type: {result.BarcodeType}");
 }
 ```
 
-This script reads multiple barcodes from an image, converts each barcode's binary data into a new QR code, and saves each new QR code as a PNG image.
+### Accessing Binary Values
 
-### Extracting Barcode Coordinates, Height & Width
+IronBarcode grants access to a barcode’s binary data through the `BinaryValue` property, allowing for advanced manipulation within programs.
 
-Here is how you can use barcode dimensions and locations to your advantage:
+Example demonstrating binary data handling:
 
-```cs
+```csharp
+using IronBarCode;
+
+// Decode barcodes from an image
+BarcodeResults multipleResults = BarcodeReader.Read("example-barcodes.png");
+
+int identifier = 1;
+foreach (BarcodeResult result in multipleResults)
+{
+    byte[] binaryData = result.BinaryValue;
+    BarcodeEncoding codeType = IronBarCode.BarcodeEncoding.QRCode;
+
+    // Generate and save a QR code from each binary value
+    GeneratedBarcode newQR = BarcodeWriter.CreateBarcode(binaryData, codeType);
+    newQR.SaveAsPng($"newQRCode{identifier}.png");
+    identifier++;
+}
+```
+
+### Handling Barcode Location and Size
+
+The properties concerning a barcode's location (`X1`, `Y1`, `X2`, `Y2`) and its dimensions (`Height`, `Width`) are invaluable when addressing the position and area of the barcode within a document or image.
+
+Illustrating the process of redacting barcodes from an image:
+
+```csharp
 using IronBarCode;
 using IronSoftware.Drawing;
-using System.Linq;
 
-// Extracting barcodes from a PNG
-BarcodeResults results = BarcodeReader.Read("multiple-barcodes.png");
+// Decode barcodes from an image and load the image
+BarcodeResults imageResults = BarcodeReader.Read("barcodePositions.png");
+AnyBitmap imageToManipulate = AnyBitmap.FromFile("barcodePositions.png");
 
-AnyBitmap bitmap = AnyBitmap.FromFile("multiple-barcodes.png");
-
-foreach (BarcodeResult barcode in results)
+// Apply redactions based on barcode positions
+foreach (BarcodeResult result in imageResults)
 {
-    PointF[] barcodePoints = barcode.Points;
-
-    float x1 = barcodePoints.Select(b => b.X).Min();
-    float y1 = barcodePoints.Select(b => b.Y).Min();
-    Rectangle rectangle = new Rectangle((int)x1, (int)y1, (int)barcode.Width, (int)barcode.Height);
-
-    bitmap.Redact(rectangle, Color.Magenta);
-
-    // Save modified image
-    bitmap.SaveAs("redacted.png", AnyBitmap.ImageFormat.Png);
+    Rectangle redactionArea = new Rectangle((int)result.X1, (int)result.Y1, (int)result.Width, (int)result.Height);
+    imageToManipulate = imageToManipulate.Redact(redactionArea, Color.Magenta);
 }
-```
 
-The script above reads barcodes from a PNG, then uses IronDrawing to redact each barcode on the image, indicating their position and size.
+// Save the redacted image
+imageToManipulate.SaveAs("redactedBarcodes.png", AnyBitmap.ImageFormat.Png);
+```
 
 ### Retrieving Page Numbers
 
-Page number retrieval is vital when dealing with documents containing multiple barcodes:
+This feature is particularly useful in multi-page documents, where locating a barcode's exact page can streamline processing and verification tasks.
 
-```cs
+Example demonstrating page number retrieval:
+
+```csharp
 using IronBarCode;
-using System;
 
-// Reading barcodes from a PDF
-BarcodeResults results = BarcodeReader.ReadPdf("test.pdf");
+// Read barcodes from a multi-page PDF
+BarcodeResults fromPdf = BarcodeReader.ReadPdf("comprehensiveDocument.pdf");
 
-// Displaying page numbers
-foreach (BarcodeResult barcode in results)
+// Displaying barcode values and their corresponding page numbers
+foreach (BarcodeResult barcode in fromPdf)
 {
-    Console.WriteLine("The barcode value " + barcode.ToString() + " is found on page number " + barcode.PageNumber);
+    Console.WriteLine($"Barcode: {barcode}, found on page: {barcode.PageNumber}");
 }
 ```
 
-This example demonstrates how to extract barcodes and their respective page numbers from a multi-page PDF, aiding in document navigation and processing.
+### Addressing Barcode and Page Orientation
 
-### Determining Barcode and Page Orientation
+IronBarcode can discern the orientation of barcodes and the pages they are on, which can be crucial for sorting or reorienting scanned documents.
 
-IronBarcode can determine both barcode rotation and the orientation of the page on which the barcode is found:
+Extracting orientation information:
 
-```cs
+```csharp
 using IronBarCode;
-using System;
 
-// Reading from a PDF
-BarcodeResults results = BarcodeReader.ReadPdf("test.pdf");
+// Decode a barcode from a PDF file
+BarcodeResults pdfResults = BarcodeReader.ReadPdf("orientedDocument.pdf");
 
-// Outputting page orientation and barcode rotation
-foreach (BarcodeResult barcode in results)
+// Output orientation details
+foreach (BarcodeResult barcode in pdfResults)
 {
-    Console.WriteLine(barcode.Value);
-    Console.WriteLine(barcode.PageOrientation);
-    Console.WriteLine(barcode.Rotation);
+    Console.WriteLine("Value: " + barcode.Value);
+    Console.WriteLine("Page orientation: " + barcode.PageOrientation);
+    Console.WriteLine("Barcode rotation: " + barcode.Rotation);
 }
 ```
 
-The above script reads a PDF, extracting each barcode's orientation and rotation, useful for debugging or processing orientation-specific data.
+### Extracting Text and Value
 
-### Text and Barcode Values
+Finally, the `Text` and `Value` properties are often used to access the data encoded in the barcode. IronBarcode simplifies this process through its API.
 
-Retrieving the text or value from a barcode is straightforward with IronBarcode:
+Here's an example:
 
-```cs
+```csharp
 using IronBarCode;
-using System;
 
-// Reading a PDF for barcodes
-BarcodeResults results = BarcodeReader.ReadPdf("barcodestamped3.pdf");
+// Decode barcodes embedded in a PDF
+BarcodeResults documentResults = BarcodeReader.ReadPdf("detailedDocument.pdf");
 
-// Printing barcode text and values
-foreach (BarcodeResult barcode in results)
+// Output the text and value of each barcode
+foreach (BarcodeResult barcode in documentResults)
 {
-    Console.WriteLine(barcode.Value);
-    Console.WriteLine(barcode.Text);
-    Console.WriteLine(barcode.ToString());
+    Console.WriteLine("Text: " + barcode.Text);
+    Console.WriteLine("Value: " + barcode.Value);
+    Console.WriteLine("Barcode string: " + barcode.ToString());
 }
 ```
 
-This example demonstrates how simple it is to obtain and print the value or text from each detected barcode in a document.
-
-IronBarcode proves invaluable in a multitude of scenarios involving barcode processing and data extraction, providing robust support for various data formats and properties through the `BarcodeResult` object.
+IronBarcode supports a variety of data output formats, enabling users to harness barcode data to its fullest potential in numerous applications and scenarios.

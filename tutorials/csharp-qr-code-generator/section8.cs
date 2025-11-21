@@ -6,23 +6,19 @@ namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
     {
         public static void Run()
         {
-            BarcodeReaderOptions options = new BarcodeReaderOptions
-            {
-                Speed = ReadingSpeed.Faster,
-                ExpectMultipleBarcodes = false,
-                ExpectBarcodeTypes = BarcodeEncoding.All,
-                Multithreaded = false,
-                MaxParallelThreads = 0,
-                CropArea = null,
-                UseCode39ExtendedMode = false,
-                RemoveFalsePositive = false,
-                ImageFilters = null
-            };
+            // Read QR code with optimized settings
+            BarcodeResults result = BarcodeReader.Read("QR.png", new BarcodeReaderOptions() { 
+                ExpectBarcodeTypes = BarcodeEncoding.QRCode 
+            });
             
-            BarcodeResults result = BarcodeReader.Read("QR.png", options);
-            if (result != null)
+            // Extract and display the decoded value
+            if (result != null && result.Any())
             {
                 Console.WriteLine(result.First().Value);
+            }
+            else
+            {
+                Console.WriteLine("No QR codes found in the image.");
             }
         }
     }

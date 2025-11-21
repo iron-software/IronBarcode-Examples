@@ -1,51 +1,56 @@
-# How to Apply Barcodes to PDF Documents
+# How to Stamp Barcodes on PDFs
 
 ***Based on <https://ironsoftware.com/how-to/create-and-stamp-barcode-pdf/>***
 
 
----
+## Quickstart: Stamp a Barcode onto a PDF Page
 
----
-
-<h2>Introduction to IronBarcode</h2>
-
-## Adding a Barcode to an Existing PDF
-
-Beyond simply <a href="https://ironsoftware.com/csharp/barcode/how-to/create-barcode-as-pdf/">creating a standalone PDF Barcode</a>, a highly sought-after feature in IronBarcode is its capability to integrate a `<code>GeneratedBarcode</code>` directly into an existing PDF file. This operation can be performed by invoking `<code>StampToExistingPdfPage()</code>` on the `<code>GeneratedBarcode</code>` instance. Here is how you can implement this method:
+This simple example illustrates how to create a barcode using `IronBarCode`'s method `CreateBarcode` and directly apply it onto a page of an existing PDF. This process is streamlined for immediate use: just specify the PDF file path, barcode placement coordinates, and the desired page number, and the barcode will be appended swiftly.
 
 ```cs
+:title=Efficiently Apply Barcodes on PDFs
+IronBarCode.BarcodeWriter.CreateBarcode("https://my.site", IronBarCode.BarcodeEncoding.QRCode, 150, 150)
+    .StampToExistingPdfPage("report.pdf", x: 50, y: 50, pageNumber: 1);
+```
+
+## Apply a Barcode to a PDF Page
+
+In addition to exporting barcodes as PDF, a key feature of IronBarcode is the capability to directly apply a `GeneratedBarcode` onto an existing PDF document. The code example below shows how you can do this.
+
+```csharp
 using IronBarCode;
 
 GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Code128, 200, 100);
-myBarcode.StampToExistingPdfPage("pdf_file_path.pdf", x: 200, y: 100, 3, "password");
+myBarcode.StampToExistingPdfPage("pdf_file_path.pdf", x: 200, y: 100, pageNumber: 3, password: "password");
 ```
 
-In the example provided, the `<code>StampToExistingPdfPage()</code>` method is called on the `<code>GeneratedBarcode</code>` instance to embed the barcode into the PDF. The method takes the following parameters:
-<ul>
-    <li><strong>FilePath</strong>: A `<code>System.String</code>` that specifies the location of the target PDF file on the disk.</li>
-    <li><strong>Coordinates</strong>: Two `<code>System.Int32</code>` arguments (X and Y) that determine the position where the barcode will be placed within the PDF, measured in pixels.</li>
-    <li><strong>PageNumber</strong>: Specifies the PDF page number where the barcode will appear. By default, this is set to page 1 if not otherwise specified.</li>
-    <li><strong>Password</strong>: An optional argument used when the PDF is protected by a password. It can be omitted if no password protection is applied.</li>
-</ul>
+In the example provided, we employ the `StampToExistingPdfPage()` method with a `GeneratedBarcode` object to affix the barcode onto the specified PDF document. Here are the parameters explained:
 
-Executing the above code immediately places the barcode into the PDF without requiring a document save operation.
+* `pdfFilePath`: A **System.String** indicating the file path of the PDF document.
+* `x`: A **System.Int32** denoting the horizontal coordinate on the PDF page in pixels.
+* `y`: A **System.Int32** noting the vertical coordinate on the PDF page in pixels.
+* `pageNumber`: A **System.Int32** representing the page number to stamp, starting from **1**.
+* `password`: An optional **System.String** used for accessing password-protected PDFs. This parameter can be omitted if the PDF is not secured.
 
-## Applying Barcodes Across Multiple PDF Pages
+Executing the above code will immediately place the `GeneratedBarcode` within the specified PDF without needing to save the document first.
 
-There are scenarios where you might need the same barcode on several pages of a PDF. Instead of repeating the stamping process for each page, you can use the `<code>StampToExistingPdfPages()</code>` method from the `<code>GeneratedBarcode</code>` class. Here's how:
+## Apply a Barcode to Multiple PDF Pages
 
-```cs
+At times, you might need to apply the same barcode on several pages of a PDF. Rather than repeating the stamping process for each page, the `StampToExistingPdfPages()` method from the `GeneratedBarcode` class facilitates this task in one go. Here’s how to implement it:
+
+```csharp
 using IronBarCode;
 using System.Collections.Generic;
 
 GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Code128, 200, 100);
 List<int> pages = new List<int> {1, 2, 3};
-myBarcode.StampToExistingPdfPages("pdf_file_path.pdf", x: 200, y: 100, pages, "password");
+myBarcode.StampToExistingPdfPages("pdf_file_path.pdf", x: 200, y: 100, pages, password: "password");
 ```
 
-The parameters for `<code>StampToExistingPdfPages()</code>` are very similar to those of `<code>StampToExistingPdfPage()</code>`, with the addition of:
-<ul>
-    <li><strong>Pages</strong>: A `<code>List</code>` of integers representing the pages in the PDF document where the barcode will be applied. The indexing is 1-based, meaning page number starts at 1, not 0. The provided list denotes pages 1 through 3.</li>
-</ul>
+The parameters for this method are as follows:
 
-<em>Note: Be attentive to the spelling when using these methods as the plural method name includes an additional 's' to indicate multiple pages are involved.</em>
+* `pdfFilePath`: A **System.String** indicating where the PDF document is stored.
+* `x`: A **System.Int32** for the horizontal position on each PDF page.
+* `y`: A **System.Int32** for the vertical position on each page.
+* `pageNumbers`: An **IEnumerable<System.Int32>** specifying which pages will receive the barcode, indexed starting from **1**.
+* `password`: Optional **System.String** for PDFs that require a password. If the PDF is not password-protected, this parameter can be omitted.

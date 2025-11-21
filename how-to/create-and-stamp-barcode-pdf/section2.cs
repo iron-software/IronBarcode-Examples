@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.CreateAndStampBarcodePdf
 {
@@ -7,11 +7,7 @@ namespace IronBarcode.Examples.HowTo.CreateAndStampBarcodePdf
         public static void Run()
         {
             GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Code128, 200, 100);
-            List<int> pages = new List<int>();
-            pages.Add(1);
-            pages.Add(2);
-            pages.Add(3);
-            myBarcode.StampToExistingPdfPages("pdf_file_path.pdf", x: 200, y: 100, pages, "password");
+            myBarcode.StampToExistingPdfPage("pdf_file_path.pdf", x: 200, y: 100, 3, "password");
         }
     }
 }

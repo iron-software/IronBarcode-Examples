@@ -7,8 +7,8 @@ namespace IronBarcode.Examples.HowTo.CreateBarcodeAsHtml
         public static void Run()
         {
             GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
-            var htmlTag = myBarcode.ToHtmlTag();
-            Console.WriteLine(htmlTag);
+            var dataUrl = myBarcode.ToDataUrl();
+            Console.WriteLine(dataUrl);
         }
     }
 }

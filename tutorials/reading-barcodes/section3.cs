@@ -6,19 +6,32 @@ namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
     {
         public static void Run()
         {
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
+            // Configure advanced reading options for difficult barcodes
+            BarcodeReaderOptions options = new BarcodeReaderOptions
             {
-                // Choose which filters are to be applied (in order)
-                ImageFilters = new ImageFilterCollection() {
-                    new AdaptiveThresholdFilter(),
-                },
+                // Speed settings: Faster, Balanced, Detailed, ExtremeDetail
+                // ExtremeDetail performs deep analysis for challenging images
+                Speed = ReadingSpeed.ExtremeDetail,
             
-                // Uses machine learning to auto rotate the barcode
-                AutoRotate = true,
+                // Specify expected formats to improve performance
+                // Use bitwise OR (|) to combine multiple formats
+                ExpectBarcodeTypes = BarcodeEncoding.QRCode | BarcodeEncoding.Code128,
+                
+                // Maximum number of barcodes to find (0 = unlimited)
+                MaxParallelThreads = 4,
+                
+                // Crop region for faster processing of specific areas
+                CropArea = null // Or specify a Rectangle
             };
             
-            // Read barcode
+            // Apply options when reading
             BarcodeResults results = BarcodeReader.Read("TryHarderQR.png", options);
+            
+            // Process detected barcodes
+            foreach (var barcode in results)
+            {
+                Console.WriteLine($"Format: {barcode.BarcodeType}, Value: {barcode.Text}");
+            }
         }
     }
 }

@@ -1,26 +1,31 @@
 ﻿using IronBarCode;
 using IronSoftware.Drawing;
 
-// Creating a barcode is as simple as:
+// Create a barcode
 var myBarcode = BarcodeWriter.CreateBarcode("12345", BarcodeWriterEncoding.EAN8);
 
-// Resize:
+// Resize in pixels
 myBarcode.ResizeTo(400, 100);
 
-// Set Margins and Color for Barcode
+// Set margins in pixels
 myBarcode.SetMargins(5, 5, 5, 5);
+
+// Set the color of the barcode
 myBarcode.ChangeBarCodeColor(Color.Red);
 
 // And save our barcode as an image:
 myBarcode.SaveAsImage("EAN8.jpeg");
 
-// Another supported feature is MIL Sizing:
-// Barcode mils are used by the bar code scanner manufactures to state the minimum bar code bar width of one bar, and at what distance the barcode can be scanned.
+// Another supported feature is Mil Sizing
+// Mil is a measurement unit used by the barcode scanner manufacturers to specify the minimum of one barcode bar, and at what distance the barcode can be scanned.
+// It represents (1 / 1000)th of an inch
 var barcodeResizeInMils = BarcodeWriter.CreateBarcode("5941623002802", BarcodeEncoding.Code128);
 
-// This will resize the Barcode with the MIL size 13 and the default height of 1 inch and default DPI of 96
+// This will resize the barcode width to 13 mil, at 96 DPI by default
 barcodeResizeInMils.ResizeToMil(13);
-// This will resize the Barcode with the MIL size 10 and the expected height of 1.5 inch and default DPI of 96
+
+// This will resize the barcode width to 10 mil and and the height to 1.5 inches, at 96 DPI by default
 barcodeResizeInMils.ResizeToMil(10, 1.5);
-// This will resize the Barcode with the MIL size 7.5 and the expected height of 2 inch and expected DPI of 200
+
+// This will resize the barcode width to 7.5 mil and the height to 2 inches, with the DPI set to 200
 barcodeResizeInMils.ResizeToMil(7.5, 2, 200);

@@ -1,4 +1,3 @@
-using System;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromImages
 {
@@ -6,12 +5,8 @@ namespace IronBarcode.Examples.HowTo.ReadBarcodesFromImages
     {
         public static void Run()
         {
-            var myBarcode = BarcodeReader.Read(@"image_file_path.jpg"); //image file path
-            
-            foreach (var item in myBarcode)
-            {
-                Console.WriteLine(item.ToString());
-            }
+            :title=Read Barcodes in One Easy Line
+            var results = IronBarCode.BarcodeReader.Read("path/to/image.png");
         }
     }
 }

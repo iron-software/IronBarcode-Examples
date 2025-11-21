@@ -1,4 +1,3 @@
-using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.CreateAndStampBarcodePdf
 {
@@ -6,8 +5,9 @@ namespace IronBarcode.Examples.HowTo.CreateAndStampBarcodePdf
     {
         public static void Run()
         {
-            GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.Code128, 200, 100);
-            myBarcode.StampToExistingPdfPage("pdf_file_path.pdf", x: 200, y: 100, 3, "password");
+            :title=Stamp Barcodes Effortlessly on Your PDFs
+            IronBarCode.BarcodeWriter.CreateBarcode("https://my.site", IronBarCode.BarcodeEncoding.QRCode, 150, 150)
+                .StampToExistingPdfPage("report.pdf", x: 50, y: 50, pageNumber: 1);
         }
     }
 }

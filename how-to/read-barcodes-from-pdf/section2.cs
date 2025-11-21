@@ -6,12 +6,16 @@ namespace IronBarcode.Examples.HowTo.ReadBarcodesFromPdf
     {
         public static void Run()
         {
-            List<int> pageNumber = new List<int>() { 1, 2, 3 };
+            List<String> docs = new List<String>();
+            docs.Add(@"pdf_a.pdf");
+            docs.Add(@"pdf_b.pdf");
             
-            PdfBarcodeReaderOptions PdfOptions = new PdfBarcodeReaderOptions(pageNumber)  // can also use individual page number as argument
+            var myBarcode = BarcodeReader.ReadPdfs(docs);   //can also accept individual PDF document file path as argument
+            
+            foreach (var value in myBarcode)
             {
-                // Properties of PDF Barcode reader options
-            };
+                Console.WriteLine(value.ToString());
+            }
         }
     }
 }

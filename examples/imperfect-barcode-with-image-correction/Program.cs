@@ -1,33 +1,35 @@
 ﻿using IronBarCode;
 using IronSoftware.Drawing;
-using System.Linq;
 
-// Choose which filters are to be applied (in order);
-var filtersToApply = new ImageFilterCollection() {
+// Choose which filters are to be applied (in order)
+// Set cacheAtEachIteration = true to save the intermediate image data after each filter is applied
+var filtersToApply = new ImageFilterCollection(cacheAtEachIteration: true) {
     new SharpenFilter(),
     new InvertFilter(),
     new ContrastFilter(),
     new BrightnessFilter(),
     new AdaptiveThresholdFilter(),
-    new BinaryThresholdFilter()
+    new BinaryThresholdFilter(),
+    new GaussianBlurFilter(),
+    new MedianBlurFilter(),
+    new BilateralFilter()
 };
 
 BarcodeReaderOptions myOptionsExample = new BarcodeReaderOptions()
 {
-    // Set chosen filters in BarcodeReaderOptions:
+    // Set chosen filters in BarcodeReaderOptions
     ImageFilters = filtersToApply,
 
-    // Other Barcode Reader Options:
     Speed = ReadingSpeed.Balanced,
     ExpectMultipleBarcodes = true,
 };
 
-// And, apply with a Read:
+// Read with the options applied
 BarcodeResults results = BarcodeReader.Read("screenshot.png", myOptionsExample);
 
 AnyBitmap[] filteredImages = results.FilterImages();
 
-// Export file to disk
+// Export intermediate image files to disk
 for (int i = 0 ; i < filteredImages.Length ; i++)
     filteredImages[i].SaveAs($"{i}_barcode.png");
 

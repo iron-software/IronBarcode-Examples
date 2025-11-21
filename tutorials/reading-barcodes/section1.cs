@@ -1,4 +1,3 @@
-using System;
 using BarCode;
 namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
@@ -6,17 +5,8 @@ namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
     {
         public static void Run()
         {
-            // Read barcode
-            BarcodeResults results = BarcodeReader.Read("GetStarted.png");
-            
-            // Log the result to Console Window
-            foreach (BarcodeResult result in results)
-            {
-                if (result != null)
-                {
-                    Console.WriteLine("GetStarted was a success. Read Value: " + result.Text);
-                }
-            }
+            :title=Scan Barcodes in One Line – Try It Now!
+            var results = IronBarCode.BarcodeReader.Read("path/to/barcode.png");
         }
     }
 }

@@ -1,19 +1,23 @@
-# Correcting Barcode Orientation
+# Adjusting Barcode Orientation
 
 ***Based on <https://ironsoftware.com/how-to/image-orientation-correction/>***
 
 
-Barcode orientation describes the angle at which a barcode appears on a product or document. It's possible to adjust this to different angles to suit various design and layout needs. Horizontal orientation is the most common, with the barcode running from left to right. This is the standard and most frequently used alignment. However, barcodes with any angle other than zero can present challenges for detection and decoding. IronBarcode simplifies this process by offering features that automatically correct the orientation of both barcodes and QR codes.
+Barcode orientation pertains to the angle at which a barcode is printed or shown on a product or document. This orientation can be modified to various degrees to suit different design and layout needs. Horizontally aligned barcodes, extending from left to right, represent the most recognized and prevalent orientation. However, barcodes positioned at any other angle may present detection challenges, which IronBarcode skillfully handles with its automatic orientation correction feature for both barcodes and QR codes.
 
-### Getting Started with IronBarcode
+## Quickstart: Simplify Image Correction with Auto-rotate
 
----
+IronBarcode simplifies the task of correcting barcode orientation via its one-line code solution, utilizing the default-enabled `AutoRotate` option, ensuring accurate barcode readings regardless of image rotation.
 
-## Example: Correcting Barcode Orientation
+```cs
+var result = IronBarCode.BarcodeReader.Read("rotatedImage.png", new IronBarCode.BarcodeReaderOptions { AutoRotate = true });
+```
 
-To enable automatic orientation correction, you simply need to enable the **AutoRotate** property within `BarcodeReaderOptions`. By default, this property is already set to true, meaning you often won't need to make any adjustments for it to function. This allows for seamless reading of barcodes regardless of their orientation.
+## Example: Automatically Correcting Barcode Orientation
 
-Consider the following example images. You can download these images to see how the correction works: [20° rotated image](https://ironsoftware.com/static-assets/barcode/how-to/image-orientation-correction/rotate20.png) and [45° rotated image](https://ironsoftware.com/static-assets/barcode/how-to/image-orientation-correction/rotate45.png).
+To leverage automatic orientation correction, simply ensure that the `AutoRotate` property in `BarcodeReaderOptions` is set to true, which it is by default. This will facilitate the seamless reading of barcodes with any orientation right out of the box.
+
+Consider the following example images. Download the provided [20° rotation](https://ironsoftware.com/static-assets/barcode/how-to/image-orientation-correction/rotate20.png) and [45° rotation](https://ironsoftware.com/static-assets/barcode/how-to/image-orientation-correction/rotate45.png) samples for practice.
 
 <div class="competitors-section__wrapper-even-1">
     <div class="competitors__card" style="width: 48%;">
@@ -26,22 +30,20 @@ Consider the following example images. You can download these images to see how 
     </div>
 </div>
 
-### Implementing Code
+### Implementing the Code
 
-```cs
+```csharp
 using IronBarCode;
 using System;
 
-// Setup barcode reader options with auto rotation enabled
 BarcodeReaderOptions options = new BarcodeReaderOptions()
 {
-    AutoRotate = true, // Enables automatic rotation detection
+    AutoRotate = true, // Enable automated rotation for ML detection
 };
 
-var barcodeResults = BarcodeReader.Read("rotate20.png", options);
+var results = BarcodeReader.Read("rotate20.png", options);
 
-// Output the decoded value from the barcode
-Console.WriteLine(barcodeResults[0].Value);
+Console.WriteLine(results[0].Value); // Display the decoded value
 ```
 
-In certain situations, merely adjusting the rotation might not be enough, and additional image filtering might be needed. To dive deeper into using image filters, refer to the following guide: [Using Image Correction Filters](https://ironsoftware.com/how-to/image-orientation-correction/).
+In some situations, merely correcting the orientation may not be enough, and additional image filtering might be necessary. For insights on applying image filters, refer to the article: "[How to use Image Correction Filters](https://ironsoftware.com/csharp/ocr/how-to/image-orientation-correction/)."

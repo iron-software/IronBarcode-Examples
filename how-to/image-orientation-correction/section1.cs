@@ -1,4 +1,3 @@
-using System;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ImageOrientationCorrection
 {
@@ -6,16 +5,8 @@ namespace IronBarcode.Examples.HowTo.ImageOrientationCorrection
     {
         public static void Run()
         {
-            BarcodeReaderOptions myOptionsExample = new BarcodeReaderOptions()
-            {
-                // Turn on auto rotation in ML detection
-                AutoRotate = true,
-            };
-            
-            var results = BarcodeReader.Read("rotate20.png", myOptionsExample);
-            
-            // Print out the value
-            Console.WriteLine(results[0].Value);
+            :title=Fix Barcodes Fast with AutoRotate
+            var result = IronBarCode.BarcodeReader.Read("rotatedImage.png", new IronBarCode.BarcodeReaderOptions { AutoRotate = true });
         }
     }
 }

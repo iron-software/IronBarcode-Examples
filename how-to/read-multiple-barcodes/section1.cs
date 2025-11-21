@@ -1,4 +1,3 @@
-using System;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ReadMultipleBarcodes
 {
@@ -6,20 +5,8 @@ namespace IronBarcode.Examples.HowTo.ReadMultipleBarcodes
     {
         public static void Run()
         {
-            // Set the option to read multiple barcodes
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
-            {
-                ExpectMultipleBarcodes = true,
-                ExpectBarcodeTypes = BarcodeEncoding.AllOneDimensional,
-            };
-            
-            // Read barcode
-            var results = BarcodeReader.Read("testbc1.png", options);
-            
-            foreach (var result in results)
-            {
-                Console.WriteLine(result.ToString());
-            }
+            :title=Read Multiple Barcodes Instantly
+            var results = IronBarCode.BarcodeReader.Read("image.png", new IronBarCode.BarcodeReaderOptions { ExpectMultipleBarcodes = true, ExpectBarcodeTypes = IronBarCode.BarcodeEncoding.AllOneDimensional });
         }
     }
 }

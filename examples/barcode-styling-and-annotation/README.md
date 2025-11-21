@@ -1,5 +1,5 @@
 ***Based on <https://ironsoftware.com/examples/barcode-styling-and-annotation/>***
 
-In the provided example, we observe that barcodes can be enhanced with customizable text, either using the barcode's value or any text you prefer, utilizing any typeface existing on the destination machine. Should the selected typeface be unavailable, a suitable alternative will be automatically chosen. Additionally, the barcodes can be adjusted in size, augmented with margins, and both the barcode itself and its background can be recolored. The finished barcode can then be saved in a variety of formats.
+In this example, it's demonstrated that barcodes can be customized with text, either user-defined or the barcode's own value, utilizing any font installed on the system. Should the selected font be unavailable, a similar substitute will be used. Adjustments such as resizing and margination are possible, along with recoloring the barcode and its background. The final result can be saved in various formats.
 
-Towards the end of the sample code, it's evident that by employing our streamlined and fluent style operators, one can easily generate and customize a barcode using just a few lines of code, akin to the `System.Linq`.
+The code snippets towards the end illustrate how, by leveraging fluent style syntax akin to `System.Linq`, one can efficiently generate and style a barcode in just a few lines.

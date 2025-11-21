@@ -1,4 +1,3 @@
-using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.CreateBarcodeAsPdf
 {
@@ -6,8 +5,8 @@ namespace IronBarcode.Examples.HowTo.CreateBarcodeAsPdf
     {
         public static void Run()
         {
-            GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.DataMatrix);
-            myBarcode.SaveAsPdf("myBarcode.pdf");
+            :title=Generate PDF Barcode in One Line
+            var pdfBytes = IronBarCode.BarcodeWriter.CreateBarcode("FastPDF", IronBarCode.BarcodeWriterEncoding.Code128).ToPdfBinaryData();
         }
     }
 }

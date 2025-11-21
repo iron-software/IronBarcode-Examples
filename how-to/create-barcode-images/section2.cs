@@ -6,7 +6,7 @@ namespace IronBarcode.Examples.HowTo.CreateBarcodeImages
     {
         public static void Run()
         {
-            QRCodeWriter.CreateQrCode("IronBarcode1234", 250, QRCodeWriter.QrErrorCorrectionLevel.Medium, qrVersion: 0).SaveAsJpeg("QRMedium.jpeg");
+            BarcodeWriter.CreateBarcode("IronBarcode123", BarcodeEncoding.Code128, 200, 100).SaveAsJpeg("OneDBarcode.jpeg");
         }
     }
 }

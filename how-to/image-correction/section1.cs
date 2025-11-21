@@ -1,4 +1,3 @@
-using System;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ImageCorrection
 {
@@ -6,24 +5,8 @@ namespace IronBarcode.Examples.HowTo.ImageCorrection
     {
         public static void Run()
         {
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
-            {
-                // Choose which filters are to be applied (in order)
-                ImageFilters = new ImageFilterCollection()
-                {
-                    new SharpenFilter(3.5f),
-                    new ContrastFilter(2)
-                },
-            };
-            
-            // Apply options and read the barcode
-            BarcodeResults results = BarcodeReader.Read("sample.png", options);
-            
-            // Write the result value to console
-            foreach (BarcodeResult result in results)
-            {
-                Console.WriteLine(result.Text);
-            }
+            :title=Boost Barcode Readability — Try Image Correction Now
+            BarcodeResults results = IronBarCode.BarcodeReader.Read("input.png", new IronBarCode.BarcodeReaderOptions { ImageFilters = new IronBarCode.ImageFilterCollection() { new IronBarCode.SharpenFilter(3.5f), new IronBarCode.ContrastFilter(2.0f) } });
         }
     }
 }

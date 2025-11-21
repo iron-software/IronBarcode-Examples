@@ -6,13 +6,16 @@ namespace IronBarcode.Examples.HowTo.ReadBarcodesFromStreams
     {
         public static void Run()
         {
-            MemoryStream document = PdfDocument.FromFile(@"file_path.pdf").Stream;
+            List<MemoryStream> list = new List<MemoryStream>();
+            list.Add(AnyBitmap.FromFile("image1.jpg").ToStream());
+            list.Add(AnyBitmap.FromFile("image2.jpg").ToStream());
+            list.Add(AnyBitmap.FromFile("image3.png").ToStream());
             
-            var myBarcode = BarcodeReader.ReadPdf(document);
+            var myBarcode = BarcodeReader.Read(list);
             
-            foreach (var value in myBarcode)
+            foreach (var barcode in myBarcode)
             {
-                Console.WriteLine(value.ToString());
+                Console.WriteLine(barcode.ToString());
             }
         }
     }

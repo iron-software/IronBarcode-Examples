@@ -1,4 +1,3 @@
-using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.CreateBarcodeImages
 {
@@ -6,7 +5,8 @@ namespace IronBarcode.Examples.HowTo.CreateBarcodeImages
     {
         public static void Run()
         {
-            BarcodeWriter.CreateBarcode("IronBarcode123", BarcodeEncoding.Code128, 200, 100).SaveAsJpeg("OneDBarcode.jpeg");
+            :title=Generate Barcode Image Instantly
+            IronBarCode.BarcodeWriter.CreateBarcode("Sample123", BarcodeEncoding.Code128, 250, 100).SaveAsPng("Barcode.png");
         }
     }
 }

@@ -1,4 +1,4 @@
-using System.Linq;
+using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.OutputDataFormats
 {
@@ -9,21 +9,18 @@ namespace IronBarcode.Examples.HowTo.OutputDataFormats
             // Read barcode from PNG
             BarcodeResults result = BarcodeReader.Read("multiple-barcodes.png");
             
-            AnyBitmap bitmap = AnyBitmap.FromFile("multiple-barcodes.png");
-            
+            int i = 1;
             foreach (BarcodeResult barcode in result)
             {
-                PointF[] barcodePoints = barcode.Points;
+                var binaryValue = barcode.BinaryValue;
+                var barcodeType = IronBarCode.BarcodeEncoding.QRCode;
             
-                float x1 = barcodePoints.Select(b => b.X).Min();
-                float y1 = barcodePoints.Select(b => b.Y).Min();
+                // Create QR code
+                GeneratedBarcode generatedBarcode = BarcodeWriter.CreateBarcode(binaryValue, barcodeType);
             
-                Rectangle rectangle = new Rectangle((int)x1, (int)y1, (int)barcode.Width!, (int)barcode.Height!);
-            
-                bitmap = bitmap.Redact(rectangle, Color.Magenta);
-            
-                // Save the image
-                bitmap.SaveAs("redacted.png", AnyBitmap.ImageFormat.Png);
+                // Export QR code
+                generatedBarcode.SaveAsPng($"qrFromBinary{i}.png");
+                i++;
             }
         }
     }

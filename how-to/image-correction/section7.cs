@@ -1,4 +1,4 @@
-using System;
+using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ImageCorrection
 {
@@ -10,7 +10,7 @@ namespace IronBarcode.Examples.HowTo.ImageCorrection
             {
                 // Choose which filters are to be applied (in order)
                 ImageFilters = new ImageFilterCollection(true) {
-                    new SharpenFilter(0.5f),
+                    new InvertFilter(),
                 },
             };
             
@@ -18,7 +18,7 @@ namespace IronBarcode.Examples.HowTo.ImageCorrection
             BarcodeResults results = BarcodeReader.Read("sample.png", options);
             
             // Export file to disk
-            results.ExportFilterImagesToDisk("sharpen_0.5.png");
+            results.ExportFilterImagesToDisk("invert.png");
         }
     }
 }

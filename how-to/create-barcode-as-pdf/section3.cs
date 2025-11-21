@@ -1,4 +1,4 @@
-using System.IO;
+using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.CreateBarcodeAsPdf
 {
@@ -7,7 +7,7 @@ namespace IronBarcode.Examples.HowTo.CreateBarcodeAsPdf
         public static void Run()
         {
             GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.DataMatrix);
-            Stream myBarcodeStream = myBarcode.ToPdfStream();
+            byte[] myBarcodeByte = myBarcode.ToPdfBinaryData();
         }
     }
 }

@@ -6,14 +6,13 @@ namespace IronBarcode.Examples.HowTo.CreateBarcodeFromData
         public static void Run()
         {
             ﻿using IronBarCode;
-            using System.IO;
             using System.Text;
             
-            MemoryStream text = new MemoryStream(Encoding.UTF8.GetBytes("Hello, World!"));
-            MemoryStream url = new MemoryStream(Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/"));
-            MemoryStream receiptID = new MemoryStream(Encoding.UTF8.GetBytes("2023-08-04-12345")); // Receipt ID (numeric id)
-            MemoryStream flightID = new MemoryStream(Encoding.UTF8.GetBytes("FLT2023NYC-LAX123456")); // Flight id (alphanumeric id)
-            MemoryStream number = new MemoryStream(Encoding.UTF8.GetBytes("1234"));
+            byte[] text = Encoding.UTF8.GetBytes("Hello, World!");
+            byte[] url = Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/");
+            byte[] receiptID = Encoding.UTF8.GetBytes("2023-08-04-12345"); // Receipt ID (numeric id)
+            byte[] flightID = Encoding.UTF8.GetBytes("FLT2023NYC-LAX123456"); // Flight id (alphanumeric id)
+            byte[] number = Encoding.UTF8.GetBytes("1234");
             
             BarcodeWriter.CreateBarcode(text, BarcodeEncoding.Aztec).SaveAsPng("text.png");
             BarcodeWriter.CreateBarcode(url, BarcodeEncoding.QRCode).SaveAsPng("url.png");

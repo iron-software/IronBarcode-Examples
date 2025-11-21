@@ -1,4 +1,4 @@
-using System;
+using IronBarCode;
 using BarCode;
 namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
@@ -6,18 +6,30 @@ namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
     {
         public static void Run()
         {
-            // Multiple barcodes may be scanned up from a single document or image. A PDF document may also used as the input image
-            BarcodeResults results = BarcodeReader.ReadPdf("MultipleBarcodes.pdf");
-            
-            // Work with the results
-            foreach (var pageResult in results)
+            BarcodeReaderOptions options = new BarcodeReaderOptions
             {
-                string Value = pageResult.Value;
-                int PageNum = pageResult.PageNumber;
-                System.Drawing.Bitmap Img = pageResult.BarcodeImage;
-                BarcodeEncoding BarcodeType = pageResult.BarcodeType;
-                byte[] Binary = pageResult.BinaryValue;
-                Console.WriteLine(pageResult.Value + " on page " + PageNum);
+                // Apply image processing filters to enhance readability
+                ImageFilters = new ImageFilterCollection
+                {
+                    new AdaptiveThresholdFilter(9, 0.01f), // Handles varying lighting
+                    new ContrastFilter(2.0f),               // Increases contrast
+                    new SharpenFilter()                     // Reduces blur
+                },
+            
+                // Automatically rotate to find barcodes at any angle
+                AutoRotate = true,
+                
+                // Use multiple CPU cores for faster processing
+                Multithreaded = true
+            };
+            
+            BarcodeResults results = BarcodeReader.Read("TryHarderQR.png", options);
+            
+            foreach (var result in results)
+            {
+                Console.WriteLine($"Detected {result.BarcodeType}: {result.Text}");
+                Console.WriteLine($"Confidence: {result.Confidence}%");
+                Console.WriteLine($"Position: X={result.X}, Y={result.Y}");
             }
         }
     }

@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Drawing;
 using BarCode;
 namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
 {
@@ -6,22 +6,29 @@ namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
     {
         public static void Run()
         {
-            // Create Some Binary Data - This example equally well for Byte[] and System.IO.Stream
-            byte[] BinaryData = System.Text.Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/");
+            // Generate QR code with logo
+            QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
+            GeneratedBarcode myVerifiedQR = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/", qrCodeLogo);
             
-            // WRITE QR with Binary Content
-            QRCodeWriter.CreateQrCode(BinaryData, 500).SaveAsImage("MyBinaryQR.png");
+            // Apply light color (may affect readability)
+            myVerifiedQR.ChangeBarCodeColor(Color.LightBlue);
             
-            // READ QR with Binary Content
-            var MyReturnedData = BarcodeReader.Read("MyBinaryQR.png").First();
-            if (BinaryData.SequenceEqual(MyReturnedData.BinaryValue))
+            // Verify the QR code can still be scanned
+            if (!myVerifiedQR.Verify())
             {
-                Console.WriteLine("\t Binary Data Read and Written Perfectly");
+                Console.WriteLine("LightBlue is not dark enough to be read accurately. Let's try DarkBlue");
+                myVerifiedQR.ChangeBarCodeColor(Color.DarkBlue);
             }
-            else
+            
+            // Save verified QR code
+            myVerifiedQR.SaveAsHtmlFile("MyVerifiedQR.html");
+            
+            // Open in default browser
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
             {
-                throw new Exception("Corrupted Data");
-            }
+                FileName = "MyVerifiedQR.html",
+                UseShellExecute = true
+            });
         }
     }
 }

@@ -1,4 +1,4 @@
-using IronBarCode;
+using IronSoftware.Drawing;
 using BarCode;
 namespace IronBarcode.Examples.Overview.Quickstart
 {
@@ -6,7 +6,9 @@ namespace IronBarcode.Examples.Overview.Quickstart
     {
         public static void Run()
         {
-            QRCodeWriter.CreateQrCode("https://ironsoftware.com", 500, QRCodeWriter.QrErrorCorrectionLevel.Medium).SaveAsPdf("MyQR.pdf");
+            QRCodeLogo qrCodeLogo = new QRCodeLogo("visual-studio-logo.png");
+            GeneratedBarcode myQRCodeWithLogo = QRCodeWriter.CreateQrCodeWithLogo("https://ironsoftware.com/csharp/barcode/", qrCodeLogo);
+            myQRCodeWithLogo.ChangeBarCodeColor(Color.DarkGreen).SaveAsPdf("MyQRWithLogo.pdf");
         }
     }
 }

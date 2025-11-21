@@ -8,5 +8,5 @@ BarcodeReaderOptions readerOptions = new BarcodeReaderOptions()
     ConfidenceThreshold = 0.3,
 };
 
-// And, apply:
+// Read with the options applied
 var results = BarcodeReader.Read("barcode.png", readerOptions);

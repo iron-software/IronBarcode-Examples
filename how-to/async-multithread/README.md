@@ -1,58 +1,64 @@
-# Understanding Async and Multithread Techniques
+# Understanding Async and Multithreading Techniques
 
 ***Based on <https://ironsoftware.com/how-to/async-multithread/>***
 
 
-Understanding the distinctions between <strong>Async</strong> and <strong>Multithreading</strong> is essential as both strategies aim to boost application performance by optimizing resource use and minimising execution time. They adopt different methods and mechanisms for enhancing program efficiency. IronBarcode effectively implements both techniques. We will delve into these concepts and demonstrate their use with IronBarcode.
+The concepts of `Async` and `Multithreading` are commonly confused, yet they are distinct approaches that aim to boost program performance by optimizing how system resources are utilized and decreasing the time it takes for programs to run. IronBarcode facilitates using both techniques. This article will delve into their differences and demonstrate how they can be implemented using IronBarcode.
 
-## Getting Started with IronBarcode
+## Quickstart: Async & Multithreaded Barcode Reading Example
 
-### Asynchronous Barcode Reading Example
-
-To begin, let's discuss asynchronous barcode reading and its advantages. Asynchronous operations allow time-consuming tasks to run without halting the execution of the main program thread. Using C#, this can be achieved with the **async** and **await** keywords which do not spawn new threads but rather free up the existing thread. The main thread, essential for initiating and overseeing tasks, can switch to other operations during idle times—ideal for I/O tasks like file operations or network calls.
-
-For instance, when reading barcodes, the steps involved are:
-- File reading
-- Setting reading parameters
-- Decoding the barcode
-
-The "File reading" step can relinquish the main thread.
-
-Implement `ReadAsync` and `ReadPdfAsync` for asynchronous barcode reading from images and PDFs respectively.
+Get started quickly with IronBarcode by employing this simple example. Discover how effortlessly you can perform asynchronous and multithreaded barcode scanning on multiple images simultaneously using minimal preparation.
 
 ```cs
+:title=Kickstart Async & Multithreaded Barcode Scans
+var scanResults = await IronBarCode.BarcodeReader.ReadAsync(imagePaths, new IronBarCode.BarcodeReaderOptions { Multithreaded = true, MaxParallelThreads = 4, ExpectMultipleBarcodes = true });
+```
+
+## Example of Reading Barcodes Asynchronously
+
+Understanding asynchronous reading starts with recognizing how it allows extended or blocking operations to continue without halting the main thread's execution. In C#, by using the `async` and `await` keywords along with methods that support asynchronous operations, one can avoid generating new threads and simply release the existing thread. The main thread plays a vital role in starting and managing tasks but isn't bound to just one task, freeing it up for other operations like I/O-bound tasks. 
+
+In barcode reading scenarios, this could look like:
+
+- Loading the barcode file,
+- Configuring reading parameters, 
+- Executing the decode process.
+
+In the "Loading the barcode file" step, the primary task can be freed.
+
+You can employ `ReadAsync` for images and `ReadPdfAsync` for PDFs to perform asynchronous barcode reading.
+
+```csharp
 using IronBarCode;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-var imagePaths = new List<string> { "image1.png", "image2.png" };
+List<string> imagePaths = new List<string>() { "image1.png", "image2.png" };
 
-// Define barcode reading options
-var options = new BarcodeReaderOptions
+// Setting barcode reading options
+BarcodeReaderOptions readOptions = new BarcodeReaderOptions()
 {
     ExpectMultipleBarcodes = true
 };
 
-// Asynchronously read barcodes
-var asyncResult = await BarcodeReader.ReadAsync(imagePaths, options);
+// Asynchronous reading
+BarcodeResults asyncResults = await BarcodeReader.ReadAsync(imagePaths, readOptions);
 
-// Output the results
-foreach (var result in asyncResult)
+// Output the results to the console
+foreach (var result in asyncResults)
 {
     Console.WriteLine(result.ToString());
 }
 ```
 
-From the above example, `ReadAsync` is utilized from the **BarcodeReader** class to process the listed image paths asynchronously. For PDF barcode reading, employ the `ReadPdfAsync` function, also located within the same class.
+Here, we shown how to configure a list of image paths for asynchronous barcode reading using IronBarcode. This setup also extends to reading PDF documents asynchronously, available through the `ReadPdfAsync` method in the same class.
 
-### Multithread Barcode Reading Example
+## Example of Reading Barcodes with Multithreading
 
-Contrastingly, multithreading involves executing a process across multiple threads simultaneously rather than sequentially. This allows tasks to run in parallel, significantly speeding up execution, especially on systems with multiple CPU cores. Like asynchronous methods, multithreading improves application responsiveness.
+Multithreading diverges from asynchronous operations by allowing a process to operate across multiple threads at once, promoting concurrent execution. This technique is highly effective on machines with multiple CPU cores since each core can execute a thread independently. Like asynchronous operations, multithreading enhances application performance and responsiveness.
 
-To use multithreading in IronBarcode, activate the **Multithreaded** flag and define **MaxParallelThreads** in `BarcodeReaderOptions`. The default setting is 4 but can be modified according to the CPU cores available.
-
-To verify CPU cores, navigate: Task Manager -> Performance tab -> See 'Cores' count.
+To employ multithreading in IronBarcode, activate the `Multithreaded` property and define the maximum number of executable cores using `MaxParallelThreads` within `BarcodeReaderOptions`. The default setting for `MaxParallelThreads` is 4, but it is adjustable based on the number of CPU cores available.
 
 ```cs
 using IronBarCode;
@@ -60,29 +66,29 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-var imagePaths = new List<string>{ "test1.jpg", "test2.png" };
+List<string> imagePaths = new List<string>(){"test1.jpg", "test2.png"};
 
-// Set up barcode reader options for multithreading
-var options = new BarcodeReaderOptions
+// Barcode reading configurations
+BarcodeReaderOptions options = new BarcodeReaderOptions()
 {
     Multithreaded = true,
     MaxParallelThreads = 4,
     ExpectMultipleBarcodes = true
 };
 
-// Execute barcode reading with multithreading
-var results = BarcodeReader.Read(imagePaths, options);
+// Multithreaded barcode reading
+BarcodeResults mtResults = BarcodeReader.Read(imagePaths, options);
 
 // Display the results
-foreach (var result in results)
+foreach (var result in mtResults)
 {
     Console.WriteLine(result.ToString());
 }
 ```
 
-### Comparing Performance
+### Performance Comparison
 
-Now, let us compare the efficiency of normal, asynchronous, and multithreaded reads using the following sample images.
+Let's compare the reading times for normal, asynchronous, and multithreaded operations using the two images below:
 
 #### Sample Image
 
@@ -102,12 +108,12 @@ Now, let us compare the efficiency of normal, asynchronous, and multithreaded re
         <th style="text-align: center;">Multithreaded Read (4 cores)</th>
     </tr>
     <tr>
-        <td>01.75 second</td>
-        <td>01.67 second</td>
-        <td>01.17 second</td>
+        <td>01.75 seconds</td>
+        <td>01.67 seconds</td>
+        <td>01.17 seconds</td>
     </tr>
 </table>
 
-The table depicts a marked improvement in reading times when using asynchronous and multithreaded techniques. Despite their different applications and methodologies, both strategies enhance performance for various user scenarios.
+The table above clearly shows the performance gains achieved through asynchronous and multithreaded reading. Both techniques serve different purposes and have distinct approaches, requiring careful consideration of which is best suited for your specific application.
 
-For additional information on handling documents with multiple barcodes, please refer to the [Read Multiple Barcodes](https://ironsoftware.com/csharp/barcode/how-to/read-multiple-barcodes/) guide.
+For further details on handling multiple barcodes in a single document, visit the [Read Multiple Barcodes Guide](https://ironsoftware.com/csharp/barcode/how-to/read-multiple-barcodes/).

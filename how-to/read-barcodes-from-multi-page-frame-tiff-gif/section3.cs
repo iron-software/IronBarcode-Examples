@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif
 {
@@ -6,30 +6,27 @@ namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif
     {
         public static void Run()
         {
-            // Configure filters
-            ImageFilterCollection filters = new ImageFilterCollection()
+            // Import images
+            List<AnyBitmap> images = new List<AnyBitmap>()
             {
-                new SharpenFilter(3.5f),
-                new ContrastFilter(2)
+                AnyBitmap.FromFile("image1.png"),
+                AnyBitmap.FromFile("image2.png"),
+                AnyBitmap.FromFile("image3.png"),
+                AnyBitmap.FromFile("image4.jpg"),
+                AnyBitmap.FromFile("image5.jpg")
             };
             
-            // Configure options
-            BarcodeReaderOptions options = new BarcodeReaderOptions()
-            {
-                ExpectBarcodeTypes = IronBarCode.BarcodeEncoding.QRCode,
-                ImageFilters = filters,
-                ExpectMultipleBarcodes = true,
-                Speed = ReadingSpeed.Balanced
-            };
+            // Convert TIFF from images
+            AnyBitmap tiffImage = AnyBitmap.CreateMultiFrameTiff(images);
             
-            // Read barcode from TIF image
-            BarcodeResults results = BarcodeReader.Read("sample.tif", options);
+            // Export TIFF
+            tiffImage.SaveAs("multiframetiff.tiff");
             
-            // Output the barcodes value to console
-            foreach (var result in results)
-            {
-                Console.WriteLine(result.Value);
-            }
+            // Convert GIF from images
+            AnyBitmap gifImage = AnyBitmap.CreateMultiFrameGif(images);
+            
+            // Export GIF
+            gifImage.SaveAs("multiframegif1.gif");
         }
     }
 }

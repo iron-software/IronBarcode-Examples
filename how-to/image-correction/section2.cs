@@ -1,4 +1,4 @@
-using IronBarCode;
+using System;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.ImageCorrection
 {
@@ -9,16 +9,21 @@ namespace IronBarcode.Examples.HowTo.ImageCorrection
             BarcodeReaderOptions options = new BarcodeReaderOptions()
             {
                 // Choose which filters are to be applied (in order)
-                ImageFilters = new ImageFilterCollection(true) {
-                    new AdaptiveThresholdFilter(0.9f),
+                ImageFilters = new ImageFilterCollection()
+                {
+                    new SharpenFilter(3.5f),
+                    new ContrastFilter(2)
                 },
             };
             
             // Apply options and read the barcode
             BarcodeResults results = BarcodeReader.Read("sample.png", options);
             
-            // Export file to disk
-            results.ExportFilterImagesToDisk("adaptiveThreshold_0.9.png");
+            // Write the result value to console
+            foreach (BarcodeResult result in results)
+            {
+                Console.WriteLine(result.Text);
+            }
         }
     }
 }

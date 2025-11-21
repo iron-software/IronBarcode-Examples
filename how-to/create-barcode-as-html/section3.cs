@@ -1,4 +1,4 @@
-using IronBarCode;
+using System;
 using BarCode;
 namespace IronBarcode.Examples.HowTo.CreateBarcodeAsHtml
 {
@@ -7,7 +7,8 @@ namespace IronBarcode.Examples.HowTo.CreateBarcodeAsHtml
         public static void Run()
         {
             GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("https://ironsoftware.com/csharp/barcode/", BarcodeEncoding.QRCode);
-            myBarcode.SaveAsHtmlFile("myBarcode.html");
+            var htmlTag = myBarcode.ToHtmlTag();
+            Console.WriteLine(htmlTag);
         }
     }
 }

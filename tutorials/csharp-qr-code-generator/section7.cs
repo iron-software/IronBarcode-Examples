@@ -6,10 +6,23 @@ namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
     {
         public static void Run()
         {
-            BarcodeResults result = BarcodeReader.Read("QR.png", new BarcodeReaderOptions() { ExpectBarcodeTypes = BarcodeEncoding.QRCode });
-            if (result != null)
+            // Convert string to binary data
+            byte[] binaryData = System.Text.Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/");
+            
+            // Create QR code from binary content
+            QRCodeWriter.CreateQrCode(binaryData, 500).SaveAsPng("MyBinaryQR.png");
+            
+            // Read and verify binary data integrity
+            var myReturnedData = BarcodeReader.Read("MyBinaryQR.png").First();
+            
+            // Confirm data matches original
+            if (binaryData.SequenceEqual(myReturnedData.BinaryValue))
             {
-                Console.WriteLine(result.First().Value);
+                Console.WriteLine("Binary Data Read and Written Perfectly");
+            }
+            else
+            {
+                throw new Exception("Data integrity check failed");
             }
         }
     }
