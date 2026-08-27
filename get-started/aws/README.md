@@ -1,6 +1,6 @@
 # Reading and Writing Barcodes with AWS Lambda and IronBarcode
 
-***Based on <https://ironsoftware.com/get-started/aws/>***
+> Full guide: [Reading and Writing Barcodes with AWS Lambda and IronBarcode](https://ironsoftware.com/csharp/barcode/get-started/aws/)
 
 
 <div class="container-fluid">
@@ -46,15 +46,11 @@ FROM public.ecr.aws/lambda/dotnet:8
 
 # Update the package list
 
-***Based on <https://ironsoftware.com/get-started/aws/>***
-
 RUN dnf update -y
 
 WORKDIR /var/task
 
 # Copy the Lambda project’s build artifacts into the image. Adjust the source path based on where your artifacts are located.
-
-***Based on <https://ironsoftware.com/get-started/aws/>***
 
 COPY "bin/Release/lambda-publish" .
 ```

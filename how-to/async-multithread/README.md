@@ -1,6 +1,6 @@
 # Understanding Async and Multithreading Techniques
 
-***Based on <https://ironsoftware.com/how-to/async-multithread/>***
+> Full guide: [Understanding Async and Multithreading Techniques](https://ironsoftware.com/how-to/async-multithread/)
 
 
 The concepts of `Async` and `Multithreading` are commonly confused, yet they are distinct approaches that aim to boost program performance by optimizing how system resources are utilized and decreasing the time it takes for programs to run. IronBarcode facilitates using both techniques. This article will delve into their differences and demonstrate how they can be implemented using IronBarcode.
@@ -10,7 +10,6 @@ The concepts of `Async` and `Multithreading` are commonly confused, yet they are
 Get started quickly with IronBarcode by employing this simple example. Discover how effortlessly you can perform asynchronous and multithreaded barcode scanning on multiple images simultaneously using minimal preparation.
 
 ```cs
-:title=Kickstart Async & Multithreaded Barcode Scans
 var scanResults = await IronBarCode.BarcodeReader.ReadAsync(imagePaths, new IronBarCode.BarcodeReaderOptions { Multithreaded = true, MaxParallelThreads = 4, ExpectMultipleBarcodes = true });
 ```
 

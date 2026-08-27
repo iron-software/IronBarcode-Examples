@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromSystemDrawing
 {
     public static class Section2

@@ -1,6 +1,6 @@
 # How to Implement Barcode Reading and Writing in iOS with .NET MAUI
 
-***Based on <https://ironsoftware.com/get-started/ios/>***
+> Full guide: [How to Implement Barcode Reading and Writing in iOS with .NET MAUI](https://ironsoftware.com/csharp/barcode/get-started/ios/)
 
 
 <div class="container-fluid">
@@ -188,3 +188,4 @@ public partial class MainPage : ContentPage
         {
             // Exceptions should be logged for troubleshooting
             System.Diagnostics.Debug.WriteLine(ex);
+```

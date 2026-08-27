@@ -1,4 +1,4 @@
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.GettingStarted.NetMauiBarcodeScannerReaderTutorial
 {
     public static class Section2

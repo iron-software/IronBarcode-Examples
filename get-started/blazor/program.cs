@@ -1,4 +1,4 @@
-using BarCode;
+using IronBarCode;
 using IronBarcode.Examples.GettingStarted.Blazor;
 
 

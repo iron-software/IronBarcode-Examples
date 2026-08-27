@@ -1,13 +1,11 @@
-using BarCode;
+using System.IO;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.WritingInUnicode
 {
     public static class Section4
     {
         public static void Run()
         {
-            ﻿using IronBarCode;
-            using System.IO;
-            
             // Reading the Unicode barcode
             BarcodeResults result = BarcodeReader.Read("Unicode.jpeg");
             

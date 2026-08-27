@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/csharp-custom-barcode/>***
+> Full guide: [C# custom barcode](https://ironsoftware.com/csharp/barcode/examples/csharp-custom-barcode/)
 
 IronBarcode offers extensive customization options, enabling you to modify the size, add margins, alter colors, and choose from a variety of widely-used file formats. Additionally, adjusting the DPI settings allows for precise control over the image's level of detail.
 

@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/pdf-barcode-reader-settings-csharp/>***
+> Full guide: [PDF barcode reader settings C#](https://ironsoftware.com/csharp/barcode/examples/pdf-barcode-reader-settings-csharp/)
 
 The `PdfBarcodeReaderOptions` class in IronBarcode enriches the way barcodes are read from PDFs with tailored and enhanced settings. This functionality covers managing PDF passwords, selecting particular pages for scanning, defining the DPI for PDF parsing, and altering the image scale to boost barcode readability.
 

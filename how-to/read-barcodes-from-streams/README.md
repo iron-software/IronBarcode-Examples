@@ -1,6 +1,6 @@
 # How to Extract Barcodes from Streams
 
-***Based on <https://ironsoftware.com/how-to/read-barcodes-from-streams/>***
+> Full guide: [How to Extract Barcodes from Streams](https://ironsoftware.com/how-to/read-barcodes-from-streams/)
 
 
 The `MemoryStream` class in the .NET Framework offers a flexible means to work with data that is temporarily kept in memory, bypassing the need for physical file storage. This feature is crucial when dealing with transient data manipulation in applications.
@@ -12,7 +12,6 @@ IronBarcode is adept at scanning and interpreting barcodes directly from streams
 Leveraging IronBarcode to decode barcodes straight from an image stream is incredibly straightforward, requiring minimal code. The example below illustrates how simple it is to perform this operation in a .NET environment, avoiding intermediate disk storage.
 
 ```cs
-:title=Efficient Barcode Extraction from Streams
 var scanResult = IronBarCode.BarcodeReader.Read(myImageStream);
 Console.WriteLine(scanResult[0].Text); // Output the first barcode's text
 ```

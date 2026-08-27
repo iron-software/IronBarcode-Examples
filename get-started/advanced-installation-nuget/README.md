@@ -1,6 +1,6 @@
 # IronBarCode Advanced Installation Guide
 
-***Based on <https://ironsoftware.com/get-started/advanced-installation-nuget/>***
+> Full guide: [IronBarCode Advanced Installation Guide](https://ironsoftware.com/get-started/advanced-installation-nuget/)
 
 
 IronBarCode is a versatile library designed to meet the diverse needs of various environments. To streamline our support for different platforms, we distribute our files in separate packages. This approach avoids the burden of excessive downloads for users, providing a more tailored installation experience based on your specific environment needs.

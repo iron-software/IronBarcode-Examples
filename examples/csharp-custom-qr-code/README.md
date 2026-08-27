@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/csharp-custom-qr-code/>***
+> Full guide: [C# custom QR code](https://ironsoftware.com/csharp/barcode/examples/csharp-custom-qr-code/)
 
 In IronBarcode, you can enhance QR codes by embedding logos, altering colors, embedding annotation text, and adjusting margins.
 

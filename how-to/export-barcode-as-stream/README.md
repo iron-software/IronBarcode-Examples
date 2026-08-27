@@ -1,6 +1,6 @@
 # Stream Export of Barcodes Made Simple
 
-***Based on <https://ironsoftware.com/how-to/export-barcode-as-stream/>***
+> Full guide: [Stream Export of Barcodes Made Simple](https://ironsoftware.com/how-to/export-barcode-as-stream/)
 
 
 Using IronBarcode’s functionality, one can effortlessly generate barcodes and transform them into stream formats. This includes utilizing the **MemoryStream** class, which facilitates the integration of the barcode within additional software applications without needing disk input/output. This method enhances system performance, reduces required storage space, ensures better data protection, and allows for flexible integration across multiple platforms.
@@ -10,7 +10,6 @@ Using IronBarcode’s functionality, one can effortlessly generate barcodes and 
 Leverage IronBarcode to swiftly create a barcode and output it as a MemoryStream, all in a single line of code, completely bypassing the need for a file system.
 
 ```csharp
-:title=Instant Barcode to Stream
 var stream = BarcodeWriter.CreateBarcode("Quick123", BarcodeEncoding.Code128).ToStream();
 ```
 

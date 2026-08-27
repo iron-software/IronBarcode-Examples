@@ -1,6 +1,6 @@
 # Generating Barcodes from Various Data Types
 
-***Based on <https://ironsoftware.com/how-to/create-barcode-from-data/>***
+> Full guide: [Generating Barcodes from Various Data Types](https://ironsoftware.com/how-to/create-barcode-from-data/)
 
 
 Barcodes can be swiftly generated from various data types, including plain text, binary data, and even memory streams, using the `BarcodeWriter.CreateBarcode()` method provided by IronBarcode.
@@ -126,3 +126,4 @@ MemoryStream streamFlightID = new MemoryStream(Encoding.UTF8.GetBytes("FLT2023NY
 MemoryStream streamNumber = new MemoryStream(Encoding.UTF8.GetBytes("1234"));
 
 BarcodeWriter.CreateBarcode(streamText, BarcodeEncoder
+```

@@ -1,6 +1,6 @@
 # Extracting Barcodes from PDF Documents
 
-***Based on <https://ironsoftware.com/how-to/read-barcodes-from-pdf/>***
+> Full guide: [Extracting Barcodes from PDF Documents](https://ironsoftware.com/how-to/read-barcodes-from-pdf/)
 
 
 Extracting barcodes from PDF documents involves identifying and decoding the barcodes embedded within the PDF pages. This technology eliminates the need for manual scanning of printed barcodes, enabling direct extraction of encoded information from digital documents. This functionality is especially beneficial in automating tasks such as processing invoices, shipping labels, reports, and other documents that embed data within barcodes.
@@ -10,7 +10,6 @@ Extracting barcodes from PDF documents involves identifying and decoding the bar
 Get started quickly by utilizing IronBarcode’s `ReadPdf` method, which facilitates the immediate reading of barcodes from PDFs without the need for image conversion. This single line of code allows for swift barcode data extraction, setting the stage for more sophisticated implementations if required.
 
 ```cs
-:title=Extract Barcodes from PDF with One Line
 var results = IronBarCode.BarcodeReader.ReadPdf("invoice.pdf");
 ```
 
@@ -125,4 +124,4 @@ foreach (var barcode in readBarcodes)
 }
 ```
 
-In this revised snippet, `PdfBarcodeReaderOptions` are thoroughly configured to enhance the reading accuracy and efficiency of barcodes embedded in PDFs.
+`PdfBarcodeReaderOptions` is configured here to improve both the accuracy and the speed of reading barcodes embedded in PDFs.

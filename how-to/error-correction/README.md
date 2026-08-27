@@ -1,6 +1,6 @@
 # Implementing Error Correction Techniques in Barcodes
 
-***Based on <https://ironsoftware.com/how-to/error-correction/>***
+> Full guide: [Implementing Error Correction Techniques in Barcodes](https://ironsoftware.com/how-to/error-correction/)
 
 
 **Error Correction** capabilities in barcode technology ensure that barcodes remain readable even when they encounter visual defects. Defects could result from numerous issues, including printing errors, smudges, or scratches, as well as from differing scanning environments. The choice of barcode encoding often revolves around error correction capabilities.
@@ -17,7 +17,6 @@ Generally, 2D barcodes are better equipped against defects than their 1D counter
 Creating QR codes with predefined error correction levels is simple using IronBarcode. Set the desired error correction using the `CreateQrCode` method, which includes parameters for content, size, and error correction level. Here’s an example of creating a medium level error-corrected QR code:
 
 ```cs
-:title=Instant QR Code Generation with Medium Error Correction
 // Generating a new QR code with medium error correction level
 var qrCode = IronBarCode.QRCodeWriter.CreateQrCode(
     "https://ironsoftware.com",  // QR Code content

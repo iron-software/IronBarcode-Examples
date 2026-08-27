@@ -1,6 +1,6 @@
 # Customizing and Styling Barcodes in Detail
 
-***Based on <https://ironsoftware.com/how-to/customize-barcode-style/>***
+> Full guide: [Customizing and Styling Barcodes in Detail](https://ironsoftware.com/how-to/customize-barcode-style/)
 
 
 Barcodes have become a ubiquitous tool in various industries, often used for storing essential data like identification or URLs. They are frequently visible on products, enhancing the need for aesthetic customization. This has led to innovative barcode types such as `PDF417`, `Aztec`, `IntelligentMail`, `MaxiCode`, `DataMatrix`, and others, each presenting a distinct style.
@@ -12,7 +12,6 @@ IronBarcode enhances this by providing an array of styling options, which includ
 IronBarcode facilitates easy customization of barcode colors and backgrounds. Here’s how effortlessly you can style a barcode with a single line:
 
 ```cs
-:title=Instant Barcode Styling
 IronBarCode.BarcodeWriter.CreateBarcode("HELLO123", IronBarCode.BarcodeEncoding.Code128)
     .ChangeBarCodeColor(IronSoftware.Drawing.Color.Blue)
     .ChangeBackgroundColor(IronSoftware.Drawing.Color.White)

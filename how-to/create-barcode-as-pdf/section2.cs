@@ -1,5 +1,5 @@
 using IronBarCode;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.CreateBarcodeAsPdf
 {
     public static class Section2

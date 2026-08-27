@@ -1,6 +1,6 @@
 # How to Generate Barcode Images in C# .NET Applications
 
-***Based on <https://ironsoftware.com/tutorials/csharp-barcode-image-generator/>***
+> Full guide: [How to Generate Barcode Images in C# .NET Applications](https://ironsoftware.com/tutorials/csharp-barcode-image-generator/)
 
 
 Learn how to swiftly create professional-grade barcode images in your .NET applications using IronBarcode. This guide will take you through the process from the most basic implementations to more advanced techniques that allow you to fully customize the appearance of your barcodes.
@@ -10,7 +10,6 @@ Learn how to swiftly create professional-grade barcode images in your .NET appli
 IronBarcode enables you to generate and save a barcode image swiftly with a single method call. Use the `CreateBarcode` method with your desired text, select a format and dimensions, and then save it using `SaveAsPng`. It's that simple, no complex configurations required.
 
 ```cs
-:title=One-Line Barcode Generation
 // Generating and saving a barcode image in a single line of code
 IronBarCode.BarcodeWriter.CreateBarcode("Hello123", BarcodeWriterEncoding.Code128, 200, 100).SaveAsPng("quick-barcode.png");
 ```

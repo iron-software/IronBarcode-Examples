@@ -1,6 +1,6 @@
 # Generating Unicode and International Language Barcodes in C#
 
-***Based on <https://ironsoftware.com/how-to/writing-in-unicode/>***
+> Full guide: [Generating Unicode and International Language Barcodes in C#](https://ironsoftware.com/how-to/writing-in-unicode/)
 
 
 Creating barcodes that support international languages encompasses several considerations including string length and the suitable barcode encoding for that specific string value. IronBarcode provides extensive support for both generating and writing in Unicode, which simplifies the process for developers looking to distribute their products globally with applicable barcodes. Here we provide a step-by-step guide, complete with code samples, to aid developers in this task.
@@ -30,7 +30,7 @@ string unicodeText = "周態告応立待太記行神正用真最… (and so on)"
 To generate the barcode, we utilize the `BarcodeWriter.CreateBarcode` method by providing the text and desired encoding:
 
 ```csharp
-﻿using IronBarCode;
+using IronBarCode;
 
 // Sample text including Chinese, Arabic and Thai characters
 string text = "周態告応立待太記行神正用真最… (complete text)";
@@ -82,7 +82,7 @@ IronBarcode's capabilities are not just restricted to writing barcodes but also 
 Consider this example where we read the previously generated barcode:
 
 ```csharp
-﻿using IronBarCode;
+using IronBarCode;
 using System.IO;
 
 // Performance of reading the Unicode barcode

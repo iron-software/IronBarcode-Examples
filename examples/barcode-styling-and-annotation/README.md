@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/barcode-styling-and-annotation/>***
+> Docs: [IronBarcode documentation](https://ironsoftware.com/csharp/barcode/docs/)
 
 In this example, it's demonstrated that barcodes can be customized with text, either user-defined or the barcode's own value, utilizing any font installed on the system. Should the selected font be unavailable, a similar substitute will be used. Adjustments such as resizing and margination are possible, along with recoloring the barcode and its background. The final result can be saved in various formats.
 

@@ -1,6 +1,6 @@
 # IronBarCode Linux Compatibility & Setup Guide
 
-***Based on <https://ironsoftware.com/get-started/linux/>***
+> Full guide: [IronBarCode Linux Compatibility & Setup Guide](https://ironsoftware.com/csharp/barcode/get-started/linux/)
 
 
 IronBarcode is fully compatible with Linux and supports **.NET Standard**, **.NET Core**, and **.NET Framework** across various Linux distributions.
@@ -59,13 +59,9 @@ When setting up IronBarcode on Ubuntu 20, begin by gaining _sudo_ admin rights, 
 ```dockerfile
 # Update the package list
 
-***Based on <https://ironsoftware.com/get-started/linux/>***
-
 RUN apt update
 
 # Install libgdiplus for GDI+ graphic support
-
-***Based on <https://ironsoftware.com/get-started/linux/>***
 
 RUN apt install -y libgdiplus
 ```    
@@ -100,13 +96,9 @@ For Debian systems, use these Docker commands to prepare the environment for Iro
 ```dockerfile
 # Refresh the package database
 
-***Based on <https://ironsoftware.com/get-started/linux/>***
-
 RUN apt update
 
 # Install GDI+ support with libgdiplus
-
-***Based on <https://ironsoftware.com/get-started/linux/>***
 
 RUN apt install -y libgdiplus
 ```
@@ -119,19 +111,13 @@ To get IronBarcode functional on CentOS 7, execute the following Docker commands
 ```dockerfile
 # Add EPEL repository for additional packages
 
-***Based on <https://ironsoftware.com/get-started/linux/>***
-
 RUN yum install epel-release -y
 
 # Install Mono for .NET compatibility
 
-***Based on <https://ironsoftware.com/get-started/linux/>***
-
 RUN yum install mono-complete -y
 
 # Incorporate libgdiplus and libc6-dev for enhanced graphics support
-
-***Based on <https://ironsoftware.com/get-started/linux/>***
 
 RUN yum install libgdiplus libc6-dev -y
 ```

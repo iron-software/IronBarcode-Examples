@@ -1,6 +1,6 @@
 # Supported Barcode Formats
 
-***Based on <https://ironsoftware.com/get-started/supported-barcode-formats/>***
+> Full guide: [Supported Barcode Formats](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats/)
 
 
 Barcodes play a crucial role in various industries for purposes like data encoding, tracking, and labeling. They come in a broad spectrum of formats ranging from the simpler one-dimensional types to the more advanced two-dimensional varieties. This overview outlines the barcode formats supported by Iron Software. It’s a valuable resource if you need to generate or interpret barcodes and want to select the optimal format for your specific requirements.

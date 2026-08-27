@@ -1,6 +1,6 @@
 # Enhanced Support for macOS in IronBarcode with .NET Core
 
-***Based on <https://ironsoftware.com/get-started/macos/>***
+> Full guide: [Enhanced Support for macOS in IronBarcode with .NET Core](https://ironsoftware.com/csharp/barcode/get-started/macos/)
 
 
 IronBarcode offers seamless support for macOS across both .NET Standard and .NET Core, catering to Intel and Apple silicon architectures effortlessly—no modifications are necessary for Apple users or developers.

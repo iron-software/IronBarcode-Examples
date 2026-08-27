@@ -1,6 +1,6 @@
 # How to Read Barcodes from Multi-Page/Frame GIF and TIFF
 
-***Based on <https://ironsoftware.com/how-to/read-barcodes-from-multi-page-frame-tiff-gif/>***
+> Full guide: [How to Read Barcodes from Multi-Page/Frame GIF and TIFF](https://ironsoftware.com/how-to/read-barcodes-from-multi-page-frame-tiff-gif/)
 
 
 IronBarcode seamlessly handles reading from various image formats, including **multi-page and multi-frame GIF and TIFF**. Users benefit from the convenience of processing images without needing to separate the frames or pages manually. Here's how to efficiently utilize IronBarcode for handling these specific formats.
@@ -10,7 +10,6 @@ IronBarcode seamlessly handles reading from various image formats, including **m
 With a straightforward method invocation, IronBarcode effortlessly handles multipage TIFFs or animated GIFs, decoding all embedded barcodes. There’s no need for frame separation or intricate preprocessing—simply supply the file path to `BarcodeReader.Read` for immediate results.
 
 ```csharp
-:title=Effortlessly Extract Barcodes from Multi-Page Images
 IronBarCode.BarcodeResults results = IronBarCode.BarcodeReader.Read("multiPageImage.tiff");
 ```
 

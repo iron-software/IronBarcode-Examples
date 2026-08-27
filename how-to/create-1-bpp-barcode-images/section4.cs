@@ -1,5 +1,5 @@
 using IronBarCode;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.Create1BppBarcodeImages
 {
     public static class Section4

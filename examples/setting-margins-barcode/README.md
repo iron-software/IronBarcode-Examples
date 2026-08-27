@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/setting-margins-barcode/>***
+> Full guide: [Setting margins barcode](https://ironsoftware.com/csharp/barcode/examples/setting-margins-barcode/)
 
 The blank spaces surrounding a barcode, known as margins, are crucial for the accuracy of barcode scanners. These margins help differentiate the barcode from adjacent text and graphics by defining its start and endpoint. Inadequate margins can lead to unsuccessful scans or misinterpreted data. In this tutorial, we'll explore how to establish consistent margins using IronBarcode to enhance barcode readability.
 

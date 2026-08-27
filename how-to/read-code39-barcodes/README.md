@@ -1,6 +1,6 @@
 # Effortlessly Read Code 39 Barcodes in C# with IronBarcode
 
-***Based on <https://ironsoftware.com/how-to/read-code39-barcodes/>***
+> Full guide: [Effortlessly Read Code 39 Barcodes in C# with IronBarcode](https://ironsoftware.com/how-to/read-code39-barcodes/)
 
 
 For various industries including inventory, logistics, and industrial sectors, Code 39 barcodes are integral due to their reliability and broad compatibility. Code 39 is a versatile barcode type that accommodates variable lengths.

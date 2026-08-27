@@ -1,6 +1,6 @@
 # Building an MSI Installer with IronBarCode
 
-***Based on <https://ironsoftware.com/how-to/msi-installer/>***
+> Full guide: [Building an MSI Installer with IronBarCode](https://ironsoftware.com/how-to/msi-installer/)
 
 
 A Microsoft Installer (MSI) package is crucial for the management of software installation, updates, and uninstalls on Windows platforms. It offers a systematized approach for deploying applications, critical for enterprise environments.
@@ -14,7 +14,6 @@ In this tutorial, we will learn how to craft an MSI file using a simple barcode 
 With IronBarcode’s straightforward API, you can generate and decode MSI barcodes effortlessly. Here is how you can create and scan an MSI barcode image quickly using just a few lines of code:
 
 ```cs
-:title=Quickly Create and Read MSI Barcodes Using IronBarcode
 var msiImage = IronBarCode.BarcodeWriter.CreateBarcode("12345", BarcodeWriterEncoding.MSI).SaveAsImage("barcode-msi.png");
 var scanResults = IronBarCode.BarcodeReader.Read("barcode-msi.png", new BarcodeReaderOptions { ExpectBarcodeTypes = BarcodeEncoding.MSI });
 ```

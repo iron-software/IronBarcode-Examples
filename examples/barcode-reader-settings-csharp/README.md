@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/barcode-reader-settings-csharp/>***
+> Full guide: [Barcode reader settings C#](https://ironsoftware.com/csharp/barcode/examples/barcode-reader-settings-csharp/)
 
 The `BarcodeReaderOptions` class in IronBarcode provides a suite of settings that enable customized and efficient barcode reading. With these settings, you can adjust the balance between resource consumption and reading accuracy, manage the scope of reading, and refine reading techniques.
 

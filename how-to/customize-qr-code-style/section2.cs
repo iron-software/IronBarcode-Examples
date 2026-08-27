@@ -1,5 +1,5 @@
 using IronSoftware.Drawing;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.CustomizeQrCodeStyle
 {
     public static class Section2

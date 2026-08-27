@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/csharp-read-barcode-from-pdf/>***
+> Full guide: [C# read barcode from PDF](https://ironsoftware.com/csharp/barcode/examples/csharp-read-barcode-from-pdf/)
 
 Using IronBarCode to decipher barcodes is not only efficient but also straightforward. IronBarcode accommodates a variety of formats and provides tailored methods for different scenarios. Whether you're a developer aiming to decode barcodes from images or one who requires embedding barcode functionality and managing the resultant data within an application, IronBarcode effectively meets these needs.
 

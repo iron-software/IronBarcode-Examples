@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/create-1-bpp-barcode/>***
+> Full guide: [Create 1 BPP barcode](https://ironsoftware.com/csharp/barcode/examples/create-1-bpp-barcode/)
 
 A 1bpp (one bit per pixel) image is a simple binary format where each pixel is represented by a single bit. This configuration allows for only two colors, typically black and white, where "0" might represent black and "1" represents white, or the other way around. This format is specifically useful in scenarios requiring high speed and precision, predominantly for machine readability. In the following example, we showcase how to transform a barcode into a 1bpp image to enhance the contrast and ensure optimal scanning reliability.
 

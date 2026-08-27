@@ -1,6 +1,6 @@
 # Exporting Barcodes as HTML Using IronBarcode
 
-***Based on <https://ironsoftware.com/how-to/create-barcode-as-html/>***
+> Full guide: [Exporting Barcodes as HTML Using IronBarcode](https://ironsoftware.com/how-to/create-barcode-as-html/)
 
 
 IronBarcode enhances flexibility by allowing users to export the `GeneratedBarcode` in several formats, including HTML. This capability ensures that users can incorporate the output directly into their applications or websites without the need to store it on a disk. Let's explore how to utilize IronBarcode to export barcodes as HTML in various ways: as a Data URL, an HTML Tag, or an HTML File.
@@ -10,7 +10,6 @@ IronBarcode enhances flexibility by allowing users to export the `GeneratedBarco
 IronBarcode simplifies the generation and exportation of a barcode into an HTML tag through a concise and fluent line of code. This functionality is ideal for quick integrations, eliminating the need for handling external image files or assets.
 
 ```cs
-:title=Instant HTML Barcode Generation
 var htmlTag = BarcodeWriter.CreateBarcode("1234567890", BarcodeWriterEncoding.Code128).ToHtmlTag();
 ```
 

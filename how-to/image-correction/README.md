@@ -1,7 +1,6 @@
 # How to Utilize Image Correction Filters
 
-***Based on <https://ironsoftware.com/how-to/image-correction/>***
-
+> Full guide: [How to Utilize Image Correction Filters](https://ironsoftware.com/how-to/image-correction/)
 
 Truth be told, not all images are flawless, and often these imperfections contribute significantly to the challenges IronBarcode faces when trying to decode barcode images. These difficulties are not necessarily the fault of the user. Rather than the arduous tasks of retaking the image or utilizing third-party enhancement software, IronBarcode provides a solution that allows users to programmatically apply filters to the images. This functionality enhances image clarity, enabling IronBarcode to interpret the image more effectively.
 
@@ -12,7 +11,6 @@ Keep reading to discover the variety of image correction filters available in Ir
 Efficiently enhance your barcode scanning capabilities by applying the `SharpenFilter` and `ContrastFilter` from IronBarcode's `ImageFilterCollection` within `BarcodeReaderOptions`. This simple integration significantly boosts the quality of barcode scans without the need for additional software.
 
 ```cs
-:title=Enhance Barcode Scanning — Implement Image Adjustments
 // Read a barcode from an image with specified image filters for better clarity
 BarcodeResults results = IronBarCode.BarcodeReader.Read("input.png", new IronBarCode.BarcodeReaderOptions { 
     ImageFilters = new IronBarCode.ImageFilterCollection() { 
@@ -38,8 +36,6 @@ Here's an example using a particular image for illustration:
 </div>
 
 At first glance, the image seems somewhat out of focus, but the brightness levels are adequate, and the distinction between white and black colors is clear. Hence, it is essential to employ at least the **SharpenFilter** and **ContrastFilter** to enhance the readability of the barcode. The following code snippet provides a method to implement these filters on the image, decipher it, and present the output in the console.
-
-Here's the paraphrased section of your article:
 
 ```csharp
 using IronBarCode;
@@ -106,7 +102,6 @@ The **AdaptiveThresholdFilter** in IronBarcode employs the [Bradley Adaptive Thr
 ```csharp
 using IronBarCode;
 
-
 // Define options for barcode reading
 var barcodeOptions = new BarcodeReaderOptions()
 {
@@ -123,9 +118,7 @@ var readResults = BarcodeReader.Read("sample.png", barcodeOptions);
 readResults.ExportFilterImagesToDisk("adaptiveThreshold_0.9.png");
 ```
 
-```
 Here are the results of the filter application with various settings.
-```
 
 <div class="competitors-section__wrapper-even-1">
     <div class="competitors__card" style="width: 48%;">
@@ -177,9 +170,6 @@ BarcodeResults results = BarcodeReader.Read("sample.png", options);
 results.ExportFilterImagesToDisk("binaryThreshold_0.9.png");
 ```
 
-Here is the paraphrased section with the resolved URL paths:
-
------
 Below is the demonstrated output after applying the filters to the sample image.
 
 <div class="competitors-section__wrapper-even-1">
@@ -198,8 +188,6 @@ Examining the resultant image, it's evident that the sample has transformed into
 ## Brightness Filter
 
 The **BrightnessFilter** in IronBarcode is a crucial component of the image filter collection. This filter is designed to modify the brightness level of a barcode image. Depending on the input, the filter can alter the **Amount** of brightness in the final image. By default, the value is set to 1, meaning the image's brightness remains as is. Setting the value to 0 results in a completely black image, whereas increasing the value above 1 brightens the image accordingly.
-
-Here's the paraphrased section of the article:
 
 ```csharp
 using IronBarCode;
@@ -221,9 +209,6 @@ BarcodeResults scanResults = BarcodeReader.Read("sample.png", readOptions);
 scanResults.ExportFilterImagesToDisk("brightness_1.5.png");
 ```
 
-Here is the paraphrased content for the specific section you've selected:
-
----
 Here is a view of the image following the application of the filter.
 
 <div class="competitors-section__wrapper-even-1">
@@ -242,8 +227,6 @@ Here is a view of the image following the application of the filter.
 IronBarcode's **ContrastFilter** is designed to modify the contrast levels in your images. Contrast in an image refers to the variation in intensity between different elements. By increasing the contrast, more details can be accentuated, making the image look more dynamic and clear. Conversely, decreasing the contrast can soften the image and blend the elements more gently.
 
 The **ContrastFilter** comes pre-set with a default value of `1`, which maintains the original state of the image without any alteration. Setting the value to `0` converts the image into a uniform gray scale, effectively neutralizing any contrast. On the other hand, setting the value higher than `1` boosts the image's contrast, sharpening the distinction between light and dark areas.
-
-Here's the paraphrased section, with code comments enhanced for clarity and links resolved to `ironsoftware.com`:
 
 ```csharp
 // Importing necessary IronBarCode namespace
@@ -284,8 +267,6 @@ The application of this filter to our example input generates the image displaye
 ## Invert Filter
 
 The Invert Filter reverses the hues within an image, transforming white areas to black and vice versa. This capability is especially beneficial when decoding barcodes set against colored backgrounds. Unlike the **BinaryThresholdFilter**, which requires parameters for operation, the Invert Filter flips colors straightforwardly. Additionally, it incorporates the use of a **CropRectangle** to target specific areas for inversion, rather than altering the entire image's color scheme. This targeted approach allows precise adjustments only where needed.
-
-The paraphrased section with the full markdown context and updated code snippet is as follows:
 
 ```csharp
 using IronBarCode;
@@ -628,9 +609,6 @@ BarcodeResults barcodeData = BarcodeReader.Read("sharpen.webp", options);
 barcodeData.ExportFilterImagesToDisk("gaussianBlur.png");
 ```
 
-Here is the paraphrased section with resolved relative URL paths:
-
------
 When the **MedianBlurFilter** is applied to the sample input, you can see the resultant image depicted below.
 
 <div class="competitors-section__wrapper-even-1">
@@ -656,8 +634,6 @@ The efficacy of the Bilateral Filter is adjusted by three pivotal factors:
 
 - **SigmaSpace**: This factor measures the influence of pixel proximity on the filter's effectiveness. With an increased SigmaSpace, the filter extends its influence to pixels located further apart, magnifying its spatial coverage. This setting also defaults to 75.0.
 
-Here's a paraphrased version of the code snippet provided, with explanations added and methods restructured to improve readability:
-
 ```csharp
 using IronBarCode;
 
@@ -677,8 +653,6 @@ BarcodeResults barcodeData = BarcodeReader.Read("sharpen.webp", optionsSetup);
 barcodeData.ExportFilterImagesToDisk("bilateral.png");
 ```
 
-This rewritten code clarifies the intent of each operation, enhances code documentation, and maintains the structure and logic of your original sample.
-
 The application of this filter on the provided sample can be observed in the image depicted below.
 
 <div class="competitors-section__wrapper-even-1">
@@ -697,8 +671,6 @@ The application of this filter on the provided sample can be observed in the ima
 The **MedianBlurFilter** serves to minimize image noise by substituting the value of each pixel with the median value from the adjacent pixels in its vicinity. This filter excels at maintaining edge definition while effectively eliminating noise.
 
 - **KernelSize**: This parameter establishes the dimensions of the surrounding area around each pixel that is considered for median calculation. It is imperative that this value be an odd number greater than 0. The typical default setting is 5.
-
-Here's the paraphrased section with resolved URL paths as specified:
 
 ```csharp
 using IronBarCode;  // Include IronBarCode namespace for access to barcode reading functionalities

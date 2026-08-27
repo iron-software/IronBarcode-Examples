@@ -1,4 +1,4 @@
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.WritingInUnicode
 {
     public static class Section2

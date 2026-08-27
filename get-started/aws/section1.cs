@@ -1,4 +1,4 @@
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.GettingStarted.Aws
 {
     public static class Section1
