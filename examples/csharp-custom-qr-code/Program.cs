@@ -1,4 +1,5 @@
 ﻿using IronBarCode;
+using IronBarCode;
 using IronSoftware.Drawing;
 
 GeneratedBarcode myQRCode = QRCodeWriter.CreateQrCode("https://ironsoftware.com/");

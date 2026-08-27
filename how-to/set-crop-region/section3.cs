@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using System;
 using IronBarCode;
 namespace IronBarcode.Examples.HowTo.SetCropRegion

@@ -1,3 +1,4 @@
+using IronBarCode;
 ﻿using IronBarCode;
 
 // The value of the QR code as a string. Also suitable for URLS

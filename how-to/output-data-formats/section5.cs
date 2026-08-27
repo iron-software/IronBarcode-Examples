@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using System.Linq;
 using IronBarCode;
 namespace IronBarcode.Examples.HowTo.OutputDataFormats

@@ -1,4 +1,5 @@
 ﻿using IronBarCode;
+using IronBarCode;
 using IronSoftware.Drawing;
 
 // Create a barcode

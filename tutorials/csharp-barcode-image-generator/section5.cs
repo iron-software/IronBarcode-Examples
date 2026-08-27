@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using IronBarCode;
 namespace IronBarcode.Examples.Tutorial.CsharpBarcodeImageGenerator
 {

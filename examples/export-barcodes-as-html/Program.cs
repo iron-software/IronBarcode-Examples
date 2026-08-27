@@ -1,3 +1,4 @@
+using IronBarCode;
 ﻿using IronBarCode;
 
 GeneratedBarcode MyBarCode = BarcodeWriter.CreateBarcode("1234567890", BarcodeWriterEncoding.Code128);

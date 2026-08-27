@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using System.Collections.Generic;
 using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif

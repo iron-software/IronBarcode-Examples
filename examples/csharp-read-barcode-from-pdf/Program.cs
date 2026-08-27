@@ -1,5 +1,5 @@
 ﻿using IronBarCode;
-using IronSoftware.Drawing;
+using IronBarCode;
 using System.Drawing;
 using System.IO;
 

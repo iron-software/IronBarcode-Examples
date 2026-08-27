@@ -1,4 +1,5 @@
 ﻿using IronBarCode;
+using IronBarCode;
 using System.IO;
 
 // Create a barcode with one line of code

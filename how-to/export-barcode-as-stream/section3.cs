@@ -1,3 +1,4 @@
+using IronSoftware.Drawing;
 using System.IO;
 using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ExportBarcodeAsStream

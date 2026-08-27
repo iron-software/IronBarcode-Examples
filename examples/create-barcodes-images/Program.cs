@@ -1,4 +1,5 @@
 ﻿using IronBarCode;
+using IronBarCode;
 using System.Drawing;
 
 /*** CREATING BARCODE IMAGES ***/
