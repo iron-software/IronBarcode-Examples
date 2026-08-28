@@ -1,5 +1,4 @@
 using IronBarCode;
-using IronBarCode;
 namespace IronBarcode.Examples.HowTo.OutputDataFormats
 {
     public static class Section4

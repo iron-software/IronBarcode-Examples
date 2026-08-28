@@ -1,5 +1,4 @@
 using IronBarCode;
-using IronBarCode;
 namespace IronBarcode.Examples.HowTo.SettingMarginsBarcode
 {
     public static class Section1

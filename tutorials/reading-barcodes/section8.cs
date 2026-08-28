@@ -1,5 +1,4 @@
 using IronBarCode;
-using IronBarCode;
 namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
     public static class Section8
@@ -32,13 +31,14 @@ namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
             // Process all documents in parallel
             BarcodeResults batchResults = BarcodeReader.Read(documentBatch, batchOptions);
             
-            // Group results by source document
-            var resultsByDocument = batchResults.GroupBy(r => r.Filename);
+            // BarcodeResult does not carry the source file name, so group by the
+            // page the barcode was found on.
+            var resultsByPage = batchResults.GroupBy(r => r.PageNumber);
             
-            foreach (var docGroup in resultsByDocument)
+            foreach (var pageGroup in resultsByPage.OrderBy(g => g.Key))
             {
-                Console.WriteLine($"\nDocument: {docGroup.Key}");
-                foreach (var barcode in docGroup)
+                Console.WriteLine($"\nPage {pageGroup.Key}");
+                foreach (var barcode in pageGroup)
                 {
                     Console.WriteLine($"  - {barcode.BarcodeType}: {barcode.Text}");
                 }

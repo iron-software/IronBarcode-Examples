@@ -1,6 +1,5 @@
 using IronSoftware.Drawing;
 using IronBarCode;
-using IronBarCode;
 namespace IronBarcode.Examples.HowTo.SetCropRegion
 {
     public static class Section2
