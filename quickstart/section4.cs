@@ -12,7 +12,7 @@ namespace IronBarcode.Examples.Overview.Quickstart
             {
                 int pageNumber = result.PageNumber;
                 string value = result.Value;
-                Bitmap img = result.BarcodeImage;
+                IronSoftware.Drawing.AnyBitmap img = result.BarcodeImage;
                 BarcodeEncoding barcodeType = result.BarcodeType;
                 byte[] binary = result.BinaryValue;
                 Console.WriteLine(result.Value);

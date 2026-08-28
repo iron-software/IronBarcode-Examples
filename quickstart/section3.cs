@@ -11,7 +11,7 @@ namespace IronBarcode.Examples.Overview.Quickstart
             foreach (BarcodeResult result in results)
             {
                 string value = result.Value;
-                Bitmap img = result.BarcodeImage;
+                IronSoftware.Drawing.AnyBitmap img = result.BarcodeImage;
                 BarcodeEncoding barcodeType = result.BarcodeType;
                 byte[] binary = result.BinaryValue;
                 Console.WriteLine(result.Value);

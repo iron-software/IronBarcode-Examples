@@ -5,7 +5,7 @@ namespace IronBarcode.Examples.HowTo.ReadBarcodesFromSystemDrawing
     {
         public static void Run()
         {
-            var results = IronBarCode.BarcodeReader.Read((AnyBitmap)(new System.Drawing.Bitmap("yourImage.png")));
+            var results = IronBarCode.BarcodeReader.Read((IronSoftware.Drawing.AnyBitmap)(new System.Drawing.Bitmap("yourImage.png")));
         }
     }
 }

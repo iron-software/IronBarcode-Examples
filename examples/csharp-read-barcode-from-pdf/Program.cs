@@ -12,7 +12,7 @@ var resultFromFile = BarcodeReader.Read(@"file/barcode.png");
 var resultFromBitMap = BarcodeReader.Read(new Bitmap("barcode.bmp"));
 
 // From a IronSoftware.Drawing.AnyBitmap object
-var resultFromAnyBitmap = BarcodeReader.Read(new AnyBitmap("barcode.bmp"));
+var resultFromAnyBitmap = BarcodeReader.Read(new IronSoftware.Drawing.AnyBitmap("barcode.bmp"));
 
 // From an Image object
 var resultFromImage = BarcodeReader.Read(Image.FromFile("barcode.jpg"));

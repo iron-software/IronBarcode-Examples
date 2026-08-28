@@ -6,7 +6,7 @@ namespace IronBarcode.Examples.HowTo.AsyncMultithread
 {
     public static class Section2
     {
-        public static void Run()
+        public static async Task Run()
         {
             List<string> imagePaths = new List<string>() { "image1.png", "image2.png" };
             
