@@ -15,4 +15,4 @@ Next, we use the `Read` method to process the input image, applying the customiz
 
 Selecting an appropriate reading speed for your barcode might seem daunting, but IronBarcode provides several choices and customization features to aid in this decision.
 
-[For more examples, check the How-to Guide on using IronBarcode with C#](https://ironsoftware.com/csharp/barcode/how-to/reading-speed-options?utm_source=github).
+[For more examples, check the How-to Guide on using IronBarcode with C#](https://ironsoftware.com/csharp/barcode/how-to/reading-speed-options/?utm_source=github).

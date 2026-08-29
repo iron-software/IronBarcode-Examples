@@ -73,7 +73,7 @@ While Unicode is universally supported across many barcode formats, only specifi
 
 Different barcode types have varying capacities for characters which must be considered, especially when utilising encodings such as PDF417 with long strings.
 
-For a detailed list of all supported barcode formats, please refer to [this link](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats?utm_source=github).
+For a detailed list of all supported barcode formats, please refer to [this link](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats/?utm_source=github).
 
 ### Reading the Unicode Barcode 
 
