@@ -1,13 +1,13 @@
 # Barcoding and QR Code Integration in C# and VB.NET Applications
 
-> Docs: [IronBarcode documentation](https://ironsoftware.com/csharp/barcode/docs/)
+> Docs: [IronBarcode documentation](https://ironsoftware.com/csharp/barcode/docs/?utm_source=github)
 
 
 The IronBarcode library reads and generates barcodes and QR codes from C# and the other .NET languages.
 
 ## Setting Up IronBarcode
 
-Begin your integration by installing IronBarcode either from NuGet or directly via the [DLL download page](https://ironsoftware.com/csharp/barcode).
+Begin your integration by installing IronBarcode either from NuGet or directly via the [DLL download page](https://ironsoftware.com/csharp/barcode?utm_source=github).
 
 For Visual Studio users, incorporate IronBarcode using the NuGet Package Manager:
 

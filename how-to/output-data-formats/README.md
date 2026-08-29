@@ -1,6 +1,6 @@
 # Guide to Handling Different Data Formats with IronBarcode
 
-> Full guide: [Guide to Handling Different Data Formats with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/output-data-formats/)
+> Full guide: [Guide to Handling Different Data Formats with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/output-data-formats/?utm_source=github)
 
 
 IronBarcode is not just about reading barcodes and displaying the results—it offers a variety of output formats to utilize the extracted data effectively. Some of these formats include barcode image, barcode type, `BinaryValue`, coordinates, and dimensions. The sections below cover how each of these properties is used.
@@ -55,7 +55,7 @@ This script efficiently creates a TIFF file from images of barcodes found in a P
 
 ### Determining Barcode Types
 
-`BarcodeType` assists in identifying the type of barcode decoded. This functionality is limited to the barcode types that IronBarcode recognizes. For more information, visit [Supported Barcode Types](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/#expectbarcodetypes).
+`BarcodeType` assists in identifying the type of barcode decoded. This functionality is limited to the barcode types that IronBarcode recognizes. For more information, visit [Supported Barcode Types](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/?utm_source=github#expectbarcodetypes).
 
 Example of determining and displaying barcode types:
 

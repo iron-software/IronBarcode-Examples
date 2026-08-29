@@ -1,6 +1,6 @@
 # Extracting Barcodes from PDF Documents
 
-> Full guide: [Extracting Barcodes from PDF Documents](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-pdf/)
+> Full guide: [Extracting Barcodes from PDF Documents](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-pdf/?utm_source=github)
 
 
 Extracting barcodes from PDF documents involves identifying and decoding the barcodes embedded within the PDF pages. This technology eliminates the need for manual scanning of printed barcodes, enabling direct extraction of encoded information from digital documents. This functionality is especially beneficial in automating tasks such as processing invoices, shipping labels, reports, and other documents that embed data within barcodes.

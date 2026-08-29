@@ -1,4 +1,4 @@
-> Full guide: [C# custom barcode](https://ironsoftware.com/csharp/barcode/examples/csharp-custom-barcode/)
+> Full guide: [C# custom barcode](https://ironsoftware.com/csharp/barcode/examples/csharp-custom-barcode/?utm_source=github)
 
 IronBarcode offers extensive customization options, enabling you to modify the size, add margins, alter colors, and choose from a variety of widely-used file formats. Additionally, adjusting the DPI settings allows for precise control over the image's level of detail.
 
@@ -8,4 +8,4 @@ IronBarcode offers extensive customization options, enabling you to modify the s
 - `ChangeBarColor`: This function changes the color of the barcode's bars.
 - `ChangeBackgroundColor`: This allows for altering the background color of the barcode.
 
-[Learn How to Customize Barcode Styles with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/customize-barcode-style/)
+[Learn How to Customize Barcode Styles with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/customize-barcode-style/?utm_source=github)

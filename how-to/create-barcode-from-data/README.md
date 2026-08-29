@@ -1,6 +1,6 @@
 # Generating Barcodes from Various Data Types
 
-> Full guide: [Generating Barcodes from Various Data Types](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-from-data/)
+> Full guide: [Generating Barcodes from Various Data Types](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-from-data/?utm_source=github)
 
 
 Barcodes can be swiftly generated from various data types, including plain text, binary data, and even memory streams, using the `BarcodeWriter.CreateBarcode()` method provided by IronBarcode.

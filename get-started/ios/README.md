@@ -1,6 +1,6 @@
 # How to Implement Barcode Reading and Writing in iOS with .NET MAUI
 
-> Full guide: [How to Implement Barcode Reading and Writing in iOS with .NET MAUI](https://ironsoftware.com/csharp/barcode/get-started/ios/)
+> Full guide: [How to Implement Barcode Reading and Writing in iOS with .NET MAUI](https://ironsoftware.com/csharp/barcode/get-started/ios/?utm_source=github)
 
 
 <div class="container-fluid">

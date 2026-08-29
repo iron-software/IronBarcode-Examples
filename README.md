@@ -1,6 +1,6 @@
 # IronBarcode.Examples
 
-Runnable C# examples for [IronBarcode](https://ironsoftware.com/csharp/barcode/), a .NET barcode and QR code library that reads and generates Code 39/93/128, UPC-A/E, EAN-8/13, PDF417, Aztec, Data Matrix, QR, Micro QR, and 20+ other symbologies from images, PDFs, and streams.
+Runnable C# examples for [IronBarcode](https://ironsoftware.com/csharp/barcode/?utm_source=github), a .NET barcode and QR code library that reads and generates Code 39/93/128, UPC-A/E, EAN-8/13, PDF417, Aztec, Data Matrix, QR, Micro QR, and 20+ other symbologies from images, PDFs, and streams.
 
 ## Install
 
@@ -54,15 +54,15 @@ Each folder contains a self-contained .NET project you can open and run:
 
 ## Platform support
 
-.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS. See the [installation docs](https://ironsoftware.com/csharp/barcode/docs/) for environment-specific notes.
+.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS. See the [installation docs](https://ironsoftware.com/csharp/barcode/docs/?utm_source=github) for environment-specific notes.
 
 ## Documentation and support
 
-- Full documentation: [ironsoftware.com/csharp/barcode/docs](https://ironsoftware.com/csharp/barcode/docs/)
-- API reference: [ironsoftware.com/csharp/barcode/object-reference/api](https://ironsoftware.com/csharp/barcode/object-reference/api/)
+- Full documentation: [ironsoftware.com/csharp/barcode/docs](https://ironsoftware.com/csharp/barcode/docs/?utm_source=github)
+- API reference: [ironsoftware.com/csharp/barcode/object-reference/api](https://ironsoftware.com/csharp/barcode/object-reference/api/?utm_source=github)
 - Issues with these examples: file directly on this repository
 - Product support: [support@ironsoftware.com](mailto:support@ironsoftware.com)
 
 ## About
 
-This repository is maintained by [Iron Software](https://ironsoftware.com/). IronBarcode is a commercial library — see [licensing](https://ironsoftware.com/csharp/barcode/licensing/) for terms and trial details.
+This repository is maintained by [Iron Software](https://ironsoftware.com/?utm_source=github). IronBarcode is a commercial library — see [licensing](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=github) for terms and trial details.

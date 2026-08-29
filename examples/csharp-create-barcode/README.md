@@ -1,4 +1,4 @@
-> Full guide: [C# create barcode](https://ironsoftware.com/csharp/barcode/examples/csharp-create-barcode/)
+> Full guide: [C# create barcode](https://ironsoftware.com/csharp/barcode/examples/csharp-create-barcode/?utm_source=github)
 
 IronBarcode provides a set of functionalities for generating barcodes. If your project involves creating a dedicated barcode creator supporting popular formats such as `EAN8`, `Code128`, and `Code39`, or if you require a dynamic library for adding barcode generation to your software with `ByteArray` or `MemoryStream`, IronBarcode offers a straightforward and feature-rich solution. It allows exporting to common image file types like `png`, `jpg`, and `jpeg`.
 
@@ -19,4 +19,4 @@ For scenarios requiring a `MemoryStream`, IronBarcode is equally accommodating. 
 
 IronBarcode is fully equipped to handle multiple development scenarios, helping developers efficiently create and integrate barcode solutions into their applications and beyond!
 
-[Learn How to Create Custom Barcode Images](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/)
+[Learn How to Create Custom Barcode Images](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/?utm_source=github)

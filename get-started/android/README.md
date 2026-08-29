@@ -1,6 +1,6 @@
 # How to Implement Barcode Reading and Writing on Android using .NET MAUI
 
-> Full guide: [How to Implement Barcode Reading and Writing on Android using .NET MAUI](https://ironsoftware.com/csharp/barcode/get-started/android/)
+> Full guide: [How to Implement Barcode Reading and Writing on Android using .NET MAUI](https://ironsoftware.com/csharp/barcode/get-started/android/?utm_source=github)
 
 
 <div class="container-fluid">

@@ -1,6 +1,6 @@
 # Can IronBarcode Operate with .NET on Azure?
 
-> Full guide: [Can IronBarcode Operate with .NET on Azure?](https://ironsoftware.com/csharp/barcode/get-started/azure/)
+> Full guide: [Can IronBarcode Operate with .NET on Azure?](https://ironsoftware.com/csharp/barcode/get-started/azure/?utm_source=github)
 
 
 IronBarcode runs on .NET applications hosted in Azure. It has been tested on Azure services including MVC websites and Azure Functions.
@@ -17,7 +17,7 @@ Begin by adding the IronBarcode package available on [NuGet](https://www.nuget.o
 Install-Package BarCode
 ```
 
-Alternatively, the [IronBarcode.dll](https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip) can be directly downloaded and integrated into your project.
+Alternatively, the [IronBarcode.dll](https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip?utm_source=github) can be directly downloaded and integrated into your project.
 
 ---
 
@@ -33,7 +33,7 @@ IronBarcode is compatible with .NET Standard, Core, and Framework projects, faci
 
 ## Using Docker with Azure
 
-To enhance control over performance and reliability, deploying IronBarcode within Docker containers on Azure can be beneficial. For instructions on setting this up, see this [tutorial](https://ironsoftware.com/csharp/barcode/get-started/docker-linux/).
+To enhance control over performance and reliability, deploying IronBarcode within Docker containers on Azure can be beneficial. For instructions on setting this up, see this [tutorial](https://ironsoftware.com/csharp/barcode/get-started/docker-linux/?utm_source=github).
 
 ## Azure Functions Compatibility
 

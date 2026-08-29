@@ -1,4 +1,4 @@
-> Full guide: [Read code39 barcode](https://ironsoftware.com/csharp/barcode/examples/read-code39-barcode/)
+> Full guide: [Read code39 barcode](https://ironsoftware.com/csharp/barcode/examples/read-code39-barcode/?utm_source=github)
 
 Code 39 is widely recognised and accepts variable-length data. It is predominantly used across various industries such as inventory, logistics, and industrial sectors. The Standard Code 39 can encode uppercase letters (A-Z), digits (0-9), and several special characters including space, dash, dollar sign, plus sign, percent, and period. 
 
@@ -19,4 +19,4 @@ Subsequently, we invoke the `BarcodeReader.Read` method, supplying it with the p
 
 To finalize the process, we select a barcode result from this collection and display its decoded content to the console using `Console.WriteLine(results.ToString());`.
 
-[Explore the convenience of interpreting Code 39 Barcodes in C# using IronBarcode!](https://ironsoftware.com/csharp/barcode/how-to/read-code39-barcodes/)
+[Explore the convenience of interpreting Code 39 Barcodes in C# using IronBarcode!](https://ironsoftware.com/csharp/barcode/how-to/read-code39-barcodes/?utm_source=github)

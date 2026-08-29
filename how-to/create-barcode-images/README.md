@@ -1,6 +1,6 @@
 # How to Create Barcode Images
 
-> Full guide: [How to Create Barcode Images](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/)
+> Full guide: [How to Create Barcode Images](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/?utm_source=github)
 
 
 ## Quickstart: Create and Save a Code128 Barcode in One Line
@@ -22,7 +22,7 @@ The method `BarcodeWriter.CreateBarcode()` supports various data types for barco
 
 ### Barcode Encoding Types
 
-A comprehensive list of supported barcode formats for creation is provided by IronBarcode, detailed in our article on [Supported Barcode Formats](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats/). Each barcode type offers distinct characteristics and advantages, which can be explored in our documentation to find the best option for your application.
+A comprehensive list of supported barcode formats for creation is provided by IronBarcode, detailed in our article on [Supported Barcode Formats](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats/?utm_source=github). Each barcode type offers distinct characteristics and advantages, which can be explored in our documentation to find the best option for your application.
 
 ### Width and Height
 

@@ -1,6 +1,6 @@
 # Exporting Barcodes to PDF Using IronBarcode
 
-> Full guide: [Exporting Barcodes to PDF Using IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-as-pdf/)
+> Full guide: [Exporting Barcodes to PDF Using IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-as-pdf/?utm_source=github)
 
 
 In this guide, we will demonstrate how to use IronBarcode to transform barcodes into PDF format. IronBarcode facilitates the conversion of barcodes into files, binary data, or directly into a memory stream.

@@ -1,6 +1,6 @@
 # Generating Unicode and International Language Barcodes in C#
 
-> Full guide: [Generating Unicode and International Language Barcodes in C#](https://ironsoftware.com/csharp/barcode/how-to/writing-in-unicode/)
+> Full guide: [Generating Unicode and International Language Barcodes in C#](https://ironsoftware.com/csharp/barcode/how-to/writing-in-unicode/?utm_source=github)
 
 
 Creating barcodes that support international languages encompasses several considerations including string length and the suitable barcode encoding for that specific string value. IronBarcode provides extensive support for both generating and writing in Unicode, which simplifies the process for developers looking to distribute their products globally with applicable barcodes. Here we provide a step-by-step guide, complete with code samples, to aid developers in this task.
@@ -73,7 +73,7 @@ While Unicode is universally supported across many barcode formats, only specifi
 
 Different barcode types have varying capacities for characters which must be considered, especially when utilising encodings such as PDF417 with long strings.
 
-For a detailed list of all supported barcode formats, please refer to [this link](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats).
+For a detailed list of all supported barcode formats, please refer to [this link](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats?utm_source=github).
 
 ### Reading the Unicode Barcode 
 

@@ -1,4 +1,4 @@
-> Full guide: [C# read barcode from PDF](https://ironsoftware.com/csharp/barcode/examples/csharp-read-barcode-from-pdf/)
+> Full guide: [C# read barcode from PDF](https://ironsoftware.com/csharp/barcode/examples/csharp-read-barcode-from-pdf/?utm_source=github)
 
 Using IronBarCode to decipher barcodes is not only efficient but also straightforward. IronBarcode accommodates a variety of formats and provides tailored methods for different scenarios. Whether you're a developer aiming to decode barcodes from images or one who requires embedding barcode functionality and managing the resultant data within an application, IronBarcode effectively meets these needs.
 
@@ -10,4 +10,4 @@ The `BarcodeReader` class is additionally equipped with specialized methods like
 
 Beyond these specific functions, the `BarcodeReader` class permits developers to input `BarcodeReaderOptions` for enhanced control and personalization across all its methods. Such options include scanning only the first barcode for quicker results, selecting particular barcode types for reading, and using multithreading, among other customizable features.
 
-[Explore our guide on reading barcodes from images in C#.](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/)
+[Explore our guide on reading barcodes from images in C#.](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/?utm_source=github)

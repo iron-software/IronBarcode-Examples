@@ -1,6 +1,6 @@
 # IronBarCode Advanced Installation Guide
 
-> Full guide: [IronBarCode Advanced Installation Guide](https://ironsoftware.com/get-started/advanced-installation-nuget/)
+> Full guide: [IronBarCode Advanced Installation Guide](https://ironsoftware.com/get-started/advanced-installation-nuget/?utm_source=github)
 
 
 IronBarCode is a library designed to meet the diverse needs of various environments. To simplify our support for different platforms, we distribute our files in separate packages. This approach avoids the burden of excessive downloads for users, providing a more tailored installation experience based on your specific environment needs.
@@ -47,7 +47,7 @@ This advanced package uses Machine Learning to enhance barcode detection accurac
 
 ![](https://img.icons8.com/color/72/000000/linux--v1.png) ![](https://img.icons8.com/color/72/000000/debian.png) ![](https://img.icons8.com/color/72/000000/ubuntu.png) ![](https://img.icons8.com/color/72/000000/centos.png) ![](https://img.icons8.com/windows/72/000000/nuget.png) ![](https://img.icons8.com/fluency/72/000000/azure-1.png) ![](https://img.icons8.com/color/72/000000/amazon-web-services.png) ![](https://img.icons8.com/color/72/000000/docker.png)
 
-Excellently suits cloud and Linux-based operating systems, especially on platforms like AWS & Lambda, and Azure Functions. For Linux configurations, check this [guide](https://ironsoftware.com/csharp/barcode/get-started/linux/).
+Excellently suits cloud and Linux-based operating systems, especially on platforms like AWS & Lambda, and Azure Functions. For Linux configurations, check this [guide](https://ironsoftware.com/csharp/barcode/get-started/linux/?utm_source=github).
 
 [**PM > Install-Package BarCode.Linux**](https://www.nuget.org/packages/BarCode.Linux)
 - Includes `BarCode.Slim`
@@ -58,7 +58,7 @@ Excellently suits cloud and Linux-based operating systems, especially on platfor
 
 ![](https://img.icons8.com/color/72/000000/mac-client.png) ![](https://img.icons8.com/windows/72/000000/nuget.png)
 
-These packages specifically cater to macOS & macOS.ARM environments, perfect for integrating IronBarCode into macOS applications. For detailed setup, visit this [macOS guide](https://ironsoftware.com/csharp/barcode/get-started/macos/).
+These packages specifically cater to macOS & macOS.ARM environments, perfect for integrating IronBarCode into macOS applications. For detailed setup, visit this [macOS guide](https://ironsoftware.com/csharp/barcode/get-started/macos/?utm_source=github).
 
 [**PM > Install-Package BarCode.MacOs**](https://www.nuget.org/packages/BarCode.MacOs)
 [**PM > Install-Package BarCode.MacOs.ARM**](https://www.nuget.org/packages/BarCode.MacOs.ARM)
@@ -70,7 +70,7 @@ These packages specifically cater to macOS & macOS.ARM environments, perfect for
 
 ![](https://img.icons8.com/?size=72&id=20822&format=png&color=000000) ![](https://img.icons8.com/windows/72/000000/nuget.png)
 
-Tailored for iOS mobile applications, this package facilitates easy integration of IronBarCode into iOS systems. For setup details, refer to this [iOS guide](https://ironsoftware.com/csharp/barcode/get-started/ios/).
+Tailored for iOS mobile applications, this package facilitates easy integration of IronBarCode into iOS systems. For setup details, refer to this [iOS guide](https://ironsoftware.com/csharp/barcode/get-started/ios/?utm_source=github).
 
 [**PM > Install-Package BarCode.iOS**](https://www.nuget.org/packages/BarCode.iOS)
 - Includes `BarCode.Slim`
@@ -80,7 +80,7 @@ Tailored for iOS mobile applications, this package facilitates easy integration 
 
 ![](https://img.icons8.com/?size=72&id=P2AnGyiJxMpp&format=png&color=000000) ![](https://img.icons8.com/windows/72/000000/nuget.png)
 
-Enhance your Android development with IronBarCode to create barcode applications on Android. Check out this [Android guide](https://ironsoftware.com/csharp/barcode/get-started/android/) for setup information.
+Enhance your Android development with IronBarCode to create barcode applications on Android. Check out this [Android guide](https://ironsoftware.com/csharp/barcode/get-started/android/?utm_source=github) for setup information.
 
 [**PM > Install-Package BarCode.Android**](https://www.nuget.org/packages/BarCode.Android)
 - Contains `BarCode.Slim`

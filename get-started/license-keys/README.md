@@ -1,12 +1,12 @@
 # Using Iron Barcode License Keys
 
-> Full guide: [Using Iron Barcode License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/)
+> Full guide: [Using Iron Barcode License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/?utm_source=github)
 
 ## Obtaining a License Key
 
 Get the most out of IronBarcode by obtaining a license key, which allows you to deploy your projects without any limitations or watermarks.
 
-Secure a license by [purchasing a license key](https://ironsoftware.com/csharp/barcode/licensing/) or by obtaining a [no-cost 30-day trial key here](https://ironsoftware.com/trial-license).
+Secure a license by [purchasing a license key](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=github) or by obtaining a [no-cost 30-day trial key here](https://ironsoftware.com/trial-license?utm_source=github).
 
 <hr class="separator">
 
@@ -24,7 +24,7 @@ For more details regarding the NuGet package, visit [NuGet's website](https://ww
 
 ### Installation via DLL
 
-Alternatively, you can download the [IronBarcode.dll](https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip) and include it in your project.
+Alternatively, you can download the [IronBarcode.dll](https://ironsoftware.com/csharp/barcode/packages/IronBarCode.zip?utm_source=github) and include it in your project.
 
 <hr class="separator">
 
@@ -59,7 +59,7 @@ Please note, there are license recognition issues in IronBarCode ranging from ve
 - **ASP.NET** projects
 - **.NET Framework version 4.6.2 and up**
 
-The licensing configuration in a `Web.config` may not be acknowledged. For assistance, visit our guide on [Addressing License Key Issues in Web.config](https://ironsoftware.com/csharp/barcode/troubleshooting/license-key-web.config/).
+The licensing configuration in a `Web.config` may not be acknowledged. For assistance, visit our guide on [Addressing License Key Issues in Web.config](https://ironsoftware.com/csharp/barcode/troubleshooting/license-key-web.config/?utm_source=github).
 
 <hr class="separator">
 
@@ -97,7 +97,7 @@ bool is_licensed = IronBarCode.License.IsLicensed;
 
 ## Step 4: Begin Your Project
 
-Kickstart your development by following our [IronBarcode Getting Started Guide](https://ironsoftware.com/csharp/barcode/docs/).
+Kickstart your development by following our [IronBarcode Getting Started Guide](https://ironsoftware.com/csharp/barcode/docs/?utm_source=github).
 
 <hr class="separator">
 

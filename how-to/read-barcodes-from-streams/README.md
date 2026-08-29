@@ -1,6 +1,6 @@
 # How to Extract Barcodes from Streams
 
-> Full guide: [How to Extract Barcodes from Streams](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-streams/)
+> Full guide: [How to Extract Barcodes from Streams](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-streams/?utm_source=github)
 
 
 The `MemoryStream` class in the .NET Framework offers a flexible means to work with data that is temporarily kept in memory, bypassing the need for physical file storage. This feature is crucial when dealing with transient data manipulation in applications.

@@ -1,6 +1,6 @@
 # How to Generate Barcode Images in C# .NET Applications
 
-> Full guide: [How to Generate Barcode Images in C# .NET Applications](https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/)
+> Full guide: [How to Generate Barcode Images in C# .NET Applications](https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/?utm_source=github)
 
 
 Learn how to swiftly create professional-grade barcode images in your .NET applications using IronBarcode. This guide will take you through the process from the most basic implementations to more advanced techniques that allow you to fully customize the appearance of your barcodes.
@@ -93,7 +93,7 @@ The `GeneratedBarcode` class offers a rich toolkit for customizations:
 <center><img src="https://ironsoftware.com/img/tutorials/csharp-barcode-image-generator/advanced-barcode-creation.png" alt="A customized purple QR code adorned with annotation texts, produced using IronBarcode features" class="img-responsive add-shadow img-margin" style="max-width:33%">
 <em>A customized QR code with unique color and annotations, generated using IronBarcode</em></center>
 
-Explore the [Class documentation for `GeneratedBarcode`](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.GeneratedBarcode.html) for a full overview of all customization techniques and properties.
+Explore the [Class documentation for `GeneratedBarcode`](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.GeneratedBarcode.html?utm_source=github) for a full overview of all customization techniques and properties.
 
 ## Simplified Barcode Creation with One Line of Code
 
@@ -136,7 +136,7 @@ IronBarcode offers comprehensive support for numerous barcode formats through it
 **2D Barcodes**: like QRCode, DataMatrix.
 **Specialized formats**: Including IntelligentMail and various GS1 standards.
 
-Select the ideal format for your use case - QR codes are excellent for web URLs, whereas EAN13 is commonly used for retail products. Discover more about [selecting the appropriate barcode format](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats/) for your needs.
+Select the ideal format for your use case - QR codes are excellent for web URLs, whereas EAN13 is commonly used for retail products. Discover more about [selecting the appropriate barcode format](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats/?utm_source=github) for your needs.
 
 ## Ensuring Barcode Readability
 
@@ -165,23 +165,23 @@ Enhance your barcode generating skills by exploring additional resources:
 Download the complete source code for this tutorial:
 
 - [GitHub Repository](https://github.com/iron-software/Iron-Barcode-CSharp-Barcode-Image-Generator-Tutorial)
-- [C# Source Code ZIP](https://ironsoftware.com/downloads/assets/tutorials/csharp-barcode-image-generator/Iron-Barcode-CSharp-Barcode-Image-Generator-Tutorial.zip) 
+- [C# Source Code ZIP](https://ironsoftware.com/downloads/assets/tutorials/csharp-barcode-image-generator/Iron-Barcode-CSharp-Barcode-Image-Generator-Tutorial.zip?utm_source=github) 
 
 ### Advanced Topics
 
-- [Generate QR Codes with Logos](https://ironsoftware.com/csharp/barcode/examples/csharp-create-qr-code/) - Incorporate branding elements into your QR codes.
-- [Barcode Styling Guide](https://ironsoftware.com/csharp/barcode/how-to/customize-barcode-style/) - Master the advanced techniques for customization.
-- [Reading Barcodes from Images](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/) - Learn about barcode scanning capabilities.
-- [Batch Barcode Generation](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/) - Efficient methods for producing multiple barcodes.
+- [Generate QR Codes with Logos](https://ironsoftware.com/csharp/barcode/examples/csharp-create-qr-code/?utm_source=github) - Incorporate branding elements into your QR codes.
+- [Barcode Styling Guide](https://ironsoftware.com/csharp/barcode/how-to/customize-barcode-style/?utm_source=github) - Master the advanced techniques for customization.
+- [Reading Barcodes from Images](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/?utm_source=github) - Learn about barcode scanning capabilities.
+- [Batch Barcode Generation](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/?utm_source=github) - Efficient methods for producing multiple barcodes.
 
 ### API Documentation
 
-- [`BarcodeWriter` Class](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeWriter.html) - Complete method documentation.
-- [`GeneratedBarcode` Class](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.GeneratedBarcode.html) - All available customizations.
-- [`BarcodeWriterEncoding` Enum](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeWriterEncoding.html) - Overview of supported formats.
+- [`BarcodeWriter` Class](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeWriter.html?utm_source=github) - Complete method documentation.
+- [`GeneratedBarcode` Class](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.GeneratedBarcode.html?utm_source=github) - All available customizations.
+- [`BarcodeWriterEncoding` Enum](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeWriterEncoding.html?utm_source=github) - Overview of supported formats.
 
 ## Ready to Generate Professional Barcodes in Your Application?
 
 IronBarcode simplifies barcode creation while offering the flexibility needed for complex designs. From straightforward product codes to intricate 2D barcodes with advanced styling, IronBarcode manages it efficiently.
 
-[Download IronBarcode now](download-modal) and start crafting barcodes swiftly. Need help selecting the appropriate license? Explore our [licensing options](https://ironsoftware.com/csharp/barcode/licensing/) or [request a free trial key](trial-license) to integrate IronBarcode into your production environment.
+[Download IronBarcode now](download-modal) and start crafting barcodes swiftly. Need help selecting the appropriate license? Explore our [licensing options](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=github) or [request a free trial key](trial-license) to integrate IronBarcode into your production environment.
