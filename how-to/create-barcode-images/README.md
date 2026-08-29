@@ -1,6 +1,6 @@
 # How to Create Barcode Images
 
-> Full guide: [How to Create Barcode Images](https://ironsoftware.com/how-to/create-barcode-images/)
+> Full guide: [How to Create Barcode Images](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/)
 
 
 ## Quickstart: Create and Save a Code128 Barcode in One Line

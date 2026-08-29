@@ -1,6 +1,6 @@
 # Customizing and Styling Barcodes in Detail
 
-> Full guide: [Customizing and Styling Barcodes in Detail](https://ironsoftware.com/how-to/customize-barcode-style/)
+> Full guide: [Customizing and Styling Barcodes in Detail](https://ironsoftware.com/csharp/barcode/how-to/customize-barcode-style/)
 
 
 Barcodes have become a ubiquitous tool in various industries, often used for storing essential data like identification or URLs. They are frequently visible on products, enhancing the need for aesthetic customization. This has led to innovative barcode types such as `PDF417`, `Aztec`, `IntelligentMail`, `MaxiCode`, `DataMatrix`, and others, each presenting a distinct style.

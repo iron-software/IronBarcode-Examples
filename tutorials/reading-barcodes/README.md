@@ -1,6 +1,6 @@
 # C# Barcode Scanner: Implement Barcode and QR Code Reading in .NET Applications
 
-> Full guide: [C# Barcode Scanner: Implement Barcode and QR Code Reading in .NET Applications](https://ironsoftware.com/tutorials/reading-barcodes/)
+> Full guide: [C# Barcode Scanner: Implement Barcode and QR Code Reading in .NET Applications](https://ironsoftware.com/csharp/barcode/tutorials/reading-barcodes/)
 
 
 Looking to implement barcode or QR code scanning in your .NET applications? With IronBarcode, integrating barcode reading capabilities is straightforward and efficient, suitable for processing pristine digital images as well as challenging real-world photos. This tutorial will guide you through the steps to incorporate barcode scanning functionality using C# with ready-to-use examples.

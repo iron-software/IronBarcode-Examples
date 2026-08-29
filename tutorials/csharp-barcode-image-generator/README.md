@@ -1,6 +1,6 @@
 # How to Generate Barcode Images in C# .NET Applications
 
-> Full guide: [How to Generate Barcode Images in C# .NET Applications](https://ironsoftware.com/tutorials/csharp-barcode-image-generator/)
+> Full guide: [How to Generate Barcode Images in C# .NET Applications](https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/)
 
 
 Learn how to swiftly create professional-grade barcode images in your .NET applications using IronBarcode. This guide will take you through the process from the most basic implementations to more advanced techniques that allow you to fully customize the appearance of your barcodes.

@@ -1,6 +1,6 @@
 # How to Read Barcodes From Image Files (JPEG, PNG, GIF, TIFF, SVG, BMP)
 
-> Full guide: [How to Read Barcodes From Image Files (JPEG, PNG, GIF, TIFF, SVG, BMP)](https://ironsoftware.com/how-to/read-barcodes-from-images/)
+> Full guide: [How to Read Barcodes From Image Files (JPEG, PNG, GIF, TIFF, SVG, BMP)](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/)
 
 
 IronBarcode makes it simple to read barcodes from various image formats directly. Supported image formats include:

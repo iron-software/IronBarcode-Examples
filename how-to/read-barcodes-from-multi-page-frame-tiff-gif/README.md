@@ -1,6 +1,6 @@
 # How to Read Barcodes from Multi-Page/Frame GIF and TIFF
 
-> Full guide: [How to Read Barcodes from Multi-Page/Frame GIF and TIFF](https://ironsoftware.com/how-to/read-barcodes-from-multi-page-frame-tiff-gif/)
+> Full guide: [How to Read Barcodes from Multi-Page/Frame GIF and TIFF](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-multi-page-frame-tiff-gif/)
 
 
 IronBarcode handles reading from various image formats, including **multi-page and multi-frame GIF and TIFF**. Users benefit from the convenience of processing images without needing to separate the frames or pages manually. Here's how to efficiently utilize IronBarcode for handling these specific formats.

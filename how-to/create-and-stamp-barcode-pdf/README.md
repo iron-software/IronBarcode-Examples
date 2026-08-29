@@ -1,6 +1,6 @@
 # How to Stamp Barcodes on PDFs
 
-> Full guide: [How to Stamp Barcodes on PDFs](https://ironsoftware.com/how-to/create-and-stamp-barcode-pdf/)
+> Full guide: [How to Stamp Barcodes on PDFs](https://ironsoftware.com/csharp/barcode/how-to/create-and-stamp-barcode-pdf/)
 
 
 ## Quickstart: Stamp a Barcode onto a PDF Page

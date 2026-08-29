@@ -1,6 +1,6 @@
 # Decoding Multiple Barcodes Simultaneously
 
-> Full guide: [Decoding Multiple Barcodes Simultaneously](https://ironsoftware.com/how-to/read-multiple-barcodes/)
+> Full guide: [Decoding Multiple Barcodes Simultaneously](https://ironsoftware.com/csharp/barcode/how-to/read-multiple-barcodes/)
 
 
 In numerous sectors such as logistics, retail, healthcare, and inventory management, the ability to decode several barcodes at once is a critical efficiency enhancer. The IronBarcode library provides a straightforward method to use this capability, significantly improving productivity and operational workflows.

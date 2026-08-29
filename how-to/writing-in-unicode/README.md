@@ -1,6 +1,6 @@
 # Generating Unicode and International Language Barcodes in C#
 
-> Full guide: [Generating Unicode and International Language Barcodes in C#](https://ironsoftware.com/how-to/writing-in-unicode/)
+> Full guide: [Generating Unicode and International Language Barcodes in C#](https://ironsoftware.com/csharp/barcode/how-to/writing-in-unicode/)
 
 
 Creating barcodes that support international languages encompasses several considerations including string length and the suitable barcode encoding for that specific string value. IronBarcode provides extensive support for both generating and writing in Unicode, which simplifies the process for developers looking to distribute their products globally with applicable barcodes. Here we provide a step-by-step guide, complete with code samples, to aid developers in this task.

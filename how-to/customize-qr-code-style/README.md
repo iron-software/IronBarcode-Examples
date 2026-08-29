@@ -1,6 +1,6 @@
 # How to Customize and Add Logos to QR Codes
 
-> Full guide: [How to Customize and Add Logos to QR Codes](https://ironsoftware.com/how-to/customize-qr-code-style/)
+> Full guide: [How to Customize and Add Logos to QR Codes](https://ironsoftware.com/csharp/barcode/how-to/customize-qr-code-style/)
 
 
 QR codes are increasingly favored over traditional barcodes due to their ability to hold more data and their simplicity in scanning. Their adaptability in marketing is particularly appreciated, offering the ability to include logos, alter color schemes, and integrate additional branding elements.

@@ -1,6 +1,6 @@
 # Building an MSI Installer with IronBarCode
 
-> Full guide: [Building an MSI Installer with IronBarCode](https://ironsoftware.com/how-to/msi-installer/)
+> Full guide: [Building an MSI Installer with IronBarCode](https://ironsoftware.com/csharp/barcode/how-to/msi-installer/)
 
 
 A Microsoft Installer (MSI) package is crucial for the management of software installation, updates, and uninstalls on Windows platforms. It offers a systematized approach for deploying applications, critical for enterprise environments.

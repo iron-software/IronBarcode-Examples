@@ -1,6 +1,6 @@
 # Creating QR Codes in C# – A Guide for .NET Developers
 
-> Full guide: [Creating QR Codes in C# – A Guide for .NET Developers](https://ironsoftware.com/tutorials/csharp-qr-code-generator/)
+> Full guide: [Creating QR Codes in C# – A Guide for .NET Developers](https://ironsoftware.com/csharp/barcode/tutorials/csharp-qr-code-generator/)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">

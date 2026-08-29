@@ -1,6 +1,6 @@
 # Generating 1BPP Barcode Images with C#
 
-> Full guide: [Generating 1BPP Barcode Images with C#](https://ironsoftware.com/how-to/create-1-bpp-barcode-images/)
+> Docs: [IronBarcode documentation](https://ironsoftware.com/csharp/barcode/docs/)
 
 
 Creating and handling barcodes efficiently involves considering multiple factors such as the barcode's size and dimensions, especially when processing large batches. One efficient solution for achieving rapid processing and reliable machine readability is utilizing 1-bit-per-pixel (1BPP) barcode images. A 1BPP image, being strictly monochrome, depicts only two colors—typically black and white—with each pixel determined by a single bit where "0" might indicate black and "1" white, or the reverse.

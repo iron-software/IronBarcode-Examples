@@ -1,4 +1,4 @@
-> Full guide: [Unicode](https://ironsoftware.com/examples/unicode/)
+> Full guide: [Unicode](https://ironsoftware.com/csharp/barcode/examples/unicode/)
 
 IronBarcode enhances the functionality available to developers by enabling the inclusion of Unicode characters in barcode generation. This feature supports the creation of multi-language products, facilitating the use of identical barcodes for products across diverse markets such as Japan and Egypt without converting text into ASCII or another restrictive format, thereby simplifying the development process.
 

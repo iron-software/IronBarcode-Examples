@@ -1,6 +1,6 @@
 # Using Iron Barcode License Keys
 
-> Full guide: [Using Iron Barcode License Keys](https://ironsoftware.com/get-started/license-keys/)
+> Full guide: [Using Iron Barcode License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/)
 
 ## Obtaining a License Key
 

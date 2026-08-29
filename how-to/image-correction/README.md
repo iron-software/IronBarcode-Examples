@@ -1,6 +1,6 @@
 # How to Utilize Image Correction Filters
 
-> Full guide: [How to Utilize Image Correction Filters](https://ironsoftware.com/how-to/image-correction/)
+> Full guide: [How to Utilize Image Correction Filters](https://ironsoftware.com/csharp/barcode/how-to/image-correction/)
 
 Truth be told, not all images are flawless, and often these imperfections contribute significantly to the challenges IronBarcode faces when trying to decode barcode images. These difficulties are not necessarily the fault of the user. Rather than the arduous tasks of retaking the image or utilizing third-party enhancement software, IronBarcode provides a solution that allows users to programmatically apply filters to the images. This functionality enhances image clarity, enabling IronBarcode to interpret the image more effectively.
 

@@ -1,6 +1,6 @@
 # Adjusting Barcode Reading Speed
 
-> Full guide: [Adjusting Barcode Reading Speed](https://ironsoftware.com/how-to/reading-speed-options/)
+> Full guide: [Adjusting Barcode Reading Speed](https://ironsoftware.com/csharp/barcode/how-to/reading-speed-options/)
 
 
 When it comes to scalability and processing vast arrays of barcodes, the accuracy of a barcode reader is paramount. However, the efficiency of resource allocation and the method by which the barcode reader processes these images are equally crucial. It's vital for developers to strategize the barcode reading approach based on the quality and clarity of the input images. Decisions might range from foregoing image preprocessing for high-quality images to adopting more resource-intensive methods to enhance accuracy for lower-quality images.

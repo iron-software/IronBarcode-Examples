@@ -1,6 +1,6 @@
 # Guide to Handling Different Data Formats with IronBarcode
 
-> Full guide: [Guide to Handling Different Data Formats with IronBarcode](https://ironsoftware.com/how-to/output-data-formats/)
+> Full guide: [Guide to Handling Different Data Formats with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/output-data-formats/)
 
 
 IronBarcode is not just about reading barcodes and displaying the results—it offers a variety of output formats to utilize the extracted data effectively. Some of these formats include barcode image, barcode type, `BinaryValue`, coordinates, and dimensions. The sections below cover how each of these properties is used.

@@ -1,4 +1,4 @@
-> Full guide: [Create barcodes images](https://ironsoftware.com/csharp/barcode/examples/create-barcodes-images/)
+> Full guide: [Create barcodes images](https://ironsoftware.com/csharp/barcode/examples/csharp-create-barcode/)
 
 In the provided example, we explore how to generate, customize, and store barcodes in various formats, possibly with a simple single line of code.
 

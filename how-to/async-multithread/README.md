@@ -1,6 +1,6 @@
 # Understanding Async and Multithreading Techniques
 
-> Full guide: [Understanding Async and Multithreading Techniques](https://ironsoftware.com/how-to/async-multithread/)
+> Full guide: [Understanding Async and Multithreading Techniques](https://ironsoftware.com/csharp/barcode/how-to/async-multithread/)
 
 
 The concepts of `Async` and `Multithreading` are commonly confused, yet they are distinct approaches that aim to boost program performance by optimizing how system resources are utilized and decreasing the time it takes for programs to run. IronBarcode facilitates using both techniques. This article will look at their differences and demonstrate how they can be implemented using IronBarcode.

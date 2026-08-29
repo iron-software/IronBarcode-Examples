@@ -1,6 +1,6 @@
 # Adjusting Barcode Orientation
 
-> Full guide: [Adjusting Barcode Orientation](https://ironsoftware.com/how-to/image-orientation-correction/)
+> Full guide: [Adjusting Barcode Orientation](https://ironsoftware.com/csharp/barcode/how-to/image-orientation-correction/)
 
 
 Barcode orientation pertains to the angle at which a barcode is printed or shown on a product or document. This orientation can be modified to various degrees to suit different design and layout needs. Horizontally aligned barcodes, extending from left to right, represent the most recognized and prevalent orientation. However, barcodes positioned at any other angle may present detection challenges, which IronBarcode skillfully handles with its automatic orientation correction feature for both barcodes and QR codes.
