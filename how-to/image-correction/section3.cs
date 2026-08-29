@@ -1,5 +1,4 @@
 using IronBarCode;
-using BarCode;
 namespace IronBarcode.Examples.HowTo.ImageCorrection
 {
     public static class Section3

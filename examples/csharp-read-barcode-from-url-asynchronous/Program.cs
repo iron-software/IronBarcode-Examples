@@ -1,3 +1,4 @@
+using IronBarCode;
 ﻿using IronBarCode;
 
 // Reading many images asynchronously using ReadAsync

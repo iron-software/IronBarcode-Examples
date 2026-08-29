@@ -1,13 +1,13 @@
 # Generating Barcodes from Various Data Types
 
-***Based on <https://ironsoftware.com/how-to/create-barcode-from-data/>***
+> Full guide: [Generating Barcodes from Various Data Types](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-from-data/)
 
 
 Barcodes can be swiftly generated from various data types, including plain text, binary data, and even memory streams, using the `BarcodeWriter.CreateBarcode()` method provided by IronBarcode.
 
 ## Quick Guide: Instant Barcode Generation from a Single String
 
-Utilize the IronBarcode library to create barcodes effortlessly. Here’s an example where a barcode is generated from a simple string in just one command line:
+Utilize the IronBarcode library to create barcodes. Here’s an example where a barcode is generated from a simple string in just one command line:
 
 ```cs
 // Create a barcode from the string "Order123" using Code128 encoding
@@ -125,4 +125,149 @@ MemoryStream streamReceiptID = new MemoryStream(Encoding.UTF8.GetBytes("2023-08-
 MemoryStream streamFlightID = new MemoryStream(Encoding.UTF8.GetBytes("FLT2023NYC-LAX123456")); // Flight ID info
 MemoryStream streamNumber = new MemoryStream(Encoding.UTF8.GetBytes("1234"));
 
-BarcodeWriter.CreateBarcode(streamText, BarcodeEncoder
+
+BarcodeWriter.CreateBarcode(streamText, BarcodeEncoding.Aztec).SaveAsPng("text.png");
+BarcodeWriter.CreateBarcode(streamUrl, BarcodeEncoding.QRCode).SaveAsPng("url.png");
+BarcodeWriter.CreateBarcode(streamReceiptID, BarcodeEncoding.Code93, 250, 67).SaveAsPng("receiptID.png");
+BarcodeWriter.CreateBarcode(streamFlightID, BarcodeEncoding.PDF417, 250, 67).SaveAsPng("flightID.png");
+BarcodeWriter.CreateBarcode(streamNumber, BarcodeEncoding.Codabar, 250, 67).SaveAsPng("number.png");
+```
+
+This builds a `MemoryStream` over a `System.Byte[]` and passes it to
+`BarcodeWriter.CreateBarcode()`. Working from a stream rather than a file means:
+
+- **Performance**: no disk I/O, which is quicker for data that is only needed
+  once.
+- **Security**: the data stays in memory rather than being written somewhere it
+  has to be cleaned up.
+- **Flexibility**: it drops straight into other stream-based APIs.
+- **Resource use**: the runtime disposes of it for you.
+
+## Batch Barcode Generation over Streams
+
+For stream-based work at scale, generate each barcode and export it straight
+back to a stream:
+
+```cs
+using IronBarCode;
+using System.IO;
+using System.Text;
+
+// Example: Processing multiple barcodes in a batch using streams
+public static List<Stream> GenerateBarcodeStreams(List<string> dataItems)
+{
+    var barcodeStreams = new List<Stream>();
+
+    foreach (var item in dataItems)
+    {
+        // Convert string to stream
+        var dataStream = new MemoryStream(Encoding.UTF8.GetBytes(item));
+
+        // Generate barcode from stream
+        var barcode = BarcodeWriter.CreateBarcode(dataStream, BarcodeEncoding.Code128);
+
+        // Export barcode back to stream
+        var outputStream = barcode.ToStream();
+        outputStream.Position = 0; // Reset position for reading
+
+        barcodeStreams.Add(outputStream);
+    }
+
+    return barcodeStreams;
+}
+
+// Usage example
+var orderNumbers = new List<string> { "ORD-001", "ORD-002", "ORD-003" };
+var barcodes = GenerateBarcodeStreams(orderNumbers);
+```
+
+## Styling a Generated Barcode
+
+`BarcodeWriter.CreateBarcode` returns a `GeneratedBarcode`, which carries the
+sizing, colour and annotation methods:
+
+```cs
+using IronSoftware.Drawing;
+using IronBarCode;
+
+// Create a barcode with custom styling
+GeneratedBarcode myBarcode = BarcodeWriter.CreateBarcode("PRODUCT-12345", BarcodeEncoding.Code128);
+
+// Apply custom styling
+myBarcode.ResizeTo(300, 100);
+myBarcode.SetMargins(10);
+myBarcode.ChangeBarCodeColor(Color.DarkBlue);
+
+// Add text annotations
+myBarcode.AddBarcodeValueTextBelowBarcode();
+myBarcode.AddAnnotationTextAboveBarcode("Product SKU", new Font("Arial"), Color.Black, 12);
+
+// Save the customized barcode
+myBarcode.SaveAsPng("customized-barcode.png");
+```
+
+> The guide writes the annotation call as
+> `AddAnnotationTextAboveBarcode("Product SKU", Font.Arial, Color.Black, 12)`.
+> `IronSoftware.Drawing.Font` has no static `Arial`; it is constructed from a
+> family name, so this example uses `new Font("Arial")`.
+
+## Encoding Binary Data in a QR Code
+
+Binary content has to be encoded as text before it will fit a barcode. Base64
+does that, and a high error-correction level keeps the result readable at the
+resulting data density:
+
+```cs
+using System;
+using System.IO;
+using IronBarCode;
+
+// Example: Encoding binary data (like a small file) into QR Code
+byte[] binaryData = File.ReadAllBytes("document.pdf");
+string base64Data = Convert.ToBase64String(binaryData);
+
+// Create QR code with high error correction for binary data
+GeneratedBarcode binaryBarcode = QRCodeWriter.CreateQrCode(
+    base64Data,
+    errorCorrection: QRCodeWriter.QrErrorCorrectionLevel.High
+);
+
+// Save with appropriate size for data density
+binaryBarcode.ResizeTo(500, 500);
+binaryBarcode.SaveAsPng("binary-data-qr.png");
+```
+
+> The guide names that argument `errorCorrectionLevel`. The parameter on
+> `QRCodeWriter.CreateQrCode` is `errorCorrection`, so the guide's version does
+> not compile.
+
+## Choosing a Barcode Format
+
+Each format suits a different kind of payload:
+
+- **QR Code**: URLs, email addresses and longer text. Holds up to 4,296
+  alphanumeric characters and carries error correction.
+- **Code128**: alphanumeric data such as order numbers and serial codes.
+- **PDF417**: denser payloads such as flight tickets and government IDs, up to
+  1,850 alphanumeric characters.
+- **Code93**: compact numeric data, common in postal and inventory systems.
+- **Aztec**: mobile ticketing and transport, in less space than a QR code.
+
+## Frequently Asked Questions
+
+**How do I create a barcode from text in C#?**
+One line: `BarcodeWriter.CreateBarcode("YourText", BarcodeWriterEncoding.Code128)`.
+
+**What can I encode into a barcode?**
+Strings, URLs, IDs, byte arrays and streams. `CreateBarcode` has an overload for
+each.
+
+**Which format should I use for a URL?**
+QR Code. It holds enough for a long address and includes error correction.
+
+**Can I create barcodes from binary data?**
+Yes, through the `System.Byte[]` and `System.IO.Stream` overloads of
+`CreateBarcode`.
+
+**What image formats can I save to?**
+PNG, JPEG, BMP, GIF and TIFF.

@@ -1,5 +1,6 @@
+using IronSoftware.Drawing;
 using System.Linq;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.OutputDataFormats
 {
     public static class Section5

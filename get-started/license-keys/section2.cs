@@ -1,4 +1,4 @@
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.GettingStarted.LicenseKeys
 {
     public static class Section2

@@ -1,9 +1,9 @@
-# Effortlessly Read Code 39 Barcodes in C# with IronBarcode
+# Read Code 39 Barcodes in C# with IronBarcode
 
-***Based on <https://ironsoftware.com/how-to/read-code39-barcodes/>***
+> Full guide: [Read Code 39 Barcodes in C# with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/read-code39-barcodes/)
 
 
-For various industries including inventory, logistics, and industrial sectors, Code 39 barcodes are integral due to their reliability and broad compatibility. Code 39 is a versatile barcode type that accommodates variable lengths.
+For various industries including inventory, logistics, and industrial sectors, Code 39 barcodes are integral due to their reliability and broad compatibility. Code 39 is a barcode type that accommodates variable lengths.
 
 Originally, the Standard Code 39 could encode uppercase letters (A-Z), digits (0-9), and some special characters such as space, "-", "$", "+", "%", and ".". While suitable for basic identification purposes, the complexity of modern requirements led to the development of the Code 39 Extended specification, which encodes all 128 ASCII characters.
 

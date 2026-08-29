@@ -1,5 +1,5 @@
 using System;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadCode39Barcodes
 {
     public static class Section1

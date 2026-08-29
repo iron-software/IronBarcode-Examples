@@ -1,15 +1,13 @@
-using BarCode;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.AsyncMultithread
 {
     public static class Section2
     {
-        public static void Run()
+        public static async Task Run()
         {
-            ﻿using IronBarCode;
-            using System;
-            using System.Collections.Generic;
-            using System.Threading.Tasks;
-            
             List<string> imagePaths = new List<string>() { "image1.png", "image2.png" };
             
             // Barcode reading options

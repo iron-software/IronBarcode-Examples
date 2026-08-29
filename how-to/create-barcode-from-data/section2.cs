@@ -1,12 +1,10 @@
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.CreateBarcodeFromData
 {
     public static class Section2
     {
         public static void Run()
         {
-            ﻿using IronBarCode;
-            
             string text = "Hello, World!";
             string url = "https://ironsoftware.com/csharp/barcode/";
             string receiptID = "2023-08-04-12345"; // Receipt ID (numeric id)

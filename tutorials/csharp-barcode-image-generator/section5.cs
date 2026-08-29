@@ -1,4 +1,5 @@
-using BarCode;
+using IronSoftware.Drawing;
+using IronBarCode;
 namespace IronBarcode.Examples.Tutorial.CsharpBarcodeImageGenerator
 {
     public static class Section5

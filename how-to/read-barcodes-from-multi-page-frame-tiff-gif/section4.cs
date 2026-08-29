@@ -1,5 +1,5 @@
 using System;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromMultiPageFrameTiffGif
 {
     public static class Section4

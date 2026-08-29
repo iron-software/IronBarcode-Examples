@@ -1,4 +1,4 @@
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromImages
 {
     public static class Section4

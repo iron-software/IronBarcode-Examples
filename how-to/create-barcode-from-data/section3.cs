@@ -1,13 +1,11 @@
-using BarCode;
+using System.Text;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.CreateBarcodeFromData
 {
     public static class Section3
     {
         public static void Run()
         {
-            ﻿using IronBarCode;
-            using System.Text;
-            
             byte[] text = Encoding.UTF8.GetBytes("Hello, World!");
             byte[] url = Encoding.UTF8.GetBytes("https://ironsoftware.com/csharp/barcode/");
             byte[] receiptID = Encoding.UTF8.GetBytes("2023-08-04-12345"); // Receipt ID (numeric id)

@@ -1,6 +1,6 @@
 # Integrating IronBarcode with a Blazor Application
 
-***Based on <https://ironsoftware.com/get-started/blazor/>***
+> Full guide: [Integrating IronBarcode with a Blazor Application](https://ironsoftware.com/csharp/barcode/get-started/blazor/)
 
 
 This manual provides step-by-step guidance on using IronBarcode with a Blazor application, specifically illustrating how to scan barcodes and QR codes using a webcam.

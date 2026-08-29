@@ -1,16 +1,15 @@
 # Decoding Multiple Barcodes Simultaneously
 
-***Based on <https://ironsoftware.com/how-to/read-multiple-barcodes/>***
+> Full guide: [Decoding Multiple Barcodes Simultaneously](https://ironsoftware.com/csharp/barcode/how-to/read-multiple-barcodes/)
 
 
-In numerous sectors such as logistics, retail, healthcare, and inventory management, the ability to decode several barcodes at once is a critical efficiency enhancer. The IronBarcode library provides a straightforward method to harness this capability, significantly improving productivity and operational workflows.
+In numerous sectors such as logistics, retail, healthcare, and inventory management, the ability to decode several barcodes at once is a critical efficiency enhancer. The IronBarcode library provides a straightforward method to use this capability, significantly improving productivity and operational workflows.
 
 ## Easy Guide: Efficient Barcode Reading from an Image
 
-This guide demonstrates how effortlessly IronBarcode can detect and read all barcodes in an image. By simply enabling `ExpectMultipleBarcodes = true` and specifying the types of barcodes you are targeting, you can bypass the unnecessary complexities.
+This guide demonstrates how IronBarcode can detect and read all barcodes in an image. By simply enabling `ExpectMultipleBarcodes = true` and specifying the types of barcodes you are targeting, you can bypass the unnecessary complexities.
 
 ```cs
-:title=Efficient Multi-Barcode Reading
 var results = IronBarCode.BarcodeReader.Read("image.png", new IronBarCode.BarcodeReaderOptions { ExpectMultipleBarcodes = true, ExpectBarcodeTypes = IronBarCode.BarcodeEncoding.AllOneDimensional });
 ```
 

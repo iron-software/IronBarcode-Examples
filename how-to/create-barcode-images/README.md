@@ -1,6 +1,6 @@
 # How to Create Barcode Images
 
-***Based on <https://ironsoftware.com/how-to/create-barcode-images/>***
+> Full guide: [How to Create Barcode Images](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/)
 
 
 ## Quickstart: Create and Save a Code128 Barcode in One Line
@@ -14,7 +14,7 @@ IronBarCode.BarcodeWriter.CreateBarcode("Sample123", BarcodeEncoding.Code128, 25
 
 ## Barcode Generation and Image Output
 
-IronBarcode offers a straightforward approach for barcode generation. This is done by utilizing the `CreateBarcode()` method from the `BarcodeWriter` class. Here, you can specify the barcode value, encoding type, and the dimensions for the barcode. The resulting `GeneratedBarcode` object is then ready to be saved as an image using the `SaveAs()` method. Let's delve into each of these parameters before presenting a practical example.
+IronBarcode offers a straightforward approach for barcode generation. This is done by utilizing the `CreateBarcode()` method from the `BarcodeWriter` class. Here, you can specify the barcode value, encoding type, and the dimensions for the barcode. The resulting `GeneratedBarcode` object is then ready to be saved as an image using the `SaveAs()` method. Let's look at each of these parameters before presenting a practical example.
 
 ### Barcode Value
 

@@ -1,5 +1,6 @@
+using IronSoftware.Drawing;
 using System.IO;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromStreams
 {
     public static class Section2

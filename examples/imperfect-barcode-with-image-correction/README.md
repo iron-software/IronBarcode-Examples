@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/imperfect-barcode-with-image-correction/>***
+> Full guide: [Imperfect barcode with image correction](https://ironsoftware.com/csharp/barcode/examples/imperfect-barcode-with-image-correction/)
 
 IronBarcode includes a variety of image pre-processing filters that can be integrated using `BarcodeReaderOptions`. You have the ability to select different filters like *Sharpen*, *Binary Threshold*, and *Contrast* designed to enhance the readability of your barcodes. It's important to note that the filters are applied in the exact sequence they are selected.
 

@@ -1,5 +1,4 @@
 using IronBarCode;
-using BarCode;
 namespace IronBarcode.Examples.HowTo.CreateBarcodeImages
 {
     public static class Section3

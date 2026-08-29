@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromPdf
 {
     public static class Section5

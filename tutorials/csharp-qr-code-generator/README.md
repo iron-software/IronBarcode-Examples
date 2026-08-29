@@ -1,20 +1,19 @@
-# Creating QR Codes in C# – A Comprehensive Guide for .NET Developers
+# Creating QR Codes in C# – A Guide for .NET Developers
 
-***Based on <https://ironsoftware.com/tutorials/csharp-qr-code-generator/>***
+> Full guide: [Creating QR Codes in C# – A Guide for .NET Developers](https://ironsoftware.com/csharp/barcode/tutorials/csharp-qr-code-generator/)
 
 
 <div class="alert alert-info iron-variant-1" role="alert">
-Discover <a href="https://ironsoftware.com/csharp/qr/">IronQR</a>, the cutting-edge QR Code library by Iron Software, which utilizes advanced machine learning techniques for reading QR codes with pinnacle accuracy of 99.99%. Easily generate and customize QR codes today! Begin with IronQR by checking out our <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/">getting started guide</a>.
+Discover <a href="https://ironsoftware.com/csharp/qr/">IronQR</a>, the QR Code library by Iron Software, which utilizes advanced machine learning techniques for reading QR codes with pinnacle accuracy of 99.99%. Easily generate and customize QR codes today! Begin with IronQR by checking out our <a href="https://ironsoftware.com/csharp/qr/tutorials/csharp-qr-code-generator/">getting started guide</a>.
 </div>
 
-Are you looking to integrate QR code generation into your C# applications? This guide will walk you through the process of generating, customizing, and validating QR codes using IronBarcode. Whether you're developing systems for inventory management, ticketing for events, or payment solutions that do not require contact, this tutorial will equip you with the skills to incorporate robust QR code features into your .NET projects.
+Are you looking to integrate QR code generation into your C# applications? This guide will walk you through the process of generating, customizing, and validating QR codes using IronBarcode. Whether you're developing systems for inventory management, ticketing for events, or payment solutions that do not require contact, this tutorial will equip you with the skills to incorporate QR code features into your .NET projects.
 
 ### Quickstart: Generate a QR Code in a Single Line with IronBarcode
 
 Kickstart your QR Code generation with this simple one-liner using the `QRCodeWriter` API from IronBarcode. You have the option to customize it further if needed.
 
 ```cs
-:title=Quickly Generate QR Code
 var qr = QRCodeWriter.CreateQrCode("https://ironsoftware.com/", 500, QRCodeWriter.QrErrorCorrectionLevel.Medium); 
 qr.SaveAsPng("MyQR.png");
 ```
@@ -123,7 +122,7 @@ Formats cater to specific uses:
 
 - **PDF**: Suited for documents and printouts
 - **HTML**: Ideal for web integration without external dependencies
-- **PNG/JPEG**: Standard image formats for versatile applications
+- **PNG/JPEG**: Standard image formats for applications
 
 ## Verify QR Code Scannability Post-Customization
 

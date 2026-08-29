@@ -1,9 +1,9 @@
 # Barcoding and QR Code Integration in C# and VB.NET Applications
 
-***Based on <https://ironsoftware.com/docs/docs/>***
+> Docs: [IronBarcode documentation](https://ironsoftware.com/csharp/barcode/docs/)
 
 
-Effortlessly integrating barcodes and QR codes in C# and other .NET languages is streamlined with the IronBarcode library.
+The IronBarcode library reads and generates barcodes and QR codes from C# and the other .NET languages.
 
 ## Setting Up IronBarcode
 
@@ -38,7 +38,7 @@ if (results != null)
 }
 ```
 
-This simple command allows you to identify and decode various barcode formats from a single document, seamlessly and efficiently. The versatility of this method extends to an array of image and document formats including JPEG, PNG, GIF, TIFF, and PDFs. Advanced customization options are also provided to enhance the decoding performance.
+This one command identifies and decodes several barcode formats from a single document. It accepts JPEG, PNG, GIF, TIFF, and PDF input, and takes options for tuning decoding performance.
 
 For quicker results, you might consider tweaking the `BarcodeReaderOptions` to suit your performance needs:
 

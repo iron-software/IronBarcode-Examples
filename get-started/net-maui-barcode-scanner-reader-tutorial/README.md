@@ -1,6 +1,6 @@
 # .NET MAUI Barcode Scanner
 
-***Based on <https://ironsoftware.com/get-started/net-maui-barcode-scanner-reader-tutorial/>***
+> Full guide: [.NET MAUI Barcode Scanner](https://ironsoftware.com/csharp/barcode/get-started/net-maui-barcode-scanner-reader-tutorial/)
 
 
 ## Introduction

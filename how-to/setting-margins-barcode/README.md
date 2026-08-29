@@ -1,6 +1,6 @@
 # Implementing Margins in Barcode Creation with C#
 
-***Based on <https://ironsoftware.com/how-to/setting-margins-barcode/>***
+> Full guide: [Implementing Margins in Barcode Creation with C#](https://ironsoftware.com/csharp/barcode/how-to/setting-margins-barcode/)
 
 
 Creating a dependable barcode involves more than just the bars and gaps. The margin, or quiet zone, around the barcode is crucial for ensuring that it's read correctly by scanners. This margin helps differentiate the barcode from other printed elements like text or graphics on the same label.

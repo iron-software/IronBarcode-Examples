@@ -1,13 +1,13 @@
 # Supported Barcode Formats
 
-***Based on <https://ironsoftware.com/get-started/supported-barcode-formats/>***
+> Full guide: [Supported Barcode Formats](https://ironsoftware.com/csharp/barcode/get-started/supported-barcode-formats/)
 
 
 Barcodes play a crucial role in various industries for purposes like data encoding, tracking, and labeling. They come in a broad spectrum of formats ranging from the simpler one-dimensional types to the more advanced two-dimensional varieties. This overview outlines the barcode formats supported by Iron Software. It’s a valuable resource if you need to generate or interpret barcodes and want to select the optimal format for your specific requirements.
 
 ## QR & 2D Barcode
 
-Two-dimensional (2D) barcodes provide the capability to hold substantially more data than their one-dimensional counterparts within a smaller physical area. They are predominantly utilized in sectors such as logistics, healthcare, manufacturing, and marketing for their compactness and adaptability. In this section, we discuss supported 2D barcode formats, including widely recognized types like QR Code, Data Matrix, and Aztec, along with niche formats like MaxiCode for shipping and Intelligent Mail for postal applications. Each type is engineered with unique features tailored for various scenarios, from condensed labeling to robust scanning and error rectification.
+Two-dimensional (2D) barcodes provide the capability to hold substantially more data than their one-dimensional counterparts within a smaller physical area. They are predominantly utilized in sectors such as logistics, healthcare, manufacturing, and marketing for their compactness and adaptability. In this section, we discuss supported 2D barcode formats, including widely recognized types like QR Code, Data Matrix, and Aztec, along with niche formats like MaxiCode for shipping and Intelligent Mail for postal applications. Each type is engineered with unique features tailored for various scenarios, from condensed labeling to scanning and error rectification.
 
 ### QR Code
 
@@ -43,7 +43,7 @@ Two-dimensional (2D) barcodes provide the capability to hold substantially more 
 
 ### Intelligent Mail Barcode
 
-The Intelligent Mail Barcode, also known by several names such as IM Barcode, USPS OneCode Barcode, or simply IMB, is a one-dimensional barcode utilized by the United States Postal Service (USPS) to streamline mail sorting and tracking. This barcode efficiently integrates routing and tracking information into a singular code, optimizing mail processing. It encodes up to 31 digits of numeric information, which includes details like mailer ID, service type, and serial number. It is mainly employed in automated and bulk mail systems, rather than for general data encoding.
+The Intelligent Mail Barcode, also known by several names such as IM Barcode, USPS OneCode Barcode, or simply IMB, is a one-dimensional barcode utilized by the United States Postal Service (USPS) to simplify mail sorting and tracking. This barcode efficiently integrates routing and tracking information into a singular code, optimizing mail processing. It encodes up to 31 digits of numeric information, which includes details like mailer ID, service type, and serial number. It is mainly employed in automated and bulk mail systems, rather than for general data encoding.
 
 ![Intelligent Mail](https://ironsoftware.com/static-assets/barcode/how-to/supported-barcode-formats/IntelligentMail.png)
 

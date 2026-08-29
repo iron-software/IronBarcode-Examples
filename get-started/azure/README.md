@@ -1,9 +1,9 @@
 # Can IronBarcode Operate with .NET on Azure?
 
-***Based on <https://ironsoftware.com/get-started/azure/>***
+> Full guide: [Can IronBarcode Operate with .NET on Azure?](https://ironsoftware.com/csharp/barcode/get-started/azure/)
 
 
-Absolutely! IronBarcode is fully compatible for incorporating into .NET applications running on Azure. It has been rigorously evaluated on various Azure services including MVC websites and Azure Functions, proving its versatility across multiple Azure environments.
+IronBarcode runs on .NET applications hosted in Azure. It has been tested on Azure services including MVC websites and Azure Functions.
 
 ---
 
@@ -25,7 +25,7 @@ Alternatively, the [IronBarcode.dll](https://ironsoftware.com/csharp/barcode/pac
 
 ## Azure Performance Considerations
 
-For optimal performance, selecting the Azure **B1** service plan is recommended for most application scenarios. More robust requirements might necessitate a more powerful plan.
+For optimal performance, selecting the Azure **B1** service plan is recommended for most application scenarios. Heavier workloads may need a larger plan.
 
 ## Supported .NET Environments
 

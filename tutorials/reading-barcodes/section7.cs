@@ -1,5 +1,4 @@
 using IronBarCode;
-using BarCode;
 namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
 {
     public static class Section7
@@ -19,7 +18,7 @@ namespace IronBarcode.Examples.Tutorial.ReadingBarcodes
                 Console.WriteLine($"Frame {frameNumber}: {barcodeValue}");
                 
                 // Save individual barcode images if needed
-                result.BarcodeImage?.Save($"barcode_frame_{frameNumber}.png");
+                result.BarcodeImage?.SaveAs($"barcode_frame_{frameNumber}.png");
             }
         }
     }

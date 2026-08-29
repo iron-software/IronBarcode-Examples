@@ -1,18 +1,17 @@
 # How to Extract Barcodes from Streams
 
-***Based on <https://ironsoftware.com/how-to/read-barcodes-from-streams/>***
+> Full guide: [How to Extract Barcodes from Streams](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-streams/)
 
 
 The `MemoryStream` class in the .NET Framework offers a flexible means to work with data that is temporarily kept in memory, bypassing the need for physical file storage. This feature is crucial when dealing with transient data manipulation in applications.
 
-IronBarcode is adept at scanning and interpreting barcodes directly from streams aside from the usual image and PDF files. This powerful feature allows developers to feed streams of images or PDF documents directly to IronBarcode, which processes and reveals the barcode data contained within. Let’s explore how you can harness this capability in your applications.
+IronBarcode is adept at scanning and interpreting barcodes directly from streams aside from the usual image and PDF files. This powerful feature allows developers to feed streams of images or PDF documents directly to IronBarcode, which processes and reveals the barcode data contained within. Let’s explore how you can use this capability in your applications.
 
 ## Quickstart: Direct Barcode Extraction from Image Streams
 
-Leveraging IronBarcode to decode barcodes straight from an image stream is incredibly straightforward, requiring minimal code. The example below illustrates how simple it is to perform this operation in a .NET environment, avoiding intermediate disk storage.
+Using IronBarcode to decode barcodes straight from an image stream is incredibly straightforward, requiring minimal code. The example below illustrates how simple it is to perform this operation in a .NET environment, avoiding intermediate disk storage.
 
 ```cs
-:title=Efficient Barcode Extraction from Streams
 var scanResult = IronBarCode.BarcodeReader.Read(myImageStream);
 Console.WriteLine(scanResult[0].Text); // Output the first barcode's text
 ```
@@ -83,4 +82,4 @@ foreach (var barcode in extractedBarcodes)
 }
 ```
 
-As demonstrated, converting a PDF document into a `MemoryStream` and retrieving barcode data from it is efficiently handled by the `BarcodeReader.ReadPdf()` method. Utilizing `IronPDF` assists in this conversion, creating a seamless stream from PDF documents for barcode scanning. For scenarios involving multiple PDFs, it's advantageous to merge them into a single stream for optimal results. Experimentation with these techniques will enable customization to fit specific project requirements.
+As demonstrated, converting a PDF document into a `MemoryStream` and retrieving barcode data from it is efficiently handled by the `BarcodeReader.ReadPdf()` method. Utilizing `IronPDF` assists in this conversion, creating a stream from PDF documents for barcode scanning. For scenarios involving multiple PDFs, it's advantageous to merge them into a single stream for optimal results. Experimentation with these techniques will enable customization to fit specific project requirements.

@@ -1,5 +1,5 @@
 using System.Drawing;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.Tutorial.CsharpQrCodeGenerator
 {
     public static class Section6

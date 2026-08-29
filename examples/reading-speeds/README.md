@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/reading-speeds/>***
+> Full guide: [Reading speeds](https://ironsoftware.com/csharp/barcode/examples/reading-speeds/)
 
 IronBarCode enhances the ability to read barcodes by providing a flexible balance between processing speed and accuracy, making it ideal for handling large volumes. Developers have the ability to adjust the reading strategy based on the quality of the input image and the resources available. This means you can choose quicker processing for clearer images or use more comprehensive techniques for better accuracy on difficult images. This adaptability allows developers to fine-tune the scanning process to efficiently meet the particular needs of different operational environments.
 

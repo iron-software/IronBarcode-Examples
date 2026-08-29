@@ -1,16 +1,14 @@
-using BarCode;
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadingSpeedOptions
 {
     public static class Section5
     {
         public static void Run()
         {
-            ﻿using IronBarCode;
-            using System;
-            using System.Diagnostics;
-            using System.IO;
-            using System.Linq;
-            
             var optionsFaster = new BarcodeReaderOptions
             {
                 Speed = ReadingSpeed.ExtremeDetail

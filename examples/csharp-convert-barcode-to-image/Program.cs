@@ -1,4 +1,5 @@
 ﻿using IronBarCode;
+using IronBarCode;
 using System.Drawing;
 
 // BarcodeWriter.CreateBarcode creates a GeneratedBarcode which can be styled and exported as an Image object or file

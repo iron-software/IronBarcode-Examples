@@ -1,3 +1,4 @@
+using IronBarCode;
 ﻿using IronBarCode;
 
 PdfBarcodeReaderOptions myPdfOptionsExample = new PdfBarcodeReaderOptions()

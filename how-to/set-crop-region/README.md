@@ -1,13 +1,13 @@
 # Defining Crop Regions for Efficient Barcode Scanning
 
-***Based on <https://ironsoftware.com/how-to/set-crop-region/>***
+> Full guide: [Defining Crop Regions for Efficient Barcode Scanning](https://ironsoftware.com/csharp/barcode/how-to/set-crop-region/)
 
 
 A key functionality available in IronBarcode is its capability to set **Crop Regions**. This is particularly useful for focusing the barcode reading process on specific sections of an image. By defining a `IronSoftware.Drawing.Rectangle`, users can significantly minimize errors and enhance the barcode scanning speed.
 
 ## Getting Started: Quickly Apply Crop Regions for Enhanced Reading Speed
 
-Easily define a crop rectangle and integrate it with IronBarcode—a streamlined process without any additional hassle. Below is a simple demonstration of how to focus the barcode scanning on an exact area using `BarcodeReaderOptions`.
+Easily define a crop rectangle and integrate it with IronBarcode—a simplified process without any additional hassle. Below is a simple demonstration of how to focus the barcode scanning on an exact area using `BarcodeReaderOptions`.
 
 ```cs
 // Example: Setting the Crop Area with One Line of Code to Improve Reading Speed

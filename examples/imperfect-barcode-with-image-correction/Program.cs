@@ -1,4 +1,5 @@
 ﻿using IronBarCode;
+using IronBarCode;
 using IronSoftware.Drawing;
 
 // Choose which filters are to be applied (in order)

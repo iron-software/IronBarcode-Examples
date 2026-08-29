@@ -1,11 +1,11 @@
 # Guide to Handling Different Data Formats with IronBarcode
 
-***Based on <https://ironsoftware.com/how-to/output-data-formats/>***
+> Full guide: [Guide to Handling Different Data Formats with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/output-data-formats/)
 
 
-IronBarcode is not just about reading barcodes and displaying the results—it offers a variety of output formats to utilize the extracted data effectively. Some of these formats include barcode image, barcode type, `BinaryValue`, coordinates, and dimensions. Users can interact with these properties, adapting them as needed within their applications. Below, we'll delve into how these properties can be leveraged in various scenarios.
+IronBarcode is not just about reading barcodes and displaying the results—it offers a variety of output formats to utilize the extracted data effectively. Some of these formats include barcode image, barcode type, `BinaryValue`, coordinates, and dimensions. The sections below cover how each of these properties is used.
 
-## Quickstart: Extracting Barcode Value and Type Effortlessly
+## Quickstart: Extracting Barcode Value and Type
 
 The following example demonstrates the simplicity of extracting a barcode's value and type from an image using IronBarcode. This one-liner is ideal for quick starts.
 
@@ -29,7 +29,7 @@ Console.WriteLine($"Value: {readResult[0].Value}, Type: {readResult[0].BarcodeTy
 
 ### Managing Barcode Images
 
-After decoding a barcode, `BarcodeResult` houses each image as a `BarcodeImage`. This feature enables users to manipulate and save these images, streamlining the process without requiring complex coding.
+After decoding a barcode, `BarcodeResult` houses each image as a `BarcodeImage`. Those images can be manipulated and saved directly.
 
 Here's how you can use this effectively:
 
@@ -124,7 +124,7 @@ imageToManipulate.SaveAs("redactedBarcodes.png", AnyBitmap.ImageFormat.Png);
 
 ### Retrieving Page Numbers
 
-This feature is particularly useful in multi-page documents, where locating a barcode's exact page can streamline processing and verification tasks.
+This matters in multi-page documents, where the page a barcode sits on drives the next processing step.
 
 Example demonstrating page number retrieval:
 
@@ -183,4 +183,4 @@ foreach (BarcodeResult barcode in documentResults)
 }
 ```
 
-IronBarcode supports a variety of data output formats, enabling users to harness barcode data to its fullest potential in numerous applications and scenarios.
+IronBarcode supports a variety of data output formats, enabling users to use barcode data to its fullest potential in numerous applications and scenarios.

@@ -1,12 +1,12 @@
 using System.IO;
-using BarCode;
+using IronBarCode;
 namespace IronBarcode.Examples.HowTo.ReadBarcodesFromStreams
 {
     public static class Section3
     {
         public static void Run()
         {
-            MemoryStream document = PdfDocument.FromFile(@"file_path.pdf").Stream;
+            using FileStream document = File.OpenRead(@"file_path.pdf");
             
             var myBarcode = BarcodeReader.ReadPdf(document);
             

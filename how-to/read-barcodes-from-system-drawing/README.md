@@ -1,18 +1,17 @@
 # How to Process Barcodes with System.Drawing Objects
 
-***Based on <https://ironsoftware.com/how-to/read-barcodes-from-system-drawing/>***
+> Full guide: [How to Process Barcodes with System.Drawing Objects](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-system-drawing/)
 
 
 System.Drawing objects are commonly utilized by .NET developers for image processing tasks. However, it's important to note that Microsoft has [ceased supporting System.Drawing](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only) on platforms other than **Windows**, such as **MacOS** and **Linux**. This change has posed challenges for developers using IronBarcode on these non-Windows platforms, particularly when dealing with **graphics**, **images**, and **fonts** associated with barcodes.
 
-To overcome these challenges, IronSoftware has introduced [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/), a **free**, **open-source** library intended to facilitate compatibility on non-Windows operating systems. When you install IronBarcode via NuGet, IronDrawing is seamlessly integrated into your project.
+To overcome these challenges, IronSoftware has introduced [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/), a **free**, **open-source** library intended to facilitate compatibility on non-Windows operating systems. When you install IronBarcode via NuGet, IronDrawing is integrated into your project.
 
 ## Quickstart: Decode a Barcode With AnyBitmap In a Single Step
 
 The following example illustrates the straightforward process of using IronBarcode to decode a barcode from a `System.Drawing.Bitmap`, which is automatically handled as `AnyBitmap` without complicated setups, ensuring ease of use across different operating systems.
 
 ```cs
-:title=Efficient Barcode Decoding from System.Drawing
 var barcodeResult = IronBarCode.BarcodeReader.Read((AnyBitmap)(new System.Drawing.Bitmap("yourImage.png")));
 ```
 
@@ -51,7 +50,7 @@ Here, we've loaded barcode images as `System.Drawing.Bitmap` and `System.Drawing
 
 ## Decoding Barcodes from AnyBitmap
 
-IronBarcode effortlessly integrates with `IronSoftware.Drawing.AnyBitmap` for barcode decoding, eliminating the need for extensive configuration. Here's how you can read barcodes from the list of `AnyBitmap`:
+IronBarcode integrates with `IronSoftware.Drawing.AnyBitmap` for barcode decoding, eliminating the need for extensive configuration. Here's how you can read barcodes from the list of `AnyBitmap`:
 
 ```csharp
 using IronBarCode;
