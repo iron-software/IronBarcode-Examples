@@ -188,4 +188,117 @@ public partial class MainPage : ContentPage
         {
             // Exceptions should be logged for troubleshooting
             System.Diagnostics.Debug.WriteLine(ex);
+        }
+    }
+
+    // Method to read a barcode from a file
+    private async void ReadBarcode(object sender, EventArgs e)
+    {
+        try
+        {
+            var options = new PickOptions
+            {
+                PickerTitle = "Please select a file"
+            };
+            var file = await FilePicker.PickAsync(options);
+
+            OutputText.Text = "";
+
+            if (file != null)
+            {
+                using var stream = await file.OpenReadAsync();
+                BarcodeResults result;
+
+                // Determine if the document is a PDF or an image
+                if (file.ContentType.Contains("pdf"))
+                {
+                    result = BarcodeReader.ReadPdf(stream);
+                }
+                else
+                {
+                    result = BarcodeReader.Read(stream);
+                }
+
+                // Display the results
+                string barcodeResult = "";
+                int count = 1;
+                result.ForEach(x => { barcodeResult += $"barcode {count}: {x.Value}
+"; count++; });
+                OutputText.Text = barcodeResult;
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log exceptions to debug output
+            System.Diagnostics.Debug.WriteLine(ex);
+        }
+    }
+
+    // Method to save file data to the Downloads folder (or Documents on iOS)
+    public async Task SaveToDownloadsAsync(byte[] fileData, string fileName)
+    {
+        // #if IOS
+        // Define the custom path you want to save to
+        var customPath = "/Users/Iron/Library/Developer/CoreSimulator/Devices/7D1F57F2-1103-46DA-AEE7-C8FC871502F5/data/Containers/Shared/AppGroup/37CD82C0-FCFC-45C7-94BB-FFEEF7BAFF13/File Provider Storage/Document";
+
+        // Combine the custom path with the file name
+        var filePath = Path.Combine(customPath, fileName);
+
+        try
+        {
+            // Create the directory if it doesn't exist
+            if (!Directory.Exists(customPath))
+            {
+                Directory.CreateDirectory(customPath);
+            }
+
+            // Save the file to the specified path
+            await File.WriteAllBytesAsync(filePath, fileData);
+
+            // Display a success message
+            await Application.Current.MainPage.DisplayAlert("Saved", $"File saved to {filePath}", "OK");
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine("Error saving file: " + ex.Message);
+        }
+        // #endif
+    }
+}
 ```
+
+`ReadBarcode` opens the picked file as a stream and branches on its content
+type: `BarcodeReader.ReadPdf` for a PDF, `BarcodeReader.Read` for an image.
+Both return a `BarcodeResults` collection, which is enumerated into the output
+label.
+
+`SaveToDownloadsAsync` is where the platforms diverge. The custom path in the
+snippet is a simulator container on one particular machine; substitute the
+directory your own build writes to.
+
+Lastly, switch the build target to iOS Simulator and run the project.
+
+## Frequently Asked Questions
+
+**Which package do I install?**
+`BarCode.iOS`, not the standard `BarCode` package. It carries the iOS-specific
+build of the library.
+
+**What do I need before starting?**
+A .NET MAUI project, the MAUI workload installed, and a Mac to build and run the
+iOS target.
+
+**Which method generates a barcode?**
+`BarcodeWriter.CreateBarcode` for a linear barcode, `QRCodeWriter.CreateQrCode`
+for a QR code. Both return a `GeneratedBarcode`.
+
+**How do I save the result as a PDF or a PNG?**
+`GeneratedBarcode.ToPdfBinaryData()` and `ToPngBinaryData()` return the bytes;
+write them wherever the platform allows.
+
+**The barcode is not recognised. What should I check?**
+Confirm the image is in focus and the whole symbol is inside the frame, and that
+the encoding you are reading matches what was written.
+
+**Why set a license key?**
+Without one the library runs in trial mode and stamps its output.
