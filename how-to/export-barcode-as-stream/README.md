@@ -1,6 +1,6 @@
 # Stream Export of Barcodes Made Simple
 
-> Full guide: [Stream Export of Barcodes Made Simple](https://ironsoftware.com/csharp/barcode/how-to/export-barcode-as-stream/)
+> Full guide: [Stream Export of Barcodes Made Simple](https://ironsoftware.com/csharp/barcode/how-to/export-barcode-as-stream/?utm_source=github)
 
 
 Using IronBarcode’s functionality, one can generate barcodes and transform them into stream formats. This includes utilizing the **MemoryStream** class, which facilitates the integration of the barcode within additional software applications without needing disk input/output. This method enhances system performance, reduces required storage space, ensures better data protection, and allows for flexible integration across multiple platforms.
@@ -15,7 +15,7 @@ var stream = BarcodeWriter.CreateBarcode("Quick123", BarcodeEncoding.Code128).To
 
 ## Example: Converting a Barcode into a Stream
 
-After [creating a barcode](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/) with the specified parameters, it's possible to use the `ToStream` method to serialize this barcode into a MemoryStream, which defaults to a PNG image format. This procedure is equally applicable to QR codes and is compatible with [custom stylings](https://ironsoftware.com/csharp/barcode/how-to/customize-qr-code-style/).
+After [creating a barcode](https://ironsoftware.com/csharp/barcode/how-to/create-barcode-images/?utm_source=github) with the specified parameters, it's possible to use the `ToStream` method to serialize this barcode into a MemoryStream, which defaults to a PNG image format. This procedure is equally applicable to QR codes and is compatible with [custom stylings](https://ironsoftware.com/csharp/barcode/how-to/customize-qr-code-style/?utm_source=github).
 
 ```csharp
 using IronBarCode;

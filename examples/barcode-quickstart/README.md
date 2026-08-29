@@ -1,4 +1,4 @@
-> Full guide: [Barcode quickstart](https://ironsoftware.com/csharp/barcode/examples/barcode-quickstart/)
+> Full guide: [Barcode quickstart](https://ironsoftware.com/csharp/barcode/examples/barcode-quickstart/?utm_source=github)
 
 IronBarCode handles a wide range of formats, from common image types like JPEG and PNG to other more complex types like bitmap and PDF. That range lets it fit into most codebases without a conversion step first, whatever file types and data structures the surrounding code already uses.
 
@@ -31,6 +31,6 @@ Similarly, the `BarcodeReader` is initialized where the barcode's file path is p
 
 IronBarCode equips developers with the capability to fine-tune barcode reading with `BarcodeReaderOptions`. Developers can adjust settings such as the read speed with `Speed`, enable reading of multiple barcodes in one go with `ExpectedMultipleBarcodes`, and specify the types of barcodes to expect with `ExpectBarcodeTypes`. This facilitation allows for efficient parallel processing of multiple barcodes and management of threading in concurrent operations.
 
-These are just a few features demonstrating the capabilities of IronBarCode. For a comprehensive overview, please refer to the full documentation [here](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeReaderOptions.html).
+These are just a few features demonstrating the capabilities of IronBarCode. For a comprehensive overview, please refer to the full documentation [here](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeReaderOptions.html?utm_source=github).
 
-<a href="https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/" class="code_content__related-link__doc-cta-link">Explore Our Detailed Barcode Creation Tutorial!</a>
+<a href="https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/?utm_source=github" class="code_content__related-link__doc-cta-link">Explore Our Detailed Barcode Creation Tutorial!</a>

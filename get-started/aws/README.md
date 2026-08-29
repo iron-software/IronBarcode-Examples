@@ -1,6 +1,6 @@
 # Reading and Writing Barcodes with AWS Lambda and IronBarcode
 
-> Full guide: [Reading and Writing Barcodes with AWS Lambda and IronBarcode](https://ironsoftware.com/csharp/barcode/get-started/aws/)
+> Full guide: [Reading and Writing Barcodes with AWS Lambda and IronBarcode](https://ironsoftware.com/csharp/barcode/get-started/aws/?utm_source=github)
 
 
 <div class="container-fluid">

@@ -1,6 +1,6 @@
 # Configuring IronBarcode for Docker Containers
 
-> Full guide: [Configuring IronBarcode for Docker Containers](https://ironsoftware.com/csharp/barcode/get-started/docker-linux/)
+> Full guide: [Configuring IronBarcode for Docker Containers](https://ironsoftware.com/csharp/barcode/get-started/docker-linux/?utm_source=github)
 
 IronBarcode offers complete compatibility with Docker, accommodating both Azure and AWS containers across Linux and Windows environments.
 
@@ -20,7 +20,7 @@ Docker provides developers with a simplified method to package, distribute, and 
 
 For those new to using Docker in combination with .NET, we suggest checking out this [informative article](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019) which provides a thorough guide on how to configure Docker for debugging and integrating it with Visual Studio projects.
 
-Additionally, to ensure optimal use of IronBarcode on Linux platforms, please refer to our detailed [IronBarcode Linux setup and compatibility guide](https://ironsoftware.com/csharp/barcode/get-started/linux/).
+Additionally, to ensure optimal use of IronBarcode on Linux platforms, please refer to our detailed [IronBarcode Linux setup and compatibility guide](https://ironsoftware.com/csharp/barcode/get-started/linux/?utm_source=github).
 
 ### Suggested Linux Docker Distributions for IronBarcode
 
@@ -30,7 +30,7 @@ For a straightforward setup of IronBarcode, the following 64-bit Linux distribut
 * Debian 10 or newer
 * CentOS 7 or newer
 
-It is advisable to utilize [Microsoft's official Docker images](https://hub.docker.com/_/microsoft-dotnet-runtime/) for these environments. While partial support is available for other Linux distributions, they might necessitate manual configurations and additional installations of dependencies. For detailed instructions on configuring IronBarcode on Linux, refer to our [Linux manual setup guide](https://ironsoftware.com/csharp/barcode/get-started/linux/).
+It is advisable to utilize [Microsoft's official Docker images](https://hub.docker.com/_/microsoft-dotnet-runtime/) for these environments. While partial support is available for other Linux distributions, they might necessitate manual configurations and additional installations of dependencies. For detailed instructions on configuring IronBarcode on Linux, refer to our [Linux manual setup guide](https://ironsoftware.com/csharp/barcode/get-started/linux/?utm_source=github).
 
 ## Essential Steps for Installing IronBarcode in Linux Docker Environments
 

@@ -1,6 +1,6 @@
 # Building an MSI Installer with IronBarCode
 
-> Full guide: [Building an MSI Installer with IronBarCode](https://ironsoftware.com/csharp/barcode/how-to/msi-installer/)
+> Full guide: [Building an MSI Installer with IronBarCode](https://ironsoftware.com/csharp/barcode/how-to/msi-installer/?utm_source=github)
 
 
 A Microsoft Installer (MSI) package is crucial for the management of software installation, updates, and uninstalls on Windows platforms. It offers a systematized approach for deploying applications, critical for enterprise environments.
@@ -126,7 +126,7 @@ Within the Setup Project, include the following files crucial for ensuring funct
 
 ![DLL Inclusion](https://ironsoftware.com/static-assets/barcode/how-to/msi-installer/add-additional-dll.webp)
 
-Should any file be missing, see the troubleshooting guide: [Missing DLLs in Creating MSI Installer](https://ironsoftware.com/csharp/barcode/troubleshooting/missing-dll-msi-installer/)
+Should any file be missing, see the troubleshooting guide: [Missing DLLs in Creating MSI Installer](https://ironsoftware.com/csharp/barcode/troubleshooting/missing-dll-msi-installer/?utm_source=github)
 
 Build your Setup Project. The MSI installer will be located under: MsiInstallerSample\SetupProject\Release
 
@@ -140,4 +140,4 @@ Run the installer using the newly created MSI file to verify everything works as
 
 Access the full code of this guide in a downloadable zipped file, ready to open in Visual Studio as a WinFormApp project.
 
-[Download the WinForm MSI App Project](https://ironsoftware.com/static-assets/barcode/how-to/msi-installer/MsiInstallerSample.zip)
+[Download the WinForm MSI App Project](https://ironsoftware.com/static-assets/barcode/how-to/msi-installer/MsiInstallerSample.zip?utm_source=github)

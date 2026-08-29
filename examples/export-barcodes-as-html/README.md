@@ -1,4 +1,4 @@
-> Full guide: [Export barcodes as HTML](https://ironsoftware.com/csharp/barcode/how-to/export-barcode-as-stream/)
+> Full guide: [Export barcodes as HTML](https://ironsoftware.com/csharp/barcode/how-to/export-barcode-as-stream/?utm_source=github)
 
 IronBarcode offers a handy capability for exporting barcodes into self-contained HTML formats. This means there is no need for linked image files, as all necessary data is embedded within the HTML itself.
 

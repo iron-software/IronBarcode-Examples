@@ -1,4 +1,4 @@
-> Full guide: [Barcode reader settings C#](https://ironsoftware.com/csharp/barcode/examples/barcode-reader-settings-csharp/)
+> Full guide: [Barcode reader settings C#](https://ironsoftware.com/csharp/barcode/examples/barcode-reader-settings-csharp/?utm_source=github)
 
 The `BarcodeReaderOptions` class in IronBarcode provides a suite of settings that enable customized and efficient barcode reading. With these settings, you can adjust the balance between resource consumption and reading accuracy, manage the scope of reading, and refine reading techniques.
 
@@ -12,4 +12,4 @@ The `BarcodeReaderOptions` class in IronBarcode provides a suite of settings tha
 
 These configurable options help strike a balance between the usage of resources, speed, and accuracy, tailored to your unique requirements for reading barcodes.
 
-[Learn to Read Barcodes from Images with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/)
+[Learn to Read Barcodes from Images with IronBarcode](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/?utm_source=github)

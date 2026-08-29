@@ -1,11 +1,11 @@
 # How to Process Barcodes with System.Drawing Objects
 
-> Full guide: [How to Process Barcodes with System.Drawing Objects](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-system-drawing/)
+> Full guide: [How to Process Barcodes with System.Drawing Objects](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-system-drawing/?utm_source=github)
 
 
 System.Drawing objects are commonly utilized by .NET developers for image processing tasks. However, it's important to note that Microsoft has [ceased supporting System.Drawing](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only) on platforms other than **Windows**, such as **MacOS** and **Linux**. This change has posed challenges for developers using IronBarcode on these non-Windows platforms, particularly when dealing with **graphics**, **images**, and **fonts** associated with barcodes.
 
-To overcome these challenges, IronSoftware has introduced [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/), a **free**, **open-source** library intended to facilitate compatibility on non-Windows operating systems. When you install IronBarcode via NuGet, IronDrawing is integrated into your project.
+To overcome these challenges, IronSoftware has introduced [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/?utm_source=github), a **free**, **open-source** library intended to facilitate compatibility on non-Windows operating systems. When you install IronBarcode via NuGet, IronDrawing is integrated into your project.
 
 ## Quickstart: Decode a Barcode With AnyBitmap In a Single Step
 
@@ -27,7 +27,7 @@ Beyond `System.Drawing`, IronDrawing also supports conversions from:
 - **`SkiaSharp.SKImage`**
 - **`SixLabors.ImageSharp`**
 
-For detailed instructions on how to implement these conversions, refer to the following [code sample](https://ironsoftware.com/open-source/csharp/drawing/examples/cast-to-anybitmap/). Here’s a simplified example demonstrating the conversion of barcode images from `System.Drawing` objects to `AnyBitmap`:
+For detailed instructions on how to implement these conversions, refer to the following [code sample](https://ironsoftware.com/open-source/csharp/drawing/examples/cast-to-anybitmap/?utm_source=github). Here’s a simplified example demonstrating the conversion of barcode images from `System.Drawing` objects to `AnyBitmap`:
 
 ```csharp
 using IronSoftware.Drawing;
@@ -82,4 +82,4 @@ foreach (var singleBarcode in barcodes)
 
 In this continuation of the previous example, after populating the `AnyBitmap` list, we iterate through, decode each barcode, and print the detected barcode values to the console.
 
-Exploring other functionalities of **IronSoftware.Drawing** can enhance your image processing tasks, including working with **colors** and **fonts** to style barcodes and QR codes. Discover more about using IronDrawing to [personalize and integrate logos](https://ironsoftware.com/csharp/barcode/how-to/customize-qr-code-style/) into QR codes.
+Exploring other functionalities of **IronSoftware.Drawing** can enhance your image processing tasks, including working with **colors** and **fonts** to style barcodes and QR codes. Discover more about using IronDrawing to [personalize and integrate logos](https://ironsoftware.com/csharp/barcode/how-to/customize-qr-code-style/?utm_source=github) into QR codes.

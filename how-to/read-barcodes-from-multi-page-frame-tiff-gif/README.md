@@ -1,6 +1,6 @@
 # How to Read Barcodes from Multi-Page/Frame GIF and TIFF
 
-> Full guide: [How to Read Barcodes from Multi-Page/Frame GIF and TIFF](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-multi-page-frame-tiff-gif/)
+> Full guide: [How to Read Barcodes from Multi-Page/Frame GIF and TIFF](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-multi-page-frame-tiff-gif/?utm_source=github)
 
 
 IronBarcode handles reading from various image formats, including **multi-page and multi-frame GIF and TIFF**. Users benefit from the convenience of processing images without needing to separate the frames or pages manually. Here's how to efficiently utilize IronBarcode for handling these specific formats.
@@ -35,7 +35,7 @@ foreach (var result in results)
 
 ## Convert Images into GIF and TIFF
 
-Transform images into multipage TIFF and GIF formats using the [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/) library. The following code snippet guides you through the creation of multipage images.
+Transform images into multipage TIFF and GIF formats using the [IronDrawing](https://ironsoftware.com/open-source/csharp/drawing/docs/?utm_source=github) library. The following code snippet guides you through the creation of multipage images.
 
 ```csharp
 using IronBarCode;
@@ -99,7 +99,7 @@ While both GIF and TIFF formats support multiple images in a single file, there 
 
 ## Advanced Barcode Reading
 
-To tap into the full potential of IronBarcode for particularly challenging images, one might consider configuring the `BarcodeReaderOptions` class. Detailed information is available in the '[Reading Barcodes from Various Image Files](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/#advance-barcode-read-from-image)' guide.
+To tap into the full potential of IronBarcode for particularly challenging images, one might consider configuring the `BarcodeReaderOptions` class. Detailed information is available in the '[Reading Barcodes from Various Image Files](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/?utm_source=github#advance-barcode-read-from-image)' guide.
 
 Here’s an example setup involving customized barcode reading options:
 

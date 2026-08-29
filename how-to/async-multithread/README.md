@@ -1,6 +1,6 @@
 # Understanding Async and Multithreading Techniques
 
-> Full guide: [Understanding Async and Multithreading Techniques](https://ironsoftware.com/csharp/barcode/how-to/async-multithread/)
+> Full guide: [Understanding Async and Multithreading Techniques](https://ironsoftware.com/csharp/barcode/how-to/async-multithread/?utm_source=github)
 
 
 The concepts of `Async` and `Multithreading` are commonly confused, yet they are distinct approaches that aim to boost program performance by optimizing how system resources are utilized and decreasing the time it takes for programs to run. IronBarcode facilitates using both techniques. This article will look at their differences and demonstrate how they can be implemented using IronBarcode.
@@ -115,4 +115,4 @@ Let's compare the reading times for normal, asynchronous, and multithreaded oper
 
 The table above clearly shows the performance gains achieved through asynchronous and multithreaded reading. Both techniques serve different purposes and have distinct approaches, requiring careful consideration of which is best suited for your specific application.
 
-For further details on handling multiple barcodes in a single document, visit the [Read Multiple Barcodes Guide](https://ironsoftware.com/csharp/barcode/how-to/read-multiple-barcodes/).
+For further details on handling multiple barcodes in a single document, visit the [Read Multiple Barcodes Guide](https://ironsoftware.com/csharp/barcode/how-to/read-multiple-barcodes/?utm_source=github).

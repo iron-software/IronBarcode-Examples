@@ -1,6 +1,6 @@
 # .NET MAUI Barcode Scanner
 
-> Full guide: [.NET MAUI Barcode Scanner](https://ironsoftware.com/csharp/barcode/get-started/net-maui-barcode-scanner-reader-tutorial/)
+> Full guide: [.NET MAUI Barcode Scanner](https://ironsoftware.com/csharp/barcode/get-started/net-maui-barcode-scanner-reader-tutorial/?utm_source=github)
 
 
 ## Introduction
@@ -143,6 +143,6 @@ Clicking the 'Copy' button will trigger a notification:
 
 ## Conclusion
 
-This tutorial illustrated the process of implementing barcode scanning in a .NET MAUI application using IronBarcode. Known for its reliability in reading even complex barcodes, IronBarcode also offers customizable options for creating new barcodes with different fonts and styles. For more detailed tutorials on IronBarcode, visit this [page](https://ironsoftware.com/csharp/barcode/tutorials/reading-barcodes/).
+This tutorial illustrated the process of implementing barcode scanning in a .NET MAUI application using IronBarcode. Known for its reliability in reading even complex barcodes, IronBarcode also offers customizable options for creating new barcodes with different fonts and styles. For more detailed tutorials on IronBarcode, visit this [page](https://ironsoftware.com/csharp/barcode/tutorials/reading-barcodes/?utm_source=github).
 
-Note, IronBarcode requires suitable licensing for both development and commercial deployment. For more details, refer to the licensing [here](https://ironsoftware.com/csharp/barcode/licensing/).
+Note, IronBarcode requires suitable licensing for both development and commercial deployment. For more details, refer to the licensing [here](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=github).

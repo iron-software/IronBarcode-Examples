@@ -1,6 +1,6 @@
 # Implementing Error Correction Techniques in Barcodes
 
-> Full guide: [Implementing Error Correction Techniques in Barcodes](https://ironsoftware.com/csharp/barcode/how-to/error-correction/)
+> Full guide: [Implementing Error Correction Techniques in Barcodes](https://ironsoftware.com/csharp/barcode/how-to/error-correction/?utm_source=github)
 
 
 **Error Correction** capabilities in barcode technology ensure that barcodes remain readable even when they encounter visual defects. Defects could result from numerous issues, including printing errors, smudges, or scratches, as well as from differing scanning environments. The choice of barcode encoding often revolves around error correction capabilities.

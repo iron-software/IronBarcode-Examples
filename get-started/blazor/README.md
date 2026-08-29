@@ -1,6 +1,6 @@
 # Integrating IronBarcode with a Blazor Application
 
-> Full guide: [Integrating IronBarcode with a Blazor Application](https://ironsoftware.com/csharp/barcode/get-started/blazor/)
+> Full guide: [Integrating IronBarcode with a Blazor Application](https://ironsoftware.com/csharp/barcode/get-started/blazor/?utm_source=github)
 
 
 This manual provides step-by-step guidance on using IronBarcode with a Blazor application, specifically illustrating how to scan barcodes and QR codes using a webcam.
@@ -166,4 +166,4 @@ public class CamImage
 }
 ```
 
-The sample project is available [here](https://ironsoftware.com/static-assets/barcode/faq/blazor/BlazorIronBarcodeWithCAM.zip).
+The sample project is available [here](https://ironsoftware.com/static-assets/barcode/faq/blazor/BlazorIronBarcodeWithCAM.zip?utm_source=github).

@@ -1,6 +1,6 @@
 # C# Barcode Scanner: Implement Barcode and QR Code Reading in .NET Applications
 
-> Full guide: [C# Barcode Scanner: Implement Barcode and QR Code Reading in .NET Applications](https://ironsoftware.com/csharp/barcode/tutorials/reading-barcodes/)
+> Full guide: [C# Barcode Scanner: Implement Barcode and QR Code Reading in .NET Applications](https://ironsoftware.com/csharp/barcode/tutorials/reading-barcodes/?utm_source=github)
 
 
 Looking to implement barcode or QR code scanning in your .NET applications? With IronBarcode, integrating barcode reading capabilities is straightforward and efficient, suitable for processing pristine digital images as well as challenging real-world photos. This tutorial will guide you through the steps to incorporate barcode scanning functionality using C# with ready-to-use examples.
@@ -21,7 +21,7 @@ IronBarcode can be installed using the NuGet Package Manager or by directly down
 Install-Package BarCode
 ```
 
-Once installed, include `using IronBarCode;` in your C# files to access the barcode reading features. For more detailed setup instructions tailored to different development environments, visit our [installation guide](https://ironsoftware.com/csharp/barcode/docs/).
+Once installed, include `using IronBarCode;` in your C# files to access the barcode reading features. For more detailed setup instructions tailored to different development environments, visit our [installation guide](https://ironsoftware.com/csharp/barcode/docs/?utm_source=github).
 
 ## Scanning Your First Barcode with C#
 
@@ -128,7 +128,7 @@ foreach (var result in results)
 }
 ```
 
-These features make IronBarcode an excellent choice for [scanning barcodes from photographs](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/), CCTV footage, or captures from mobile devices where image conditions can vary greatly.
+These features make IronBarcode an excellent choice for [scanning barcodes from photographs](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-images/?utm_source=github), CCTV footage, or captures from mobile devices where image conditions can vary greatly.
 
 ## Scanning Multiple Barcodes from PDF Documents
 
@@ -192,7 +192,7 @@ BarcodeReaderOptions pdfOptions = new BarcodeReaderOptions
 BarcodeResults results = BarcodeReader.ReadPdf("document.pdf", pdfOptions);
 ```
 
-Discover more about [techniques for extracting barcodes from PDFs](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-pdf/) in our extensive examples.
+Discover more about [techniques for extracting barcodes from PDFs](https://ironsoftware.com/csharp/barcode/how-to/read-barcodes-from-pdf/?utm_source=github) in our extensive examples.
 
 ### Processing Multiframe TIFF Images
 
@@ -220,7 +220,7 @@ foreach (var result in multiFrameResults)
 }
 ```
 
-The same settings for image filters and rotation adjustments are applicable for processing TIFF images. For more on handling complex TIFF scenarios, review our [guide on image processing](https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/).
+The same settings for image filters and rotation adjustments are applicable for processing TIFF images. For more on handling complex TIFF scenarios, review our [guide on image processing](https://ironsoftware.com/csharp/barcode/tutorials/csharp-barcode-image-generator/?utm_source=github).
 
 ### Enhancing Processing Speed through Multithreading
 
@@ -268,7 +268,7 @@ foreach (var docGroup in resultsByDocument)
 }
 ```
 
-This concurrent approach reduces the overall scanning time significantly, achieving up to a 75% reduction on multicore systems. For large-scale barcode processing requirements, explore our [guide on performance optimization](https://ironsoftware.com/csharp/barcode/how-to/async-multithread/).
+This concurrent approach reduces the overall scanning time significantly, achieving up to a 75% reduction on multicore systems. For large-scale barcode processing requirements, explore our [guide on performance optimization](https://ironsoftware.com/csharp/barcode/how-to/async-multithread/?utm_source=github).
 
 ## Summary
 
@@ -286,16 +286,16 @@ Highlighted features include:
 
 Enhance your understanding of barcode processing with these in-depth resources:
 
-- [Custom Barcode Generation Tutorial](https://ironsoftware.com/csharp/barcode/how-to/customize-barcode-style/) - Learn how to create bespoke barcodes
-- [Detailed QR Code Techniques](https://ironsoftware.com/csharp/barcode/tutorials/csharp-qr-code-generator/) - Explore specialized QR code functionalities
-- [Complete `BarcodeReader` Class Documentation](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeReader.html) - Extensive API reference
-- [Troubleshooting Common Issues](https://ironsoftware.com/csharp/barcode/troubleshooting/engineering-request-bc/) - Solutions to frequent problems
+- [Custom Barcode Generation Tutorial](https://ironsoftware.com/csharp/barcode/how-to/customize-barcode-style/?utm_source=github) - Learn how to create bespoke barcodes
+- [Detailed QR Code Techniques](https://ironsoftware.com/csharp/barcode/tutorials/csharp-qr-code-generator/?utm_source=github) - Explore specialized QR code functionalities
+- [Complete `BarcodeReader` Class Documentation](https://ironsoftware.com/csharp/barcode/object-reference/api/IronBarCode.BarcodeReader.html?utm_source=github) - Extensive API reference
+- [Troubleshooting Common Issues](https://ironsoftware.com/csharp/barcode/troubleshooting/engineering-request-bc/?utm_source=github) - Solutions to frequent problems
 
 ### Source Code Access
 
 Experiment with these examples:
 
 - [GitHub Repository for Tutorial](https://github.com/iron-software/Iron-Barcode-Reading-Barcodes-In-CSharp)
-- [Download C# Source Code Zip File](https://ironsoftware.com/downloads/assets/tutorials/reading-barcodes/Iron-Barcode-Reading-Barcodes-In-CSharp.zip)
+- [Download C# Source Code Zip File](https://ironsoftware.com/downloads/assets/tutorials/reading-barcodes/Iron-Barcode-Reading-Barcodes-In-CSharp.zip?utm_source=github)
 
-Ready to enhance your application with professional barcode scanning? [Start your free trial](https://ironsoftware.com/csharp/barcode/trial-license) today and use IronBarcode in your .NET projects.
+Ready to enhance your application with professional barcode scanning? [Start your free trial](https://ironsoftware.com/csharp/barcode/?utm_source=github#trial-license) today and use IronBarcode in your .NET projects.
