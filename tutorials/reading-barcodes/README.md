@@ -298,4 +298,4 @@ Experiment with these examples:
 - [GitHub Repository for Tutorial](https://github.com/iron-software/Iron-Barcode-Reading-Barcodes-In-CSharp)
 - [Download C# Source Code Zip File](https://ironsoftware.com/downloads/assets/tutorials/reading-barcodes/Iron-Barcode-Reading-Barcodes-In-CSharp.zip?utm_source=github)
 
-Ready to enhance your application with professional barcode scanning? [Start your free trial](https://ironsoftware.com/csharp/barcode/trial-license?utm_source=github) today and use IronBarcode in your .NET projects.
+Ready to enhance your application with professional barcode scanning? [Start your free trial](https://ironsoftware.com/csharp/barcode/?utm_source=github#trial-license) today and use IronBarcode in your .NET projects.
