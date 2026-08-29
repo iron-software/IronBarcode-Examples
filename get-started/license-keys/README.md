@@ -2,7 +2,6 @@
 
 > Full guide: [Using Iron Barcode License Keys](https://ironsoftware.com/get-started/license-keys/)
 
-
 ## Obtaining a License Key
 
 Unlock the full capabilities of IronBarcode by obtaining a license key, which allows you to deploy your projects without any limitations or watermarks.
@@ -12,8 +11,6 @@ Secure a license by [purchasing a license key](https://ironsoftware.com/csharp/b
 <hr class="separator">
 
 ## Step 1: Install the Latest Version of IronBarcode
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
 
 ### Installation via NuGet
 
