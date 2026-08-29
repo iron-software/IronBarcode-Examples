@@ -1,6 +1,6 @@
 > Full guide: [C# create QR code](https://ironsoftware.com/csharp/barcode/examples/csharp-create-qr-code/)
 
-IronBarcode provides developers with straightforward and versatile tools to craft distinct QR codes, offering a spectrum of customizations. Whether you need a basic QR code generator that requires minimal coding or a more intricate one that allows complete control over the QR code's characteristics—like error correction level, size, and version—IronBarcode includes all necessary functionalities in a single library.
+IronBarcode provides developers with straightforward tools to craft distinct QR codes, offering a spectrum of customizations. Whether you need a basic QR code generator that requires minimal coding or a more intricate one that allows complete control over the QR code's characteristics—like error correction level, size, and version—IronBarcode includes all necessary functionalities in a single library.
 
 To start, import the IronBarcode library. Initialize the `QRCodeWriter` class, then generate a new QR code with a URL by calling the `QRCodeWriter.CreateQrCode` method. This is the most straightforward approach to creating a QR code using the default settings.
 

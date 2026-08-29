@@ -14,7 +14,7 @@ IronBarcode makes it simple to read barcodes from various image formats directly
 
 This capability is enhanced by our open source library, **IronDrawing**.
 
-## Quick Start: Effortlessly Read Barcodes from an Image
+## Quick Start: Read Barcodes from an Image
 
 To decode barcodes from image files such as PNG, JPEG, GIF, BMP, and TIFF, you need to make a single method call to `IronBarCode.BarcodeReader.Read()`, enabling rapid extraction of barcode data with no complex configuration necessary.
 

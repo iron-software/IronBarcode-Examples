@@ -1,6 +1,6 @@
 > Full guide: [C# read barcode from URL asynchronous](https://ironsoftware.com/csharp/barcode/examples/csharp-read-barcode-from-url-asynchronous/)
 
-Utilizing the `BarcodeReader` class, you can efficiently scan barcodes. The most direct approach is to employ the `BarcodeReader.Read` method. Additionally, IronBarcode is equipped with a `ReadAsync` method, perfect for asynchronous programming that leverages multiple threads.
+Utilizing the `BarcodeReader` class, you can efficiently scan barcodes. The most direct approach is to employ the `BarcodeReader.Read` method. Additionally, IronBarcode is equipped with a `ReadAsync` method, perfect for asynchronous programming that uses multiple threads.
 
 ### Key Points
 

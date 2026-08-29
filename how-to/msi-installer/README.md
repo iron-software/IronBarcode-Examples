@@ -11,7 +11,7 @@ In this tutorial, we will learn how to craft an MSI file using a simple barcode 
 
 ## Quickstart: Generate and Read an MSI Barcode with Ease
 
-With IronBarcode’s straightforward API, you can generate and decode MSI barcodes effortlessly. Here is how you can create and scan an MSI barcode image quickly using just a few lines of code:
+With IronBarcode’s straightforward API, you can generate and decode MSI barcodes. Here is how you can create and scan an MSI barcode image quickly using just a few lines of code:
 
 ```cs
 var msiImage = IronBarCode.BarcodeWriter.CreateBarcode("12345", BarcodeWriterEncoding.MSI).SaveAsImage("barcode-msi.png");

@@ -1,6 +1,6 @@
 > Full guide: [Barcode quickstart](https://ironsoftware.com/csharp/barcode/examples/barcode-quickstart/)
 
-IronBarCode effortlessly handles a wide range of formats, from common image types like JPEG and PNG to other more complex types like bitmap and PDF. This versatility allows it to easily integrate into any coding environment, offering developers the flexibility to manipulate and utilize various file types and data structures.
+IronBarCode handles a wide range of formats, from common image types like JPEG and PNG to other more complex types like bitmap and PDF. That range lets it fit into most codebases without a conversion step first, whatever file types and data structures the surrounding code already uses.
 
 IronBarCode isn't just proficient in reading barcodes across all these formats, it also acts as a powerful barcode generator. It supports major barcode standards such as `EAN8`, `Code128`, and `Code39`. Initializing the barcode generator is straightforward, requiring as little as two lines of code, making it accessible and customizable, thereby positioning IronBarCode as the go-to library for barcode-related operations.
 

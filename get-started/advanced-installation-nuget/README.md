@@ -3,7 +3,7 @@
 > Full guide: [IronBarCode Advanced Installation Guide](https://ironsoftware.com/get-started/advanced-installation-nuget/)
 
 
-IronBarCode is a versatile library designed to meet the diverse needs of various environments. To streamline our support for different platforms, we distribute our files in separate packages. This approach avoids the burden of excessive downloads for users, providing a more tailored installation experience based on your specific environment needs.
+IronBarCode is a library designed to meet the diverse needs of various environments. To simplify our support for different platforms, we distribute our files in separate packages. This approach avoids the burden of excessive downloads for users, providing a more tailored installation experience based on your specific environment needs.
 
 Rather than opting for the standard `IronBarCode` NuGet Package, you can explore specialized packages on NuGet. While the functionality and API remain consistent across packages, their development approaches may vary slightly.
 
@@ -37,7 +37,7 @@ Consider adding `Barcode.Detection` if dealing with inputs having significant di
 
 ![](https://img.icons8.com/windows/72/000000/nuget.png)
 
-This advanced package leverages Machine Learning to enhance barcode detection accuracy, offering customizable parameters for developers.
+This advanced package uses Machine Learning to enhance barcode detection accuracy, offering customizable parameters for developers.
 
 [**PM > Install-Package BarCode.Detection**](https://www.nuget.org/packages/BarCode.Detection)
 - Platform-agnostic support.
@@ -80,7 +80,7 @@ Tailored for iOS mobile applications, this package facilitates easy integration 
 
 ![](https://img.icons8.com/?size=72&id=P2AnGyiJxMpp&format=png&color=000000) ![](https://img.icons8.com/windows/72/000000/nuget.png)
 
-Enhance your Android development with IronBarCode to create seamless barcode applications on Android. Check out this [Android guide](https://ironsoftware.com/csharp/barcode/get-started/android/) for setup information.
+Enhance your Android development with IronBarCode to create barcode applications on Android. Check out this [Android guide](https://ironsoftware.com/csharp/barcode/get-started/android/) for setup information.
 
 [**PM > Install-Package BarCode.Android**](https://www.nuget.org/packages/BarCode.Android)
 - Contains `BarCode.Slim`

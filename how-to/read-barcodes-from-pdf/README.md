@@ -51,7 +51,7 @@ foreach (var barcode in barcodes)
 
 ### Simultaneous Reading from Multiple PDFs
 
-IronBarcode's `ReadPdfs` method allows for efficient barcode extraction from multiple PDFs, streamlining processes where numerous documents are involved.
+IronBarcode's `ReadPdfs` method allows for efficient barcode extraction from multiple PDFs, simplifying processes where numerous documents are involved.
 
 ```cs
 using IronBarCode;

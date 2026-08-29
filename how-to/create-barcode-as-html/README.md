@@ -30,7 +30,7 @@ The code above demonstrates converting a `GeneratedBarcode` to a Data URL using 
 
 ## Exporting a Barcode as an HTML Tag
 
-For direct HTML integration, the `ToHtmlTag()` method can convert the `GeneratedBarcode` into a usable HTML tag. This method bypasses the need for additional JavaScript, CSS, or external image links, facilitating seamless integration.
+For direct HTML integration, the `ToHtmlTag()` method can convert the `GeneratedBarcode` into a usable HTML tag. This method bypasses the need for additional JavaScript, CSS, or external image links, facilitating integration.
 
 ```csharp
 using IronBarCode;

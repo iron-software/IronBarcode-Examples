@@ -19,7 +19,7 @@ barcode.SaveAsImage("unicode.png");
 
 ## Example of Writing a Unicode Barcode
 
-With IronBarcode's strong capabilities in Unicode support, software developers can effortlessly integrate and handle strings containing various languages, enhancing the flexibility of their applications. Below, we demonstrate how a string combining Chinese, Arabic, and Thai can be effectively managed to create a barcode.
+With IronBarcode's strong capabilities in Unicode support, software developers can integrate and handle strings containing various languages, enhancing the flexibility of their applications. Below, we demonstrate how a string combining Chinese, Arabic, and Thai can be effectively managed to create a barcode.
 
 Here's the string we'll utilize as the barcode value:
 

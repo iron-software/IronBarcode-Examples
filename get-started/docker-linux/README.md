@@ -14,7 +14,7 @@ IronBarcode offers complete compatibility with Docker, accommodating both Azure 
 
 ## Benefits of Using Docker
 
-Docker provides developers with a streamlined method to package, distribute, and execute any application as a compact, self-contained container. These containers offer portability and can operate seamlessly across different computing environments.
+Docker provides developers with a simplified method to package, distribute, and execute any application as a compact, self-contained container. These containers offer portability and can operate across different computing environments.
 
 ## Introduction to IronBarcode with Linux
 
@@ -34,7 +34,7 @@ It is advisable to utilize [Microsoft's official Docker images](https://hub.dock
 
 ## Essential Steps for Installing IronBarcode in Linux Docker Environments
 
-To seamlessly integrate IronBarcode into your Docker-based Linux setups, we advise utilizing the [IronBarCode NuGet Package](https://www.nuget.org/packages/BarCode/). This package is designed for ease of use across various operating systems including Windows, macOS, and Linux, ensuring a smooth workflow for developers.
+To integrate IronBarcode into your Docker-based Linux setups, we advise utilizing the [IronBarCode NuGet Package](https://www.nuget.org/packages/BarCode/). This package is designed for ease of use across various operating systems including Windows, macOS, and Linux, ensuring a smooth workflow for developers.
 
 ```shell
 Install-Package BarCode
@@ -306,7 +306,7 @@ COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
 
-This Dockerfile outlines the process for setting up a .NET 6 application on Ubuntu 22 LTS. It ensures the application is up-to-date, built, and ready to be deployed and run seamlessly.
+This Dockerfile outlines the process for setting up a .NET 6 application on Ubuntu 22 LTS. It ensures the application is up-to-date, built, and ready to be deployed and run.
 
 ```dockerfile
 # Establish the base image using Ubuntu 22 and .NET runtime
@@ -875,7 +875,7 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
-This Docker configuration provides a streamlined process for setting up a .NET 7 environment on Debian 11, ensuring your applications are ready to deploy with efficiency and stability.
+This Docker configuration provides a simplified process for setting up a .NET 7 environment on Debian 11, ensuring your applications are ready to deploy with efficiency and stability.
 
 ```dockerfile
 # Establish the base runtime environment using Debian 11 and ASP.NET Core Runtime
@@ -1383,7 +1383,7 @@ Here's how to configure a CentOS 7 Docker container for .NET 7:
    ENTRYPOINT ["dotnet", "Example.dll"]
    ```
 
-This configuration ensures that the application is running with the latest .NET 7 framework on a CentOS 7 base, leveraging Docker's capabilities for isolated and replicable environments.
+This configuration ensures that the application is running with the latest .NET 7 framework on a CentOS 7 base, using Docker's capabilities for isolated and replicable environments.
 
 ```dockerfile
 # Establish the foundational runtime environment using CentOS 7

@@ -5,7 +5,7 @@
 
 ## Quickstart: Stamp a Barcode onto a PDF Page
 
-This simple example illustrates how to create a barcode using `IronBarCode`'s method `CreateBarcode` and directly apply it onto a page of an existing PDF. This process is streamlined for immediate use: just specify the PDF file path, barcode placement coordinates, and the desired page number, and the barcode will be appended swiftly.
+This simple example illustrates how to create a barcode using `IronBarCode`'s method `CreateBarcode` and directly apply it onto a page of an existing PDF. This process is simplified for immediate use: just specify the PDF file path, barcode placement coordinates, and the desired page number, and the barcode will be appended swiftly.
 
 ```cs
 IronBarCode.BarcodeWriter.CreateBarcode("https://my.site", IronBarCode.BarcodeEncoding.QRCode, 150, 150)

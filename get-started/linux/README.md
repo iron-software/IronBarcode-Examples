@@ -20,7 +20,7 @@ With cloud services predominantly running on Linux platforms, it is crucial to s
 
 ## Officially Supported Linux Distributions
 
-We **officially support** the following **64-bit** Linux distributions, ensuring a seamless, zero-configuration setup for IronBarcode:
+We **officially support** the following **64-bit** Linux distributions, on which IronBarcode needs no configuration:
 
 * Ubuntu ≥18
 * Debian ≥10

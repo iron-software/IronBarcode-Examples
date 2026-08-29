@@ -1,6 +1,6 @@
 > Full guide: [Create barcodes images](https://ironsoftware.com/csharp/barcode/examples/create-barcodes-images/)
 
-In the provided example, we explore how to effortlessly generate, customize, and store barcodes in various formats, possibly with a simple single line of code.
+In the provided example, we explore how to generate, customize, and store barcodes in various formats, possibly with a simple single line of code.
 
 Our fluent API facilitates the utilization of the `GeneratedBarcode` class for adjusting margins, scaling, and adding annotations to barcodes. These can efficiently be stored as image files, where IronBarcode intelligently determines the appropriate image file type based on the extension provided: **GIFs, HTML files, HTML tags, JPEGs, PDFs, PNGs, TIFFs, and Windows Bitmaps**.
 

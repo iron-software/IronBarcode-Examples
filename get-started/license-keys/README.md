@@ -4,7 +4,7 @@
 
 ## Obtaining a License Key
 
-Unlock the full capabilities of IronBarcode by obtaining a license key, which allows you to deploy your projects without any limitations or watermarks.
+Get the most out of IronBarcode by obtaining a license key, which allows you to deploy your projects without any limitations or watermarks.
 
 Secure a license by [purchasing a license key](https://ironsoftware.com/csharp/barcode/licensing/) or by obtaining a [no-cost 30-day trial key here](https://ironsoftware.com/trial-license).
 

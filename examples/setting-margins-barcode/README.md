@@ -14,4 +14,4 @@ We start by incorporating the IronBarcode library into our project. Next, using 
 
 Once we have our `GeneratedBarcode` object, we adjust its margins through the `SetMargins` method by specifying the margin size in pixels. Here, the value `100` assigns a margin of 100 pixels around all four sides of the QR code, creating what is called a quiet zone.
 
-[Explore our comprehensive guide on enhancing your barcode designs](https://ironsoftware.com/csharp/barcode/how-to/setting-margins-barcode/) for more detailed insights.
+[Explore our guide on enhancing your barcode designs](https://ironsoftware.com/csharp/barcode/how-to/setting-margins-barcode/) for more detailed insights.

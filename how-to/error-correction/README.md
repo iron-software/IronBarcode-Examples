@@ -10,7 +10,7 @@ Generally, 2D barcodes are better equipped against defects than their 1D counter
 - **Data Capacity**: Unlike 1D barcodes, 2D barcodes hold vast amounts of data vertically and horizontally, supporting various data forms such as texts, binary, and images.
 - **Redundancy**: In 2D barcodes, data is encoded in multiple layers, which means even if parts are damaged, data can still be retrieved from the intact areas.
 - **Compactness**: Their small size makes 2D barcodes ideal for space-restricted items.
-- **Scanning Versatility**: These barcodes can be recognized from multiple angles and orientations.
+- **Scanning angle**: These barcodes can be read from any orientation.
 
 ## Quickstart: Incorporating Error Correction Levels in QR Code Generation
 
@@ -53,7 +53,7 @@ qr.SaveAsPng("errorMediumCorrection.png");
 
 ## Visual Comparison of Error Correction Levels
 
-Below are QR Code samples that depict varying levels of error correction from the same content, demonstrating how more robust error correction contributes to increased QR code complexity and enhanced tolerance to faults.
+Below are QR Code samples that depict varying levels of error correction from the same content, showing how a higher error-correction level makes the QR code denser and more tolerant of damage.
 
 <div class="competitors-section__wrapper-even-1">
     <div class="competitors__card" style="width: 45%;">

@@ -18,4 +18,4 @@ Initially, we incorporate the IronBarcode library. Next, we initiate the creatio
 
 Once the barcode is generated, we utilize the `SaveAs1BppBitmap` to store the barcode as a 1bpp bitmap file, specifying the desired file name ("1bppImage.bmp").
 
-Beyond simple saving to a Bitmap, IronBarcode provides additional methods for managing barcodes. You can convert the barcode to binary data through the `To1BppBinaryData` method, which facilitates integration with other parts of your application or with different software architectures. Additionally, the `To1BppImage` method allows for saving the barcode in a 1bpp image format, enhancing its versatility within various programming scenarios.
+Beyond simple saving to a Bitmap, IronBarcode provides additional methods for managing barcodes. You can convert the barcode to binary data through the `To1BppBinaryData` method, which facilitates integration with other parts of your application or with different software architectures. Additionally, the `To1BppImage` method saves the barcode as a 1bpp image.

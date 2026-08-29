@@ -15,7 +15,7 @@ var result = IronBarCode.BarcodeReader.Read("rotatedImage.png", new IronBarCode.
 
 ## Example: Automatically Correcting Barcode Orientation
 
-To leverage automatic orientation correction, simply ensure that the `AutoRotate` property in `BarcodeReaderOptions` is set to true, which it is by default. This will facilitate the seamless reading of barcodes with any orientation right out of the box.
+To use automatic orientation correction, simply ensure that the `AutoRotate` property in `BarcodeReaderOptions` is set to true, which it is by default. This will facilitate the reading of barcodes with any orientation right out of the box.
 
 Consider the following example images. Download the provided [20° rotation](https://ironsoftware.com/static-assets/barcode/how-to/image-orientation-correction/rotate20.png) and [45° rotation](https://ironsoftware.com/static-assets/barcode/how-to/image-orientation-correction/rotate45.png) samples for practice.
 

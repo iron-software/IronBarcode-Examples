@@ -25,7 +25,7 @@ Alternatively, the [IronBarcode.dll](https://ironsoftware.com/csharp/barcode/pac
 
 ## Azure Performance Considerations
 
-For optimal performance, selecting the Azure **B1** service plan is recommended for most application scenarios. More robust requirements might necessitate a more powerful plan.
+For optimal performance, selecting the Azure **B1** service plan is recommended for most application scenarios. Heavier workloads may need a larger plan.
 
 ## Supported .NET Environments
 

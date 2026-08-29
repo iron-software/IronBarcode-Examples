@@ -1,6 +1,6 @@
 > Full guide: [Read code39 barcode](https://ironsoftware.com/csharp/barcode/examples/read-code39-barcode/)
 
-The Code 39 barcode format is highly recognized and versatile, allowing varying lengths in its structure. It is predominantly used across various industries such as inventory, logistics, and industrial sectors. The Standard Code 39 can encode uppercase letters (A-Z), digits (0-9), and several special characters including space, dash, dollar sign, plus sign, percent, and period. 
+Code 39 is widely recognised and accepts variable-length data. It is predominantly used across various industries such as inventory, logistics, and industrial sectors. The Standard Code 39 can encode uppercase letters (A-Z), digits (0-9), and several special characters including space, dash, dollar sign, plus sign, percent, and period. 
 
 Moreover, its Extended mode expands capability to include the entire ASCII character set. IronBarcode offers complete functionality for decoding both the standard and extended versions of Code 39 barcodes. Below, we outline the process to successfully decode a Code 39 barcode using IronBarcode, complete with a sample code.
 

@@ -7,7 +7,7 @@ A key functionality available in IronBarcode is its capability to set **Crop Reg
 
 ## Getting Started: Quickly Apply Crop Regions for Enhanced Reading Speed
 
-Easily define a crop rectangle and integrate it with IronBarcode—a streamlined process without any additional hassle. Below is a simple demonstration of how to focus the barcode scanning on an exact area using `BarcodeReaderOptions`.
+Easily define a crop rectangle and integrate it with IronBarcode—a simplified process without any additional hassle. Below is a simple demonstration of how to focus the barcode scanning on an exact area using `BarcodeReaderOptions`.
 
 ```cs
 // Example: Setting the Crop Area with One Line of Code to Improve Reading Speed

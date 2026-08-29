@@ -7,7 +7,7 @@ Barcodes can be swiftly generated from various data types, including plain text,
 
 ## Quick Guide: Instant Barcode Generation from a Single String
 
-Utilize the IronBarcode library to create barcodes effortlessly. Here’s an example where a barcode is generated from a simple string in just one command line:
+Utilize the IronBarcode library to create barcodes. Here’s an example where a barcode is generated from a simple string in just one command line:
 
 ```cs
 // Create a barcode from the string "Order123" using Code128 encoding

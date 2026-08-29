@@ -183,4 +183,4 @@ foreach (BarcodeResult barcode in documentResults)
 }
 ```
 
-IronBarcode supports a variety of data output formats, enabling users to harness barcode data to its fullest potential in numerous applications and scenarios.
+IronBarcode supports a variety of data output formats, enabling users to use barcode data to its fullest potential in numerous applications and scenarios.

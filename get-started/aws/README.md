@@ -26,7 +26,7 @@ var awsTemporaryDirectory = @"/tmp/";
 IronBarCode.Installation.DeploymentPath = awsTemporaryDirectory;
 ```
 
-To read barcodes effectively, it's essential to install the **[Microsoft.ML.OnnxRuntime](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime)** package. Without this, you can still write barcodes, but barcode reading functions might be limited unless you configure IronBarcode to read without leveraging machine learning.
+To read barcodes effectively, it's essential to install the **[Microsoft.ML.OnnxRuntime](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime)** package. Without this, you can still write barcodes, but barcode reading functions might be limited unless you configure IronBarcode to read without using machine learning.
 
 ## Creating Your AWS Lambda Project
 
@@ -39,7 +39,7 @@ Setting up a new AWS Lambda project is straightforward with Visual Studio:
 
 ## Adding Dependencies
 
-IronBarcode operates seamlessly on AWS Lambda under .NET 8, without additional dependencies. Update your Dockerfile accordingly to set up the environment:
+IronBarcode operates on AWS Lambda under .NET 8, without additional dependencies. Update your Dockerfile accordingly to set up the environment:
 
 ```dockerfile
 FROM public.ecr.aws/lambda/dotnet:8
