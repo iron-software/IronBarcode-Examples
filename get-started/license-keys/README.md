@@ -6,7 +6,7 @@
 
 Get the most out of IronBarcode by obtaining a license key, which allows you to deploy your projects without any limitations or watermarks.
 
-Secure a license by [purchasing a license key](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=github) or by obtaining a [no-cost 30-day trial key here](https://ironsoftware.com/trial-license?utm_source=github).
+Secure a license by [purchasing a license key](https://ironsoftware.com/csharp/barcode/licensing/?utm_source=github) or by obtaining a [no-cost 30-day trial key here](https://ironsoftware.com/csharp/barcode/?utm_source=github#trial-license).
 
 <hr class="separator">
 
